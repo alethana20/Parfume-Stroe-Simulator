@@ -1253,7 +1253,7 @@
       </div>
       <div class="auto-restock-settings">
         <span>Jumlah Restock:</span>
-        <input type="number" id="auto-restock-amount" value="10" min="1" max="100">
+        <input type="number" id="auto-restock-amount" value="10" min="1" max="500">
         <button onclick="setAutoRestockAmount()">Terapkan</button>
       </div>
     </section>
@@ -1523,11 +1523,11 @@
 
     window.setAutoRestockAmount = function() {
       const amount = parseInt(document.getElementById('auto-restock-amount').value);
-      if (amount > 0 && amount <= 100) {
+      if (amount > 0 && amount <= 500) {
         autoRestockAmount = amount;
         logActivity(`⚡ Auto Restock amount diatur ke ${amount}`);
       } else {
-        alert("Jumlah tidak valid! (1-100)");
+        alert("Jumlah tidak valid! (1-500)");
       }
     };
 
