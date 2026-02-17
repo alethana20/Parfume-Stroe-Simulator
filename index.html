@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GRROSE PARFUME - Premium Parfum</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      color: #333;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.night-mode {
+      background-color: #1a1a1a;
+      color: #f4f4f9;
+    }
+
+    /* Header dengan background AI-generated */
+    .header {
+      position: relative;
+      background: linear-gradient(135deg, #ff7e5f, #feb47b), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.2"><path d="M20 50 Q35 30 50 50 T80 50" stroke="white" fill="none" stroke-width="2"/><circle cx="30" cy="40" r="3" fill="white"/><circle cx="70" cy="60" r="3" fill="white"/><circle cx="50" cy="30" r="4" fill="white"/><circle cx="50" cy="70" r="4" fill="white"/><path d="M40 70 Q50 85 60 70" stroke="white" fill="none" stroke-width="2"/></svg>');
+      background-size: cover, auto;
+      background-blend-mode: overlay;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .header p {
+      margin: 5px 0;
+      font-style: italic;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+
+    .header #time {
+      font-weight: bold;
+    }
+
+    .container {
+      padding: 15px;
+      padding-bottom: 70px; /* space for footer */
+    }
+
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .dashboard .info {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    body.night-mode .dashboard .info {
+      background: #2c3e50;
+      color: #ecf0f1;
+    }
+
+    .dashboard .info h2 {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .dashboard .info p {
+      margin: 5px 0;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .dashboard .info small {
+      font-size: 0.8rem;
+      color: #666;
+    }
+
+    body.night-mode .dashboard .info small {
+      color: #aaa;
+    }
+
+    /* Daily Profit Info */
+    .daily-profit {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .daily-profit h3 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .daily-profit p {
+      margin: 5px 0;
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+
+    .daily-profit .reset-info {
+      font-size: 0.8rem;
+      opacity: 0.9;
+    }
+
+    /* Bank Transfer Controls */
+    .bank-controls {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .bank-card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    body.night-mode .bank-card {
+      background: #2c3e50;
+    }
+
+    .bank-card h3 {
+      margin: 0 0 10px 0;
+      color: #007bff;
+    }
+
+    body.night-mode .bank-card h3 {
+      color: #3498db;
+    }
+
+    .bank-card .balance {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 10px 0;
+      color: #28a745;
+    }
+
+    .bank-card button {
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin: 5px;
+      font-weight: bold;
+    }
+
+    .bank-card button:hover {
+      background: #0056b3;
+      transform: scale(1.05);
+    }
+
+    .bank-card button.secondary {
+      background: #6c757d;
+    }
+
+    .bank-card button.secondary:hover {
+      background: #545b62;
+    }
+
+    .bank-card input {
+      padding: 8px;
+      margin: 5px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      width: 150px;
+    }
+
+    body.night-mode .bank-card input {
+      background: #34495e;
+      color: #ecf0f1;
+      border-color: #2c3e50;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .product {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+    }
+
+    .product.out-of-stock {
+      background-color: #f8d7da;
+    }
+
+    .product.inactive {
+      background-color: #f0f0f0;
+      opacity: 0.6;
+    }
+
+    /* Efek khusus untuk produk promo aktif */
+    .product.promo-active {
+      animation: promoPulse 2s infinite;
+      border: 2px solid #ffd700;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product.promo-active::before {
+      content: "🔥 PROMO";
+      position: absolute;
+      top: 10px;
+      right: -30px;
+      background: #ff5722;
+      color: white;
+      padding: 5px 30px;
+      transform: rotate(45deg);
+      font-size: 0.7rem;
+      font-weight: bold;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    body.night-mode .product.promo-active::before {
+      background: #ff8c00;
+    }
+
+    @keyframes promoPulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 10px rgba(255, 215, 0, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(255, 215, 0, 0);
+      }
+    }
+
+    /* Badge Best Seller */
+    .product.best-seller::after {
+      content: "🔥 BEST SELLER";
+      position: absolute;
+      top: -8px;
+      left: -8px;
+      background: linear-gradient(135deg, #ffd700, #ffa500);
+      color: #000;
+      padding: 5px 15px;
+      font-size: 0.7rem;
+      font-weight: bold;
+      border-radius: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      z-index: 2;
+      animation: bestSellerGlow 2s infinite;
+      border: 1px solid #fff;
+    }
+
+    @keyframes bestSellerGlow {
+      0%, 100% {
+        box-shadow: 0 4px 6px rgba(255, 215, 0, 0.5);
+      }
+      50% {
+        box-shadow: 0 4px 15px rgba(255, 215, 0, 0.8);
+      }
+    }
+
+    body.night-mode .product.best-seller::after {
+      background: linear-gradient(135deg, #ffd700, #ff8c00);
+      color: #000;
+      border-color: #333;
+    }
+
+    .product h3 {
+      margin: 0 0 8px 0;
+      font-size: 1rem;
+    }
+
+    .product p {
+      margin: 5px 0;
+      font-size: 0.9rem;
+    }
+
+    .product .original-price {
+      text-decoration: line-through;
+      color: #999;
+      font-size: 0.8rem;
+    }
+
+    .product .discounted-price {
+      color: #e74c3c;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .product .discount {
+      color: #e74c3c;
+      font-weight: bold;
+    }
+
+    .product .status {
+      font-size: 0.8rem;
+      color: #888;
+    }
+
+    body.night-mode .product .status {
+      color: #aaa;
+    }
+
+    .product .promo-timer {
+      color: #ff5722;
+      font-weight: bold;
+      animation: blink 1s infinite;
+    }
+
+    .product .sales-count {
+      color: #28a745;
+      font-size: 0.8rem;
+      font-weight: bold;
+      margin-top: 5px;
+      background: #e8f5e9;
+      padding: 3px 8px;
+      border-radius: 15px;
+      display: inline-block;
+    }
+
+    body.night-mode .product .sales-count {
+      background: #1e3a2a;
+      color: #81c784;
+    }
+
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0.5; }
+      100% { opacity: 1; }
+    }
+
+    /* Tombol yang lebih elegan */
+    .product button {
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 8px 12px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 2px 4px rgba(0,123,255,0.3);
+      margin-top: 8px;
+    }
+
+    .product button:hover {
+      background: #0056b3;
+      transform: scale(1.05);
+    }
+
+    body.night-mode .product button {
+      background: #3498db;
+      box-shadow: 0 2px 4px rgba(52,152,219,0.3);
+    }
+
+    body.night-mode .product button:hover {
+      background: #2980b9;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    body.night-mode .form {
+      background: #2c3e50;
+    }
+
+    .form label {
+      font-weight: bold;
+      margin-top: 5px;
+    }
+
+    /* Searchable select styling */
+    .searchable-select-container {
+      position: relative;
+      width: 100%;
+    }
+
+    .searchable-select-input {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    body.night-mode .searchable-select-input {
+      background-color: #34495e;
+      color: #ecf0f1;
+      border-color: #2c3e50;
+    }
+
+    .searchable-select-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      max-height: 200px;
+      overflow-y: auto;
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 0 0 5px 5px;
+      z-index: 1000;
+      display: none;
+    }
+
+    body.night-mode .searchable-select-dropdown {
+      background: #34495e;
+      border-color: #2c3e50;
+    }
+
+    .searchable-select-dropdown div {
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+
+    .searchable-select-dropdown div:hover {
+      background: #007bff;
+      color: white;
+    }
+
+    .searchable-select-dropdown div.selected {
+      background: #007bff;
+      color: white;
+    }
+
+    body.night-mode .searchable-select-dropdown div:hover,
+    body.night-mode .searchable-select-dropdown div.selected {
+      background: #2980b9;
+    }
+
+    /* regular select fallback */
+    select, .form select, .form input, .form button {
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    body.night-mode select,
+    body.night-mode .form select,
+    body.night-mode .form input,
+    body.night-mode .form button {
+      background-color: #34495e;
+      color: #ecf0f1;
+      border-color: #2c3e50;
+    }
+
+    .form button {
+      background: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+      font-weight: bold;
+    }
+
+    .form button:hover {
+      background: #0056b3;
+    }
+
+    body.night-mode .form button {
+      background-color: #3498db;
+    }
+
+    body.night-mode .form button:hover {
+      background-color: #2980b9;
+    }
+
+    .notification-box, .comment-box {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    body.night-mode .notification-box,
+    body.night-mode .comment-box {
+      background: #2c3e50;
+      color: #ecf0f1;
+    }
+
+    .promo-box {
+      background: #e0f7ff;
+      border: 2px solid #007bff;
+      border-radius: 8px;
+      padding: 15px;
+      margin: 20px 0;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    body.night-mode .promo-box {
+      background: #2c3e50;
+      border-color: #3498db;
+    }
+
+    .promo-box h2 {
+      margin: 0 0 10px 0;
+      color: #007bff;
+      font-size: 1.2rem;
+    }
+
+    body.night-mode .promo-box h2 {
+      color: #3498db;
+    }
+
+    .promo-box p {
+      margin: 5px 0;
+      font-size: 0.9rem;
+    }
+
+    .end-day {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    #next-day {
+      padding: 12px 30px;
+      font-size: 1.1rem;
+      background: #ff5722;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 4px 6px rgba(255,87,34,0.3);
+      font-weight: bold;
+    }
+
+    #next-day:hover {
+      background: #e64a19;
+      transform: scale(1.05);
+    }
+
+    /* Save Game Controls */
+    .save-controls {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+
+    .save-btn {
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-weight: bold;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    #save-game {
+      background: #28a745;
+      color: white;
+    }
+
+    #save-game:hover {
+      background: #218838;
+      transform: scale(1.05);
+    }
+
+    #load-game {
+      background: #17a2b8;
+      color: white;
+    }
+
+    #load-game:hover {
+      background: #138496;
+      transform: scale(1.05);
+    }
+
+    #reset-game {
+      background: #dc3545;
+      color: white;
+    }
+
+    #reset-game:hover {
+      background: #c82333;
+      transform: scale(1.05);
+    }
+
+    body.night-mode .save-btn {
+      box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+    }
+
+    footer {
+      background: #007bff;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    /* Night Mode Toggle */
+    .night-mode-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #333;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      font-size: 1.2rem;
+    }
+
+    .night-mode-toggle:hover {
+      background: #555;
+    }
+
+    /* Rating Stars */
+    .rating {
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .rating .star {
+      font-size: 1.5rem;
+      color: #ffd700;
+      cursor: pointer;
+    }
+
+    .rating .star:hover {
+      color: #ffa500;
+    }
+
+    /* Tombol Buka/Tutup Toko */
+    .store-status-button {
+      position: fixed;
+      top: 80px;
+      right: 20px;
+      background: #28a745;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s;
+      font-weight: bold;
+      z-index: 1000;
+    }
+
+    .store-status-button.closed {
+      background: #dc3545;
+    }
+
+    .store-status-button:hover {
+      background: #218838;
+      transform: scale(1.05);
+    }
+
+    .store-status-button.closed:hover {
+      background: #c82333;
+    }
+
+    /* Perbaikan text color di night mode */
+    body.night-mode .product p,
+    body.night-mode .product h3,
+    body.night-mode .product .status,
+    body.night-mode .product .original-price,
+    body.night-mode .product .discounted-price,
+    body.night-mode .product .discount,
+    body.night-mode .product .promo-timer {
+      color: inherit;
+    }
+
+    body.night-mode .product .original-price {
+      color: #aaa;
+    }
+
+    body.night-mode .product .discounted-price,
+    body.night-mode .product .discount {
+      color: #ff8c00;
+    }
+
+    body.night-mode .product .promo-timer {
+      color: #ffa500;
+    }
+
+    body.night-mode .product {
+      background-color: #2c3e50;
+      border-color: #34495e;
+    }
+
+    body.night-mode .product.out-of-stock {
+      background-color: #5a2e2e;
+    }
+
+    body.night-mode .product.inactive {
+      background-color: #3a3a3a;
+      opacity: 0.7;
+    }
+
+    body.night-mode .rating-text {
+      color: #ecf0f1;
+    }
+
+    body.night-mode #rating-value {
+      color: #ffd700;
+    }
+
+    /* Last saved indicator */
+    #last-saved {
+      text-align: center;
+      color: #666;
+      font-size: 0.8rem;
+      margin: 10px 0;
+    }
+
+    body.night-mode #last-saved {
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>GRROSE PARFUME</h1>
+    <p><i>Parfum Premium harga ekonomis..</i></p>
+    <p>Time: <span id="time">10:00</span> | Day: <span id="day-counter">1</span></p>
+  </header>
+
+  <div class="container">
+    <!-- Promo Box -->
+    <section class="promo-box">
+      <h2><i>BUKA 24 JAM!!!</i></h2>
+      <p><strong>RAMADHAN PENUH BERKAH</strong></p>
+      <p>Khusus Ramadhan, diskon suka-suka!</p>
+      <p>NEW VARIANT! Premium Artic Frost</p>
+      
+            
+    </section>
+
+   
+
+    <!-- Dashboard -->
+    <section class="dashboard">
+      <div class="info">
+        <h2>💰 Saldo Utama</h2>
+        <p id="saldo-utama">Rp 0</p>
+        <small>Uang di kas toko untuk operasional</small>
+      </div>
+      <div class="info">
+        <h2>📦 Saldo Modal</h2>
+        <p id="saldo-modal">Rp 0</p>
+        <small>Khusus untuk restock barang</small>
+      </div>
+      <div class="info">
+        <h2>💎 Saldo Keuntungan</h2>
+        <p id="saldo-keuntungan">Rp 0</p>
+        <small>Bisa ditarik ke rekening utama</small>
+      </div>
+      <div class="info">
+        <h2>🏦 Rekening Utama</h2>
+        <p id="saldo-rekening">Rp 0</p>
+        <small>Tabungan pribadi, bisa untuk topup modal</small>
+      </div>
+    </section>
+
+    <!-- Daily Profit Info -->
+    <section class="daily-profit" id="daily-profit">
+      <h3>📈 Keuntungan Hari Ini (Day <span id="current-day-display">1</span>)</h3>
+      <p id="daily-profit-amount">Rp 0</p>
+      <div class="reset-info" id="reset-info">Reset setiap jam 00:00</div>
+    </section>
+
+   
+
+    <!-- Promo Products -->
+    <section class="promo-products">
+      <h2>🔥 Produk Promo</h2>
+      <div class="products" id="promo-products">
+        <!-- Promo products will be populated by JavaScript -->
+      </div>
+    </section>
+
+    <!-- Products -->
+    <section class="rack">
+      <h2>📦 Produk Tersedia</h2>
+      <div class="products" id="products">
+        <!-- Products will be populated by JavaScript -->
+      </div>
+    </section>
+    
+    <!-- Activity Log -->
+    <section class="activity">
+      <h2>📋 Aktivitas Pembeli</h2>
+      <div class="notification-box" id="activity-log">
+        <p>Ruang Pembeli..</p>
+      </div>
+    </section>
+
+    <!-- Comments Section -->
+    <section class="comments">
+      <h2>💬 Komentar Pembeli</h2>
+      <div class="comment-box" id="comment-box">
+        <p>Komentar disini..</p>
+      </div>
+    </section>
+
+    <!-- Set Promo Products dengan searchable select -->
+    <section class="set-promo-section">
+      <h2>⚙️ Atur Produk Promo</h2>
+      <form id="set-promo-form" class="form">
+        <label>Pilih Produk (Ketik untuk mencari):</label>
+        <div id="set-promo-search-container" class="searchable-select-container"></div>
+        <input type="number" id="set-promo-stock" placeholder="Stok Promo" min="1">
+        <input type="number" id="set-promo-discount" placeholder="Diskon (%)" min="0" max="100">
+        <input type="number" id="set-promo-duration" placeholder="Durasi Promo (menit)" min="1">
+        <button type="submit">Set Promo</button>
+      </form>
+    </section>
+
+    <!-- Restock Section dengan searchable select -->
+    <section class="restock-section">
+      <h2>📦 Restok Barang</h2>
+      <form id="restock-form" class="form">
+        <label>Pilih Produk (Ketik untuk mencari):</label>
+        <div id="restock-search-container" class="searchable-select-container"></div>
+        <input type="number" id="restock-amount" placeholder="Jumlah" min="1">
+        <button type="submit">Restok</button>
+      </form>
+    </section>
+
+    <!-- Price Section dengan searchable select -->
+    <section class="price-section">
+      <h2>💰 Atur Harga Barang</h2>
+      <form id="price-form" class="form">
+        <label>Pilih Produk (Ketik untuk mencari):</label>
+        <div id="price-search-container" class="searchable-select-container"></div>
+        <input type="number" id="new-price" placeholder="Harga Baru" min="1">
+        <button type="submit">Atur Harga</button>
+      </form>
+    </section>
+
+    <!-- Discount Section dengan searchable select -->
+    <section class="discount-section">
+      <h2>🏷️ Atur Diskon Produk</h2>
+      <form id="discount-form" class="form">
+        <label>Pilih Produk (Ketik untuk mencari):</label>
+        <div id="discount-search-container" class="searchable-select-container"></div>
+        <input type="number" id="discount-percent" placeholder="Diskon (%)" min="0" max="100">
+        <button type="submit">Atur Diskon</button>
+      </form>
+    </section>
+
+    <!-- Rating Section -->
+    <section class="rating-section">
+      <h2>⭐ Rating Toko</h2>
+      <div class="rating" id="rating">
+        <span class="star" data-value="1">&#9733;</span>
+        <span class="star" data-value="2">&#9733;</span>
+        <span class="star" data-value="3">&#9733;</span>
+        <span class="star" data-value="4">&#9733;</span>
+        <span class="star" data-value="5">&#9733;</span>
+      </div>
+      <p class="rating-text">Rating: <span id="rating-value">0</span>/5</p>
+    </section>
+
+    <!-- Next Day Button -->
+    <section class="end-day">
+      <button id="next-day">⏩ Next Day</button>
+    </section>
+  </div>
+  
+  
+  
+   <!-- Bank Transfer Controls -->
+    <section class="bank-controls">
+      <div class="bank-card">
+        <h3>💰 Tarik Keuntungan</h3>
+        <div class="balance" id="keuntungan-balance">Rp 0</div>
+        <input type="number" id="withdraw-amount" placeholder="Jumlah" min="1">
+        <button onclick="withdrawProfit()">Tarik ke Rekening</button>
+        <button class="secondary" onclick="withdrawAllProfit()">Tarik Semua</button>
+      </div>
+      
+
+      <div class="bank-card">
+        <h3>🏦 Topup Modal</h3>
+        <div class="balance" id="rekening-balance">Rp 0</div>
+        <input type="number" id="topup-amount" placeholder="Jumlah" min="1">
+        <button onclick="topupModal()">Topup ke Modal</button>
+        <button class="secondary" onclick="topupAllModal()">Topup Semua</button>
+      </div>
+    </section>
+
+
+ <!-- Save Game Controls -->
+    <section class="save-controls">
+      <button id="save-game" class="save-btn">💾 Save Game</button>
+      <button id="load-game" class="save-btn">📂 Load Game</button>
+      <button id="reset-game" class="save-btn">🔄 Reset Game</button>
+    </section>
+    <div id="last-saved"></div>
+
+
+  <!-- Night Mode Toggle -->
+  <button class="night-mode-toggle" onclick="toggleNightMode()">🌙</button>
+
+  <!-- Tombol Buka/Tutup Toko -->
+  <button class="store-status-button" id="store-status-button" onclick="toggleStoreStatus()">Buka Toko</button>
+
+  <script>
+    // Data dan inisialisasi
+    const botNames = [
+       "Andi", "Budi", "Citra", "Dewi", "Eka", "Fajar", "Gina", "Hendra", "Ika", "Joko",
+      "Kiki", "Lala", "Maya", "Nina", "Oki", "Puja", "Qori", "Raka", "Sinta", "Tina",
+      "Umi", "Vina", "Wawan", "Xena", "Yudi", "Zara", "Windah", "Dean", "Azizi", "Adel", "Basuki", "Prilly", "Allysa", "Anselma", "David", "Ricky", "Jayadi", "Anin", "Floriska", "Melody", "Jeki", "Hubner", "Marselinus", "Welly", "Sonia", "Hamdan", "Divo", "Delyn", "Fritzy", "Biyel", "Arap", "Luthfi", "Anthony", "Rezaldi", "Kuat", "Mursid", "Abi", "Regi", "Mandra", "Kimmy", "Fahrian", "El", "Anggara", "Thia", "Kobo", "Zeta", "Eleanie", "Tretan", "Coki", "Radit", "Fiki", "Freya", "Cepio", "Megawati", "Bekti", "Tohir", "Tahir", "Oner", "Darren", "Ronaldo", "Messi", "Rafathar", "Athir", "Fadlan", "Hanni", "Danielle", "Lalisa", "Lee", "Dyland", "Erica", "Ignasius", "Muthe", "Shani", "Indira", "Gibran"
+    ];
+
+    const saldoUtamaElement = document.getElementById("saldo-utama");
+    const saldoModalElement = document.getElementById("saldo-modal");
+    const saldoKeuntunganElement = document.getElementById("saldo-keuntungan");
+    const saldoRekeningElement = document.getElementById("saldo-rekening");
+    const dailyProfitElement = document.getElementById("daily-profit-amount");
+    const currentDayDisplay = document.getElementById("current-day-display");
+    const dayCounterElement = document.getElementById("day-counter");
+    const keuntunganBalanceElement = document.getElementById("keuntungan-balance");
+    const rekeningBalanceElement = document.getElementById("rekening-balance");
+    const productsElement = document.getElementById("products");
+    const promoProductsElement = document.getElementById("promo-products");
+    const activityLog = document.getElementById("activity-log");
+    const commentBox = document.getElementById("comment-box");
+    const timeElement = document.getElementById("time");
+    const nextDayButton = document.getElementById("next-day");
+    const ratingElement = document.getElementById("rating");
+    const ratingValueElement = document.getElementById("rating-value");
+    const storeStatusButton = document.getElementById("store-status-button");
+    const saveGameBtn = document.getElementById("save-game");
+    const loadGameBtn = document.getElementById("load-game");
+    const resetGameBtn = document.getElementById("reset-game");
+    const lastSavedElement = document.getElementById("last-saved");
+
+    let saldoUtama = 10000000;
+    let saldoModal = 0;
+    let saldoKeuntungan = 0;
+    let saldoRekening = 5000000; // Rekening utama mulai dengan 5 juta
+    let dailyProfit = 0;
+    let currentDay = 1; // Day counter
+    let currentTime = 10 * 60; // Start at 10:00 AM
+    
+    let products = [
+       { name: "Premium Sweet Apple 120ml", price: 310900, stock: 100, modalPrice: 224300, discount: 0, active: true, salesCount: 0 },
+       { name: "Premium Fresh Ocean Blue 120ml", price: 299900, stock: 100, modalPrice: 216300, discount: 0, active: true, salesCount: 0 },
+      { name: "Premium Sweet Bliss 120ml", price: 278000, stock: 100, modalPrice: 189600, discount: 0, active: true, salesCount: 0 },
+      { name: "Premium Mystic Odyssey 120ml", price: 289500, stock: 100, modalPrice: 209200, discount: 0, active: true, salesCount: 0 },
+      { name: "Premium Greentea Purple 120ml", price: 413000, stock: 100, modalPrice: 293500, discount: 0, active: true, salesCount: 0 },    
+      { name: "Premium Velvet Breeze 120ml", price: 284000, stock: 100, modalPrice: 199000, discount: 0, active: true, salesCount: 0 },
+      { name: "Premium Artic Frost 120ml", price: 283500, stock: 100, modalPrice: 187500, discount: 0, active: true, salesCount: 0 },
+      { name: "Mini Premium Fresh Ocean Blue 50ml", price: 89200, stock: 100, modalPrice: 53900, discount: 0, active: true, salesCount: 0 },
+      { name: "Mini Premium Sweet Bliss 50ml", price: 88900, stock: 100, modalPrice: 53300, discount: 0, active: true, salesCount: 0 },
+      { name: "Ergonomis Blue Essense 80ml", price: 127000, stock: 100, modalPrice: 78400, discount: 0, active: true, salesCount: 0 },
+      { name: "Ergonomis Ocean Myst Cool 80ml", price: 131000, stock: 100, modalPrice: 82600, discount: 0, active: true, salesCount: 0 },
+      { name: "Ergonimos Green Velvet 80ml", price: 124500, stock: 100, modalPrice: 74800, discount: 0, active: true, salesCount: 0 },
+      { name: "Ergonomis Fanta Black 80ml", price: 119000, stock: 100, modalPrice: 72000, discount: 0, active: true, salesCount: 0 },
+      { name: "Ergonomis Black Coffie 80ml", price: 138000, stock: 100, modalPrice: 74000, discount: 0, active: true, salesCount: 0 },
+      { name: "Ergonomis Frosty Apple 80ml", price: 122000, stock: 100, modalPrice: 65000, discount: 0, active: true, salesCount: 0 }
+    ];
+
+    let promoProducts = [
+      { name: "", price: 0, stock: 0, modalPrice: 0, discount: 0, active: false, duration: 0, endTime: 0, salesCount: 0 },
+      { name: "", price: 0, stock: 0, modalPrice: 0, discount: 0, active: false, duration: 0, endTime: 0, salesCount: 0 }
+    ];
+
+    let rating = 0;
+    let totalRatings = 0;
+    let averageRating = 0;
+    let promoCount = 0;
+    let storeOpen = true;
+
+    const comments = [
+      "Parfumnya tahan lama, wanginya enak banget!",
+      "Stoknya kurang banyak ya? Kapan restock?",
+      "Harganya terjangkau, cocok buat daily use!",
+      "Aromanya segar, bikin percaya diri!",
+      "Pengiriman cepat, packing rapi!",
+      "Kualitasnya premium, worth it banget!",
+      "Bau parfumnya unik, suka banget!",
+      "Suka varian ini, bakal beli lagi!",
+      "Parfumnya biasa aja, kurang tahan lama.",
+      "Wanginya terlalu kuat, kurang cocok buat saya.",
+      "Kok stok terbatas? Restock lagi dong!",
+      "Harga murah tapi kualitas mewah!",
+      "Besok beli parfum disini lagi ah!",
+      "Ini beneran parfum lokal? Keren banget!",
+      "Kok bisa sih jual murah? Mantap!",
+      "Ah parfumnya biasa aja, kurang puas.",
+      "Wanginya semerbak, cocok buat pasangan!",
+      "Pacar pasti suka bau parfumnya!",
+      "Parfum sok mewah tapi b aja.",
+      "Bintang 5 deh, parfum terbaik!",
+      "Gak tahan lama parfumnya, kecewa.",
+      "Enak merek parfum sebelah, lebih bagus.",
+      "Ini varian cuma sedikit? Kurang banyak pilihan.",
+      "Aku suka varian yang ini, wanginya pas!",
+      "Bisa gak sih beli banyak? Diskon dong!",
+      "Banyak bahan berbahaya ya di parfumnya?",
+      "Bau bensin, kurang suka.",
+      "Baru dipakai sebentar udah gak enak.",
+      "Cocok untuk parfum anak kuliahan.",
+      "Meeting wajib pake parfum ini, wanginya profesional!",
+      "Beli yang murah dulu ah, nanti cobain yang lain.",
+      "Bis gak ngutang dulu? Hehe.",
+      "Anjir lah, ketagihan bau parfumnya!",
+      "Parfumnya kurang tahan lama, tapi wanginya oke.",
+      "Kualitasnya bagus, tapi harganya kemahalan.",
+      "Pengiriman lama banget, kurang puas.",
+      "Wanginya terlalu manis, kurang cocok buat saya.",
+      "Parfumnya bagus, tapi kemasannya kurang rapi.",
+      "Suka banget sama varian ini, bakal beli lagi!",
+      "Kualitasnya oke, tapi harganya kurang bersaing.",
+      "Terimakasih promonya, jadi gak keluar banyak duit",
+      "Promo menarik, beli banyak dong!",
+      "Diskonnya gede, jadi hemat banget!",
+      "Promo ini bikin saya beli lebih banyak!",
+      "Diskonnya bikin saya borong parfum!",
+      "Promo ini bikin saya jadi pelanggan tetap!",
+      "Diskonnya bikin saya beli semua varian!",
+      "Promo ini bikin saya jadi suka belanja disini!",
+      "Diskonnya bikin saya beli parfum lebih banyak!",
+      "Promo ini bikin saya jadi pelanggan setia!"
+    ];
+
+    // ========== BANKING FUNCTIONS ==========
+    window.withdrawProfit = function() {
+      const amount = parseInt(document.getElementById('withdraw-amount').value);
+      if (amount > 0 && amount <= saldoKeuntungan) {
+        saldoKeuntungan -= amount;
+        saldoRekening += amount;
+        updateSaldo();
+        logActivity(`💰 Penarikan keuntungan: Rp ${amount.toLocaleString()} ke rekening utama`);
+        document.getElementById('withdraw-amount').value = '';
+      } else {
+        alert("Jumlah tidak valid atau melebihi saldo keuntungan!");
+      }
+    };
+
+    window.withdrawAllProfit = function() {
+      if (saldoKeuntungan > 0) {
+        const amount = saldoKeuntungan;
+        saldoKeuntungan = 0;
+        saldoRekening += amount;
+        updateSaldo();
+        logActivity(`💰 Penarikan semua keuntungan: Rp ${amount.toLocaleString()} ke rekening utama`);
+      } else {
+        alert("Tidak ada keuntungan untuk ditarik!");
+      }
+    };
+
+    window.topupModal = function() {
+      const amount = parseInt(document.getElementById('topup-amount').value);
+      if (amount > 0 && amount <= saldoRekening) {
+        saldoRekening -= amount;
+        saldoModal += amount;
+        saldoUtama += amount; // Modal ditambahkan ke kas toko
+        updateSaldo();
+        logActivity(`💳 Topup modal: Rp ${amount.toLocaleString()} dari rekening utama`);
+        document.getElementById('topup-amount').value = '';
+      } else {
+        alert("Jumlah tidak valid atau melebihi saldo rekening!");
+      }
+    };
+
+    window.topupAllModal = function() {
+      if (saldoRekening > 0) {
+        const amount = saldoRekening;
+        saldoRekening = 0;
+        saldoModal += amount;
+        saldoUtama += amount;
+        updateSaldo();
+        logActivity(`💳 Topup semua modal: Rp ${amount.toLocaleString()} dari rekening utama`);
+      } else {
+        alert("Tidak ada saldo di rekening untuk ditopup!");
+      }
+    };
+
+    // ========== DAILY PROFIT FUNCTIONS ==========
+    function resetDailyProfit() {
+      dailyProfit = 0;
+      updateDailyProfitDisplay();
+      logActivity(`📊 Keuntungan harian direset untuk Day ${currentDay + 1}`);
+    }
+
+    function updateDailyProfitDisplay() {
+      dailyProfitElement.textContent = `Rp ${dailyProfit.toLocaleString()}`;
+      currentDayDisplay.textContent = currentDay;
+    }
+
+    // ========== SAVE GAME FUNCTIONS ==========
+    function saveGame() {
+      const gameData = {
+        saldoUtama,
+        saldoModal,
+        saldoKeuntungan,
+        saldoRekening,
+        dailyProfit,
+        currentDay,
+        currentTime,
+        products,
+        promoProducts,
+        totalRatings,
+        averageRating,
+        promoCount,
+        storeOpen
+      };
+      
+      localStorage.setItem('grroseParfumeSave', JSON.stringify(gameData));
+      const now = new Date();
+      lastSavedElement.textContent = `Terakhir disimpan: ${now.toLocaleString()}`;
+      logActivity("✅ Game berhasil disimpan!");
+    }
+
+    function loadGame() {
+      const savedData = localStorage.getItem('grroseParfumeSave');
+      if (savedData) {
+        try {
+          const gameData = JSON.parse(savedData);
+          
+          saldoUtama = gameData.saldoUtama;
+          saldoModal = gameData.saldoModal;
+          saldoKeuntungan = gameData.saldoKeuntungan;
+          saldoRekening = gameData.saldoRekening || 5000000;
+          dailyProfit = gameData.dailyProfit || 0;
+          currentDay = gameData.currentDay || 1;
+          currentTime = gameData.currentTime;
+          products = gameData.products;
+          promoProducts = gameData.promoProducts;
+          totalRatings = gameData.totalRatings;
+          averageRating = gameData.averageRating;
+          promoCount = gameData.promoCount;
+          storeOpen = gameData.storeOpen;
+
+          // Update UI
+          updateSaldo();
+          updateProducts();
+          updateDailyProfitDisplay();
+          dayCounterElement.textContent = currentDay;
+          ratingValueElement.textContent = averageRating.toFixed(1);
+          storeStatusButton.textContent = storeOpen ? "Tutup Toko" : "Buka Toko";
+          storeStatusButton.classList.toggle("closed", !storeOpen);
+          
+          logActivity("✅ Game berhasil dimuat!");
+        } catch (error) {
+          alert("Gagal memuat game: data rusak");
+        }
+      } else {
+        alert("Tidak ada data game yang tersimpan!");
+      }
+    }
+
+    function resetGame() {
+      if (confirm("Apakah Anda yakin ingin mereset game? Semua progress akan hilang!")) {
+        saldoUtama = 10000000;
+        saldoModal = 0;
+        saldoKeuntungan = 0;
+        saldoRekening = 5000000;
+        dailyProfit = 0;
+        currentDay = 1;
+        currentTime = 10 * 60;
+        products = products.map(p => ({ ...p, stock: 100, discount: 0, active: true, salesCount: 0 }));
+        promoProducts = [
+          { name: "", price: 0, stock: 0, modalPrice: 0, discount: 0, active: false, duration: 0, endTime: 0, salesCount: 0 },
+          { name: "", price: 0, stock: 0, modalPrice: 0, discount: 0, active: false, duration: 0, endTime: 0, salesCount: 0 }
+        ];
+        totalRatings = 0;
+        averageRating = 0;
+        promoCount = 0;
+        storeOpen = true;
+
+        // Clear activity log and comments
+        activityLog.innerHTML = "<p>Ruang Pembeli..</p>";
+        commentBox.innerHTML = "<p>Komentar disini..</p>";
+        
+        updateSaldo();
+        updateProducts();
+        updateDailyProfitDisplay();
+        dayCounterElement.textContent = currentDay;
+        ratingValueElement.textContent = "0";
+        storeStatusButton.textContent = "Tutup Toko";
+        storeStatusButton.classList.remove("closed");
+        
+        logActivity("🔄 Game telah direset!");
+      }
+    }
+
+    // ========== SEARCHABLE SELECT HELPER ==========
+    function createSearchableSelect(containerId, optionsArray, onSelectCallback, initialValue = '') {
+      const container = document.getElementById(containerId);
+      if (!container) return null;
+      
+      container.innerHTML = '';
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.className = 'searchable-select-input';
+      input.placeholder = 'Ketik untuk mencari...';
+      input.value = initialValue;
+      
+      const dropdown = document.createElement('div');
+      dropdown.className = 'searchable-select-dropdown';
+      
+      let filteredOptions = optionsArray.map((opt, idx) => ({ name: opt.name, index: idx }));
+
+      function renderDropdown(filterText = '') {
+        dropdown.innerHTML = '';
+        const filterLower = filterText.toLowerCase();
+        filteredOptions = optionsArray
+          .map((opt, idx) => ({ name: opt.name, index: idx }))
+          .filter(item => item.name && item.name.toLowerCase().includes(filterLower));
+        
+        if (filteredOptions.length === 0) {
+          const div = document.createElement('div');
+          div.textContent = 'Tidak ditemukan';
+          div.style.color = '#999';
+          dropdown.appendChild(div);
+        } else {
+          filteredOptions.forEach((item) => {
+            const div = document.createElement('div');
+            div.textContent = item.name;
+            div.dataset.index = item.index;
+            div.dataset.name = item.name;
+            if (item.name === input.value) div.classList.add('selected');
+            div.addEventListener('click', () => {
+              input.value = item.name;
+              dropdown.style.display = 'none';
+              if (onSelectCallback) onSelectCallback(item.index, item.name);
+            });
+            dropdown.appendChild(div);
+          });
+        }
+      }
+
+      input.addEventListener('focus', () => {
+        renderDropdown(input.value);
+        dropdown.style.display = 'block';
+      });
+
+      input.addEventListener('input', () => {
+        renderDropdown(input.value);
+        dropdown.style.display = 'block';
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!container.contains(e.target)) {
+          dropdown.style.display = 'none';
+        }
+      });
+
+      container.appendChild(input);
+      container.appendChild(dropdown);
+      
+      // Set initial jika ada
+      if (initialValue) {
+        const found = optionsArray.findIndex(p => p.name === initialValue);
+        if (found !== -1) input.value = initialValue;
+      }
+      
+      return { input, dropdown };
+    }
+
+    // ========== UPDATE PRODUK & INISIALISASI SEARCHABLE ==========
+    function updateProducts() {
+      // Sort products: best sellers first, then discounted, then others
+      const sortedProducts = [...products].sort((a, b) => {
+        if (b.salesCount !== a.salesCount) return b.salesCount - a.salesCount;
+        return b.discount - a.discount;
+      });
+
+      // Determine best sellers (top 3 products with highest sales)
+      const bestSellers = [...products]
+        .sort((a, b) => b.salesCount - a.salesCount)
+        .slice(0, 3)
+        .map(p => p.name);
+
+      productsElement.innerHTML = "";
+
+      sortedProducts.forEach((product) => {
+        const originalIndex = products.findIndex(p => p.name === product.name);
+        const productDiv = document.createElement("div");
+        productDiv.className = `product ${product.stock === 0 ? 'out-of-stock' : ''} ${!product.active ? 'inactive' : ''} ${bestSellers.includes(product.name) && product.salesCount > 0 ? 'best-seller' : ''}`;
+        
+        // Hitung harga setelah diskon
+        const discountedPrice = product.price * (1 - product.discount / 100);
+        
+        productDiv.innerHTML = `
+          <h3>${product.name}</h3>
+          ${product.discount > 0 ? 
+            `<p class="original-price">Rp ${product.price.toLocaleString()}</p>
+             <p class="discounted-price">Rp ${Math.round(discountedPrice).toLocaleString()}</p>` : 
+            `<p>Harga: Rp ${product.price.toLocaleString()}</p>`
+          }
+          <p>Stok: ${product.stock}</p>
+          <p>Harga Modal: Rp ${product.modalPrice.toLocaleString()}</p>
+          ${product.discount > 0 ? `<p class="discount">Diskon: ${product.discount}%</p>` : ''}
+          <p class="status">${product.active ? 'Aktif' : 'Nonaktif'}</p>
+          ${product.salesCount > 0 ? `<p class="sales-count">📊 Terjual: ${product.salesCount}</p>` : ''}
+          <button onclick="toggleProductStatus(${originalIndex})">${product.active ? 'Nonaktifkan' : 'Aktifkan'}</button>
+        `;
+        productsElement.appendChild(productDiv);
+      });
+
+      // Update Promo Products
+      promoProductsElement.innerHTML = "";
+      promoProducts.forEach((product, index) => {
+        if (product.name) {
+          const productDiv = document.createElement("div");
+          productDiv.className = `product ${product.stock === 0 ? 'out-of-stock' : ''} ${!product.active ? 'inactive' : ''} ${product.active ? 'promo-active' : ''}`;
+          
+          // Hitung harga setelah diskon
+          const discountedPrice = product.price * (1 - product.discount / 100);
+          const remainingTime = Math.max(0, product.endTime - currentTime);
+          const remainingMinutes = Math.floor(remainingTime / 60);
+          const remainingSeconds = remainingTime % 60;
+          
+          productDiv.innerHTML = `
+            <h3>${product.name}</h3>
+            ${product.discount > 0 ? 
+              `<p class="original-price">Rp ${product.price.toLocaleString()}</p>
+               <p class="discounted-price">Rp ${Math.round(discountedPrice).toLocaleString()}</p>` : 
+              `<p>Harga: Rp ${product.price.toLocaleString()}</p>`
+            }
+            <p>Stok: ${product.stock}</p>
+            <p>Harga Modal: Rp ${product.modalPrice.toLocaleString()}</p>
+            ${product.discount > 0 ? `<p class="discount">Diskon: ${product.discount}%</p>` : ''}
+            <p class="status">${product.active ? 'Aktif' : 'Nonaktif'}</p>
+            ${product.active ? `<p class="promo-timer">⏱️ Sisa: ${remainingMinutes}m ${remainingSeconds}s</p>` : ''}
+            ${product.salesCount > 0 ? `<p class="sales-count">📊 Terjual: ${product.salesCount}</p>` : ''}
+            <button onclick="togglePromoProductStatus(${index})">${product.active ? 'Nonaktifkan' : 'Aktifkan'}</button>
+          `;
+          promoProductsElement.appendChild(productDiv);
+        }
+      });
+
+      // Re-inisialisasi searchable selects
+      initSearchableSelects();
+    }
+
+    function initSearchableSelects() {
+      // Untuk setiap form, buat searchable select berdasarkan products
+      createSearchableSelect('restock-search-container', products, (idx, name) => {
+        document.getElementById('restock-amount').focus();
+      });
+      createSearchableSelect('price-search-container', products, (idx, name) => {
+        document.getElementById('new-price').focus();
+      });
+      createSearchableSelect('discount-search-container', products, (idx, name) => {
+        document.getElementById('discount-percent').focus();
+      });
+      createSearchableSelect('set-promo-search-container', products, (idx, name) => {
+        document.getElementById('set-promo-stock').focus();
+      });
+    }
+
+    // Toggle dengan perbaikan bug (gunakan fungsi global)
+    window.toggleProductStatus = function(index) {
+      products[index].active = !products[index].active;
+      updateProducts();
+    };
+
+    window.togglePromoProductStatus = function(index) {
+      if (!promoProducts[index].active) {
+        promoProducts[index].active = true;
+        promoProducts[index].endTime = currentTime + promoProducts[index].duration * 60;
+        promoCount++;
+        logActivity(`Promo untuk ${promoProducts[index].name} diaktifkan.`);
+        addComment(`Pembeli: "Promo ${promoProducts[index].name} menarik, saya beli banyak!"`);
+        updateRatingEffect();
+      } else {
+        promoProducts[index].active = false;
+        logActivity(`Promo untuk ${promoProducts[index].name} dinonaktifkan.`);
+      }
+      updateProducts();
+    };
+
+    function updateTime() {
+      const hours = Math.floor(currentTime / 60);
+      const minutes = currentTime % 60;
+      timeElement.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
+      
+      // Increment time
+      currentTime++;
+      
+      // Check for midnight (00:00) - reset daily profit
+      if (hours === 0 && minutes === 0) {
+        resetDailyProfit();
+      }
+      
+      // Check for day change (when time passes 23:59 to 00:00)
+      if (currentTime >= 24 * 60) {
+        currentTime = 0;
+        currentDay++;
+        dayCounterElement.textContent = currentDay;
+        logActivity(`📅 Hari ${currentDay} dimulai!`);
+        resetDailyProfit();
+      }
+
+      promoProducts.forEach((product, index) => {
+        if (product.endTime > 0 && currentTime >= product.endTime) {
+          // Pindahkan salesCount ke produk asli
+          const originalProduct = products.find(p => p.name === product.name);
+          if (originalProduct) {
+            originalProduct.salesCount += product.salesCount;
+          }
+          
+          promoProducts[index] = { name: "", price: 0, stock: 0, modalPrice: 0, discount: 0, active: false, duration: 0, endTime: 0, salesCount: 0 };
+          logActivity(`Promo untuk ${product.name} telah berakhir.`);
+          updateProducts();
+        }
+      });
+    }
+
+    nextDayButton.addEventListener("click", () => {
+      // Simulate going to next day (set time to 10:00 next day)
+      currentDay++;
+      currentTime = 10 * 60;
+      dayCounterElement.textContent = currentDay;
+      resetDailyProfit();
+      logActivity(`⏩ Hari ${currentDay} dimulai! Toko dibuka.`);
+    });
+
+    // Restok Form dengan mengambil dari searchable input
+    document.getElementById('restock-form').addEventListener("submit", (e) => {
+      e.preventDefault();
+      const input = document.querySelector('#restock-search-container .searchable-select-input');
+      const productName = input ? input.value : '';
+      const productIndex = products.findIndex(p => p.name === productName);
+      const restockQuantity = parseInt(document.getElementById('restock-amount').value);
+
+      if (productIndex !== -1 && restockQuantity > 0) {
+        const product = products[productIndex];
+        const totalCost = product.modalPrice * restockQuantity;
+        if (saldoModal >= totalCost) {
+          product.stock += restockQuantity;
+          saldoModal -= totalCost;
+          saldoUtama -= totalCost;
+          updateSaldo();
+          logActivity(`Restok ${product.name} sebanyak ${restockQuantity} dengan biaya Rp ${totalCost.toLocaleString()}.`);
+          updateProducts();
+        } else {
+          alert("Saldo modal tidak cukup untuk restok barang.");
+        }
+      } else {
+        alert("Pilih produk yang valid.");
+      }
+    });
+
+    // Price Form
+    document.getElementById('price-form').addEventListener("submit", (e) => {
+      e.preventDefault();
+      const input = document.querySelector('#price-search-container .searchable-select-input');
+      const productName = input ? input.value : '';
+      const productIndex = products.findIndex(p => p.name === productName);
+      const newPriceValue = parseInt(document.getElementById('new-price').value);
+
+      if (productIndex !== -1 && newPriceValue > 0) {
+        products[productIndex].price = newPriceValue;
+        logActivity(`Harga ${products[productIndex].name} diubah menjadi Rp ${newPriceValue.toLocaleString()}.`);
+        updateProducts();
+      } else {
+        alert("Pilih produk yang valid.");
+      }
+    });
+
+    // Discount Form
+    document.getElementById('discount-form').addEventListener("submit", (e) => {
+      e.preventDefault();
+      const input = document.querySelector('#discount-search-container .searchable-select-input');
+      const productName = input ? input.value : '';
+      const productIndex = products.findIndex(p => p.name === productName);
+      const discountValue = parseInt(document.getElementById('discount-percent').value);
+
+      if (productIndex !== -1 && discountValue >= 0 && discountValue <= 100) {
+        products[productIndex].discount = discountValue;
+        updateProducts();
+        logActivity(`Diskon ${products[productIndex].name} sebesar ${discountValue}% diterapkan.`);
+      } else {
+        alert("Pilih produk yang valid.");
+      }
+    });
+
+    // Set Promo Form
+    document.getElementById('set-promo-form').addEventListener("submit", (e) => {
+      e.preventDefault();
+      const input = document.querySelector('#set-promo-search-container .searchable-select-input');
+      const productName = input ? input.value : '';
+      const productIndex = products.findIndex(p => p.name === productName);
+      const stockValue = parseInt(document.getElementById('set-promo-stock').value);
+      const discountValue = parseInt(document.getElementById('set-promo-discount').value);
+      const durationValue = parseInt(document.getElementById('set-promo-duration').value);
+
+      if (productIndex !== -1 && stockValue > 0 && discountValue >= 0 && discountValue <= 100 && durationValue > 0) {
+        const product = products[productIndex];
+        const emptyPromoSlot = promoProducts.find(p => p.name === "");
+
+        if (emptyPromoSlot) {
+          if (saldoUtama >= product.modalPrice * stockValue) {
+            emptyPromoSlot.name = product.name;
+            emptyPromoSlot.price = product.price;
+            emptyPromoSlot.stock = stockValue;
+            emptyPromoSlot.modalPrice = product.modalPrice;
+            emptyPromoSlot.discount = discountValue;
+            emptyPromoSlot.duration = durationValue;
+            emptyPromoSlot.active = true;
+            emptyPromoSlot.endTime = currentTime + durationValue * 60;
+            emptyPromoSlot.salesCount = 0;
+            saldoUtama -= product.modalPrice * stockValue;
+            updateSaldo();
+            updateProducts();
+            logActivity(`Produk ${product.name} dijadikan produk promo dengan diskon ${discountValue}% selama ${durationValue} menit.`);
+          } else {
+            alert("Saldo utama tidak cukup untuk membuat produk promo.");
+          }
+        } else {
+          alert("Slot promo sudah penuh. Hapus salah satu produk promo terlebih dahulu.");
+        }
+      } else {
+        alert("Input tidak valid.");
+      }
+    });
+
+    function updateSaldo() {
+      saldoUtamaElement.textContent = `Rp ${saldoUtama.toLocaleString()}`;
+      saldoModalElement.textContent = `Rp ${saldoModal.toLocaleString()}`;
+      saldoKeuntunganElement.textContent = `Rp ${saldoKeuntungan.toLocaleString()}`;
+      saldoRekeningElement.textContent = `Rp ${saldoRekening.toLocaleString()}`;
+      keuntunganBalanceElement.textContent = `Rp ${saldoKeuntungan.toLocaleString()}`;
+      rekeningBalanceElement.textContent = `Rp ${saldoRekening.toLocaleString()}`;
+    }
+
+    function logActivity(message) {
+      const activity = document.createElement("p");
+      activity.textContent = message;
+      activityLog.appendChild(activity);
+      activityLog.scrollTop = activityLog.scrollHeight;
+    }
+
+    function addComment(comment) {
+      const newComment = document.createElement("p");
+      newComment.textContent = comment;
+      commentBox.appendChild(newComment);
+      commentBox.scrollTop = commentBox.scrollHeight;
+    }
+
+    function simulateCustomerBehavior() {
+      if (storeOpen) {
+        const botName = botNames[Math.floor(Math.random() * botNames.length)];
+        const numProductsToBuy = Math.floor(Math.random() * 3) + 1;
+        let totalTransaction = 0;
+        let transactionDetails = `${botName} membeli:`;
+
+        const availablePromoProducts = promoProducts.filter(p => p.name && p.stock > 0 && p.active);
+        const availableProducts = products.filter(p => p.stock > 0 && p.active);
+
+        for (let i = 0; i < numProductsToBuy; i++) {
+          let product;
+          let isPromo = false;
+          
+          if (availablePromoProducts.length > 0 && Math.random() < 0.7) {
+            product = availablePromoProducts[Math.floor(Math.random() * availablePromoProducts.length)];
+            isPromo = true;
+          } else if (availableProducts.length > 0) {
+            product = availableProducts[Math.floor(Math.random() * availableProducts.length)];
+          } else {
+            continue;
+          }
+
+          const quantity = Math.floor(Math.random() * 3) + 1;
+
+          if (product.stock >= quantity) {
+            const discountedPrice = product.price * (1 - product.discount / 100);
+            const totalPrice = discountedPrice * quantity;
+            const profit = totalPrice - (product.modalPrice * quantity);
+            
+            product.stock -= quantity;
+            
+            // Update sales count
+            if (isPromo) {
+              product.salesCount += quantity;
+            } else {
+              product.salesCount += quantity;
+            }
+            
+            totalTransaction += totalPrice;
+            saldoUtama += totalPrice;
+            saldoKeuntungan += profit;
+            dailyProfit += profit;
+            saldoModal += product.modalPrice * quantity;
+            
+            transactionDetails += ` ${quantity} ${product.name},`;
+          } else if (product.stock === 0) {
+            addComment(`${botName}: "Kapan restock ${product.name}? Stok habis nih!"`);
+          } else if (!product.active) {
+            addComment(`${botName}: "Kenapa ${product.name} gak dijual lagi?"`);
+          } else {
+            addComment(`${botName}: "Harga ${product.name} kemahalan, gak jadi beli deh."`);
+          }
+        }
+
+        if (totalTransaction > 0) {
+          logActivity(`${transactionDetails} total Rp ${Math.round(totalTransaction).toLocaleString()}.`);
+          const randomComment = comments[Math.floor(Math.random() * comments.length)];
+          addComment(`${botName}: "${randomComment}"`);
+          giveRating(botName);
+        }
+        updateProducts();
+        updateSaldo();
+        updateDailyProfitDisplay();
+      }
+    }
+
+    function giveRating(botName) {
+      const ratingValue = Math.floor(Math.random() * 5) + 1;
+      rating = ratingValue;
+      totalRatings++;
+      averageRating = ((averageRating * (totalRatings - 1)) + rating) / totalRatings;
+      ratingValueElement.textContent = averageRating.toFixed(1);
+      addComment(`${botName}: "Saya memberikan rating ${ratingValue} bintang untuk toko ini."`);
+      updateRatingEffect();
+    }
+
+    function updateRatingEffect() {
+      if (averageRating >= 4) {
+        logActivity("Toko ramai karena rating bagus!");
+      } else if (averageRating <= 3) {
+        logActivity("Toko sepi karena rating rendah.");
+      }
+    }
+
+    window.toggleNightMode = function() {
+      document.body.classList.toggle("night-mode");
+    };
+
+    window.toggleStoreStatus = function() {
+      storeOpen = !storeOpen;
+      storeStatusButton.textContent = storeOpen ? "Tutup Toko" : "Buka Toko";
+      storeStatusButton.classList.toggle("closed", !storeOpen);
+      logActivity(storeOpen ? "Toko dibuka kembali!" : "Toko ditutup sementara.");
+    };
+
+    // Event listeners untuk save game
+    saveGameBtn.addEventListener("click", saveGame);
+    loadGameBtn.addEventListener("click", loadGame);
+    resetGameBtn.addEventListener("click", resetGame);
+
+    // Check for saved game on load
+    const savedData = localStorage.getItem('grroseParfumeSave');
+    if (savedData) {
+      if (confirm("Ada data game tersimpan. Apakah Anda ingin memuatnya?")) {
+        loadGame();
+      }
+    }
+
+    // Initialize
+    updateProducts();
+    updateSaldo();
+    updateDailyProfitDisplay();
+    dayCounterElement.textContent = currentDay;
+    setInterval(updateTime, 1000);
+    setInterval(simulateCustomerBehavior, 5000);
+  </script>
+</body>
+</html>
