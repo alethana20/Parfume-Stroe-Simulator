@@ -1015,6 +1015,154 @@
       border-radius: 5px;
     }
 
+    /* Daily Tax Bill */
+    .daily-tax-bill {
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      color: #333;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    body.night-mode .daily-tax-bill {
+      background: linear-gradient(135deg, #c31432, #240b36);
+      color: #f4f4f9;
+    }
+
+    .daily-tax-bill h3 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .daily-tax-bill .tax-amount {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 5px 0;
+    }
+
+    .daily-tax-bill .due-info {
+      font-size: 0.8rem;
+      opacity: 0.9;
+    }
+
+    .daily-tax-bill button {
+      background: #333;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      padding: 8px 25px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 10px;
+    }
+
+    .daily-tax-bill button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .daily-tax-bill button:disabled {
+      background: #ccc;
+      color: #666;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Loan Section */
+    .loan-section {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .loan-section h3 {
+      margin: 0 0 10px 0;
+      font-size: 1.2rem;
+    }
+
+    .loan-details {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin: 10px 0;
+    }
+
+    .loan-details input, .loan-details select {
+      padding: 8px;
+      border: none;
+      border-radius: 5px;
+      width: 120px;
+    }
+
+    body.night-mode .loan-details input,
+    body.night-mode .loan-details select {
+      background: #34495e;
+      color: #ecf0f1;
+    }
+
+    .loan-details button {
+      background: #ffd700;
+      color: #333;
+      border: none;
+      border-radius: 25px;
+      padding: 8px 20px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .loan-details button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .loan-status {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      background: rgba(255,255,255,0.2);
+      padding: 8px;
+      border-radius: 5px;
+    }
+
+    .loan-payment {
+      margin-top: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .loan-payment input {
+      padding: 8px;
+      border: none;
+      border-radius: 5px;
+      width: 100px;
+    }
+
+    .loan-payment button {
+      background: #28a745;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      padding: 8px 20px;
+      cursor: pointer;
+    }
+
+    .loan-payment button:hover {
+      background: #218838;
+    }
+
     /* Add/Edit Product */
     .product-management {
       display: grid;
@@ -1074,6 +1222,67 @@
       transform: scale(1.02);
     }
 
+    /* Game Over Popup */
+    .game-over-popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+    }
+
+    .game-over-content {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 500px;
+    }
+
+    body.night-mode .game-over-content {
+      background: #2c3e50;
+      color: #ecf0f1;
+    }
+
+    .game-over-content h2 {
+      color: #dc3545;
+      font-size: 2rem;
+      margin: 0 0 20px 0;
+    }
+
+    .game-over-content p {
+      font-size: 1.1rem;
+      margin: 10px 0;
+    }
+
+    .game-over-content button {
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      padding: 10px 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    /* Customer Count Indicator */
+    .customer-count {
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      color: white;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
       .product-management {
@@ -1103,6 +1312,11 @@
       <p id="promo-line3">NEW VARIANT! Premium Artic Frost</p>
     </section>
 
+    <!-- Customer Count Indicator -->
+    <div class="customer-count" id="customer-count">
+      👥 Pengunjung: 0 (Rating: 0.0)
+    </div>
+
     <!-- Monthly Bills -->
     <section class="monthly-bills" id="monthly-bills">
       <h3>📋 Tagihan Bulanan</h3>
@@ -1112,27 +1326,31 @@
       <div class="bills-history" id="bills-history">Belum ada pembayaran</div>
     </section>
 
+    <!-- Daily Tax Bill -->
+    <section class="daily-tax-bill" id="daily-tax-bill">
+      <h3>🧾 Tagihan Pajak Harian </h3>
+      <div class="tax-amount" id="tax-amount">Rp 0</div>
+      <div class="due-info" id="tax-due-info">Harus dibayar hari ini</div>
+      <button id="pay-tax-btn" onclick="payDailyTax()">Bayar Pajak Hari Ini</button>
+    </section>
+
+    
     <!-- Dashboard -->
     <section class="dashboard">
       <div class="info">
-        <h2>💰 Saldo Utama</h2>
-        <p id="saldo-utama">Rp 0</p>
-        <small>Uang di kas toko untuk operasional</small>
+        <h2>💰 Saldo Utama (Rekening)</h2>
+        <p id="saldo-utama">Rp 30.000.000</p>
+        <small>Untuk bayar bill, hutang, dan tarik keuntungan</small>
       </div>
       <div class="info">
         <h2>📦 Saldo Modal</h2>
         <p id="saldo-modal">Rp 0</p>
-        <small>Khusus untuk restock barang</small>
+        <small>Khusus untuk restock barang (dari penjualan)</small>
       </div>
       <div class="info">
         <h2>💎 Saldo Keuntungan</h2>
         <p id="saldo-keuntungan">Rp 0</p>
-        <small>Bisa ditarik ke rekening utama</small>
-      </div>
-      <div class="info">
-        <h2>🏦 Rekening Utama</h2>
-        <p id="saldo-rekening">Rp 0</p>
-        <small>Tabungan pribadi, bisa untuk topup modal</small>
+        <small>Bisa ditarik ke saldo utama</small>
       </div>
     </section>
 
@@ -1142,8 +1360,6 @@
       <p id="daily-profit-amount">Rp 0</p>
       <div class="reset-info" id="reset-info">Reset setiap jam 00:00</div>
     </section>
-
- 
 
     <!-- Promo Products -->
     <section class="promo-products">
@@ -1164,12 +1380,12 @@
     <!-- Product Management (Tambah & Edit Produk) -->
     <section class="product-management">
       <div class="product-card">
-        <h3>➕ Tambah Produk Baru</h3>
+        <h3>➕ Tambah Produk Baru (Rp 10.000.000)</h3>
         <input type="text" id="new-product-name" placeholder="Nama Produk">
         <input type="number" id="new-product-price" placeholder="Harga Jual" min="1">
         <input type="number" id="new-product-modal" placeholder="Harga Modal" min="1">
         <input type="number" id="new-product-stock" placeholder="Stok Awal" min="1" value="10">
-        <button onclick="addNewProduct()">Tambah Produk</button>
+        <button onclick="addNewProduct()">Tambah Produk (Rp 10jt)</button>
       </div>
       <div class="product-card">
         <h3>✏️ Edit Nama Produk</h3>
@@ -1241,8 +1457,7 @@
       </form>
     </section>
     
-    
-     <!-- Auto Restock Controls -->
+    <!-- Auto Restock Controls -->
     <section class="auto-restock-controls">
       <div class="auto-restock-header">
         <h3>⚡ Auto Restock</h3>
@@ -1257,6 +1472,8 @@
         <button onclick="setAutoRestockAmount()">Terapkan</button>
       </div>
     </section>
+    
+    
 
     <!-- Rating Section -->
     <section class="rating-section">
@@ -1271,36 +1488,52 @@
       <p class="rating-text">Rating: <span id="rating-value">0</span>/5</p>
     </section>
 
-   
-  
-  
-     <!-- Bank Transfer Controls -->
+    <!-- Bank Transfer Controls -->
     <section class="bank-controls">
       <div class="bank-card">
-        <h3>💰 Tarik Keuntungan</h3>
+        <h3>💰 Tarik Keuntungan ke Saldo Utama</h3>
         <div class="balance" id="keuntungan-balance">Rp 0</div>
         <input type="number" id="withdraw-amount" placeholder="Jumlah" min="1">
-        <button onclick="withdrawProfit()">Tarik ke Rekening</button>
+        <button onclick="withdrawProfit()">Tarik ke Saldo Utama</button>
         <button class="secondary" onclick="withdrawAllProfit()">Tarik Semua</button>
       </div>
       <div class="bank-card">
-        <h3>🏦 Topup Modal</h3>
-        <div class="balance" id="rekening-balance">Rp 0</div>
+        <h3>🏦 Topup Modal dari Saldo Utama</h3>
+        <div class="balance" id="utama-balance">Rp 30.000.000</div>
         <input type="number" id="topup-amount" placeholder="Jumlah" min="1">
         <button onclick="topupModal()">Topup ke Modal</button>
         <button class="secondary" onclick="topupAllModal()">Topup Semua</button>
       </div>
     </section>
-
-   
     
     
-     <!-- Next Day Button -->
+    <!-- Loan Section -->
+    <section class="loan-section" id="loan-section">
+      <h3>💰 Pinjaman Modal (Maks Rp 100.000.000)</h3>
+      <div class="loan-details">
+        <input type="number" id="loan-amount" placeholder="Jumlah Pinjaman" min="100000" max="100000000" step="100000">
+        <select id="loan-tenor">
+          <option value="5">5 Minggu</option>
+          <option value="7">7 Minggu</option>
+          <option value="10">10 Minggu</option>
+        </select>
+        <button onclick="takeLoan()">Ajukan Pinjaman</button>
+      </div>
+      <div class="loan-status" id="loan-status">
+        Tidak ada pinjaman aktif
+      </div>
+      <div class="loan-payment" id="loan-payment-section" style="display: none;">
+        <input type="number" id="loan-payment-amount" placeholder="Jumlah Cicilan" min="0">
+        <button onclick="payLoanInstallment()">Bayar Cicilan</button>
+      </div>
+    </section>
+    
+    
+    <!-- Next Day Button -->
     <section class="end-day">
       <button id="next-day">⏩ Next Day</button>
     </section>
   </div>
-  
 
   <!-- Save Game Controls -->
   <section class="save-controls">
@@ -1315,6 +1548,16 @@
 
   <!-- Tombol Buka/Tutup Toko -->
   <button class="store-status-button" id="store-status-button" onclick="toggleStoreStatus()">Buka Toko</button>
+
+  <!-- Game Over Popup (hidden by default) -->
+  <div id="game-over-popup" class="game-over-popup" style="display: none;">
+    <div class="game-over-content">
+      <h2>💔 GAME OVER</h2>
+      <p>Toko Anda bangkrut!</p>
+      <p id="game-over-reason"></p>
+      <button onclick="resetGame()">Mulai Lagi</button>
+    </div>
+  </div>
 
   <script>
     // Data dan inisialisasi
@@ -1335,12 +1578,11 @@
     const saldoUtamaElement = document.getElementById("saldo-utama");
     const saldoModalElement = document.getElementById("saldo-modal");
     const saldoKeuntunganElement = document.getElementById("saldo-keuntungan");
-    const saldoRekeningElement = document.getElementById("saldo-rekening");
     const dailyProfitElement = document.getElementById("daily-profit-amount");
     const currentDayDisplay = document.getElementById("current-day-display");
     const dayCounterElement = document.getElementById("day-counter");
     const keuntunganBalanceElement = document.getElementById("keuntungan-balance");
-    const rekeningBalanceElement = document.getElementById("rekening-balance");
+    const utamaBalanceElement = document.getElementById("utama-balance");
     const productsElement = document.getElementById("products");
     const promoProductsElement = document.getElementById("promo-products");
     const activityLog = document.getElementById("activity-log");
@@ -1356,38 +1598,45 @@
     const lastSavedElement = document.getElementById("last-saved");
     const billsAmountElement = document.getElementById("bills-amount");
     const billsHistoryElement = document.getElementById("bills-history");
+    const taxAmountElement = document.getElementById("tax-amount");
+    const taxDueInfo = document.getElementById("tax-due-info");
+    const loanStatusElement = document.getElementById("loan-status");
+    const loanPaymentSection = document.getElementById("loan-payment-section");
     const promoTitle = document.getElementById("promo-title");
     const promoLine1 = document.getElementById("promo-line1");
     const promoLine2 = document.getElementById("promo-line2");
     const promoLine3 = document.getElementById("promo-line3");
+    const gameOverPopup = document.getElementById("game-over-popup");
+    const gameOverReason = document.getElementById("game-over-reason");
+    const customerCountElement = document.getElementById("customer-count");
 
-    let saldoUtama = 10000000;
+    let saldoUtama = 30000000; // Modal awal 30 juta di rekening utama
     let saldoModal = 0;
     let saldoKeuntungan = 0;
-    let saldoRekening = 5000000; // Rekening utama mulai dengan 5 juta
     let dailyProfit = 0;
     let currentDay = 1; // Day counter
     let currentTime = 10 * 60; // Start at 10:00 AM
 
+    // Semua produk stok awal 0
     let products = [
-      { name: "Premium Sweet Apple 120ml", price: 310900, stock: 100, modalPrice: 224300, discount: 0, active: true, salesCount: 0 },
-      { name: "Premium Fresh Ocean Blue 120ml", price: 299900, stock: 100, modalPrice: 216300, discount: 0, active: true, salesCount: 0 },
-      { name: "Premium Sweet Bliss 120ml", price: 278000, stock: 100, modalPrice: 189600, discount: 0, active: true, salesCount: 0 },
-      { name: "Premium Mystic Odyssey 120ml", price: 289500, stock: 100, modalPrice: 209200, discount: 0, active: true, salesCount: 0 },
-      { name: "Premium Greentea Purple 120ml", price: 413000, stock: 100, modalPrice: 293500, discount: 0, active: true, salesCount: 0 },
-      { name: "Premium Velvet Breeze 120ml", price: 284000, stock: 100, modalPrice: 199000, discount: 0, active: true, salesCount: 0 },
-      { name: "Premium Artic Frost 120ml", price: 283500, stock: 100, modalPrice: 187500, discount: 0, active: true, salesCount: 0 },
-      { name: "Mini Premium Fresh Ocean Blue 50ml", price: 89200, stock: 100, modalPrice: 53900, discount: 0, active: true, salesCount: 0 },
-      { name: "Mini Premium Sweet Bliss 50ml", price: 88900, stock: 100, modalPrice: 53300, discount: 0, active: true, salesCount: 0 },
-      { name: "Ergonomis Blue Essense 80ml", price: 127000, stock: 100, modalPrice: 78400, discount: 0, active: true, salesCount: 0 },
-      { name: "Ergonomis Ocean Myst Cool 80ml", price: 131000, stock: 100, modalPrice: 82600, discount: 0, active: true, salesCount: 0 },
-      { name: "Ergonomis Green Velvet 80ml", price: 124500, stock: 100, modalPrice: 74800, discount: 0, active: true, salesCount: 0 },
-      { name: "Ergonomis Fanta Black 80ml", price: 119000, stock: 100, modalPrice: 72000, discount: 0, active: true, salesCount: 0 },
-      { name: "Ergonomis Black Coffie 80ml", price: 138000, stock: 100, modalPrice: 74000, discount: 0, active: true, salesCount: 0 },
-      { name: "Ergonomis Frosty Apple 80ml", price: 122000, stock: 100, modalPrice: 65000, discount: 0, active: true, salesCount: 0 }
+      { name: "Premium Sweet Apple 120ml", price: 310900, stock: 0, modalPrice: 224300, discount: 0, active: true, salesCount: 0 },
+      { name: "Premium Fresh Ocean Blue 120ml", price: 299900, stock: 0, modalPrice: 216300, discount: 0, active: true, salesCount: 0 },
+      { name: "Premium Sweet Bliss 120ml", price: 278000, stock: 0, modalPrice: 189600, discount: 0, active: true, salesCount: 0 },
+      { name: "Premium Mystic Odyssey 120ml", price: 289500, stock: 0, modalPrice: 209200, discount: 0, active: true, salesCount: 0 },
+      { name: "Premium Greentea Purple 120ml", price: 413000, stock: 0, modalPrice: 293500, discount: 0, active: true, salesCount: 0 },
+      { name: "Premium Velvet Breeze 120ml", price: 284000, stock: 0, modalPrice: 199000, discount: 0, active: true, salesCount: 0 },
+      { name: "Premium Artic Frost 120ml", price: 283500, stock: 0, modalPrice: 187500, discount: 0, active: true, salesCount: 0 },
+      { name: "Mini Premium Fresh Ocean Blue 50ml", price: 89200, stock: 0, modalPrice: 53900, discount: 0, active: true, salesCount: 0 },
+      { name: "Mini Premium Sweet Bliss 50ml", price: 88900, stock: 0, modalPrice: 53300, discount: 0, active: true, salesCount: 0 },
+      { name: "Ergonomis Blue Essense 80ml", price: 127000, stock: 0, modalPrice: 78400, discount: 0, active: true, salesCount: 0 },
+      { name: "Ergonomis Ocean Myst Cool 80ml", price: 131000, stock: 0, modalPrice: 82600, discount: 0, active: true, salesCount: 0 },
+      { name: "Ergonomis Green Velvet 80ml", price: 124500, stock: 0, modalPrice: 74800, discount: 0, active: true, salesCount: 0 },
+      { name: "Ergonomis Fanta Black 80ml", price: 119000, stock: 0, modalPrice: 72000, discount: 0, active: true, salesCount: 0 },
+      { name: "Ergonomis Black Coffie 80ml", price: 138000, stock: 0, modalPrice: 74000, discount: 0, active: true, salesCount: 0 },
+      { name: "Ergonomis Frosty Apple 80ml", price: 122000, stock: 0, modalPrice: 65000, discount: 0, active: true, salesCount: 0 }
     ];
 
-    // Promo products (max 2 slots - kembali seperti semula)
+    // Promo products (max 2 slots)
     let promoProducts = [
       { name: "", price: 0, stock: 0, modalPrice: 0, discount: 0, active: false, duration: 0, endTime: 0, salesCount: 0 },
       { name: "", price: 0, stock: 0, modalPrice: 0, discount: 0, active: false, duration: 0, endTime: 0, salesCount: 0 }
@@ -1402,12 +1651,30 @@
     let lastBillsPaidDay = 0;
     let billsHistory = [];
 
+    // Daily Tax (1% per transaction)
+    let dailyTaxTotal = 0;
+    let lastTaxPaidDay = 0;
+
+    // Loan System
+    let loanActive = false;
+    let loanAmount = 0;
+    let loanTenor = 0; // in weeks
+    let loanRemainingWeeks = 0;
+    let loanWeeklyPayment = 0;
+    let loanLastPaymentDay = 0;
+    let loanOverdueWeeks = 0;
+    const MAX_LOAN = 100000000;
+    const LOAN_INTEREST_RATE = 0.15; // 15% per week for overdue
+
     // Rating
     let rating = 0;
     let totalRatings = 0;
     let averageRating = 0;
     let promoCount = 0;
     let storeOpen = true;
+    
+    // Customer multiplier based on rating
+    let customerMultiplier = 0.1; // Default sangat sepi
 
     const comments = [
       "Parfumnya tahan lama, wanginya enak banget!",
@@ -1462,14 +1729,67 @@
       "Promo ini bikin saya jadi pelanggan setia!"
     ];
 
+    // ========== GAME OVER CHECK ==========
+    function checkGameOver() {
+      let reason = "";
+      let gameOver = false;
+
+      if (saldoUtama < 0 && saldoModal < 0 && saldoKeuntungan < 0) {
+        gameOver = true;
+        reason = "Saldo utama, modal, dan keuntungan minus!";
+      } else if (dailyTaxTotal > 0 && currentDay > lastTaxPaidDay && saldoUtama < dailyTaxTotal) {
+        // Accumulated tax too high and can't pay
+        gameOver = true;
+        reason = "Tagihan pajak menumpuk dan tidak mampu membayar!";
+      } else if (monthlyBills > 0 && currentDay > lastBillsPaidDay + 30 && saldoUtama < monthlyBills) {
+        gameOver = true;
+        reason = "Tagihan bulanan menumpuk dan tidak mampu membayar!";
+      } else if (loanActive && loanRemainingWeeks > 0) {
+        // Check if loan is severely overdue (more than 4 weeks overdue)
+        const weeksSinceLastPayment = Math.floor((currentDay - loanLastPaymentDay) / 7);
+        if (weeksSinceLastPayment > 4) {
+          gameOver = true;
+          reason = "Pinjaman menunggak lebih dari 4 minggu!";
+        }
+      }
+
+      if (gameOver) {
+        gameOverReason.textContent = reason;
+        gameOverPopup.style.display = "flex";
+        return true;
+      }
+      return false;
+    }
+
+    // ========== CUSTOMER MULTIPLIER BASED ON RATING ==========
+    function updateCustomerMultiplier() {
+      if (averageRating >= 4.5) {
+        customerMultiplier = 2.0; // Sangat ramai
+      } else if (averageRating >= 4.0) {
+        customerMultiplier = 1.5; // Ramai
+      } else if (averageRating >= 3.5) {
+        customerMultiplier = 1.0; // Normal
+      } else if (averageRating >= 3.0) {
+        customerMultiplier = 0.7; // Agak sepi
+      } else if (averageRating >= 2.5) {
+        customerMultiplier = 0.4; // Sepi
+      } else if (averageRating >= 2.0) {
+        customerMultiplier = 0.2; // Sangat sepi
+      } else {
+        customerMultiplier = 0.1; // Hampir tidak ada pembeli
+      }
+      
+      customerCountElement.textContent = `👥 Pengunjung: ${Math.round(customerMultiplier * 100)}% (Rating: ${averageRating.toFixed(1)})`;
+    }
+
     // ========== BANKING FUNCTIONS ==========
     window.withdrawProfit = function() {
       const amount = parseInt(document.getElementById('withdraw-amount').value);
       if (amount > 0 && amount <= saldoKeuntungan) {
         saldoKeuntungan -= amount;
-        saldoRekening += amount;
+        saldoUtama += amount;
         updateSaldo();
-        logActivity(`💰 Penarikan keuntungan: Rp ${amount.toLocaleString()} ke rekening utama`);
+        logActivity(`💰 Penarikan keuntungan: Rp ${amount.toLocaleString()} ke saldo utama`);
         document.getElementById('withdraw-amount').value = '';
       } else {
         alert("Jumlah tidak valid atau melebihi saldo keuntungan!");
@@ -1480,9 +1800,9 @@
       if (saldoKeuntungan > 0) {
         const amount = saldoKeuntungan;
         saldoKeuntungan = 0;
-        saldoRekening += amount;
+        saldoUtama += amount;
         updateSaldo();
-        logActivity(`💰 Penarikan semua keuntungan: Rp ${amount.toLocaleString()} ke rekening utama`);
+        logActivity(`💰 Penarikan semua keuntungan: Rp ${amount.toLocaleString()} ke saldo utama`);
       } else {
         alert("Tidak ada keuntungan untuk ditarik!");
       }
@@ -1490,30 +1810,139 @@
 
     window.topupModal = function() {
       const amount = parseInt(document.getElementById('topup-amount').value);
-      if (amount > 0 && amount <= saldoRekening) {
-        saldoRekening -= amount;
+      if (amount > 0 && amount <= saldoUtama) {
+        saldoUtama -= amount;
         saldoModal += amount;
-        saldoUtama += amount;
         updateSaldo();
-        logActivity(`💳 Topup modal: Rp ${amount.toLocaleString()} dari rekening utama`);
+        logActivity(`💳 Topup modal: Rp ${amount.toLocaleString()} dari saldo utama ke modal`);
         document.getElementById('topup-amount').value = '';
       } else {
-        alert("Jumlah tidak valid atau melebihi saldo rekening!");
+        alert("Jumlah tidak valid atau melebihi saldo utama!");
       }
     };
 
     window.topupAllModal = function() {
-      if (saldoRekening > 0) {
-        const amount = saldoRekening;
-        saldoRekening = 0;
+      if (saldoUtama > 0) {
+        const amount = saldoUtama;
+        saldoUtama = 0;
         saldoModal += amount;
-        saldoUtama += amount;
         updateSaldo();
-        logActivity(`💳 Topup semua modal: Rp ${amount.toLocaleString()} dari rekening utama`);
+        logActivity(`💳 Topup semua modal: Rp ${amount.toLocaleString()} dari saldo utama ke modal`);
       } else {
-        alert("Tidak ada saldo di rekening untuk ditopup!");
+        alert("Tidak ada saldo di utama untuk ditopup!");
       }
     };
+
+    // ========== LOAN FUNCTIONS ==========
+    window.takeLoan = function() {
+      if (loanActive) {
+        alert("Anda sudah memiliki pinjaman aktif! Selesaikan pinjaman terlebih dahulu.");
+        return;
+      }
+
+      const amount = parseInt(document.getElementById('loan-amount').value);
+      const tenor = parseInt(document.getElementById('loan-tenor').value);
+
+      if (!amount || amount < 100000 || amount > MAX_LOAN) {
+        alert(`Jumlah pinjaman harus antara Rp 100.000 dan Rp ${MAX_LOAN.toLocaleString()}`);
+        return;
+      }
+
+      loanActive = true;
+      loanAmount = amount;
+      loanTenor = tenor;
+      loanRemainingWeeks = tenor;
+      loanWeeklyPayment = Math.ceil(amount / tenor);
+      loanLastPaymentDay = currentDay;
+      loanOverdueWeeks = 0;
+
+      saldoUtama += amount;
+      updateSaldo();
+      updateLoanStatus();
+      logActivity(`💰 Pinjaman diterima: Rp ${amount.toLocaleString()} (${tenor} minggu, cicilan Rp ${loanWeeklyPayment.toLocaleString()}/minggu)`);
+    };
+
+    window.payLoanInstallment = function() {
+      if (!loanActive) {
+        alert("Tidak ada pinjaman aktif!");
+        return;
+      }
+
+      const payment = parseInt(document.getElementById('loan-payment-amount').value);
+      if (!payment || payment < 0) {
+        alert("Masukkan jumlah pembayaran yang valid!");
+        return;
+      }
+
+      // Calculate overdue first
+      const weeksSinceLastPayment = Math.floor((currentDay - loanLastPaymentDay) / 7);
+      if (weeksSinceLastPayment > 0) {
+        loanOverdueWeeks += weeksSinceLastPayment;
+        loanLastPaymentDay = currentDay;
+      }
+
+      // Calculate total due with interest if overdue
+      let totalDue = loanWeeklyPayment;
+      if (loanOverdueWeeks > 0) {
+        totalDue += loanWeeklyPayment * loanOverdueWeeks * LOAN_INTEREST_RATE;
+      }
+
+      if (payment < totalDue) {
+        alert(`Pembayaran minimal Rp ${totalDue.toLocaleString()} (termasuk bunga ${loanOverdueWeeks > 0 ? '15%' : '0%'})`);
+        return;
+      }
+
+      if (payment > saldoUtama) {
+        alert("Saldo utama tidak cukup!");
+        return;
+      }
+
+      // Process payment
+      saldoUtama -= payment;
+      
+      if (loanOverdueWeeks > 0) {
+        // Pay overdue first
+        const interestPaid = loanWeeklyPayment * loanOverdueWeeks * LOAN_INTEREST_RATE;
+        const principalPaid = payment - interestPaid;
+        loanRemainingWeeks -= (principalPaid / loanWeeklyPayment);
+        logActivity(`💰 Membayar cicilan pinjaman: Rp ${payment.toLocaleString()} (Bunga: Rp ${Math.round(interestPaid).toLocaleString()})`);
+        loanOverdueWeeks = 0;
+      } else {
+        loanRemainingWeeks -= 1;
+        logActivity(`💰 Membayar cicilan pinjaman: Rp ${payment.toLocaleString()}`);
+      }
+
+      if (loanRemainingWeeks <= 0) {
+        loanActive = false;
+        loanAmount = 0;
+        loanRemainingWeeks = 0;
+        loanWeeklyPayment = 0;
+        logActivity("✅ Pinjaman lunas!");
+      }
+
+      loanLastPaymentDay = currentDay;
+      updateSaldo();
+      updateLoanStatus();
+      document.getElementById('loan-payment-amount').value = '';
+    };
+
+    function updateLoanStatus() {
+      if (!loanActive) {
+        loanStatusElement.textContent = "Tidak ada pinjaman aktif";
+        loanPaymentSection.style.display = "none";
+        return;
+      }
+
+      const weeksSinceLastPayment = Math.floor((currentDay - loanLastPaymentDay) / 7);
+      let status = `Pinjaman: Rp ${loanAmount.toLocaleString()} | Sisa: ${loanRemainingWeeks} minggu | Cicilan/minggu: Rp ${loanWeeklyPayment.toLocaleString()}`;
+      
+      if (weeksSinceLastPayment > 0) {
+        status += ` | ⚠️ Telat ${weeksSinceLastPayment} minggu (bunga 15%)`;
+      }
+      
+      loanStatusElement.textContent = status;
+      loanPaymentSection.style.display = "block";
+    }
 
     // ========== AUTO RESTOCK FUNCTIONS ==========
     window.toggleAutoRestock = function() {
@@ -1540,7 +1969,6 @@
           if (saldoModal >= totalCost) {
             product.stock += autoRestockAmount;
             saldoModal -= totalCost;
-            saldoUtama -= totalCost;
             logActivity(`⚡ Auto Restock: ${product.name} sebanyak ${autoRestockAmount} (Rp ${totalCost.toLocaleString()})`);
           }
         }
@@ -1548,6 +1976,47 @@
       updateSaldo();
       updateProducts();
     }
+
+    // ========== TAX FUNCTIONS ==========
+    function addDailyTax(transactionAmount) {
+      const tax = Math.round(transactionAmount * 0.01); // 1% tax
+      dailyTaxTotal += tax;
+      updateTaxDisplay();
+      logActivity(`🧾 Pajak 1%: Rp ${tax.toLocaleString()} ditambahkan ke tagihan harian`);
+    }
+
+    function updateTaxDisplay() {
+      taxAmountElement.textContent = `Rp ${dailyTaxTotal.toLocaleString()}`;
+      if (currentDay > lastTaxPaidDay) {
+        taxDueInfo.textContent = `Belum dibayar (Hari ke-${lastTaxPaidDay + 1} - sekarang)`;
+      } else {
+        taxDueInfo.textContent = `Sudah dibayar hari ini`;
+      }
+    }
+
+    window.payDailyTax = function() {
+      if (currentDay <= lastTaxPaidDay) {
+        alert("Pajak hari ini sudah dibayar!");
+        return;
+      }
+
+      if (dailyTaxTotal <= 0) {
+        alert("Tidak ada pajak yang perlu dibayar hari ini.");
+        return;
+      }
+
+      if (saldoUtama >= dailyTaxTotal) {
+        saldoUtama -= dailyTaxTotal;
+        logActivity(`🧾 Membayar pajak harian: Rp ${dailyTaxTotal.toLocaleString()}`);
+        lastTaxPaidDay = currentDay;
+        dailyTaxTotal = 0;
+        updateSaldo();
+        updateTaxDisplay();
+      } else {
+        alert("Saldo utama tidak cukup untuk membayar pajak!");
+        checkGameOver();
+      }
+    };
 
     // ========== MONTHLY BILLS FUNCTIONS ==========
     function calculateMonthlyBills() {
@@ -1584,6 +2053,7 @@
         updateSaldo();
       } else {
         alert("Saldo utama tidak cukup untuk membayar tagihan!");
+        checkGameOver();
       }
     };
 
@@ -1593,12 +2063,20 @@
       const price = parseInt(document.getElementById('new-product-price').value);
       const modal = parseInt(document.getElementById('new-product-modal').value);
       const stock = parseInt(document.getElementById('new-product-stock').value) || 10;
+      const creationFee = 10000000; // Rp 10.000.000 untuk produk baru
 
       if (!name || !price || !modal) {
         alert("Harap isi semua field!");
         return;
       }
 
+      if (saldoUtama < creationFee) {
+        alert(`Saldo utama tidak cukup! Membuat produk baru membutuhkan Rp ${creationFee.toLocaleString()}`);
+        return;
+      }
+
+      saldoUtama -= creationFee;
+      
       products.push({
         name: name,
         price: price,
@@ -1609,11 +2087,12 @@
         salesCount: 0
       });
 
-      logActivity(`➕ Produk baru ditambahkan: ${name}`);
+      logActivity(`➕ Produk baru ditambahkan: ${name} (Biaya: Rp ${creationFee.toLocaleString()})`);
       document.getElementById('new-product-name').value = '';
       document.getElementById('new-product-price').value = '';
       document.getElementById('new-product-modal').value = '';
       document.getElementById('new-product-stock').value = '10';
+      updateSaldo();
       updateProducts();
     };
 
@@ -1665,7 +2144,6 @@
         saldoUtama,
         saldoModal,
         saldoKeuntungan,
-        saldoRekening,
         dailyProfit,
         currentDay,
         currentTime,
@@ -1676,6 +2154,15 @@
         monthlyBills,
         lastBillsPaidDay,
         billsHistory,
+        dailyTaxTotal,
+        lastTaxPaidDay,
+        loanActive,
+        loanAmount,
+        loanTenor,
+        loanRemainingWeeks,
+        loanWeeklyPayment,
+        loanLastPaymentDay,
+        loanOverdueWeeks,
         totalRatings,
         averageRating,
         promoCount,
@@ -1698,24 +2185,32 @@
         try {
           const gameData = JSON.parse(savedData);
 
-          saldoUtama = gameData.saldoUtama;
-          saldoModal = gameData.saldoModal;
-          saldoKeuntungan = gameData.saldoKeuntungan;
-          saldoRekening = gameData.saldoRekening || 5000000;
+          saldoUtama = gameData.saldoUtama || 30000000;
+          saldoModal = gameData.saldoModal || 0;
+          saldoKeuntungan = gameData.saldoKeuntungan || 0;
           dailyProfit = gameData.dailyProfit || 0;
           currentDay = gameData.currentDay || 1;
-          currentTime = gameData.currentTime;
-          products = gameData.products;
+          currentTime = gameData.currentTime || 600;
+          products = gameData.products || products;
           promoProducts = gameData.promoProducts || promoProducts;
           autoRestockEnabled = gameData.autoRestockEnabled || false;
           autoRestockAmount = gameData.autoRestockAmount || 10;
           monthlyBills = gameData.monthlyBills || 0;
           lastBillsPaidDay = gameData.lastBillsPaidDay || 0;
           billsHistory = gameData.billsHistory || [];
-          totalRatings = gameData.totalRatings;
-          averageRating = gameData.averageRating;
-          promoCount = gameData.promoCount;
-          storeOpen = gameData.storeOpen;
+          dailyTaxTotal = gameData.dailyTaxTotal || 0;
+          lastTaxPaidDay = gameData.lastTaxPaidDay || 0;
+          loanActive = gameData.loanActive || false;
+          loanAmount = gameData.loanAmount || 0;
+          loanTenor = gameData.loanTenor || 0;
+          loanRemainingWeeks = gameData.loanRemainingWeeks || 0;
+          loanWeeklyPayment = gameData.loanWeeklyPayment || 0;
+          loanLastPaymentDay = gameData.loanLastPaymentDay || 0;
+          loanOverdueWeeks = gameData.loanOverdueWeeks || 0;
+          totalRatings = gameData.totalRatings || 0;
+          averageRating = gameData.averageRating || 0;
+          promoCount = gameData.promoCount || 0;
+          storeOpen = gameData.storeOpen !== undefined ? gameData.storeOpen : true;
 
           if (gameData.promoTitle) promoTitle.innerHTML = gameData.promoTitle;
           if (gameData.promoLine1) promoLine1.innerHTML = gameData.promoLine1;
@@ -1725,10 +2220,13 @@
           document.getElementById('auto-restock-toggle').checked = autoRestockEnabled;
           document.getElementById('auto-restock-amount').value = autoRestockAmount;
 
+          updateCustomerMultiplier();
           updateSaldo();
           updateProducts();
           updateDailyProfitDisplay();
           updateBillsDisplay();
+          updateTaxDisplay();
+          updateLoanStatus();
           dayCounterElement.textContent = currentDay;
           ratingValueElement.textContent = averageRating.toFixed(1);
           storeStatusButton.textContent = storeOpen ? "Tutup Toko" : "Buka Toko";
@@ -1745,14 +2243,13 @@
 
     function resetGame() {
       if (confirm("Apakah Anda yakin ingin mereset game? Semua progress akan hilang!")) {
-        saldoUtama = 10000000;
+        saldoUtama = 30000000;
         saldoModal = 0;
         saldoKeuntungan = 0;
-        saldoRekening = 5000000;
         dailyProfit = 0;
         currentDay = 1;
         currentTime = 10 * 60;
-        products = products.map(p => ({ ...p, stock: 100, discount: 0, active: true, salesCount: 0 }));
+        products = products.map(p => ({ ...p, stock: 0, discount: 0, active: true, salesCount: 0 }));
         promoProducts = [
           { name: "", price: 0, stock: 0, modalPrice: 0, discount: 0, active: false, duration: 0, endTime: 0, salesCount: 0 },
           { name: "", price: 0, stock: 0, modalPrice: 0, discount: 0, active: false, duration: 0, endTime: 0, salesCount: 0 }
@@ -1762,6 +2259,15 @@
         monthlyBills = 0;
         lastBillsPaidDay = 0;
         billsHistory = [];
+        dailyTaxTotal = 0;
+        lastTaxPaidDay = 0;
+        loanActive = false;
+        loanAmount = 0;
+        loanTenor = 0;
+        loanRemainingWeeks = 0;
+        loanWeeklyPayment = 0;
+        loanLastPaymentDay = 0;
+        loanOverdueWeeks = 0;
         totalRatings = 0;
         averageRating = 0;
         promoCount = 0;
@@ -1778,10 +2284,15 @@
         activityLog.innerHTML = "<p>Ruang Pembeli..</p>";
         commentBox.innerHTML = "<p>Komentar disini..</p>";
 
+        gameOverPopup.style.display = "none";
+
+        updateCustomerMultiplier();
         updateSaldo();
         updateProducts();
         updateDailyProfitDisplay();
         updateBillsDisplay();
+        updateTaxDisplay();
+        updateLoanStatus();
         dayCounterElement.textContent = currentDay;
         ratingValueElement.textContent = "0";
         storeStatusButton.textContent = "Tutup Toko";
@@ -1966,6 +2477,14 @@
         promoCount++;
         logActivity(`Promo untuk ${promoProducts[index].name} diaktifkan.`);
         addComment(`Pembeli: "Promo ${promoProducts[index].name} menarik, saya beli banyak!"`);
+        
+        // Promo bisa sedikit menaikkan rating
+        if (averageRating < 4.0) {
+          averageRating = Math.min(4.0, averageRating + 0.1);
+          ratingValueElement.textContent = averageRating.toFixed(1);
+          updateCustomerMultiplier();
+        }
+        
         updateRatingEffect();
       } else {
         promoProducts[index].active = false;
@@ -1994,6 +2513,11 @@
         logActivity(`📅 Hari ${currentDay} dimulai!`);
         resetDailyProfit();
         calculateMonthlyBills();
+        
+        // Check for overdue tax
+        if (currentDay > lastTaxPaidDay && dailyTaxTotal > 0) {
+          logActivity(`⚠️ Pajak hari ke-${lastTaxPaidDay + 1} belum dibayar!`);
+        }
       }
 
       promoProducts.forEach((product, index) => {
@@ -2008,6 +2532,14 @@
           updateProducts();
         }
       });
+
+      // Update loan status
+      if (loanActive) {
+        updateLoanStatus();
+      }
+
+      // Check game over condition
+      checkGameOver();
     }
 
     nextDayButton.addEventListener("click", () => {
@@ -2017,6 +2549,13 @@
       resetDailyProfit();
       calculateMonthlyBills();
       logActivity(`⏩ Hari ${currentDay} dimulai! Toko dibuka.`);
+      
+      // Check for overdue tax
+      if (currentDay > lastTaxPaidDay && dailyTaxTotal > 0) {
+        logActivity(`⚠️ Pajak hari ke-${lastTaxPaidDay + 1} belum dibayar!`);
+      }
+      
+      checkGameOver();
     });
 
     document.getElementById('restock-form').addEventListener("submit", (e) => {
@@ -2032,7 +2571,6 @@
         if (saldoModal >= totalCost) {
           product.stock += restockQuantity;
           saldoModal -= totalCost;
-          saldoUtama -= totalCost;
           updateSaldo();
           logActivity(`Restok ${product.name} sebanyak ${restockQuantity} dengan biaya Rp ${totalCost.toLocaleString()}.`);
           updateProducts();
@@ -2097,7 +2635,7 @@
             emptyPromoSlot.modalPrice = product.modalPrice;
             emptyPromoSlot.discount = discountValue;
             emptyPromoSlot.duration = durationValue;
-            emptyPromoSlot.active = false; // TIDAK LANGSUNG AKTIF
+            emptyPromoSlot.active = false;
             emptyPromoSlot.endTime = currentTime + durationValue * 60;
             emptyPromoSlot.salesCount = 0;
             saldoUtama -= product.modalPrice * stockValue;
@@ -2119,9 +2657,8 @@
       saldoUtamaElement.textContent = `Rp ${saldoUtama.toLocaleString()}`;
       saldoModalElement.textContent = `Rp ${saldoModal.toLocaleString()}`;
       saldoKeuntunganElement.textContent = `Rp ${saldoKeuntungan.toLocaleString()}`;
-      saldoRekeningElement.textContent = `Rp ${saldoRekening.toLocaleString()}`;
+      utamaBalanceElement.textContent = `Rp ${saldoUtama.toLocaleString()}`;
       keuntunganBalanceElement.textContent = `Rp ${saldoKeuntungan.toLocaleString()}`;
-      rekeningBalanceElement.textContent = `Rp ${saldoRekening.toLocaleString()}`;
     }
 
     function logActivity(message) {
@@ -2139,89 +2676,143 @@
     }
 
     function simulateCustomerBehavior() {
-      if (storeOpen) {
-        const botName = botNames[Math.floor(Math.random() * botNames.length)];
-        const numProductsToBuy = Math.floor(Math.random() * 3) + 1;
-        let totalTransaction = 0;
-        let transactionDetails = `${botName} membeli:`;
+      if (!storeOpen) return;
 
-        const availablePromoProducts = promoProducts.filter(p => p.name && p.stock > 0 && p.active);
-        const availableProducts = products.filter(p => p.stock > 0 && p.active);
-
-        for (let i = 0; i < numProductsToBuy; i++) {
-          let product;
-          let isPromo = false;
-
-          if (availablePromoProducts.length > 0 && Math.random() < 0.7) {
-            product = availablePromoProducts[Math.floor(Math.random() * availablePromoProducts.length)];
-            isPromo = true;
-          } else if (availableProducts.length > 0) {
-            product = availableProducts[Math.floor(Math.random() * availableProducts.length)];
-          } else {
-            continue;
-          }
-
-          const quantity = Math.floor(Math.random() * 3) + 1;
-
-          if (product.stock >= quantity) {
-            const discountedPrice = product.price * (1 - product.discount / 100);
-            const totalPrice = discountedPrice * quantity;
-            const profit = totalPrice - (product.modalPrice * quantity);
-
-            product.stock -= quantity;
-
-            if (isPromo) {
-              product.salesCount += quantity;
-            } else {
-              product.salesCount += quantity;
-            }
-
-            totalTransaction += totalPrice;
-            saldoUtama += totalPrice;
-            saldoKeuntungan += profit;
-            dailyProfit += profit;
-            saldoModal += product.modalPrice * quantity;
-
-            transactionDetails += ` ${quantity} ${product.name},`;
-          } else if (product.stock === 0) {
-            addComment(`${botName}: "Kapan restock ${product.name}? Stok habis nih!"`);
-          } else if (!product.active) {
-            addComment(`${botName}: "Kenapa ${product.name} gak dijual lagi?"`);
-          } else {
-            addComment(`${botName}: "Harga ${product.name} kemahalan, gak jadi beli deh."`);
-          }
-        }
-
-        if (totalTransaction > 0) {
-          logActivity(`${transactionDetails} total Rp ${Math.round(totalTransaction).toLocaleString()}.`);
-          const randomComment = comments[Math.floor(Math.random() * comments.length)];
-          addComment(`${botName}: "${randomComment}"`);
-          giveRating(botName);
-        }
-
-        checkAndAutoRestock();
-
-        updateProducts();
-        updateSaldo();
-        updateDailyProfitDisplay();
+      // Hitung jumlah pembeli berdasarkan rating
+      let customerChance = customerMultiplier;
+      
+      // Jika ada promo aktif, chance meningkat
+      const activePromoCount = promoProducts.filter(p => p.active).length;
+      if (activePromoCount > 0) {
+        customerChance *= (1 + activePromoCount * 0.5); // +50% per promo aktif
       }
+
+      // Random chance untuk kedatangan pembeli
+      if (Math.random() > customerChance) {
+        return; // Tidak ada pembeli kali ini
+      }
+
+      const botName = botNames[Math.floor(Math.random() * botNames.length)];
+      
+      // Tentukan apakah pembeli lebih suka promo atau produk biasa
+      const preferPromo = Math.random() < 0.7; // 70% suka promo jika ada
+      
+      let numProductsToBuy = 1;
+      if (averageRating >= 4.0) {
+        numProductsToBuy = Math.floor(Math.random() * 4) + 1; // 1-4 produk
+      } else if (averageRating >= 3.0) {
+        numProductsToBuy = Math.floor(Math.random() * 3) + 1; // 1-3 produk
+      } else {
+        numProductsToBuy = Math.floor(Math.random() * 2) + 1; // 1-2 produk
+      }
+
+      let totalTransaction = 0;
+      let transactionDetails = `${botName} membeli:`;
+
+      const availablePromoProducts = promoProducts.filter(p => p.name && p.stock > 0 && p.active);
+      const availableProducts = products.filter(p => p.stock > 0 && p.active);
+
+      for (let i = 0; i < numProductsToBuy; i++) {
+        let product;
+        let isPromo = false;
+
+        if (preferPromo && availablePromoProducts.length > 0 && Math.random() < 0.8) {
+          product = availablePromoProducts[Math.floor(Math.random() * availablePromoProducts.length)];
+          isPromo = true;
+        } else if (availableProducts.length > 0) {
+          product = availableProducts[Math.floor(Math.random() * availableProducts.length)];
+        } else {
+          continue;
+        }
+
+        const quantity = Math.floor(Math.random() * 3) + 1;
+
+        if (product.stock >= quantity) {
+          const discountedPrice = product.price * (1 - product.discount / 100);
+          const totalPrice = discountedPrice * quantity;
+          const profit = totalPrice - (product.modalPrice * quantity);
+
+          product.stock -= quantity;
+
+          if (isPromo) {
+            product.salesCount += quantity;
+          } else {
+            product.salesCount += quantity;
+          }
+
+          totalTransaction += totalPrice;
+          
+          // Uang masuk ke saldo modal (modal kembali) dan keuntungan
+          saldoModal += product.modalPrice * quantity; // Modal kembali
+          saldoKeuntungan += profit; // Keuntungan murni
+          dailyProfit += profit;
+
+          // Tambah pajak 1% dari total transaksi
+          addDailyTax(totalPrice);
+
+          transactionDetails += ` ${quantity} ${product.name},`;
+        } else if (product.stock === 0) {
+          addComment(`${botName}: "Kapan restock ${product.name}? Stok habis nih!"`);
+        } else if (!product.active) {
+          addComment(`${botName}: "Kenapa ${product.name} gak dijual lagi?"`);
+        } else {
+          addComment(`${botName}: "Harga ${product.name} kemahalan, gak jadi beli deh."`);
+        }
+      }
+
+      if (totalTransaction > 0) {
+        logActivity(`${transactionDetails} total Rp ${Math.round(totalTransaction).toLocaleString()}.`);
+        const randomComment = comments[Math.floor(Math.random() * comments.length)];
+        addComment(`${botName}: "${randomComment}"`);
+        giveRating(botName);
+      }
+
+      checkAndAutoRestock();
+
+      updateProducts();
+      updateSaldo();
+      updateDailyProfitDisplay();
     }
 
     function giveRating(botName) {
-      const ratingValue = Math.floor(Math.random() * 5) + 1;
+      // Rating dipengaruhi oleh apakah ada promo atau tidak
+      let ratingValue = Math.floor(Math.random() * 5) + 1;
+      
+      // Jika ada promo aktif, rating cenderung lebih tinggi
+      const activePromoCount = promoProducts.filter(p => p.active).length;
+      if (activePromoCount > 0 && ratingValue < 4) {
+        ratingValue = Math.min(5, ratingValue + activePromoCount);
+      }
+      
       rating = ratingValue;
       totalRatings++;
+      
+      // Hitung rata-rata dengan bobot agar tidak naik terlalu cepat
       averageRating = ((averageRating * (totalRatings - 1)) + rating) / totalRatings;
+      
+      // Batasi agar tidak naik drastis
+      averageRating = Math.min(5, averageRating);
+      
       ratingValueElement.textContent = averageRating.toFixed(1);
       addComment(`${botName}: "Saya memberikan rating ${ratingValue} bintang untuk toko ini."`);
+      
+      updateCustomerMultiplier();
       updateRatingEffect();
     }
 
     function updateRatingEffect() {
-      if (averageRating >= 4) {
-        logActivity("Toko ramai karena rating bagus!");
-      } else if (averageRating <= 3) {
-        logActivity("Toko sepi karena rating rendah.");
+      if (averageRating >= 4.5) {
+        logActivity("⭐ Toko sangat ramai karena rating bintang 5!");
+      } else if (averageRating >= 4.0) {
+        logActivity("⭐ Toko ramai karena rating bagus!");
+      } else if (averageRating >= 3.5) {
+        logActivity("⭐ Toko cukup ramai, rating lumayan.");
+      } else if (averageRating >= 3.0) {
+        logActivity("⭐ Toko agak sepi, rating biasa saja.");
+      } else if (averageRating >= 2.5) {
+        logActivity("⭐ Toko sepi, rating kurang bagus.");
+      } else {
+        logActivity("⭐ Toko sangat sepi, rating buruk. Coba adakan promo!");
       }
     }
 
@@ -2240,6 +2831,13 @@
     loadGameBtn.addEventListener("click", loadGame);
     resetGameBtn.addEventListener("click", resetGame);
 
+    // Close game over popup when clicking reset
+    gameOverPopup.addEventListener("click", function(e) {
+      if (e.target === gameOverPopup) {
+        resetGame();
+      }
+    });
+
     const savedData = localStorage.getItem('grroseParfumeSave');
     if (savedData) {
       if (confirm("Ada data game tersimpan. Apakah Anda ingin memuatnya?")) {
@@ -2251,9 +2849,12 @@
     updateSaldo();
     updateDailyProfitDisplay();
     calculateMonthlyBills();
+    updateTaxDisplay();
+    updateLoanStatus();
+    updateCustomerMultiplier();
     dayCounterElement.textContent = currentDay;
     setInterval(updateTime, 1000);
-    setInterval(simulateCustomerBehavior, 5000);
+    setInterval(simulateCustomerBehavior, 8000); // Sedikit lebih lambat untuk keseimbangan
   </script>
 </body>
 </html>
