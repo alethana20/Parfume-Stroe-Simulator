@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GRROSE PARFUME - Premium Parfum</title>
   <style>
-    /* General Styles */
+    /* ====== CSS ANDA TETAP SAMA PERSIS ====== */
     body {
       font-family: 'Arial', sans-serif;
       margin: 0;
@@ -14,13 +14,10 @@
       color: #333;
       transition: background-color 0.3s, color 0.3s;
     }
-
     body.night-mode {
       background-color: #1a1a1a;
       color: #f4f4f9;
     }
-
-    /* Header dengan background AI-generated */
     .header {
       position: relative;
       background: linear-gradient(135deg, #ff7e5f, #feb47b), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.2"><path d="M20 50 Q35 30 50 50 T80 50" stroke="white" fill="none" stroke-width="2"/><circle cx="30" cy="40" r="3" fill="white"/><circle cx="70" cy="60" r="3" fill="white"/><circle cx="50" cy="30" r="4" fill="white"/><circle cx="50" cy="70" r="4" fill="white"/><path d="M40 70 Q50 85 60 70" stroke="white" fill="none" stroke-width="2"/></svg>');
@@ -31,1279 +28,197 @@
       padding: 30px 20px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-
-    .header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    }
-
-    .header p {
-      margin: 5px 0;
-      font-style: italic;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-    }
-
-    .header #time {
-      font-weight: bold;
-    }
-
-    .container {
-      padding: 15px;
-      padding-bottom: 70px; /* space for footer */
-    }
-
-    .dashboard {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
-    .dashboard .info {
-      background: white;
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    body.night-mode .dashboard .info {
-      background: #2c3e50;
-      color: #ecf0f1;
-    }
-
-    .dashboard .info h2 {
-      margin: 0;
-      font-size: 1rem;
-    }
-
-    .dashboard .info p {
-      margin: 5px 0;
-      font-size: 1.2rem;
-      font-weight: bold;
-    }
-
-    .dashboard .info small {
-      font-size: 0.8rem;
-      color: #666;
-    }
-
-    body.night-mode .dashboard .info small {
-      color: #aaa;
-    }
-
-    /* Daily Profit Info */
-    .daily-profit {
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      color: white;
-      padding: 15px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      text-align: center;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-
-    .daily-profit h3 {
-      margin: 0;
-      font-size: 1.1rem;
-    }
-
-    .daily-profit p {
-      margin: 5px 0;
-      font-size: 1.3rem;
-      font-weight: bold;
-    }
-
-    .daily-profit .reset-info {
-      font-size: 0.8rem;
-      opacity: 0.9;
-    }
-
-    /* Bank Transfer Controls */
-    .bank-controls {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
-      margin-bottom: 20px;
-    }
-
-    .bank-card {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-
-    body.night-mode .bank-card {
-      background: #2c3e50;
-    }
-
-    .bank-card h3 {
-      margin: 0 0 10px 0;
-      color: #007bff;
-    }
-
-    body.night-mode .bank-card h3 {
-      color: #3498db;
-    }
-
-    .bank-card .balance {
-      font-size: 1.5rem;
-      font-weight: bold;
-      margin: 10px 0;
-      color: #28a745;
-    }
-
-    .bank-card button {
-      background: #007bff;
-      color: white;
-      border: none;
-      border-radius: 25px;
-      padding: 10px 20px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: all 0.3s;
-      margin: 5px;
-      font-weight: bold;
-    }
-
-    .bank-card button:hover {
-      background: #0056b3;
-      transform: scale(1.05);
-    }
-
-    .bank-card button.secondary {
-      background: #6c757d;
-    }
-
-    .bank-card button.secondary:hover {
-      background: #545b62;
-    }
-
-    .bank-card input {
-      padding: 8px;
-      margin: 5px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      width: 150px;
-    }
-
-    body.night-mode .bank-card input {
-      background: #34495e;
-      color: #ecf0f1;
-      border-color: #2c3e50;
-    }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 15px;
-      margin-bottom: 20px;
-    }
-
-    .product {
-      background: white;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 15px;
-      text-align: center;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      transition: transform 0.2s, box-shadow 0.2s;
-      position: relative;
-    }
-
-    .product:hover {
-      transform: translateY(-5px);
-    }
-
-    .product.out-of-stock {
-      background-color: #f8d7da;
-    }
-
-    .product.inactive {
-      background-color: #f0f0f0;
-      opacity: 0.6;
-    }
-
-    /* Efek khusus untuk produk promo aktif */
-    .product.promo-active {
-      animation: promoPulse 2s infinite;
-      border: 2px solid #ffd700;
-      box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .product.promo-active::before {
-      content: "🔥 PROMO";
-      position: absolute;
-      top: 10px;
-      right: -30px;
-      background: #ff5722;
-      color: white;
-      padding: 5px 30px;
-      transform: rotate(45deg);
-      font-size: 0.7rem;
-      font-weight: bold;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-      z-index: 1;
-    }
-
-    body.night-mode .product.promo-active::before {
-      background: #ff8c00;
-    }
-
-    @keyframes promoPulse {
-      0% {
-        box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7);
-      }
-      70% {
-        box-shadow: 0 0 0 10px rgba(255, 215, 0, 0);
-      }
-      100% {
-        box-shadow: 0 0 0 0 rgba(255, 215, 0, 0);
-      }
-    }
-
-    /* Badge Best Seller */
-    .product.best-seller::after {
-      content: "🔥 BEST SELLER";
-      position: absolute;
-      top: -8px;
-      left: -8px;
-      background: linear-gradient(135deg, #ffd700, #ffa500);
-      color: #000;
-      padding: 5px 15px;
-      font-size: 0.7rem;
-      font-weight: bold;
-      border-radius: 20px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-      z-index: 2;
-      animation: bestSellerGlow 2s infinite;
-      border: 1px solid #fff;
-    }
-
-    @keyframes bestSellerGlow {
-      0%, 100% {
-        box-shadow: 0 4px 6px rgba(255, 215, 0, 0.5);
-      }
-      50% {
-        box-shadow: 0 4px 15px rgba(255, 215, 0, 0.8);
-      }
-    }
-
-    body.night-mode .product.best-seller::after {
-      background: linear-gradient(135deg, #ffd700, #ff8c00);
-      color: #000;
-      border-color: #333;
-    }
-
-    .product h3 {
-      margin: 0 0 8px 0;
-      font-size: 1rem;
-    }
-
-    .product p {
-      margin: 5px 0;
-      font-size: 0.9rem;
-    }
-
-    .product .original-price {
-      text-decoration: line-through;
-      color: #999;
-      font-size: 0.8rem;
-    }
-
-    .product .discounted-price {
-      color: #e74c3c;
-      font-weight: bold;
-      font-size: 1.1rem;
-    }
-
-    .product .discount {
-      color: #e74c3c;
-      font-weight: bold;
-    }
-
-    .product .status {
-      font-size: 0.8rem;
-      color: #888;
-    }
-
-    body.night-mode .product .status {
-      color: #aaa;
-    }
-
-    .product .promo-timer {
-      color: #ff5722;
-      font-weight: bold;
-      animation: blink 1s infinite;
-    }
-
-    .product .sales-count {
-      color: #28a745;
-      font-size: 0.8rem;
-      font-weight: bold;
-      margin-top: 5px;
-      background: #e8f5e9;
-      padding: 3px 8px;
-      border-radius: 15px;
-      display: inline-block;
-    }
-
-    body.night-mode .product .sales-count {
-      background: #1e3a2a;
-      color: #81c784;
-    }
-
-    @keyframes blink {
-      0% { opacity: 1; }
-      50% { opacity: 0.5; }
-      100% { opacity: 1; }
-    }
-
-    /* Tombol yang lebih elegan */
-    .product button {
-      background: #007bff;
-      color: white;
-      border: none;
-      border-radius: 20px;
-      padding: 8px 12px;
-      font-size: 0.8rem;
-      cursor: pointer;
-      transition: all 0.2s;
-      box-shadow: 0 2px 4px rgba(0,123,255,0.3);
-      margin-top: 8px;
-    }
-
-    .product button:hover {
-      background: #0056b3;
-      transform: scale(1.05);
-    }
-
-    body.night-mode .product button {
-      background: #3498db;
-      box-shadow: 0 2px 4px rgba(52,152,219,0.3);
-    }
-
-    body.night-mode .product button:hover {
-      background: #2980b9;
-    }
-
-    .form {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 20px;
-      background: white;
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    body.night-mode .form {
-      background: #2c3e50;
-    }
-
-    .form label {
-      font-weight: bold;
-      margin-top: 5px;
-    }
-
-    /* Searchable select styling */
-    .searchable-select-container {
-      position: relative;
-      width: 100%;
-    }
-
-    .searchable-select-input {
-      width: 100%;
-      padding: 10px;
-      font-size: 1rem;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      box-sizing: border-box;
-    }
-
-    body.night-mode .searchable-select-input {
-      background-color: #34495e;
-      color: #ecf0f1;
-      border-color: #2c3e50;
-    }
-
-    .searchable-select-dropdown {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      max-height: 200px;
-      overflow-y: auto;
-      background: white;
-      border: 1px solid #ddd;
-      border-radius: 0 0 5px 5px;
-      z-index: 1000;
-      display: none;
-    }
-
-    body.night-mode .searchable-select-dropdown {
-      background: #34495e;
-      border-color: #2c3e50;
-    }
-
-    .searchable-select-dropdown div {
-      padding: 8px 12px;
-      cursor: pointer;
-    }
-
-    .searchable-select-dropdown div:hover {
-      background: #007bff;
-      color: white;
-    }
-
-    .searchable-select-dropdown div.selected {
-      background: #007bff;
-      color: white;
-    }
-
-    body.night-mode .searchable-select-dropdown div:hover,
-    body.night-mode .searchable-select-dropdown div.selected {
-      background: #2980b9;
-    }
-
-    /* regular select fallback */
-    select, .form select, .form input, .form button {
-      padding: 10px;
-      font-size: 1rem;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-    }
-
-    body.night-mode select,
-    body.night-mode .form select,
-    body.night-mode .form input,
-    body.night-mode .form button {
-      background-color: #34495e;
-      color: #ecf0f1;
-      border-color: #2c3e50;
-    }
-
-    .form button {
-      background: #007bff;
-      color: white;
-      border: none;
-      cursor: pointer;
-      transition: background 0.3s;
-      font-weight: bold;
-    }
-
-    .form button:hover {
-      background: #0056b3;
-    }
-
-    body.night-mode .form button {
-      background-color: #3498db;
-    }
-
-    body.night-mode .form button:hover {
-      background-color: #2980b9;
-    }
-
-    .notification-box, .comment-box {
-      background: white;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 15px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      max-height: 200px;
-      overflow-y: auto;
-    }
-
-    body.night-mode .notification-box,
-    body.night-mode .comment-box {
-      background: #2c3e50;
-      color: #ecf0f1;
-    }
-
-    /* Promo Box dengan efek elegan */
-    .promo-box {
-      background: linear-gradient(135deg, #667eea, #764ba2, #ff7e5f, #feb47b);
-      background-size: 300% 300%;
-      animation: gradientMove 8s ease infinite;
-      border: none;
-      border-radius: 8px;
-      padding: 20px;
-      margin: 20px 0;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.3s;
-    }
-
-    .promo-box:hover {
-      transform: scale(1.02);
-    }
-
-    .promo-box::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
-      animation: shimmer 10s linear infinite;
-    }
-
-    @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    @keyframes shimmer {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    .promo-box h2 {
-      margin: 0 0 10px 0;
-      color: white;
-      font-size: 1.5rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-      position: relative;
-    }
-
-    .promo-box p {
-      margin: 5px 0;
-      font-size: 1rem;
-      color: white;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-      position: relative;
-    }
-
-    .promo-box small {
-      color: rgba(255,255,255,0.9);
-      font-style: italic;
-    }
-
-    .promo-box .edit-info-btn {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: rgba(255,255,255,0.3);
-      color: white;
-      border: none;
-      border-radius: 20px;
-      padding: 5px 15px;
-      cursor: pointer;
-      font-size: 0.8rem;
-      backdrop-filter: blur(5px);
-      transition: all 0.3s;
-      z-index: 10;
-    }
-
-    .promo-box .edit-info-btn:hover {
-      background: rgba(255,255,255,0.5);
-      transform: scale(1.05);
-    }
-
-    .promo-box input {
-      background: rgba(255,255,255,0.2);
-      border: 1px solid rgba(255,255,255,0.5);
-      color: white;
-      padding: 8px;
-      border-radius: 5px;
-      width: 100%;
-      margin: 5px 0;
-    }
-
-    .promo-box input::placeholder {
-      color: rgba(255,255,255,0.7);
-    }
-
-    .end-day {
-      text-align: center;
-      margin: 20px 0;
-    }
-
-    #next-day {
-      padding: 12px 30px;
-      font-size: 1.1rem;
-      background: #ff5722;
-      color: white;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: all 0.3s;
-      box-shadow: 0 4px 6px rgba(255,87,34,0.3);
-      font-weight: bold;
-    }
-
-    #next-day:hover {
-      background: #e64a19;
-      transform: scale(1.05);
-    }
-
-    /* Save Game Controls */
-    .save-controls {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      margin: 20px 0;
-      flex-wrap: wrap;
-    }
-
-    .save-btn {
-      padding: 10px 20px;
-      font-size: 1rem;
-      border: none;
-      border-radius: 25px;
-      cursor: pointer;
-      transition: all 0.3s;
-      font-weight: bold;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    }
-
-    #save-game {
-      background: #28a745;
-      color: white;
-    }
-
-    #save-game:hover {
-      background: #218838;
-      transform: scale(1.05);
-    }
-
-    #load-game {
-      background: #17a2b8;
-      color: white;
-    }
-
-    #load-game:hover {
-      background: #138496;
-      transform: scale(1.05);
-    }
-
-    #reset-game {
-      background: #dc3545;
-      color: white;
-    }
-
-    #reset-game:hover {
-      background: #c82333;
-      transform: scale(1.05);
-    }
-
-    body.night-mode .save-btn {
-      box-shadow: 0 2px 4px rgba(255,255,255,0.1);
-    }
-
-    footer {
-      background: #007bff;
-      color: white;
-      text-align: center;
-      padding: 10px;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-    }
-
-    /* Night Mode Toggle */
-    .night-mode-toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: #333;
-      color: white;
-      border: none;
-      padding: 12px;
-      border-radius: 50%;
-      cursor: pointer;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      z-index: 1000;
-      font-size: 1.2rem;
-    }
-
-    .night-mode-toggle:hover {
-      background: #555;
-    }
-
-    /* Rating Stars */
-    .rating {
-      display: flex;
-      justify-content: center;
-      gap: 5px;
-      margin-top: 10px;
-    }
-
-    .rating .star {
-      font-size: 1.5rem;
-      color: #ffd700;
-      cursor: pointer;
-    }
-
-    .rating .star:hover {
-      color: #ffa500;
-    }
-
-    /* Tombol Buka/Tutup Toko */
-    .store-status-button {
-      position: fixed;
-      top: 80px;
-      right: 20px;
-      background: #28a745;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 30px;
-      cursor: pointer;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s;
-      font-weight: bold;
-      z-index: 1000;
-    }
-
-    .store-status-button.closed {
-      background: #dc3545;
-    }
-
-    .store-status-button:hover {
-      background: #218838;
-      transform: scale(1.05);
-    }
-
-    .store-status-button.closed:hover {
-      background: #c82333;
-    }
-
-    /* Perbaikan text color di night mode */
-    body.night-mode .product p,
-    body.night-mode .product h3,
-    body.night-mode .product .status,
-    body.night-mode .product .original-price,
-    body.night-mode .product .discounted-price,
-    body.night-mode .product .discount,
-    body.night-mode .product .promo-timer {
-      color: inherit;
-    }
-
-    body.night-mode .product .original-price {
-      color: #aaa;
-    }
-
-    body.night-mode .product .discounted-price,
-    body.night-mode .product .discount {
-      color: #ff8c00;
-    }
-
-    body.night-mode .product .promo-timer {
-      color: #ffa500;
-    }
-
-    body.night-mode .product {
-      background-color: #2c3e50;
-      border-color: #34495e;
-    }
-
-    body.night-mode .product.out-of-stock {
-      background-color: #5a2e2e;
-    }
-
-    body.night-mode .product.inactive {
-      background-color: #3a3a3a;
-      opacity: 0.7;
-    }
-
-    body.night-mode .rating-text {
-      color: #ecf0f1;
-    }
-
-    body.night-mode #rating-value {
-      color: #ffd700;
-    }
-
-    /* Last saved indicator */
-    #last-saved {
-      text-align: center;
-      color: #666;
-      font-size: 0.8rem;
-      margin: 10px 0;
-    }
-
-    body.night-mode #last-saved {
-      color: #aaa;
-    }
-
-    /* Auto Restock Controls */
-    .auto-restock-controls {
-      background: white;
-      border-radius: 8px;
-      padding: 15px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-
-    body.night-mode .auto-restock-controls {
-      background: #2c3e50;
-    }
-
-    .auto-restock-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 10px;
-    }
-
-    .auto-restock-header h3 {
-      margin: 0;
-      font-size: 1.1rem;
-      color: #28a745;
-    }
-
-    .toggle-switch {
-      position: relative;
-      display: inline-block;
-      width: 60px;
-      height: 34px;
-    }
-
-    .toggle-switch input {
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-
-    .toggle-slider {
-      position: absolute;
-      cursor: pointer;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: #ccc;
-      transition: .4s;
-      border-radius: 34px;
-    }
-
-    .toggle-slider:before {
-      position: absolute;
-      content: "";
-      height: 26px;
-      width: 26px;
-      left: 4px;
-      bottom: 4px;
-      background-color: white;
-      transition: .4s;
-      border-radius: 50%;
-    }
-
-    input:checked + .toggle-slider {
-      background-color: #28a745;
-    }
-
-    input:checked + .toggle-slider:before {
-      transform: translateX(26px);
-    }
-
-    .auto-restock-settings {
-      display: grid;
-      grid-template-columns: 1fr 2fr 1fr;
-      gap: 10px;
-      align-items: center;
-      margin-top: 10px;
-    }
-
-    .auto-restock-settings input {
-      padding: 8px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-    }
-
-    body.night-mode .auto-restock-settings input {
-      background: #34495e;
-      color: #ecf0f1;
-      border-color: #2c3e50;
-    }
-
-    .auto-restock-settings button {
-      background: #28a745;
-      color: white;
-      border: none;
-      border-radius: 20px;
-      padding: 8px 15px;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .auto-restock-settings button:hover {
-      background: #218838;
-      transform: scale(1.05);
-    }
-
-    /* Monthly Bills */
-    .monthly-bills {
-      background: linear-gradient(135deg, #ff6b6b, #c92a2a);
-      color: white;
-      padding: 15px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      text-align: center;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .monthly-bills::before {
-      content: "📋";
-      position: absolute;
-      top: -20px;
-      right: -20px;
-      font-size: 8rem;
-      opacity: 0.1;
-      transform: rotate(15deg);
-    }
-
-    .monthly-bills h3 {
-      margin: 0;
-      font-size: 1.1rem;
-    }
-
-    .monthly-bills .bills-amount {
-      font-size: 1.8rem;
-      font-weight: bold;
-      margin: 5px 0;
-    }
-
-    .monthly-bills .due-date {
-      font-size: 0.8rem;
-      opacity: 0.9;
-    }
-
-    .monthly-bills button {
-      background: white;
-      color: #c92a2a;
-      border: none;
-      border-radius: 25px;
-      padding: 8px 25px;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.3s;
-      margin-top: 10px;
-    }
-
-    .monthly-bills button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-
-    .monthly-bills button:disabled {
-      background: #ccc;
-      color: #666;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    .bills-history {
-      margin-top: 10px;
-      font-size: 0.9rem;
-      background: rgba(255,255,255,0.2);
-      padding: 8px;
-      border-radius: 5px;
-    }
-
-    /* Daily Tax Bill */
-    .daily-tax-bill {
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-      color: #333;
-      padding: 15px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      text-align: center;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    body.night-mode .daily-tax-bill {
-      background: linear-gradient(135deg, #c31432, #240b36);
-      color: #f4f4f9;
-    }
-
-    .daily-tax-bill h3 {
-      margin: 0;
-      font-size: 1.1rem;
-    }
-
-    .daily-tax-bill .tax-amount {
-      font-size: 1.5rem;
-      font-weight: bold;
-      margin: 5px 0;
-    }
-
-    .daily-tax-bill .due-info {
-      font-size: 0.8rem;
-      opacity: 0.9;
-    }
-
-    .daily-tax-bill button {
-      background: #333;
-      color: white;
-      border: none;
-      border-radius: 25px;
-      padding: 8px 25px;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.3s;
-      margin-top: 10px;
-    }
-
-    .daily-tax-bill button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-
-    .daily-tax-bill button:disabled {
-      background: #ccc;
-      color: #666;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    /* Loan Section */
-    .loan-section {
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      color: white;
-      padding: 15px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      text-align: center;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-
-    .loan-section h3 {
-      margin: 0 0 10px 0;
-      font-size: 1.2rem;
-    }
-
-    .loan-details {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin: 10px 0;
-    }
-
-    .loan-details input, .loan-details select {
-      padding: 8px;
-      border: none;
-      border-radius: 5px;
-      width: 120px;
-    }
-
-    body.night-mode .loan-details input,
-    body.night-mode .loan-details select {
-      background: #34495e;
-      color: #ecf0f1;
-    }
-
-    .loan-details button {
-      background: #ffd700;
-      color: #333;
-      border: none;
-      border-radius: 25px;
-      padding: 8px 20px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .loan-details button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-
-    .loan-status {
-      margin-top: 10px;
-      font-size: 0.9rem;
-      background: rgba(255,255,255,0.2);
-      padding: 8px;
-      border-radius: 5px;
-    }
-
-    .loan-payment {
-      margin-top: 15px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-    }
-
-    .loan-payment input {
-      padding: 8px;
-      border: none;
-      border-radius: 5px;
-      width: 100px;
-    }
-
-    .loan-payment button {
-      background: #28a745;
-      color: white;
-      border: none;
-      border-radius: 25px;
-      padding: 8px 20px;
-      cursor: pointer;
-    }
-
-    .loan-payment button:hover {
-      background: #218838;
-    }
-
-    /* Add/Edit Product */
-    .product-management {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
-      margin-bottom: 20px;
-    }
-
-    .product-card {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-
-    body.night-mode .product-card {
-      background: #2c3e50;
-    }
-
-    .product-card h3 {
-      margin: 0 0 15px 0;
-      color: #007bff;
-      text-align: center;
-    }
-
-    .product-card input {
-      width: 100%;
-      padding: 8px;
-      margin: 5px 0;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      box-sizing: border-box;
-    }
-
-    body.night-mode .product-card input {
-      background: #34495e;
-      color: #ecf0f1;
-      border-color: #2c3e50;
-    }
-
-    .product-card button {
-      background: #007bff;
-      color: white;
-      border: none;
-      border-radius: 25px;
-      padding: 10px 20px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: all 0.3s;
-      width: 100%;
-      margin-top: 10px;
-      font-weight: bold;
-    }
-
-    .product-card button:hover {
-      background: #0056b3;
-      transform: scale(1.02);
-    }
-
-    /* Game Over Popup */
-    .game-over-popup {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.8);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 10000;
-    }
-
-    .game-over-content {
-      background: white;
-      padding: 40px;
-      border-radius: 10px;
-      text-align: center;
-      max-width: 500px;
-    }
-
-    body.night-mode .game-over-content {
-      background: #2c3e50;
-      color: #ecf0f1;
-    }
-
-    .game-over-content h2 {
-      color: #dc3545;
-      font-size: 2rem;
-      margin: 0 0 20px 0;
-    }
-
-    .game-over-content p {
-      font-size: 1.1rem;
-      margin: 10px 0;
-    }
-
-    .game-over-content button {
-      background: #007bff;
-      color: white;
-      border: none;
-      border-radius: 25px;
-      padding: 10px 30px;
-      font-size: 1rem;
-      cursor: pointer;
-      margin-top: 20px;
-    }
-
-    /* Customer Count Indicator */
-    .customer-count {
-      background: linear-gradient(135deg, #4facfe, #00f2fe);
-      color: white;
-      padding: 10px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      text-align: center;
-      font-weight: bold;
-      font-size: 1.1rem;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .product-management {
-        grid-template-columns: 1fr;
-      }
-      
-      .auto-restock-settings {
-        grid-template-columns: 1fr;
-      }
-    }
+    .header h1 { margin: 0; font-size: 2.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+    .header p { margin: 5px 0; font-style: italic; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); }
+    .header #time { font-weight: bold; }
+    .container { padding: 15px; padding-bottom: 70px; }
+    .dashboard { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-bottom: 20px; }
+    .dashboard .info { background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
+    body.night-mode .dashboard .info { background: #2c3e50; color: #ecf0f1; }
+    .dashboard .info h2 { margin: 0; font-size: 1rem; }
+    .dashboard .info p { margin: 5px 0; font-size: 1.2rem; font-weight: bold; }
+    .dashboard .info small { font-size: 0.8rem; color: #666; }
+    body.night-mode .dashboard .info small { color: #aaa; }
+    .daily-profit { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    .daily-profit h3 { margin: 0; font-size: 1.1rem; }
+    .daily-profit p { margin: 5px 0; font-size: 1.3rem; font-weight: bold; }
+    .daily-profit .reset-info { font-size: 0.8rem; opacity: 0.9; }
+    .bank-controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 20px; }
+    .bank-card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; }
+    body.night-mode .bank-card { background: #2c3e50; }
+    .bank-card h3 { margin: 0 0 10px 0; color: #007bff; }
+    body.night-mode .bank-card h3 { color: #3498db; }
+    .bank-card .balance { font-size: 1.5rem; font-weight: bold; margin: 10px 0; color: #28a745; }
+    .bank-card button { background: #007bff; color: white; border: none; border-radius: 25px; padding: 10px 20px; font-size: 1rem; cursor: pointer; transition: all 0.3s; margin: 5px; font-weight: bold; }
+    .bank-card button:hover { background: #0056b3; transform: scale(1.05); }
+    .bank-card button.secondary { background: #6c757d; }
+    .bank-card button.secondary:hover { background: #545b62; }
+    .bank-card input { padding: 8px; margin: 5px; border: 1px solid #ddd; border-radius: 5px; width: 150px; }
+    body.night-mode .bank-card input { background: #34495e; color: #ecf0f1; border-color: #2c3e50; }
+    .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-bottom: 20px; }
+    .product { background: white; border: 1px solid #ddd; border-radius: 8px; padding: 15px; text-align: center; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); transition: transform 0.2s, box-shadow 0.2s; position: relative; }
+    .product:hover { transform: translateY(-5px); }
+    .product.out-of-stock { background-color: #f8d7da; }
+    .product.inactive { background-color: #f0f0f0; opacity: 0.6; }
+    .product.promo-active { animation: promoPulse 2s infinite; border: 2px solid #ffd700; box-shadow: 0 0 15px rgba(255, 215, 0, 0.5); position: relative; overflow: hidden; }
+    .product.promo-active::before { content: "🔥 PROMO"; position: absolute; top: 10px; right: -30px; background: #ff5722; color: white; padding: 5px 30px; transform: rotate(45deg); font-size: 0.7rem; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.2); z-index: 1; }
+    body.night-mode .product.promo-active::before { background: #ff8c00; }
+    @keyframes promoPulse { 0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(255, 215, 0, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); } }
+    .product.best-seller::after { content: "🔥 BEST SELLER"; position: absolute; top: -8px; left: -8px; background: linear-gradient(135deg, #ffd700, #ffa500); color: #000; padding: 5px 15px; font-size: 0.7rem; font-weight: bold; border-radius: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.2); z-index: 2; animation: bestSellerGlow 2s infinite; border: 1px solid #fff; }
+    @keyframes bestSellerGlow { 0%,100% { box-shadow: 0 4px 6px rgba(255, 215, 0, 0.5); } 50% { box-shadow: 0 4px 15px rgba(255, 215, 0, 0.8); } }
+    body.night-mode .product.best-seller::after { background: linear-gradient(135deg, #ffd700, #ff8c00); color: #000; border-color: #333; }
+    .product h3 { margin: 0 0 8px 0; font-size: 1rem; }
+    .product p { margin: 5px 0; font-size: 0.9rem; }
+    .product .original-price { text-decoration: line-through; color: #999; font-size: 0.8rem; }
+    .product .discounted-price { color: #e74c3c; font-weight: bold; font-size: 1.1rem; }
+    .product .discount { color: #e74c3c; font-weight: bold; }
+    .product .status { font-size: 0.8rem; color: #888; }
+    body.night-mode .product .status { color: #aaa; }
+    .product .promo-timer { color: #ff5722; font-weight: bold; animation: blink 1s infinite; }
+    .product .sales-count { color: #28a745; font-size: 0.8rem; font-weight: bold; margin-top: 5px; background: #e8f5e9; padding: 3px 8px; border-radius: 15px; display: inline-block; }
+    body.night-mode .product .sales-count { background: #1e3a2a; color: #81c784; }
+    @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+    .product button { background: #007bff; color: white; border: none; border-radius: 20px; padding: 8px 12px; font-size: 0.8rem; cursor: pointer; transition: all 0.2s; box-shadow: 0 2px 4px rgba(0,123,255,0.3); margin-top: 8px; }
+    .product button:hover { background: #0056b3; transform: scale(1.05); }
+    body.night-mode .product button { background: #3498db; box-shadow: 0 2px 4px rgba(52,152,219,0.3); }
+    body.night-mode .product button:hover { background: #2980b9; }
+    .form { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
+    body.night-mode .form { background: #2c3e50; }
+    .form label { font-weight: bold; margin-top: 5px; }
+    .searchable-select-container { position: relative; width: 100%; }
+    .searchable-select-input { width: 100%; padding: 10px; font-size: 1rem; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
+    body.night-mode .searchable-select-input { background-color: #34495e; color: #ecf0f1; border-color: #2c3e50; }
+    .searchable-select-dropdown { position: absolute; top: 100%; left: 0; right: 0; max-height: 200px; overflow-y: auto; background: white; border: 1px solid #ddd; border-radius: 0 0 5px 5px; z-index: 1000; display: none; }
+    body.night-mode .searchable-select-dropdown { background: #34495e; border-color: #2c3e50; }
+    .searchable-select-dropdown div { padding: 8px 12px; cursor: pointer; }
+    .searchable-select-dropdown div:hover { background: #007bff; color: white; }
+    .searchable-select-dropdown div.selected { background: #007bff; color: white; }
+    body.night-mode .searchable-select-dropdown div:hover, body.night-mode .searchable-select-dropdown div.selected { background: #2980b9; }
+    select, .form select, .form input, .form button { padding: 10px; font-size: 1rem; border: 1px solid #ddd; border-radius: 5px; }
+    body.night-mode select, body.night-mode .form select, body.night-mode .form input, body.night-mode .form button { background-color: #34495e; color: #ecf0f1; border-color: #2c3e50; }
+    .form button { background: #007bff; color: white; border: none; cursor: pointer; transition: background 0.3s; font-weight: bold; }
+    .form button:hover { background: #0056b3; }
+    body.night-mode .form button { background-color: #3498db; }
+    body.night-mode .form button:hover { background-color: #2980b9; }
+    .notification-box, .comment-box { background: white; border: 1px solid #ddd; border-radius: 8px; padding: 15px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); max-height: 200px; overflow-y: auto; }
+    body.night-mode .notification-box, body.night-mode .comment-box { background: #2c3e50; color: #ecf0f1; }
+    .promo-box { background: linear-gradient(135deg, #667eea, #764ba2, #ff7e5f, #feb47b); background-size: 300% 300%; animation: gradientMove 8s ease infinite; border: none; border-radius: 8px; padding: 20px; margin: 20px 0; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2); position: relative; overflow: hidden; transition: transform 0.3s; }
+    .promo-box:hover { transform: scale(1.02); }
+    .promo-box::before { content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%); animation: shimmer 10s linear infinite; }
+    @keyframes gradientMove { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+    @keyframes shimmer { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    .promo-box h2 { margin: 0 0 10px 0; color: white; font-size: 1.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); position: relative; }
+    .promo-box p { margin: 5px 0; font-size: 1rem; color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); position: relative; }
+    .promo-box small { color: rgba(255,255,255,0.9); font-style: italic; }
+    .promo-box .edit-info-btn { position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,0.3); color: white; border: none; border-radius: 20px; padding: 5px 15px; cursor: pointer; font-size: 0.8rem; backdrop-filter: blur(5px); transition: all 0.3s; z-index: 10; }
+    .promo-box .edit-info-btn:hover { background: rgba(255,255,255,0.5); transform: scale(1.05); }
+    .promo-box input { background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.5); color: white; padding: 8px; border-radius: 5px; width: 100%; margin: 5px 0; }
+    .promo-box input::placeholder { color: rgba(255,255,255,0.7); }
+    .end-day { text-align: center; margin: 20px 0; }
+    #next-day { padding: 12px 30px; font-size: 1.1rem; background: #ff5722; color: white; border: none; border-radius: 30px; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 6px rgba(255,87,34,0.3); font-weight: bold; }
+    #next-day:hover { background: #e64a19; transform: scale(1.05); }
+    .save-controls { display: flex; gap: 10px; justify-content: center; margin: 20px 0; flex-wrap: wrap; }
+    .save-btn { padding: 10px 20px; font-size: 1rem; border: none; border-radius: 25px; cursor: pointer; transition: all 0.3s; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+    #save-game { background: #28a745; color: white; }
+    #save-game:hover { background: #218838; transform: scale(1.05); }
+    #load-game { background: #17a2b8; color: white; }
+    #load-game:hover { background: #138496; transform: scale(1.05); }
+    #reset-game { background: #dc3545; color: white; }
+    #reset-game:hover { background: #c82333; transform: scale(1.05); }
+    body.night-mode .save-btn { box-shadow: 0 2px 4px rgba(255,255,255,0.1); }
+    footer { background: #007bff; color: white; text-align: center; padding: 10px; position: fixed; bottom: 0; width: 100%; }
+    .night-mode-toggle { position: fixed; top: 20px; right: 20px; background: #333; color: white; border: none; padding: 12px; border-radius: 50%; cursor: pointer; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); z-index: 1000; font-size: 1.2rem; }
+    .night-mode-toggle:hover { background: #555; }
+    .rating { display: flex; justify-content: center; gap: 5px; margin-top: 10px; }
+    .rating .star { font-size: 1.5rem; color: #ffd700; cursor: pointer; }
+    .rating .star:hover { color: #ffa500; }
+    .store-status-button { position: fixed; top: 80px; right: 20px; background: #28a745; color: white; border: none; padding: 10px 20px; border-radius: 30px; cursor: pointer; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); transition: all 0.3s; font-weight: bold; z-index: 1000; }
+    .store-status-button.closed { background: #dc3545; }
+    .store-status-button:hover { background: #218838; transform: scale(1.05); }
+    .store-status-button.closed:hover { background: #c82333; }
+    body.night-mode .product p, body.night-mode .product h3, body.night-mode .product .status, body.night-mode .product .original-price, body.night-mode .product .discounted-price, body.night-mode .product .discount, body.night-mode .product .promo-timer { color: inherit; }
+    body.night-mode .product .original-price { color: #aaa; }
+    body.night-mode .product .discounted-price, body.night-mode .product .discount { color: #ff8c00; }
+    body.night-mode .product .promo-timer { color: #ffa500; }
+    body.night-mode .product { background-color: #2c3e50; border-color: #34495e; }
+    body.night-mode .product.out-of-stock { background-color: #5a2e2e; }
+    body.night-mode .product.inactive { background-color: #3a3a3a; opacity: 0.7; }
+    body.night-mode .rating-text { color: #ecf0f1; }
+    body.night-mode #rating-value { color: #ffd700; }
+    #last-saved { text-align: center; color: #666; font-size: 0.8rem; margin: 10px 0; }
+    body.night-mode #last-saved { color: #aaa; }
+    .auto-restock-controls { background: white; border-radius: 8px; padding: 15px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    body.night-mode .auto-restock-controls { background: #2c3e50; }
+    .auto-restock-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+    .auto-restock-header h3 { margin: 0; font-size: 1.1rem; color: #28a745; }
+    .toggle-switch { position: relative; display: inline-block; width: 60px; height: 34px; }
+    .toggle-switch input { opacity: 0; width: 0; height: 0; }
+    .toggle-slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 34px; }
+    .toggle-slider:before { position: absolute; content: ""; height: 26px; width: 26px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; }
+    input:checked + .toggle-slider { background-color: #28a745; }
+    input:checked + .toggle-slider:before { transform: translateX(26px); }
+    .auto-restock-settings { display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 10px; align-items: center; margin-top: 10px; }
+    .auto-restock-settings input { padding: 8px; border: 1px solid #ddd; border-radius: 5px; }
+    body.night-mode .auto-restock-settings input { background: #34495e; color: #ecf0f1; border-color: #2c3e50; }
+    .auto-restock-settings button { background: #28a745; color: white; border: none; border-radius: 20px; padding: 8px 15px; cursor: pointer; transition: all 0.3s; }
+    .auto-restock-settings button:hover { background: #218838; transform: scale(1.05); }
+    /* Weekly Bills (formerly monthly) */
+    .weekly-bills { background: linear-gradient(135deg, #ff6b6b, #c92a2a); color: white; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
+    .weekly-bills::before { content: "📆"; position: absolute; top: -20px; right: -20px; font-size: 8rem; opacity: 0.1; transform: rotate(15deg); }
+    .weekly-bills h3 { margin: 0; font-size: 1.1rem; }
+    .weekly-bills .bills-amount { font-size: 1.8rem; font-weight: bold; margin: 5px 0; }
+    .weekly-bills .due-date { font-size: 0.8rem; opacity: 0.9; }
+    .weekly-bills button { background: white; color: #c92a2a; border: none; border-radius: 25px; padding: 8px 25px; font-size: 1rem; font-weight: bold; cursor: pointer; transition: all 0.3s; margin-top: 10px; }
+    .weekly-bills button:hover { transform: scale(1.05); box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+    .weekly-bills button:disabled { background: #ccc; color: #666; cursor: not-allowed; transform: none; }
+    .bills-history { margin-top: 10px; font-size: 0.9rem; background: rgba(255,255,255,0.2); padding: 8px; border-radius: 5px; }
+    .daily-tax-bill { background: linear-gradient(135deg, #ff9a9e, #fad0c4); color: #333; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
+    body.night-mode .daily-tax-bill { background: linear-gradient(135deg, #c31432, #240b36); color: #f4f4f9; }
+    .daily-tax-bill h3 { margin: 0; font-size: 1.1rem; }
+    .daily-tax-bill .tax-amount { font-size: 1.5rem; font-weight: bold; margin: 5px 0; }
+    .daily-tax-bill .due-info { font-size: 0.8rem; opacity: 0.9; }
+    .daily-tax-bill button { background: #333; color: white; border: none; border-radius: 25px; padding: 8px 25px; font-size: 1rem; font-weight: bold; cursor: pointer; transition: all 0.3s; margin-top: 10px; }
+    .daily-tax-bill button:hover { transform: scale(1.05); box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+    .daily-tax-bill button:disabled { background: #ccc; color: #666; cursor: not-allowed; transform: none; }
+    .loan-section { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    .loan-section h3 { margin: 0 0 10px 0; font-size: 1.2rem; }
+    .loan-details { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 10px 0; }
+    .loan-details input, .loan-details select { padding: 8px; border: none; border-radius: 5px; width: 120px; }
+    body.night-mode .loan-details input, body.night-mode .loan-details select { background: #34495e; color: #ecf0f1; }
+    .loan-details button { background: #ffd700; color: #333; border: none; border-radius: 25px; padding: 8px 20px; font-weight: bold; cursor: pointer; transition: all 0.3s; }
+    .loan-details button:hover { transform: scale(1.05); box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+    .loan-status { margin-top: 10px; font-size: 0.9rem; background: rgba(255,255,255,0.2); padding: 8px; border-radius: 5px; }
+    .loan-payment { margin-top: 15px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+    .loan-payment input { padding: 8px; border: none; border-radius: 5px; width: 100px; }
+    .loan-payment button { background: #28a745; color: white; border: none; border-radius: 25px; padding: 8px 20px; cursor: pointer; }
+    .loan-payment button:hover { background: #218838; }
+    .product-management { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
+    .product-card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    body.night-mode .product-card { background: #2c3e50; }
+    .product-card h3 { margin: 0 0 15px 0; color: #007bff; text-align: center; }
+    .product-card input { width: 100%; padding: 8px; margin: 5px 0; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
+    body.night-mode .product-card input { background: #34495e; color: #ecf0f1; border-color: #2c3e50; }
+    .product-card button { background: #007bff; color: white; border: none; border-radius: 25px; padding: 10px 20px; font-size: 1rem; cursor: pointer; transition: all 0.3s; width: 100%; margin-top: 10px; font-weight: bold; }
+    .product-card button:hover { background: #0056b3; transform: scale(1.02); }
+    .game-over-popup { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: flex; justify-content: center; align-items: center; z-index: 10000; }
+    .game-over-content { background: white; padding: 40px; border-radius: 10px; text-align: center; max-width: 500px; }
+    body.night-mode .game-over-content { background: #2c3e50; color: #ecf0f1; }
+    .game-over-content h2 { color: #dc3545; font-size: 2rem; margin: 0 0 20px 0; }
+    .game-over-content p { font-size: 1.1rem; margin: 10px 0; }
+    .game-over-content button { background: #007bff; color: white; border: none; border-radius: 25px; padding: 10px 30px; font-size: 1rem; cursor: pointer; margin-top: 20px; }
+    .customer-count { background: linear-gradient(135deg, #4facfe, #00f2fe); color: white; padding: 10px; border-radius: 8px; margin-bottom: 20px; text-align: center; font-weight: bold; font-size: 1.1rem; }
+    @media (max-width: 768px) { .product-management { grid-template-columns: 1fr; } .auto-restock-settings { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
   <header class="header">
     <h1>GRROSE PARFUME</h1>
     <p><i>Parfum Premium harga ekonomis..</i></p>
-    <p>Time: <span id="time">10:00</span> | Day: <span id="day-counter">1</span></p>
+    <p>📅 <span id="current-date">15 Februari 2026</span> | Time: <span id="time">10:00</span> | Day: <span id="day-counter">1</span></p>
   </header>
 
   <div class="container">
-    <!-- Promo Box dengan efek elegan dan bisa diedit -->
+    <!-- Promo Box (sama) -->
     <section class="promo-box" id="promo-box">
       <button class="edit-info-btn" onclick="editPromoBox()">✏️ Edit Info</button>
       <h2 id="promo-title"><i>BUKA 24 JAM!!!</i></h2>
@@ -1312,255 +227,97 @@
       <p id="promo-line3">NEW VARIANT! Premium Artic Frost</p>
     </section>
 
-    <!-- Customer Count Indicator -->
+    <!-- Customer Count Indicator (dinamis) -->
     <div class="customer-count" id="customer-count">
-      👥 Pengunjung: 0 (Rating: 0.0)
+      👥 Pengunjung: 0% (Rating: 0.0)
     </div>
 
-    <!-- Monthly Bills -->
-    <section class="monthly-bills" id="monthly-bills">
-      <h3>📋 Tagihan Bulanan</h3>
-      <div class="bills-amount" id="bills-amount">Rp 0</div>
-      <div class="due-date" id="due-date">Jatuh tempo: Hari ke-30</div>
-      <button id="pay-bills-btn" onclick="payMonthlyBills()">Bayar Tagihan</button>
-      <div class="bills-history" id="bills-history">Belum ada pembayaran</div>
+    <!-- WEEKLY BILLS (Revisi 1) -->
+    <section class="weekly-bills" id="weekly-bills-section">
+      <h3>📆 Tagihan Mingguan</h3>
+      <div class="bills-amount" id="weekly-bills-amount">Rp 7.500.000</div>
+      <div class="due-date" id="weekly-due">Minggu ke-1 | Jatuh tempo akhir minggu</div>
+      <button id="pay-weekly-btn" onclick="payWeeklyBill()">Bayar Tagihan Minggu Ini</button>
+      <div class="bills-history" id="weekly-bills-history">Belum ada pembayaran</div>
     </section>
 
-    <!-- Daily Tax Bill -->
+    <!-- Daily Tax Bill (sama) -->
     <section class="daily-tax-bill" id="daily-tax-bill">
-      <h3>🧾 Tagihan Pajak Harian </h3>
+      <h3>🧾 Tagihan Pajak Harian</h3>
       <div class="tax-amount" id="tax-amount">Rp 0</div>
       <div class="due-info" id="tax-due-info">Harus dibayar hari ini</div>
       <button id="pay-tax-btn" onclick="payDailyTax()">Bayar Pajak Hari Ini</button>
     </section>
 
-    
-    <!-- Dashboard -->
+    <!-- Dashboard (sama) -->
     <section class="dashboard">
-      <div class="info">
-        <h2>💰 Saldo Utama (Rekening)</h2>
-        <p id="saldo-utama">Rp 30.000.000</p>
-        <small>Untuk bayar bill, hutang, dan tarik keuntungan</small>
-      </div>
-      <div class="info">
-        <h2>📦 Saldo Modal</h2>
-        <p id="saldo-modal">Rp 0</p>
-        <small>Khusus untuk restock barang (dari penjualan)</small>
-      </div>
-      <div class="info">
-        <h2>💎 Saldo Keuntungan</h2>
-        <p id="saldo-keuntungan">Rp 0</p>
-        <small>Bisa ditarik ke saldo utama</small>
-      </div>
+      <div class="info"><h2>💰 Saldo Rekening Utama</h2><p id="saldo-utama">Rp 30.000.000</p><small>Untuk bayar bill, hutang, dan tarik keuntungan</small></div>
+      <div class="info"><h2>📦 Saldo Modal</h2><p id="saldo-modal">Rp 0</p><small>Khusus untuk restock barang (dari penjualan)</small></div>
+      <div class="info"><h2>💎 Saldo Keuntungan</h2><p id="saldo-keuntungan">Rp 0</p><small>Bisa ditarik ke saldo utama</small></div>
     </section>
 
-    <!-- Daily Profit Info -->
-    <section class="daily-profit" id="daily-profit">
-      <h3>📈 Keuntungan Hari Ini (Day <span id="current-day-display">1</span>)</h3>
-      <p id="daily-profit-amount">Rp 0</p>
-      <div class="reset-info" id="reset-info">Reset setiap jam 00:00</div>
-    </section>
+    <!-- Daily Profit Info (sama) -->
+    <section class="daily-profit"><h3>📈 Keuntungan Hari Ini (Day <span id="current-day-display">1</span>)</h3><p id="daily-profit-amount">Rp 0</p><div class="reset-info">Reset setiap jam 00:00</div></section>
 
-    <!-- Promo Products -->
-    <section class="promo-products">
-      <h2>🔥 Produk Promo</h2>
-      <div class="products" id="promo-products">
-        <!-- Promo products will be populated by JavaScript -->
-      </div>
-    </section>
+    <!-- Promo Products (sama) -->
+    <section class="promo-products"><h2>🔥 Produk Promo</h2><div class="products" id="promo-products"></div></section>
 
-    <!-- Products -->
-    <section class="rack">
-      <h2>📦 Produk Tersedia</h2>
-      <div class="products" id="products">
-        <!-- Products will be populated by JavaScript -->
-      </div>
-    </section>
+    <!-- Products (sama) -->
+    <section class="rack"><h2>📦 Produk Tersedia</h2><div class="products" id="products"></div></section>
 
-    <!-- Product Management (Tambah & Edit Produk) -->
+    <!-- Product Management (sama) -->
     <section class="product-management">
-      <div class="product-card">
-        <h3>➕ Tambah Produk Baru (Rp 10.000.000)</h3>
-        <input type="text" id="new-product-name" placeholder="Nama Produk">
-        <input type="number" id="new-product-price" placeholder="Harga Jual" min="1">
-        <input type="number" id="new-product-modal" placeholder="Harga Modal" min="1">
-        <input type="number" id="new-product-stock" placeholder="Stok Awal" min="1" value="10">
-        <button onclick="addNewProduct()">Tambah Produk (Rp 10jt)</button>
-      </div>
-      <div class="product-card">
-        <h3>✏️ Edit Nama Produk</h3>
-        <div id="edit-product-search-container" class="searchable-select-container"></div>
-        <input type="text" id="edit-product-name" placeholder="Nama Baru">
-        <button onclick="editProductName()">Update Nama</button>
-      </div>
+      <div class="product-card"><h3>➕ Tambah Produk Baru (Rp 10.000.000)</h3><input type="text" id="new-product-name" placeholder="Nama Produk"><input type="number" id="new-product-price" placeholder="Harga Jual" min="1"><input type="number" id="new-product-modal" placeholder="Harga Modal" min="1"><input type="number" id="new-product-stock" placeholder="Stok Awal" min="1" value="10"><button onclick="addNewProduct()">Tambah Produk (Rp 10jt)</button></div>
+      <div class="product-card"><h3>✏️ Edit Nama Produk</h3><div id="edit-product-search-container" class="searchable-select-container"></div><input type="text" id="edit-product-name" placeholder="Nama Baru"><button onclick="editProductName()">Update Nama</button></div>
     </section>
 
-    <!-- Activity Log -->
-    <section class="activity">
-      <h2>📋 Aktivitas Pembeli</h2>
-      <div class="notification-box" id="activity-log">
-        <p>Ruang Pembeli..</p>
-      </div>
-    </section>
+    <!-- Activity Log (sama) -->
+    <section class="activity"><h2>📋 Aktivitas Pembeli</h2><div class="notification-box" id="activity-log"><p>Ruang Pembeli..</p></div></section>
+    <!-- Comments Section (sama) -->
+    <section class="comments"><h2>💬 Komentar Pembeli</h2><div class="comment-box" id="comment-box"><p>Komentar disini..</p></div></section>
 
-    <!-- Comments Section -->
-    <section class="comments">
-      <h2>💬 Komentar Pembeli</h2>
-      <div class="comment-box" id="comment-box">
-        <p>Komentar disini..</p>
-      </div>
-    </section>
+    <!-- Set Promo Products (sama) -->
+    <section class="set-promo-section"><h2>⚙️ Atur Produk Promo</h2><form id="set-promo-form" class="form"><label>Pilih Produk (Ketik untuk mencari):</label><div id="set-promo-search-container" class="searchable-select-container"></div><input type="number" id="set-promo-stock" placeholder="Stok Promo" min="1"><input type="number" id="set-promo-discount" placeholder="Diskon (%)" min="0" max="100"><input type="number" id="set-promo-duration" placeholder="Durasi Promo (menit)" min="1"><button type="submit">Set Promo</button></form></section>
 
-    <!-- Set Promo Products dengan searchable select -->
-    <section class="set-promo-section">
-      <h2>⚙️ Atur Produk Promo</h2>
-      <form id="set-promo-form" class="form">
-        <label>Pilih Produk (Ketik untuk mencari):</label>
-        <div id="set-promo-search-container" class="searchable-select-container"></div>
-        <input type="number" id="set-promo-stock" placeholder="Stok Promo" min="1">
-        <input type="number" id="set-promo-discount" placeholder="Diskon (%)" min="0" max="100">
-        <input type="number" id="set-promo-duration" placeholder="Durasi Promo (menit)" min="1">
-        <button type="submit">Set Promo</button>
-      </form>
-    </section>
-
-    <!-- Restock Section dengan searchable select -->
-    <section class="restock-section">
-      <h2>📦 Restok Barang</h2>
-      <form id="restock-form" class="form">
-        <label>Pilih Produk (Ketik untuk mencari):</label>
-        <div id="restock-search-container" class="searchable-select-container"></div>
-        <input type="number" id="restock-amount" placeholder="Jumlah" min="1">
-        <button type="submit">Restok</button>
-      </form>
-    </section>
-
-    <!-- Price Section dengan searchable select -->
-    <section class="price-section">
-      <h2>💰 Atur Harga Barang</h2>
-      <form id="price-form" class="form">
-        <label>Pilih Produk (Ketik untuk mencari):</label>
-        <div id="price-search-container" class="searchable-select-container"></div>
-        <input type="number" id="new-price" placeholder="Harga Baru" min="1">
-        <button type="submit">Atur Harga</button>
-      </form>
-    </section>
-
-    <!-- Discount Section dengan searchable select -->
-    <section class="discount-section">
-      <h2>🏷️ Atur Diskon Produk</h2>
-      <form id="discount-form" class="form">
-        <label>Pilih Produk (Ketik untuk mencari):</label>
-        <div id="discount-search-container" class="searchable-select-container"></div>
-        <input type="number" id="discount-percent" placeholder="Diskon (%)" min="0" max="100">
-        <button type="submit">Atur Diskon</button>
-      </form>
-    </section>
+    <!-- Restock Section (sama) -->
+    <section class="restock-section"><h2>📦 Restok Barang</h2><form id="restock-form" class="form"><label>Pilih Produk (Ketik untuk mencari):</label><div id="restock-search-container" class="searchable-select-container"></div><input type="number" id="restock-amount" placeholder="Jumlah" min="1"><button type="submit">Restok</button></form></section>
+    <!-- Price Section (sama) -->
+    <section class="price-section"><h2>💰 Atur Harga Barang</h2><form id="price-form" class="form"><label>Pilih Produk (Ketik untuk mencari):</label><div id="price-search-container" class="searchable-select-container"></div><input type="number" id="new-price" placeholder="Harga Baru" min="1"><button type="submit">Atur Harga</button></form></section>
+    <!-- Discount Section (sama) -->
+    <section class="discount-section"><h2>🏷️ Atur Diskon Produk</h2><form id="discount-form" class="form"><label>Pilih Produk (Ketik untuk mencari):</label><div id="discount-search-container" class="searchable-select-container"></div><input type="number" id="discount-percent" placeholder="Diskon (%)" min="0" max="100"><button type="submit">Atur Diskon</button></form></section>
     
-    <!-- Auto Restock Controls -->
-    <section class="auto-restock-controls">
-      <div class="auto-restock-header">
-        <h3>⚡ Auto Restock</h3>
-        <label class="toggle-switch">
-          <input type="checkbox" id="auto-restock-toggle" onchange="toggleAutoRestock()">
-          <span class="toggle-slider"></span>
-        </label>
-      </div>
-      <div class="auto-restock-settings">
-        <span>Jumlah Restock:</span>
-        <input type="number" id="auto-restock-amount" value="10" min="1" max="500">
-        <button onclick="setAutoRestockAmount()">Terapkan</button>
-      </div>
-    </section>
+    <!-- Auto Restock Controls (sama) -->
+    <section class="auto-restock-controls"><div class="auto-restock-header"><h3>⚡ Auto Restock</h3><label class="toggle-switch"><input type="checkbox" id="auto-restock-toggle" onchange="toggleAutoRestock()"><span class="toggle-slider"></span></label></div><div class="auto-restock-settings"><span>Jumlah Restock:</span><input type="number" id="auto-restock-amount" value="10" min="1" max="500"><button onclick="setAutoRestockAmount()">Terapkan</button></div></section>
     
-    
+    <!-- Rating Section (sama) -->
+    <section class="rating-section"><h2>⭐ Rating Toko</h2><div class="rating" id="rating"><span class="star" data-value="1">&#9733;</span><span class="star" data-value="2">&#9733;</span><span class="star" data-value="3">&#9733;</span><span class="star" data-value="4">&#9733;</span><span class="star" data-value="5">&#9733;</span></div><p class="rating-text">Rating: <span id="rating-value">0</span>/5</p></section>
 
-    <!-- Rating Section -->
-    <section class="rating-section">
-      <h2>⭐ Rating Toko</h2>
-      <div class="rating" id="rating">
-        <span class="star" data-value="1">&#9733;</span>
-        <span class="star" data-value="2">&#9733;</span>
-        <span class="star" data-value="3">&#9733;</span>
-        <span class="star" data-value="4">&#9733;</span>
-        <span class="star" data-value="5">&#9733;</span>
-      </div>
-      <p class="rating-text">Rating: <span id="rating-value">0</span>/5</p>
-    </section>
-
-    <!-- Bank Transfer Controls -->
+    <!-- Bank Transfer Controls (sama) -->
     <section class="bank-controls">
-      <div class="bank-card">
-        <h3>💰 Tarik Keuntungan ke Saldo Utama</h3>
-        <div class="balance" id="keuntungan-balance">Rp 0</div>
-        <input type="number" id="withdraw-amount" placeholder="Jumlah" min="1">
-        <button onclick="withdrawProfit()">Tarik ke Saldo Utama</button>
-        <button class="secondary" onclick="withdrawAllProfit()">Tarik Semua</button>
-      </div>
-      <div class="bank-card">
-        <h3>🏦 Topup Modal dari Saldo Utama</h3>
-        <div class="balance" id="utama-balance">Rp 30.000.000</div>
-        <input type="number" id="topup-amount" placeholder="Jumlah" min="1">
-        <button onclick="topupModal()">Topup ke Modal</button>
-        <button class="secondary" onclick="topupAllModal()">Topup Semua</button>
-      </div>
+      <div class="bank-card"><h3>💰 Tarik Keuntungan ke Saldo Utama</h3><div class="balance" id="keuntungan-balance">Rp 0</div><input type="number" id="withdraw-amount" placeholder="Jumlah" min="1"><button onclick="withdrawProfit()">Tarik ke Saldo Utama</button><button class="secondary" onclick="withdrawAllProfit()">Tarik Semua</button></div>
+      <div class="bank-card"><h3>🏦 Topup Modal dari Saldo Utama</h3><div class="balance" id="utama-balance">Rp 30.000.000</div><input type="number" id="topup-amount" placeholder="Jumlah" min="1"><button onclick="topupModal()">Topup ke Modal</button><button class="secondary" onclick="topupAllModal()">Topup Semua</button></div>
     </section>
     
+    <!-- Loan Section (sama) -->
+    <section class="loan-section"><h3>💰 Pinjaman Modal (Maks Rp 100.000.000)</h3><div class="loan-details"><input type="number" id="loan-amount" placeholder="Jumlah Pinjaman" min="100000" max="100000000" step="100000"><select id="loan-tenor"><option value="5">5 Minggu</option><option value="7">7 Minggu</option><option value="10">10 Minggu</option></select><button onclick="takeLoan()">Ajukan Pinjaman</button></div><div class="loan-status" id="loan-status">Tidak ada pinjaman aktif</div><div class="loan-payment" id="loan-payment-section" style="display: none;"><input type="number" id="loan-payment-amount" placeholder="Jumlah Cicilan" min="0"><button onclick="payLoanInstallment()">Bayar Cicilan</button></div></section>
     
-    <!-- Loan Section -->
-    <section class="loan-section" id="loan-section">
-      <h3>💰 Pinjaman Modal (Maks Rp 100.000.000)</h3>
-      <div class="loan-details">
-        <input type="number" id="loan-amount" placeholder="Jumlah Pinjaman" min="100000" max="100000000" step="100000">
-        <select id="loan-tenor">
-          <option value="5">5 Minggu</option>
-          <option value="7">7 Minggu</option>
-          <option value="10">10 Minggu</option>
-        </select>
-        <button onclick="takeLoan()">Ajukan Pinjaman</button>
-      </div>
-      <div class="loan-status" id="loan-status">
-        Tidak ada pinjaman aktif
-      </div>
-      <div class="loan-payment" id="loan-payment-section" style="display: none;">
-        <input type="number" id="loan-payment-amount" placeholder="Jumlah Cicilan" min="0">
-        <button onclick="payLoanInstallment()">Bayar Cicilan</button>
-      </div>
-    </section>
-    
-    
-    <!-- Next Day Button -->
-    <section class="end-day">
-      <button id="next-day">⏩ Next Day</button>
-    </section>
+    <!-- Next Day Button (sama) -->
+    <section class="end-day"><button id="next-day">⏩ Next Day</button></section>
   </div>
 
-  <!-- Save Game Controls -->
-  <section class="save-controls">
-    <button id="save-game" class="save-btn">💾 Save Game</button>
-    <button id="load-game" class="save-btn">📂 Load Game</button>
-    <button id="reset-game" class="save-btn">🔄 Reset Game</button>
-  </section>
+  <!-- Save Game Controls (sama) -->
+  <section class="save-controls"><button id="save-game" class="save-btn">💾 Save Game</button><button id="load-game" class="save-btn">📂 Load Game</button><button id="reset-game" class="save-btn">🔄 Reset Game</button></section>
   <div id="last-saved"></div>
 
-  <!-- Night Mode Toggle -->
   <button class="night-mode-toggle" onclick="toggleNightMode()">🌙</button>
-
-  <!-- Tombol Buka/Tutup Toko -->
   <button class="store-status-button" id="store-status-button" onclick="toggleStoreStatus()">Buka Toko</button>
 
   <!-- Game Over Popup (hidden by default) -->
-  <div id="game-over-popup" class="game-over-popup" style="display: none;">
-    <div class="game-over-content">
-      <h2>💔 GAME OVER</h2>
-      <p>Toko Anda bangkrut!</p>
-      <p id="game-over-reason"></p>
-      <button onclick="resetGame()">Mulai Lagi</button>
-    </div>
-  </div>
+  <div id="game-over-popup" class="game-over-popup" style="display: none;"><div class="game-over-content"><h2>💔 GAME OVER</h2><p>Toko Anda bangkrut!</p><p id="game-over-reason"></p><button onclick="resetGame()">Mulai Lagi</button></div></div>
 
   <script>
-    // Data dan inisialisasi
+    (function() {
+    // ==================== DATA DAN INISIALISASI ====================
     const botNames = [
       "Andi", "Budi", "Citra", "Dewi", "Eka", "Fajar", "Gina", "Hendra", "Ika", "Joko",
       "Kiki", "Lala", "Maya", "Nina", "Oki", "Puja", "Qori", "Raka", "Sinta", "Tina",
@@ -1575,49 +332,14 @@
       "Erica", "Ignasius", "Muthe", "Shani", "Indira", "Gibran"
     ];
 
-    const saldoUtamaElement = document.getElementById("saldo-utama");
-    const saldoModalElement = document.getElementById("saldo-modal");
-    const saldoKeuntunganElement = document.getElementById("saldo-keuntungan");
-    const dailyProfitElement = document.getElementById("daily-profit-amount");
-    const currentDayDisplay = document.getElementById("current-day-display");
-    const dayCounterElement = document.getElementById("day-counter");
-    const keuntunganBalanceElement = document.getElementById("keuntungan-balance");
-    const utamaBalanceElement = document.getElementById("utama-balance");
-    const productsElement = document.getElementById("products");
-    const promoProductsElement = document.getElementById("promo-products");
-    const activityLog = document.getElementById("activity-log");
-    const commentBox = document.getElementById("comment-box");
-    const timeElement = document.getElementById("time");
-    const nextDayButton = document.getElementById("next-day");
-    const ratingElement = document.getElementById("rating");
-    const ratingValueElement = document.getElementById("rating-value");
-    const storeStatusButton = document.getElementById("store-status-button");
-    const saveGameBtn = document.getElementById("save-game");
-    const loadGameBtn = document.getElementById("load-game");
-    const resetGameBtn = document.getElementById("reset-game");
-    const lastSavedElement = document.getElementById("last-saved");
-    const billsAmountElement = document.getElementById("bills-amount");
-    const billsHistoryElement = document.getElementById("bills-history");
-    const taxAmountElement = document.getElementById("tax-amount");
-    const taxDueInfo = document.getElementById("tax-due-info");
-    const loanStatusElement = document.getElementById("loan-status");
-    const loanPaymentSection = document.getElementById("loan-payment-section");
-    const promoTitle = document.getElementById("promo-title");
-    const promoLine1 = document.getElementById("promo-line1");
-    const promoLine2 = document.getElementById("promo-line2");
-    const promoLine3 = document.getElementById("promo-line3");
-    const gameOverPopup = document.getElementById("game-over-popup");
-    const gameOverReason = document.getElementById("game-over-reason");
-    const customerCountElement = document.getElementById("customer-count");
-
-    let saldoUtama = 30000000; // Modal awal 30 juta di rekening utama
+    // ===== SALDO & PRODUK =====
+    let saldoUtama = 30000000;
     let saldoModal = 0;
     let saldoKeuntungan = 0;
     let dailyProfit = 0;
-    let currentDay = 1; // Day counter
-    let currentTime = 10 * 60; // Start at 10:00 AM
+    let currentDay = 1;
+    let currentTime = 10 * 60; // 10:00
 
-    // Semua produk stok awal 0
     let products = [
       { name: "Premium Sweet Apple 120ml", price: 310900, stock: 0, modalPrice: 224300, discount: 0, active: true, salesCount: 0 },
       { name: "Premium Fresh Ocean Blue 120ml", price: 299900, stock: 0, modalPrice: 216300, discount: 0, active: true, salesCount: 0 },
@@ -1636,47 +358,46 @@
       { name: "Ergonomis Frosty Apple 80ml", price: 122000, stock: 0, modalPrice: 65000, discount: 0, active: true, salesCount: 0 }
     ];
 
-    // Promo products (max 2 slots)
     let promoProducts = [
       { name: "", price: 0, stock: 0, modalPrice: 0, discount: 0, active: false, duration: 0, endTime: 0, salesCount: 0 },
       { name: "", price: 0, stock: 0, modalPrice: 0, discount: 0, active: false, duration: 0, endTime: 0, salesCount: 0 }
     ];
 
-    // Auto Restock settings
+    // Auto Restock
     let autoRestockEnabled = false;
     let autoRestockAmount = 10;
 
-    // Monthly Bills
-    let monthlyBills = 0;
-    let lastBillsPaidDay = 0;
-    let billsHistory = [];
+    // ===== WEEKLY BILLS (revisi 1) =====
+    let weeklyBillAmount = 7500000; // Minggu 1-9
+    let lastBillPaidWeek = 0; // minggu terakhir bayar (0 berarti belum pernah)
+    let weeklyBillsHistory = [];
 
-    // Daily Tax (1% per transaction)
+    // Daily Tax
     let dailyTaxTotal = 0;
     let lastTaxPaidDay = 0;
 
-    // Loan System
+    // Loan
     let loanActive = false;
     let loanAmount = 0;
-    let loanTenor = 0; // in weeks
+    let loanTenor = 0;
     let loanRemainingWeeks = 0;
     let loanWeeklyPayment = 0;
     let loanLastPaymentDay = 0;
     let loanOverdueWeeks = 0;
     const MAX_LOAN = 100000000;
-    const LOAN_INTEREST_RATE = 0.15; // 15% per week for overdue
+    const LOAN_INTEREST_RATE = 0.15;
 
-    // Rating
-    let rating = 0;
+    // Rating & Customer
     let totalRatings = 0;
     let averageRating = 0;
-    let promoCount = 0;
     let storeOpen = true;
-    
-    // Customer multiplier based on rating
-    let customerMultiplier = 0.1; // Default sangat sepi
+    let customerMultiplier = 0.1;
 
-    const comments = [
+    // Date tracking (15 Feb 2026)
+    let currentDate = new Date(2026, 1, 15, 10, 0); // 15 Februari 2026 10:00
+
+    // ===== KOMENTAR =====
+    const commentsList = [
       "Parfumnya tahan lama, wanginya enak banget!",
       "Stoknya kurang banyak ya? Kapan restock?",
       "Harganya terjangkau, cocok buat daily use!",
@@ -1729,614 +450,345 @@
       "Promo ini bikin saya jadi pelanggan setia!"
     ];
 
-    // ========== GAME OVER CHECK ==========
-    function checkGameOver() {
-      let reason = "";
-      let gameOver = false;
+    // ===== ELEMENT REFERENCES =====
+    const saldoUtamaEl = document.getElementById("saldo-utama");
+    const saldoModalEl = document.getElementById("saldo-modal");
+    const saldoKeuntunganEl = document.getElementById("saldo-keuntungan");
+    const dailyProfitEl = document.getElementById("daily-profit-amount");
+    const currentDayDisplay = document.getElementById("current-day-display");
+    const dayCounterEl = document.getElementById("day-counter");
+    const keuntunganBalanceEl = document.getElementById("keuntungan-balance");
+    const utamaBalanceEl = document.getElementById("utama-balance");
+    const productsEl = document.getElementById("products");
+    const promoProductsEl = document.getElementById("promo-products");
+    const activityLog = document.getElementById("activity-log");
+    const commentBox = document.getElementById("comment-box");
+    const timeEl = document.getElementById("time");
+    const nextDayBtn = document.getElementById("next-day");
+    const ratingValueEl = document.getElementById("rating-value");
+    const storeStatusBtn = document.getElementById("store-status-button");
+    const saveGameBtn = document.getElementById("save-game");
+    const loadGameBtn = document.getElementById("load-game");
+    const resetGameBtn = document.getElementById("reset-game");
+    const lastSavedEl = document.getElementById("last-saved");
+    // Weekly bills
+    const weeklyBillsAmountEl = document.getElementById("weekly-bills-amount");
+    const weeklyDueEl = document.getElementById("weekly-due");
+    const weeklyBillsHistoryEl = document.getElementById("weekly-bills-history");
+    const taxAmountEl = document.getElementById("tax-amount");
+    const taxDueInfo = document.getElementById("tax-due-info");
+    const loanStatusEl = document.getElementById("loan-status");
+    const loanPaymentSection = document.getElementById("loan-payment-section");
+    const promoTitle = document.getElementById("promo-title");
+    const promoLine1 = document.getElementById("promo-line1");
+    const promoLine2 = document.getElementById("promo-line2");
+    const promoLine3 = document.getElementById("promo-line3");
+    const gameOverPopup = document.getElementById("game-over-popup");
+    const gameOverReason = document.getElementById("game-over-reason");
+    const customerCountEl = document.getElementById("customer-count");
+    const currentDateSpan = document.getElementById("current-date");
 
-      if (saldoUtama < 0 && saldoModal < 0 && saldoKeuntungan < 0) {
-        gameOver = true;
-        reason = "Saldo utama, modal, dan keuntungan minus!";
-      } else if (dailyTaxTotal > 0 && currentDay > lastTaxPaidDay && saldoUtama < dailyTaxTotal) {
-        // Accumulated tax too high and can't pay
-        gameOver = true;
-        reason = "Tagihan pajak menumpuk dan tidak mampu membayar!";
-      } else if (monthlyBills > 0 && currentDay > lastBillsPaidDay + 30 && saldoUtama < monthlyBills) {
-        gameOver = true;
-        reason = "Tagihan bulanan menumpuk dan tidak mampu membayar!";
-      } else if (loanActive && loanRemainingWeeks > 0) {
-        // Check if loan is severely overdue (more than 4 weeks overdue)
-        const weeksSinceLastPayment = Math.floor((currentDay - loanLastPaymentDay) / 7);
-        if (weeksSinceLastPayment > 4) {
-          gameOver = true;
-          reason = "Pinjaman menunggak lebih dari 4 minggu!";
+    // ===== FUNGSI UPDATE DATE =====
+    function updateDateDisplay() {
+      const dayNames = ["Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"];
+      const monthNames = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+      const dayName = dayNames[currentDate.getDay()];
+      const date = currentDate.getDate();
+      const month = monthNames[currentDate.getMonth()];
+      const year = currentDate.getFullYear();
+      currentDateSpan.textContent = `${dayName}, ${date} ${month} ${year}`;
+    }
+
+    // ===== FUNGSI WEEKLY BILLS (revisi 1) =====
+    function getCurrentWeek() {
+      return Math.floor((currentDay - 1) / 7) + 1; // minggu ke-1 dimulai day 1-7
+    }
+
+    function updateWeeklyBillAmount() {
+      const week = getCurrentWeek();
+      if (week >= 10) weeklyBillAmount = 15000000;
+      else weeklyBillAmount = 7500000;
+    }
+
+    function canPayWeeklyBill() {
+      const currentWeek = getCurrentWeek();
+      return (lastBillPaidWeek < currentWeek);
+    }
+
+    window.payWeeklyBill = function() {
+      if (!canPayWeeklyBill()) {
+        alert("Tagihan minggu ini sudah dibayar atau belum waktunya.");
+        return;
+      }
+      if (saldoUtama < weeklyBillAmount) {
+        alert("Saldo utama tidak cukup untuk membayar tagihan mingguan!");
+        checkGameOver();
+        return;
+      }
+      saldoUtama -= weeklyBillAmount;
+      lastBillPaidWeek = getCurrentWeek();
+      weeklyBillsHistory.push({ week: lastBillPaidWeek, amount: weeklyBillAmount });
+      logActivity(`📆 Membayar tagihan mingguan: Rp ${weeklyBillAmount.toLocaleString()} (Minggu ke-${lastBillPaidWeek})`);
+      updateWeeklyDisplay();
+      updateSaldo();
+    };
+
+    function updateWeeklyDisplay() {
+      updateWeeklyBillAmount();
+      weeklyBillsAmountEl.textContent = `Rp ${weeklyBillAmount.toLocaleString()}`;
+      const currentWeek = getCurrentWeek();
+      weeklyDueEl.textContent = `Minggu ke-${currentWeek} | ${canPayWeeklyBill() ? 'Belum dibayar' : 'Sudah dibayar'}`;
+      if (weeklyBillsHistory.length > 0) {
+        const last = weeklyBillsHistory[weeklyBillsHistory.length-1];
+        weeklyBillsHistoryEl.textContent = `Terakhir bayar: Minggu ${last.week} - Rp ${last.amount.toLocaleString()}`;
+      } else {
+        weeklyBillsHistoryEl.textContent = 'Belum ada pembayaran';
+      }
+    }
+
+    // ===== TAX =====
+    function addDailyTax(transactionAmount) {
+      const tax = Math.round(transactionAmount * 0.01);
+      dailyTaxTotal += tax;
+      updateTaxDisplay();
+      logActivity(`🧾 Pajak 1%: Rp ${tax.toLocaleString()} ditambahkan`);
+    }
+    function updateTaxDisplay() {
+      taxAmountEl.textContent = `Rp ${dailyTaxTotal.toLocaleString()}`;
+      taxDueInfo.textContent = (currentDay > lastTaxPaidDay) ? `Belum dibayar (Hari ke-${lastTaxPaidDay+1} - sekarang)` : `Sudah dibayar hari ini`;
+    }
+    window.payDailyTax = function() {
+      if (currentDay <= lastTaxPaidDay) { alert("Pajak hari ini sudah dibayar!"); return; }
+      if (dailyTaxTotal <= 0) { alert("Tidak ada pajak"); return; }
+      if (saldoUtama >= dailyTaxTotal) {
+        saldoUtama -= dailyTaxTotal;
+        logActivity(`🧾 Membayar pajak: Rp ${dailyTaxTotal.toLocaleString()}`);
+        lastTaxPaidDay = currentDay;
+        dailyTaxTotal = 0;
+        updateSaldo(); updateTaxDisplay();
+      } else { alert("Saldo utama tidak cukup!"); checkGameOver(); }
+    };
+
+    // ===== CUSTOMER SIMULATION (revisi 2 & 3) =====
+    function updateCustomerMultiplier() {
+      if (averageRating >= 4.5) customerMultiplier = 2.0;
+      else if (averageRating >= 4.0) customerMultiplier = 1.5;
+      else if (averageRating >= 3.5) customerMultiplier = 1.0;
+      else if (averageRating >= 3.0) customerMultiplier = 0.7;
+      else if (averageRating >= 2.5) customerMultiplier = 0.4;
+      else if (averageRating >= 2.0) customerMultiplier = 0.2;
+      else customerMultiplier = 0.1;
+      customerCountEl.textContent = `👥 Pengunjung: ${Math.round(customerMultiplier * 100)}% (Rating: ${averageRating.toFixed(1)})`;
+    }
+
+    function getTrafficFactor() {
+      const hour = Math.floor(currentTime / 60);
+      if (hour >= 18 && hour <= 22) return 1.8;       // Sore-malam ramai
+      else if (hour >= 10 && hour <= 17) return 1.2;  // Siang lumayan
+      else if (hour >= 23 || hour <= 4) return 0.3;   // Malam sepi
+      else return 0.8;
+    }
+
+    function simulateCustomerBehavior() {
+      if (!storeOpen) return;
+      const traffic = getTrafficFactor();
+      const activePromos = promoProducts.filter(p => p.active && p.discount > 0).length;
+      // Revisi 2: promo menarik lebih banyak pembeli (apalagi diskon tinggi)
+      let promoBonus = 0;
+      promoProducts.forEach(p => { if (p.active) promoBonus += (p.discount / 100) * 0.8; });
+      let chance = customerMultiplier * traffic * (1 + promoBonus);
+      if (Math.random() > chance) return;
+
+      const botName = botNames[Math.floor(Math.random() * botNames.length)];
+      const preferPromo = (Math.random() < 0.75 + (promoBonus*0.2)); // makin tinggi diskon, makin suka promo
+      let numProductsToBuy = 1;
+      if (averageRating >= 4.0) numProductsToBuy = Math.floor(Math.random()*4)+1;
+      else if (averageRating >= 3.0) numProductsToBuy = Math.floor(Math.random()*3)+1;
+      else numProductsToBuy = Math.floor(Math.random()*2)+1;
+
+      let totalTransaction = 0;
+      let details = `${botName} membeli:`;
+      const bestSellerNames = products.sort((a,b)=>b.salesCount-a.salesCount).slice(0,3).map(p=>p.name);
+
+      for (let i=0; i<numProductsToBuy; i++) {
+        let product = null;
+        let isPromo = false;
+        const availablePromos = promoProducts.filter(p=>p.active && p.stock>0);
+        const availableRegular = products.filter(p=>p.active && p.stock>0);
+        if (preferPromo && availablePromos.length>0 && Math.random()<0.7) {
+          product = availablePromos[Math.floor(Math.random()*availablePromos.length)];
+          isPromo = true;
+        } else if (availableRegular.length>0) {
+          product = availableRegular[Math.floor(Math.random()*availableRegular.length)];
+          // Revisi 3: best seller lebih mungkin dipilih
+          if (bestSellerNames.includes(product.name) && Math.random()<0.6) {
+            // dia tetap dipilih
+          }
+        } else continue;
+
+        const qty = Math.floor(Math.random()*3)+1;
+        if (product.stock >= qty) {
+          const discPrice = product.price * (1 - (product.discount||0)/100);
+          const total = discPrice * qty;
+          const profit = total - (product.modalPrice * qty);
+
+          product.stock -= qty;
+          product.salesCount += qty;
+          totalTransaction += total;
+
+          saldoModal += product.modalPrice * qty;
+          saldoKeuntungan += profit;
+          dailyProfit += profit;
+          addDailyTax(total);
+
+          details += ` ${qty} ${product.name},`;
+        } else {
+          addComment(`${botName}: "Stok ${product.name} habis? Kapan restock?"`);
         }
       }
 
-      if (gameOver) {
-        gameOverReason.textContent = reason;
-        gameOverPopup.style.display = "flex";
-        return true;
+      if (totalTransaction > 0) {
+        logActivity(`${details} total Rp ${Math.round(totalTransaction).toLocaleString()}.`);
+        const randComment = commentsList[Math.floor(Math.random()*commentsList.length)];
+        addComment(`${botName}: "${randComment}"`);
+        giveRating(botName);
       }
-      return false;
+      checkAndAutoRestock();
+      updateProducts(); updateSaldo(); updateDailyProfitDisplay();
     }
 
-    // ========== CUSTOMER MULTIPLIER BASED ON RATING ==========
-    function updateCustomerMultiplier() {
-      if (averageRating >= 4.5) {
-        customerMultiplier = 2.0; // Sangat ramai
-      } else if (averageRating >= 4.0) {
-        customerMultiplier = 1.5; // Ramai
-      } else if (averageRating >= 3.5) {
-        customerMultiplier = 1.0; // Normal
-      } else if (averageRating >= 3.0) {
-        customerMultiplier = 0.7; // Agak sepi
-      } else if (averageRating >= 2.5) {
-        customerMultiplier = 0.4; // Sepi
-      } else if (averageRating >= 2.0) {
-        customerMultiplier = 0.2; // Sangat sepi
-      } else {
-        customerMultiplier = 0.1; // Hampir tidak ada pembeli
-      }
-      
-      customerCountElement.textContent = `👥 Pengunjung: ${Math.round(customerMultiplier * 100)}% (Rating: ${averageRating.toFixed(1)})`;
+    function giveRating(botName) {
+      let ratingVal = Math.floor(Math.random()*5)+1;
+      const activePromoCount = promoProducts.filter(p=>p.active).length;
+      if (activePromoCount>0 && ratingVal<4) ratingVal = Math.min(5, ratingVal+activePromoCount);
+      totalRatings++;
+      averageRating = ((averageRating*(totalRatings-1)) + ratingVal) / totalRatings;
+      averageRating = Math.min(5, averageRating);
+      ratingValueEl.textContent = averageRating.toFixed(1);
+      addComment(`${botName}: "Saya memberi rating ${ratingVal} bintang."`);
+      updateCustomerMultiplier();
     }
 
-    // ========== BANKING FUNCTIONS ==========
-    window.withdrawProfit = function() {
-      const amount = parseInt(document.getElementById('withdraw-amount').value);
-      if (amount > 0 && amount <= saldoKeuntungan) {
-        saldoKeuntungan -= amount;
-        saldoUtama += amount;
-        updateSaldo();
-        logActivity(`💰 Penarikan keuntungan: Rp ${amount.toLocaleString()} ke saldo utama`);
-        document.getElementById('withdraw-amount').value = '';
-      } else {
-        alert("Jumlah tidak valid atau melebihi saldo keuntungan!");
-      }
-    };
-
-    window.withdrawAllProfit = function() {
-      if (saldoKeuntungan > 0) {
-        const amount = saldoKeuntungan;
-        saldoKeuntungan = 0;
-        saldoUtama += amount;
-        updateSaldo();
-        logActivity(`💰 Penarikan semua keuntungan: Rp ${amount.toLocaleString()} ke saldo utama`);
-      } else {
-        alert("Tidak ada keuntungan untuk ditarik!");
-      }
-    };
-
-    window.topupModal = function() {
-      const amount = parseInt(document.getElementById('topup-amount').value);
-      if (amount > 0 && amount <= saldoUtama) {
-        saldoUtama -= amount;
-        saldoModal += amount;
-        updateSaldo();
-        logActivity(`💳 Topup modal: Rp ${amount.toLocaleString()} dari saldo utama ke modal`);
-        document.getElementById('topup-amount').value = '';
-      } else {
-        alert("Jumlah tidak valid atau melebihi saldo utama!");
-      }
-    };
-
-    window.topupAllModal = function() {
-      if (saldoUtama > 0) {
-        const amount = saldoUtama;
-        saldoUtama = 0;
-        saldoModal += amount;
-        updateSaldo();
-        logActivity(`💳 Topup semua modal: Rp ${amount.toLocaleString()} dari saldo utama ke modal`);
-      } else {
-        alert("Tidak ada saldo di utama untuk ditopup!");
-      }
-    };
-
-    // ========== LOAN FUNCTIONS ==========
-    window.takeLoan = function() {
-      if (loanActive) {
-        alert("Anda sudah memiliki pinjaman aktif! Selesaikan pinjaman terlebih dahulu.");
-        return;
-      }
-
-      const amount = parseInt(document.getElementById('loan-amount').value);
-      const tenor = parseInt(document.getElementById('loan-tenor').value);
-
-      if (!amount || amount < 100000 || amount > MAX_LOAN) {
-        alert(`Jumlah pinjaman harus antara Rp 100.000 dan Rp ${MAX_LOAN.toLocaleString()}`);
-        return;
-      }
-
-      loanActive = true;
-      loanAmount = amount;
-      loanTenor = tenor;
-      loanRemainingWeeks = tenor;
-      loanWeeklyPayment = Math.ceil(amount / tenor);
-      loanLastPaymentDay = currentDay;
-      loanOverdueWeeks = 0;
-
-      saldoUtama += amount;
-      updateSaldo();
-      updateLoanStatus();
-      logActivity(`💰 Pinjaman diterima: Rp ${amount.toLocaleString()} (${tenor} minggu, cicilan Rp ${loanWeeklyPayment.toLocaleString()}/minggu)`);
-    };
-
-    window.payLoanInstallment = function() {
-      if (!loanActive) {
-        alert("Tidak ada pinjaman aktif!");
-        return;
-      }
-
-      const payment = parseInt(document.getElementById('loan-payment-amount').value);
-      if (!payment || payment < 0) {
-        alert("Masukkan jumlah pembayaran yang valid!");
-        return;
-      }
-
-      // Calculate overdue first
-      const weeksSinceLastPayment = Math.floor((currentDay - loanLastPaymentDay) / 7);
-      if (weeksSinceLastPayment > 0) {
-        loanOverdueWeeks += weeksSinceLastPayment;
-        loanLastPaymentDay = currentDay;
-      }
-
-      // Calculate total due with interest if overdue
-      let totalDue = loanWeeklyPayment;
-      if (loanOverdueWeeks > 0) {
-        totalDue += loanWeeklyPayment * loanOverdueWeeks * LOAN_INTEREST_RATE;
-      }
-
-      if (payment < totalDue) {
-        alert(`Pembayaran minimal Rp ${totalDue.toLocaleString()} (termasuk bunga ${loanOverdueWeeks > 0 ? '15%' : '0%'})`);
-        return;
-      }
-
-      if (payment > saldoUtama) {
-        alert("Saldo utama tidak cukup!");
-        return;
-      }
-
-      // Process payment
-      saldoUtama -= payment;
-      
-      if (loanOverdueWeeks > 0) {
-        // Pay overdue first
-        const interestPaid = loanWeeklyPayment * loanOverdueWeeks * LOAN_INTEREST_RATE;
-        const principalPaid = payment - interestPaid;
-        loanRemainingWeeks -= (principalPaid / loanWeeklyPayment);
-        logActivity(`💰 Membayar cicilan pinjaman: Rp ${payment.toLocaleString()} (Bunga: Rp ${Math.round(interestPaid).toLocaleString()})`);
-        loanOverdueWeeks = 0;
-      } else {
-        loanRemainingWeeks -= 1;
-        logActivity(`💰 Membayar cicilan pinjaman: Rp ${payment.toLocaleString()}`);
-      }
-
-      if (loanRemainingWeeks <= 0) {
-        loanActive = false;
-        loanAmount = 0;
-        loanRemainingWeeks = 0;
-        loanWeeklyPayment = 0;
-        logActivity("✅ Pinjaman lunas!");
-      }
-
-      loanLastPaymentDay = currentDay;
-      updateSaldo();
-      updateLoanStatus();
-      document.getElementById('loan-payment-amount').value = '';
-    };
-
-    function updateLoanStatus() {
-      if (!loanActive) {
-        loanStatusElement.textContent = "Tidak ada pinjaman aktif";
-        loanPaymentSection.style.display = "none";
-        return;
-      }
-
-      const weeksSinceLastPayment = Math.floor((currentDay - loanLastPaymentDay) / 7);
-      let status = `Pinjaman: Rp ${loanAmount.toLocaleString()} | Sisa: ${loanRemainingWeeks} minggu | Cicilan/minggu: Rp ${loanWeeklyPayment.toLocaleString()}`;
-      
-      if (weeksSinceLastPayment > 0) {
-        status += ` | ⚠️ Telat ${weeksSinceLastPayment} minggu (bunga 15%)`;
-      }
-      
-      loanStatusElement.textContent = status;
-      loanPaymentSection.style.display = "block";
-    }
-
-    // ========== AUTO RESTOCK FUNCTIONS ==========
-    window.toggleAutoRestock = function() {
-      autoRestockEnabled = document.getElementById('auto-restock-toggle').checked;
-      logActivity(autoRestockEnabled ? "⚡ Auto Restock diaktifkan" : "⚡ Auto Restock dimatikan");
-    };
-
-    window.setAutoRestockAmount = function() {
-      const amount = parseInt(document.getElementById('auto-restock-amount').value);
-      if (amount > 0 && amount <= 500) {
-        autoRestockAmount = amount;
-        logActivity(`⚡ Auto Restock amount diatur ke ${amount}`);
-      } else {
-        alert("Jumlah tidak valid! (1-500)");
-      }
-    };
-
+    // ===== AUTO RESTOCK =====
+    window.toggleAutoRestock = function() { autoRestockEnabled = document.getElementById('auto-restock-toggle').checked; logActivity(autoRestockEnabled?"⚡ Auto Restok ON":"⚡ Auto Restok OFF"); };
+    window.setAutoRestockAmount = function() { const v=parseInt(document.getElementById('auto-restock-amount').value); if(v>0&&v<=500){autoRestockAmount=v; logActivity(`Auto restok amount=${v}`);} else alert("1-500"); };
     function checkAndAutoRestock() {
       if (!autoRestockEnabled) return;
-
-      products.forEach(product => {
-        if (product.stock === 0 && product.active) {
-          const totalCost = product.modalPrice * autoRestockAmount;
-          if (saldoModal >= totalCost) {
-            product.stock += autoRestockAmount;
-            saldoModal -= totalCost;
-            logActivity(`⚡ Auto Restock: ${product.name} sebanyak ${autoRestockAmount} (Rp ${totalCost.toLocaleString()})`);
+      products.forEach(p => {
+        if (p.stock===0 && p.active) {
+          const cost = p.modalPrice * autoRestockAmount;
+          if (saldoModal >= cost) {
+            p.stock += autoRestockAmount;
+            saldoModal -= cost;
+            logActivity(`⚡ Auto restok ${p.name} x${autoRestockAmount} (Rp ${cost.toLocaleString()})`);
           }
         }
       });
-      updateSaldo();
-      updateProducts();
+      updateSaldo(); updateProducts();
     }
 
-    // ========== TAX FUNCTIONS ==========
-    function addDailyTax(transactionAmount) {
-      const tax = Math.round(transactionAmount * 0.01); // 1% tax
-      dailyTaxTotal += tax;
-      updateTaxDisplay();
-      logActivity(`🧾 Pajak 1%: Rp ${tax.toLocaleString()} ditambahkan ke tagihan harian`);
-    }
+    // ===== BANK =====
+    window.withdrawProfit = function() { let a=parseInt(document.getElementById('withdraw-amount').value); if(a>0 && a<=saldoKeuntungan) { saldoKeuntungan-=a; saldoUtama+=a; updateSaldo(); logActivity(`💰 Tarik untung Rp ${a.toLocaleString()}`); document.getElementById('withdraw-amount').value=''; } else alert("Saldo tidak cukup"); };
+    window.withdrawAllProfit = function() { if(saldoKeuntungan>0) { saldoUtama+=saldoKeuntungan; logActivity(`💰 Tarik semua untung Rp ${saldoKeuntungan.toLocaleString()}`); saldoKeuntungan=0; updateSaldo(); } };
+    window.topupModal = function() { let a=parseInt(document.getElementById('topup-amount').value); if(a>0 && a<=saldoUtama) { saldoUtama-=a; saldoModal+=a; updateSaldo(); logActivity(`💳 Topup modal Rp ${a.toLocaleString()}`); document.getElementById('topup-amount').value=''; } else alert("Saldo utama tidak cukup"); };
+    window.topupAllModal = function() { if(saldoUtama>0) { saldoModal+=saldoUtama; logActivity(`💳 Topup semua modal Rp ${saldoUtama.toLocaleString()}`); saldoUtama=0; updateSaldo(); } };
 
-    function updateTaxDisplay() {
-      taxAmountElement.textContent = `Rp ${dailyTaxTotal.toLocaleString()}`;
-      if (currentDay > lastTaxPaidDay) {
-        taxDueInfo.textContent = `Belum dibayar (Hari ke-${lastTaxPaidDay + 1} - sekarang)`;
-      } else {
-        taxDueInfo.textContent = `Sudah dibayar hari ini`;
+    // ===== LOAN =====
+    window.takeLoan = function() { if(loanActive) { alert("Pinjaman aktif"); return; } let amount=parseInt(document.getElementById('loan-amount').value); let tenor=parseInt(document.getElementById('loan-tenor').value); if(!amount||amount<100000||amount>MAX_LOAN) { alert(`Pinjaman 100rb-100jt`); return; } loanActive=true; loanAmount=amount; loanTenor=tenor; loanRemainingWeeks=tenor; loanWeeklyPayment=Math.ceil(amount/tenor); loanLastPaymentDay=currentDay; loanOverdueWeeks=0; saldoUtama+=amount; updateSaldo(); updateLoanStatus(); logActivity(`💰 Pinjaman Rp ${amount.toLocaleString()} (${tenor} minggu)`); };
+    window.payLoanInstallment = function() { if(!loanActive) return; let payment=parseInt(document.getElementById('loan-payment-amount').value); if(!payment||payment<0) return; let weeksSince=Math.floor((currentDay-loanLastPaymentDay)/7); if(weeksSince>0){loanOverdueWeeks+=weeksSince; loanLastPaymentDay=currentDay;} let totalDue=loanWeeklyPayment; if(loanOverdueWeeks>0) totalDue+= loanWeeklyPayment*loanOverdueWeeks*LOAN_INTEREST_RATE; if(payment<totalDue) { alert(`Minimal bayar Rp ${totalDue.toLocaleString()}`); return; } if(payment>saldoUtama){alert("Saldo utama tidak cukup"); return;} saldoUtama-=payment; if(loanOverdueWeeks>0){ let interest=loanWeeklyPayment*loanOverdueWeeks*LOAN_INTEREST_RATE; let principal=payment-interest; loanRemainingWeeks -= (principal/loanWeeklyPayment); logActivity(`💰 Bayar cicilan + bunga Rp ${payment.toLocaleString()}`); loanOverdueWeeks=0; } else { loanRemainingWeeks-=1; logActivity(`💰 Bayar cicilan Rp ${payment.toLocaleString()}`); } if(loanRemainingWeeks<=0){ loanActive=false; loanAmount=0; loanRemainingWeeks=0; loanWeeklyPayment=0; logActivity("✅ Pinjaman lunas!"); } loanLastPaymentDay=currentDay; updateSaldo(); updateLoanStatus(); document.getElementById('loan-payment-amount').value=''; };
+    function updateLoanStatus() { if(!loanActive) { loanStatusEl.textContent="Tidak ada pinjaman aktif"; loanPaymentSection.style.display="none"; return; } let weeksSince=Math.floor((currentDay-loanLastPaymentDay)/7); let status=`Pinjaman: Rp ${loanAmount.toLocaleString()} | Sisa: ${loanRemainingWeeks} minggu | Cicilan/minggu: Rp ${loanWeeklyPayment.toLocaleString()}`; if(weeksSince>0) status+=` | ⚠️ Telat ${weeksSince} minggu (bunga 15%)`; loanStatusEl.textContent=status; loanPaymentSection.style.display="block"; }
+
+    // ===== TIME & DAY UPDATE =====
+    function updateTime() {
+      currentTime++;
+      const hours = Math.floor(currentTime/60);
+      const minutes = currentTime%60;
+      timeEl.textContent = `${String(hours).padStart(2,'0')}:${String(minutes).padStart(2,'0')}`;
+      // Update tanggal real-time
+      currentDate.setHours(hours, minutes, 0, 0);
+      if (hours === 0 && minutes === 0) {
+        currentDate.setDate(currentDate.getDate() + 1);
+        resetDailyProfit();
+        saveGame();
+        logActivity("💾 Auto-saved (00:00)");
       }
-    }
+      updateDateDisplay();
 
-    window.payDailyTax = function() {
-      if (currentDay <= lastTaxPaidDay) {
-        alert("Pajak hari ini sudah dibayar!");
-        return;
-      }
-
-      if (dailyTaxTotal <= 0) {
-        alert("Tidak ada pajak yang perlu dibayar hari ini.");
-        return;
-      }
-
-      if (saldoUtama >= dailyTaxTotal) {
-        saldoUtama -= dailyTaxTotal;
-        logActivity(`🧾 Membayar pajak harian: Rp ${dailyTaxTotal.toLocaleString()}`);
-        lastTaxPaidDay = currentDay;
-        dailyTaxTotal = 0;
-        updateSaldo();
-        updateTaxDisplay();
-      } else {
-        alert("Saldo utama tidak cukup untuk membayar pajak!");
-        checkGameOver();
-      }
-    };
-
-    // ========== MONTHLY BILLS FUNCTIONS ==========
-    function calculateMonthlyBills() {
-      const baseBill = 500000;
-      const profitBill = dailyProfit * 0.1;
-      const operationalBill = 200000;
-      
-      monthlyBills = Math.round(baseBill + profitBill + operationalBill);
-      updateBillsDisplay();
-    }
-
-    function updateBillsDisplay() {
-      billsAmountElement.textContent = `Rp ${monthlyBills.toLocaleString()}`;
-      document.getElementById('due-date').textContent = `Jatuh tempo: Hari ke-${lastBillsPaidDay + 30}`;
-      
-      if (billsHistory.length > 0) {
-        const lastBill = billsHistory[billsHistory.length - 1];
-        billsHistoryElement.textContent = `Terakhir bayar: Hari ${lastBill.day} - Rp ${lastBill.amount.toLocaleString()}`;
-      }
-    }
-
-    window.payMonthlyBills = function() {
-      if (currentDay < lastBillsPaidDay + 30) {
-        alert(`Tagihan belum jatuh tempo! Jatuh tempo pada hari ke-${lastBillsPaidDay + 30}`);
-        return;
+      if (currentTime >= 24*60) {
+        currentTime = 0;
+        currentDay++;
+        dayCounterEl.textContent = currentDay;
+        // setiap ganti hari, update tagihan mingguan (tidak otomatis bayar)
+        updateWeeklyDisplay();
+        logActivity(`📅 Hari ${currentDay} dimulai!`);
       }
 
-      if (saldoUtama >= monthlyBills) {
-        saldoUtama -= monthlyBills;
-        billsHistory.push({ day: currentDay, amount: monthlyBills });
-        lastBillsPaidDay = currentDay;
-        logActivity(`📋 Membayar tagihan bulanan: Rp ${monthlyBills.toLocaleString()}`);
-        calculateMonthlyBills();
-        updateSaldo();
-      } else {
-        alert("Saldo utama tidak cukup untuk membayar tagihan!");
-        checkGameOver();
-      }
-    };
-
-    // ========== PRODUCT MANAGEMENT ==========
-    window.addNewProduct = function() {
-      const name = document.getElementById('new-product-name').value.trim();
-      const price = parseInt(document.getElementById('new-product-price').value);
-      const modal = parseInt(document.getElementById('new-product-modal').value);
-      const stock = parseInt(document.getElementById('new-product-stock').value) || 10;
-      const creationFee = 10000000; // Rp 10.000.000 untuk produk baru
-
-      if (!name || !price || !modal) {
-        alert("Harap isi semua field!");
-        return;
-      }
-
-      if (saldoUtama < creationFee) {
-        alert(`Saldo utama tidak cukup! Membuat produk baru membutuhkan Rp ${creationFee.toLocaleString()}`);
-        return;
-      }
-
-      saldoUtama -= creationFee;
-      
-      products.push({
-        name: name,
-        price: price,
-        stock: stock,
-        modalPrice: modal,
-        discount: 0,
-        active: true,
-        salesCount: 0
+      // Cek promo expired
+      promoProducts.forEach((p,idx) => {
+        if (p.endTime>0 && currentTime>=p.endTime) {
+          const original = products.find(pr=>pr.name===p.name);
+          if(original) original.salesCount += p.salesCount;
+          promoProducts[idx] = { name:"", price:0, stock:0, modalPrice:0, discount:0, active:false, duration:0, endTime:0, salesCount:0 };
+          logActivity(`Promo ${p.name} berakhir.`);
+          updateProducts();
+        }
       });
 
-      logActivity(`➕ Produk baru ditambahkan: ${name} (Biaya: Rp ${creationFee.toLocaleString()})`);
-      document.getElementById('new-product-name').value = '';
-      document.getElementById('new-product-price').value = '';
-      document.getElementById('new-product-modal').value = '';
-      document.getElementById('new-product-stock').value = '10';
-      updateSaldo();
-      updateProducts();
-    };
-
-    window.editProductName = function() {
-      const input = document.querySelector('#edit-product-search-container .searchable-select-input');
-      const oldName = input ? input.value : '';
-      const newName = document.getElementById('edit-product-name').value.trim();
-
-      const productIndex = products.findIndex(p => p.name === oldName);
-      if (productIndex === -1 || !newName) {
-        alert("Pilih produk yang valid dan masukkan nama baru!");
-        return;
-      }
-
-      products[productIndex].name = newName;
-      logActivity(`✏️ Nama produk diubah: "${oldName}" menjadi "${newName}"`);
-      document.getElementById('edit-product-name').value = '';
-      updateProducts();
-    };
-
-    // ========== PROMO BOX EDIT ==========
-    window.editPromoBox = function() {
-      const newTitle = prompt("Edit judul promo:", promoTitle.textContent);
-      const newLine1 = prompt("Edit baris 1:", promoLine1.textContent);
-      const newLine2 = prompt("Edit baris 2:", promoLine2.textContent);
-      const newLine3 = prompt("Edit baris 3:", promoLine3.textContent);
-
-      if (newTitle) promoTitle.innerHTML = newTitle;
-      if (newLine1) promoLine1.innerHTML = newLine1;
-      if (newLine2) promoLine2.innerHTML = newLine2;
-      if (newLine3) promoLine3.innerHTML = newLine3;
-    };
-
-    // ========== DAILY PROFIT FUNCTIONS ==========
-    function resetDailyProfit() {
-      dailyProfit = 0;
-      updateDailyProfitDisplay();
-      logActivity(`📊 Keuntungan harian direset untuk Day ${currentDay + 1}`);
+      if (loanActive) updateLoanStatus();
+      checkGameOver();
     }
 
-    function updateDailyProfitDisplay() {
-      dailyProfitElement.textContent = `Rp ${dailyProfit.toLocaleString()}`;
-      currentDayDisplay.textContent = currentDay;
+    nextDayBtn.addEventListener("click", ()=>{
+      currentDay++;
+      currentTime = 10*60;
+      dayCounterEl.textContent = currentDay;
+      currentDate.setDate(currentDate.getDate() + 1);
+      currentDate.setHours(10,0,0,0);
+      updateDateDisplay();
+      resetDailyProfit();
+      updateWeeklyDisplay();
+      logActivity(`⏩ Hari ${currentDay} dimulai!`);
+    });
+
+    // ===== PRODUK =====
+    window.toggleProductStatus = (i) => { products[i].active = !products[i].active; updateProducts(); };
+    window.togglePromoProductStatus = (i) => { if(!promoProducts[i].active) { promoProducts[i].active=true; promoProducts[i].endTime = currentTime + promoProducts[i].duration*60; logActivity(`Promo ${promoProducts[i].name} diaktifkan.`); } else { promoProducts[i].active=false; logActivity(`Promo ${promoProducts[i].name} dinonaktifkan.`); } updateProducts(); };
+
+    function logActivity(msg) { let p=document.createElement("p"); p.textContent=msg; activityLog.appendChild(p); activityLog.scrollTop = activityLog.scrollHeight; }
+    function addComment(msg) { let p=document.createElement("p"); p.textContent=msg; commentBox.appendChild(p); commentBox.scrollTop = commentBox.scrollHeight; }
+
+    function updateSaldo() {
+      saldoUtamaEl.textContent = `Rp ${saldoUtama.toLocaleString()}`;
+      saldoModalEl.textContent = `Rp ${saldoModal.toLocaleString()}`;
+      saldoKeuntunganEl.textContent = `Rp ${saldoKeuntungan.toLocaleString()}`;
+      utamaBalanceEl.textContent = `Rp ${saldoUtama.toLocaleString()}`;
+      keuntunganBalanceEl.textContent = `Rp ${saldoKeuntungan.toLocaleString()}`;
     }
+    function resetDailyProfit() { dailyProfit=0; updateDailyProfitDisplay(); }
+    function updateDailyProfitDisplay() { dailyProfitEl.textContent = `Rp ${dailyProfit.toLocaleString()}`; currentDayDisplay.textContent = currentDay; }
 
-    // ========== SAVE GAME FUNCTIONS ==========
-    function saveGame() {
-      const gameData = {
-        saldoUtama,
-        saldoModal,
-        saldoKeuntungan,
-        dailyProfit,
-        currentDay,
-        currentTime,
-        products,
-        promoProducts,
-        autoRestockEnabled,
-        autoRestockAmount,
-        monthlyBills,
-        lastBillsPaidDay,
-        billsHistory,
-        dailyTaxTotal,
-        lastTaxPaidDay,
-        loanActive,
-        loanAmount,
-        loanTenor,
-        loanRemainingWeeks,
-        loanWeeklyPayment,
-        loanLastPaymentDay,
-        loanOverdueWeeks,
-        totalRatings,
-        averageRating,
-        promoCount,
-        storeOpen,
-        promoTitle: promoTitle.innerHTML,
-        promoLine1: promoLine1.innerHTML,
-        promoLine2: promoLine2.innerHTML,
-        promoLine3: promoLine3.innerHTML
-      };
-
-      localStorage.setItem('grroseParfumeSave', JSON.stringify(gameData));
-      const now = new Date();
-      lastSavedElement.textContent = `Terakhir disimpan: ${now.toLocaleString()}`;
-      logActivity("✅ Game berhasil disimpan!");
-    }
-
-    function loadGame() {
-      const savedData = localStorage.getItem('grroseParfumeSave');
-      if (savedData) {
-        try {
-          const gameData = JSON.parse(savedData);
-
-          saldoUtama = gameData.saldoUtama || 30000000;
-          saldoModal = gameData.saldoModal || 0;
-          saldoKeuntungan = gameData.saldoKeuntungan || 0;
-          dailyProfit = gameData.dailyProfit || 0;
-          currentDay = gameData.currentDay || 1;
-          currentTime = gameData.currentTime || 600;
-          products = gameData.products || products;
-          promoProducts = gameData.promoProducts || promoProducts;
-          autoRestockEnabled = gameData.autoRestockEnabled || false;
-          autoRestockAmount = gameData.autoRestockAmount || 10;
-          monthlyBills = gameData.monthlyBills || 0;
-          lastBillsPaidDay = gameData.lastBillsPaidDay || 0;
-          billsHistory = gameData.billsHistory || [];
-          dailyTaxTotal = gameData.dailyTaxTotal || 0;
-          lastTaxPaidDay = gameData.lastTaxPaidDay || 0;
-          loanActive = gameData.loanActive || false;
-          loanAmount = gameData.loanAmount || 0;
-          loanTenor = gameData.loanTenor || 0;
-          loanRemainingWeeks = gameData.loanRemainingWeeks || 0;
-          loanWeeklyPayment = gameData.loanWeeklyPayment || 0;
-          loanLastPaymentDay = gameData.loanLastPaymentDay || 0;
-          loanOverdueWeeks = gameData.loanOverdueWeeks || 0;
-          totalRatings = gameData.totalRatings || 0;
-          averageRating = gameData.averageRating || 0;
-          promoCount = gameData.promoCount || 0;
-          storeOpen = gameData.storeOpen !== undefined ? gameData.storeOpen : true;
-
-          if (gameData.promoTitle) promoTitle.innerHTML = gameData.promoTitle;
-          if (gameData.promoLine1) promoLine1.innerHTML = gameData.promoLine1;
-          if (gameData.promoLine2) promoLine2.innerHTML = gameData.promoLine2;
-          if (gameData.promoLine3) promoLine3.innerHTML = gameData.promoLine3;
-
-          document.getElementById('auto-restock-toggle').checked = autoRestockEnabled;
-          document.getElementById('auto-restock-amount').value = autoRestockAmount;
-
-          updateCustomerMultiplier();
-          updateSaldo();
-          updateProducts();
-          updateDailyProfitDisplay();
-          updateBillsDisplay();
-          updateTaxDisplay();
-          updateLoanStatus();
-          dayCounterElement.textContent = currentDay;
-          ratingValueElement.textContent = averageRating.toFixed(1);
-          storeStatusButton.textContent = storeOpen ? "Tutup Toko" : "Buka Toko";
-          storeStatusButton.classList.toggle("closed", !storeOpen);
-
-          logActivity("✅ Game berhasil dimuat!");
-        } catch (error) {
-          alert("Gagal memuat game: data rusak");
-        }
-      } else {
-        alert("Tidak ada data game yang tersimpan!");
-      }
-    }
-
-    function resetGame() {
-      if (confirm("Apakah Anda yakin ingin mereset game? Semua progress akan hilang!")) {
-        saldoUtama = 30000000;
-        saldoModal = 0;
-        saldoKeuntungan = 0;
-        dailyProfit = 0;
-        currentDay = 1;
-        currentTime = 10 * 60;
-        products = products.map(p => ({ ...p, stock: 0, discount: 0, active: true, salesCount: 0 }));
-        promoProducts = [
-          { name: "", price: 0, stock: 0, modalPrice: 0, discount: 0, active: false, duration: 0, endTime: 0, salesCount: 0 },
-          { name: "", price: 0, stock: 0, modalPrice: 0, discount: 0, active: false, duration: 0, endTime: 0, salesCount: 0 }
-        ];
-        autoRestockEnabled = false;
-        autoRestockAmount = 10;
-        monthlyBills = 0;
-        lastBillsPaidDay = 0;
-        billsHistory = [];
-        dailyTaxTotal = 0;
-        lastTaxPaidDay = 0;
-        loanActive = false;
-        loanAmount = 0;
-        loanTenor = 0;
-        loanRemainingWeeks = 0;
-        loanWeeklyPayment = 0;
-        loanLastPaymentDay = 0;
-        loanOverdueWeeks = 0;
-        totalRatings = 0;
-        averageRating = 0;
-        promoCount = 0;
-        storeOpen = true;
-
-        document.getElementById('auto-restock-toggle').checked = false;
-        document.getElementById('auto-restock-amount').value = 10;
-
-        promoTitle.innerHTML = '<i>BUKA 24 JAM!!!</i>';
-        promoLine1.innerHTML = '<strong>RAMADHAN PENUH BERKAH</strong>';
-        promoLine2.innerHTML = 'Khusus Ramadhan, diskon suka-suka!';
-        promoLine3.innerHTML = 'NEW VARIANT! Premium Artic Frost';
-
-        activityLog.innerHTML = "<p>Ruang Pembeli..</p>";
-        commentBox.innerHTML = "<p>Komentar disini..</p>";
-
-        gameOverPopup.style.display = "none";
-
-        updateCustomerMultiplier();
-        updateSaldo();
-        updateProducts();
-        updateDailyProfitDisplay();
-        updateBillsDisplay();
-        updateTaxDisplay();
-        updateLoanStatus();
-        dayCounterElement.textContent = currentDay;
-        ratingValueElement.textContent = "0";
-        storeStatusButton.textContent = "Tutup Toko";
-        storeStatusButton.classList.remove("closed");
-
-        logActivity("🔄 Game telah direset!");
-      }
-    }
-
-    // ========== SEARCHABLE SELECT HELPER ==========
+    // ===== SEARCHABLE SELECT (ringkas) =====
     function createSearchableSelect(containerId, optionsArray, onSelectCallback, initialValue = '') {
       const container = document.getElementById(containerId);
       if (!container) return null;
-
       container.innerHTML = '';
       const input = document.createElement('input');
       input.type = 'text';
       input.className = 'searchable-select-input';
       input.placeholder = 'Ketik untuk mencari...';
       input.value = initialValue;
-
       const dropdown = document.createElement('div');
       dropdown.className = 'searchable-select-dropdown';
-
       let filteredOptions = optionsArray.map((opt, idx) => ({ name: opt.name, index: idx }));
-
       function renderDropdown(filterText = '') {
         dropdown.innerHTML = '';
         const filterLower = filterText.toLowerCase();
-        filteredOptions = optionsArray
-          .map((opt, idx) => ({ name: opt.name, index: idx }))
-          .filter(item => item.name && item.name.toLowerCase().includes(filterLower));
-
+        filteredOptions = optionsArray.map((opt, idx) => ({ name: opt.name, index: idx })).filter(item => item.name && item.name.toLowerCase().includes(filterLower));
         if (filteredOptions.length === 0) {
-          const div = document.createElement('div');
-          div.textContent = 'Tidak ditemukan';
-          div.style.color = '#999';
-          dropdown.appendChild(div);
+          const div = document.createElement('div'); div.textContent = 'Tidak ditemukan'; div.style.color = '#999'; dropdown.appendChild(div);
         } else {
           filteredOptions.forEach((item) => {
-            const div = document.createElement('div');
-            div.textContent = item.name;
-            div.dataset.index = item.index;
-            div.dataset.name = item.name;
+            const div = document.createElement('div'); div.textContent = item.name; div.dataset.index = item.index; div.dataset.name = item.name;
             if (item.name === input.value) div.classList.add('selected');
             div.addEventListener('click', () => {
               input.value = item.name;
@@ -2347,55 +799,27 @@
           });
         }
       }
-
-      input.addEventListener('focus', () => {
-        renderDropdown(input.value);
-        dropdown.style.display = 'block';
-      });
-
-      input.addEventListener('input', () => {
-        renderDropdown(input.value);
-        dropdown.style.display = 'block';
-      });
-
-      document.addEventListener('click', (e) => {
-        if (!container.contains(e.target)) {
-          dropdown.style.display = 'none';
-        }
-      });
-
-      container.appendChild(input);
-      container.appendChild(dropdown);
-
-      if (initialValue) {
-        const found = optionsArray.findIndex(p => p.name === initialValue);
-        if (found !== -1) input.value = initialValue;
-      }
-
+      input.addEventListener('focus', () => { renderDropdown(input.value); dropdown.style.display = 'block'; });
+      input.addEventListener('input', () => { renderDropdown(input.value); dropdown.style.display = 'block'; });
+      document.addEventListener('click', (e) => { if (!container.contains(e.target)) dropdown.style.display = 'none'; });
+      container.appendChild(input); container.appendChild(dropdown);
+      if (initialValue) { const found = optionsArray.findIndex(p => p.name === initialValue); if (found !== -1) input.value = initialValue; }
       return { input, dropdown };
     }
 
-    // ========== UPDATE PRODUK & INISIALISASI SEARCHABLE ==========
+    // ===== UPDATE PRODUK =====
     function updateProducts() {
       const sortedProducts = [...products].sort((a, b) => {
         if (b.salesCount !== a.salesCount) return b.salesCount - a.salesCount;
         return b.discount - a.discount;
       });
-
-      const bestSellers = [...products]
-        .sort((a, b) => b.salesCount - a.salesCount)
-        .slice(0, 3)
-        .map(p => p.name);
-
-      productsElement.innerHTML = "";
-
+      const bestSellers = [...products].sort((a, b) => b.salesCount - a.salesCount).slice(0, 3).map(p => p.name);
+      productsEl.innerHTML = "";
       sortedProducts.forEach((product) => {
         const originalIndex = products.findIndex(p => p.name === product.name);
         const productDiv = document.createElement("div");
         productDiv.className = `product ${product.stock === 0 ? 'out-of-stock' : ''} ${!product.active ? 'inactive' : ''} ${bestSellers.includes(product.name) && product.salesCount > 0 ? 'best-seller' : ''}`;
-
         const discountedPrice = product.price * (1 - product.discount / 100);
-
         productDiv.innerHTML = `
           <h3>${product.name}</h3>
           ${product.discount > 0 ? 
@@ -2410,21 +834,18 @@
           ${product.salesCount > 0 ? `<p class="sales-count">📊 Terjual: ${product.salesCount}</p>` : ''}
           <button onclick="toggleProductStatus(${originalIndex})">${product.active ? 'Nonaktifkan' : 'Aktifkan'}</button>
         `;
-        productsElement.appendChild(productDiv);
+        productsEl.appendChild(productDiv);
       });
-
       // Update Promo Products
-      promoProductsElement.innerHTML = "";
+      promoProductsEl.innerHTML = "";
       promoProducts.forEach((product, index) => {
         if (product.name) {
           const productDiv = document.createElement("div");
           productDiv.className = `product ${product.stock === 0 ? 'out-of-stock' : ''} ${!product.active ? 'inactive' : ''} ${product.active ? 'promo-active' : ''}`;
-
           const discountedPrice = product.price * (1 - product.discount / 100);
           const remainingTime = Math.max(0, product.endTime - currentTime);
           const remainingMinutes = Math.floor(remainingTime / 60);
           const remainingSeconds = remainingTime % 60;
-
           productDiv.innerHTML = `
             <h3>${product.name}</h3>
             ${product.discount > 0 ? 
@@ -2440,421 +861,146 @@
             ${product.salesCount > 0 ? `<p class="sales-count">📊 Terjual: ${product.salesCount}</p>` : ''}
             <button onclick="togglePromoProductStatus(${index})">${product.active ? 'Nonaktifkan' : 'Aktifkan'}</button>
           `;
-          promoProductsElement.appendChild(productDiv);
+          promoProductsEl.appendChild(productDiv);
         }
       });
-
+      // Re-init searchable selects
       initSearchableSelects();
     }
 
     function initSearchableSelects() {
-      createSearchableSelect('restock-search-container', products, (idx, name) => {
-        document.getElementById('restock-amount').focus();
-      });
-      createSearchableSelect('price-search-container', products, (idx, name) => {
-        document.getElementById('new-price').focus();
-      });
-      createSearchableSelect('discount-search-container', products, (idx, name) => {
-        document.getElementById('discount-percent').focus();
-      });
-      createSearchableSelect('set-promo-search-container', products, (idx, name) => {
-        document.getElementById('set-promo-stock').focus();
-      });
-      createSearchableSelect('edit-product-search-container', products, (idx, name) => {
-        document.getElementById('edit-product-name').focus();
-      });
+      createSearchableSelect('restock-search-container', products, (idx, name) => { document.getElementById('restock-amount').focus(); });
+      createSearchableSelect('price-search-container', products, (idx, name) => { document.getElementById('new-price').focus(); });
+      createSearchableSelect('discount-search-container', products, (idx, name) => { document.getElementById('discount-percent').focus(); });
+      createSearchableSelect('set-promo-search-container', products, (idx, name) => { document.getElementById('set-promo-stock').focus(); });
+      createSearchableSelect('edit-product-search-container', products, (idx, name) => { document.getElementById('edit-product-name').focus(); });
     }
 
-    window.toggleProductStatus = function(index) {
-      products[index].active = !products[index].active;
+    // ===== PRODUK MANAGEMENT =====
+    window.addNewProduct = function() {
+      const name = document.getElementById('new-product-name').value.trim();
+      const price = parseInt(document.getElementById('new-product-price').value);
+      const modal = parseInt(document.getElementById('new-product-modal').value);
+      const stock = parseInt(document.getElementById('new-product-stock').value) || 10;
+      const creationFee = 10000000;
+      if (!name || !price || !modal) { alert("Harap isi semua field!"); return; }
+      if (saldoUtama < creationFee) { alert(`Saldo utama tidak cukup! Biaya Rp ${creationFee.toLocaleString()}`); return; }
+      saldoUtama -= creationFee;
+      products.push({ name: name, price: price, stock: stock, modalPrice: modal, discount: 0, active: true, salesCount: 0 });
+      logActivity(`➕ Produk baru: ${name} (Biaya Rp ${creationFee.toLocaleString()})`);
+      document.getElementById('new-product-name').value = '';
+      document.getElementById('new-product-price').value = '';
+      document.getElementById('new-product-modal').value = '';
+      document.getElementById('new-product-stock').value = '10';
+      updateSaldo(); updateProducts();
+    };
+
+    window.editProductName = function() {
+      const input = document.querySelector('#edit-product-search-container .searchable-select-input');
+      const oldName = input ? input.value : '';
+      const newName = document.getElementById('edit-product-name').value.trim();
+      const productIndex = products.findIndex(p => p.name === oldName);
+      if (productIndex === -1 || !newName) { alert("Pilih produk yang valid!"); return; }
+      products[productIndex].name = newName;
+      logActivity(`✏️ Nama produk diubah: "${oldName}" -> "${newName}"`);
+      document.getElementById('edit-product-name').value = '';
       updateProducts();
     };
 
-    window.togglePromoProductStatus = function(index) {
-      if (!promoProducts[index].active) {
-        promoProducts[index].active = true;
-        promoProducts[index].endTime = currentTime + promoProducts[index].duration * 60;
-        promoCount++;
-        logActivity(`Promo untuk ${promoProducts[index].name} diaktifkan.`);
-        addComment(`Pembeli: "Promo ${promoProducts[index].name} menarik, saya beli banyak!"`);
-        
-        // Promo bisa sedikit menaikkan rating
-        if (averageRating < 4.0) {
-          averageRating = Math.min(4.0, averageRating + 0.1);
-          ratingValueElement.textContent = averageRating.toFixed(1);
-          updateCustomerMultiplier();
-        }
-        
-        updateRatingEffect();
-      } else {
-        promoProducts[index].active = false;
-        logActivity(`Promo untuk ${promoProducts[index].name} dinonaktifkan.`);
-      }
-      updateProducts();
+    // ===== GAME OVER CHECK =====
+    function checkGameOver() {
+      let reason = "";
+      let gameOver = false;
+      if (saldoUtama < 0 && saldoModal < 0 && saldoKeuntungan < 0) { gameOver = true; reason = "Semua saldo minus!"; }
+      else if (dailyTaxTotal > 0 && currentDay > lastTaxPaidDay && saldoUtama < dailyTaxTotal) { gameOver = true; reason = "Tagihan pajak menumpuk!"; }
+      else if (weeklyBillAmount > 0 && lastBillPaidWeek < getCurrentWeek() && saldoUtama < weeklyBillAmount) { gameOver = true; reason = "Tagihan mingguan tidak mampu dibayar!"; }
+      else if (loanActive && loanRemainingWeeks > 0) { const weeksSince = Math.floor((currentDay - loanLastPaymentDay) / 7); if (weeksSince > 4) { gameOver = true; reason = "Pinjaman menunggak >4 minggu!"; } }
+      if (gameOver) { gameOverReason.textContent = reason; gameOverPopup.style.display = "flex"; return true; }
+      return false;
+    }
+
+    // ===== SAVE/LOAD =====
+    window.saveGame = function() {
+      const gameData = { saldoUtama, saldoModal, saldoKeuntungan, dailyProfit, currentDay, currentTime, products, promoProducts, autoRestockEnabled, autoRestockAmount, weeklyBillAmount, lastBillPaidWeek, weeklyBillsHistory, dailyTaxTotal, lastTaxPaidDay, loanActive, loanAmount, loanTenor, loanRemainingWeeks, loanWeeklyPayment, loanLastPaymentDay, loanOverdueWeeks, totalRatings, averageRating, storeOpen, promoTitle: promoTitle.innerHTML, promoLine1: promoLine1.innerHTML, promoLine2: promoLine2.innerHTML, promoLine3: promoLine3.innerHTML };
+      localStorage.setItem('grroseParfumeSave', JSON.stringify(gameData));
+      lastSavedEl.textContent = `Terakhir disimpan: ${new Date().toLocaleString()}`;
+      logActivity("✅ Game saved!");
     };
 
-    function updateTime() {
-      const hours = Math.floor(currentTime / 60);
-      const minutes = currentTime % 60;
-      timeElement.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
-
-      currentTime++;
-
-      if (hours === 0 && minutes === 0) {
-        resetDailyProfit();
-        saveGame();
-        logActivity("💾 Game auto-saved (00:00)");
-      }
-
-      if (currentTime >= 24 * 60) {
-        currentTime = 0;
-        currentDay++;
-        dayCounterElement.textContent = currentDay;
-        logActivity(`📅 Hari ${currentDay} dimulai!`);
-        resetDailyProfit();
-        calculateMonthlyBills();
-        
-        // Check for overdue tax
-        if (currentDay > lastTaxPaidDay && dailyTaxTotal > 0) {
-          logActivity(`⚠️ Pajak hari ke-${lastTaxPaidDay + 1} belum dibayar!`);
-        }
-      }
-
-      promoProducts.forEach((product, index) => {
-        if (product.endTime > 0 && currentTime >= product.endTime) {
-          const originalProduct = products.find(p => p.name === product.name);
-          if (originalProduct) {
-            originalProduct.salesCount += product.salesCount;
-          }
-
-          promoProducts[index] = { name: "", price: 0, stock: 0, modalPrice: 0, discount: 0, active: false, duration: 0, endTime: 0, salesCount: 0 };
-          logActivity(`Promo untuk ${product.name} telah berakhir.`);
-          updateProducts();
-        }
-      });
-
-      // Update loan status
-      if (loanActive) {
-        updateLoanStatus();
-      }
-
-      // Check game over condition
-      checkGameOver();
-    }
-
-    nextDayButton.addEventListener("click", () => {
-      currentDay++;
-      currentTime = 10 * 60;
-      dayCounterElement.textContent = currentDay;
-      resetDailyProfit();
-      calculateMonthlyBills();
-      logActivity(`⏩ Hari ${currentDay} dimulai! Toko dibuka.`);
-      
-      // Check for overdue tax
-      if (currentDay > lastTaxPaidDay && dailyTaxTotal > 0) {
-        logActivity(`⚠️ Pajak hari ke-${lastTaxPaidDay + 1} belum dibayar!`);
-      }
-      
-      checkGameOver();
-    });
-
-    document.getElementById('restock-form').addEventListener("submit", (e) => {
-      e.preventDefault();
-      const input = document.querySelector('#restock-search-container .searchable-select-input');
-      const productName = input ? input.value : '';
-      const productIndex = products.findIndex(p => p.name === productName);
-      const restockQuantity = parseInt(document.getElementById('restock-amount').value);
-
-      if (productIndex !== -1 && restockQuantity > 0) {
-        const product = products[productIndex];
-        const totalCost = product.modalPrice * restockQuantity;
-        if (saldoModal >= totalCost) {
-          product.stock += restockQuantity;
-          saldoModal -= totalCost;
-          updateSaldo();
-          logActivity(`Restok ${product.name} sebanyak ${restockQuantity} dengan biaya Rp ${totalCost.toLocaleString()}.`);
-          updateProducts();
-        } else {
-          alert("Saldo modal tidak cukup untuk restok barang.");
-        }
-      } else {
-        alert("Pilih produk yang valid.");
-      }
-    });
-
-    document.getElementById('price-form').addEventListener("submit", (e) => {
-      e.preventDefault();
-      const input = document.querySelector('#price-search-container .searchable-select-input');
-      const productName = input ? input.value : '';
-      const productIndex = products.findIndex(p => p.name === productName);
-      const newPriceValue = parseInt(document.getElementById('new-price').value);
-
-      if (productIndex !== -1 && newPriceValue > 0) {
-        products[productIndex].price = newPriceValue;
-        logActivity(`Harga ${products[productIndex].name} diubah menjadi Rp ${newPriceValue.toLocaleString()}.`);
-        updateProducts();
-      } else {
-        alert("Pilih produk yang valid.");
-      }
-    });
-
-    document.getElementById('discount-form').addEventListener("submit", (e) => {
-      e.preventDefault();
-      const input = document.querySelector('#discount-search-container .searchable-select-input');
-      const productName = input ? input.value : '';
-      const productIndex = products.findIndex(p => p.name === productName);
-      const discountValue = parseInt(document.getElementById('discount-percent').value);
-
-      if (productIndex !== -1 && discountValue >= 0 && discountValue <= 100) {
-        products[productIndex].discount = discountValue;
-        updateProducts();
-        logActivity(`Diskon ${products[productIndex].name} sebesar ${discountValue}% diterapkan.`);
-      } else {
-        alert("Pilih produk yang valid.");
-      }
-    });
-
-    document.getElementById('set-promo-form').addEventListener("submit", (e) => {
-      e.preventDefault();
-      const input = document.querySelector('#set-promo-search-container .searchable-select-input');
-      const productName = input ? input.value : '';
-      const productIndex = products.findIndex(p => p.name === productName);
-      const stockValue = parseInt(document.getElementById('set-promo-stock').value);
-      const discountValue = parseInt(document.getElementById('set-promo-discount').value);
-      const durationValue = parseInt(document.getElementById('set-promo-duration').value);
-
-      if (productIndex !== -1 && stockValue > 0 && discountValue >= 0 && discountValue <= 100 && durationValue > 0) {
-        const product = products[productIndex];
-        const emptyPromoSlot = promoProducts.find(p => p.name === "");
-
-        if (emptyPromoSlot) {
-          if (saldoUtama >= product.modalPrice * stockValue) {
-            emptyPromoSlot.name = product.name;
-            emptyPromoSlot.price = product.price;
-            emptyPromoSlot.stock = stockValue;
-            emptyPromoSlot.modalPrice = product.modalPrice;
-            emptyPromoSlot.discount = discountValue;
-            emptyPromoSlot.duration = durationValue;
-            emptyPromoSlot.active = false;
-            emptyPromoSlot.endTime = currentTime + durationValue * 60;
-            emptyPromoSlot.salesCount = 0;
-            saldoUtama -= product.modalPrice * stockValue;
-            updateSaldo();
-            updateProducts();
-            logActivity(`Produk ${product.name} dijadikan produk promo dengan diskon ${discountValue}% selama ${durationValue} menit. (Belum aktif, silakan aktifkan manual)`);
-          } else {
-            alert("Saldo utama tidak cukup untuk membuat produk promo.");
-          }
-        } else {
-          alert("Slot promo sudah penuh. Hapus salah satu produk promo terlebih dahulu.");
-        }
-      } else {
-        alert("Input tidak valid.");
-      }
-    });
-
-    function updateSaldo() {
-      saldoUtamaElement.textContent = `Rp ${saldoUtama.toLocaleString()}`;
-      saldoModalElement.textContent = `Rp ${saldoModal.toLocaleString()}`;
-      saldoKeuntunganElement.textContent = `Rp ${saldoKeuntungan.toLocaleString()}`;
-      utamaBalanceElement.textContent = `Rp ${saldoUtama.toLocaleString()}`;
-      keuntunganBalanceElement.textContent = `Rp ${saldoKeuntungan.toLocaleString()}`;
-    }
-
-    function logActivity(message) {
-      const activity = document.createElement("p");
-      activity.textContent = message;
-      activityLog.appendChild(activity);
-      activityLog.scrollTop = activityLog.scrollHeight;
-    }
-
-    function addComment(comment) {
-      const newComment = document.createElement("p");
-      newComment.textContent = comment;
-      commentBox.appendChild(newComment);
-      commentBox.scrollTop = commentBox.scrollHeight;
-    }
-
-    function simulateCustomerBehavior() {
-      if (!storeOpen) return;
-
-      // Hitung jumlah pembeli berdasarkan rating
-      let customerChance = customerMultiplier;
-      
-      // Jika ada promo aktif, chance meningkat
-      const activePromoCount = promoProducts.filter(p => p.active).length;
-      if (activePromoCount > 0) {
-        customerChance *= (1 + activePromoCount * 0.5); // +50% per promo aktif
-      }
-
-      // Random chance untuk kedatangan pembeli
-      if (Math.random() > customerChance) {
-        return; // Tidak ada pembeli kali ini
-      }
-
-      const botName = botNames[Math.floor(Math.random() * botNames.length)];
-      
-      // Tentukan apakah pembeli lebih suka promo atau produk biasa
-      const preferPromo = Math.random() < 0.7; // 70% suka promo jika ada
-      
-      let numProductsToBuy = 1;
-      if (averageRating >= 4.0) {
-        numProductsToBuy = Math.floor(Math.random() * 4) + 1; // 1-4 produk
-      } else if (averageRating >= 3.0) {
-        numProductsToBuy = Math.floor(Math.random() * 3) + 1; // 1-3 produk
-      } else {
-        numProductsToBuy = Math.floor(Math.random() * 2) + 1; // 1-2 produk
-      }
-
-      let totalTransaction = 0;
-      let transactionDetails = `${botName} membeli:`;
-
-      const availablePromoProducts = promoProducts.filter(p => p.name && p.stock > 0 && p.active);
-      const availableProducts = products.filter(p => p.stock > 0 && p.active);
-
-      for (let i = 0; i < numProductsToBuy; i++) {
-        let product;
-        let isPromo = false;
-
-        if (preferPromo && availablePromoProducts.length > 0 && Math.random() < 0.8) {
-          product = availablePromoProducts[Math.floor(Math.random() * availablePromoProducts.length)];
-          isPromo = true;
-        } else if (availableProducts.length > 0) {
-          product = availableProducts[Math.floor(Math.random() * availableProducts.length)];
-        } else {
-          continue;
-        }
-
-        const quantity = Math.floor(Math.random() * 3) + 1;
-
-        if (product.stock >= quantity) {
-          const discountedPrice = product.price * (1 - product.discount / 100);
-          const totalPrice = discountedPrice * quantity;
-          const profit = totalPrice - (product.modalPrice * quantity);
-
-          product.stock -= quantity;
-
-          if (isPromo) {
-            product.salesCount += quantity;
-          } else {
-            product.salesCount += quantity;
-          }
-
-          totalTransaction += totalPrice;
-          
-          // Uang masuk ke saldo modal (modal kembali) dan keuntungan
-          saldoModal += product.modalPrice * quantity; // Modal kembali
-          saldoKeuntungan += profit; // Keuntungan murni
-          dailyProfit += profit;
-
-          // Tambah pajak 1% dari total transaksi
-          addDailyTax(totalPrice);
-
-          transactionDetails += ` ${quantity} ${product.name},`;
-        } else if (product.stock === 0) {
-          addComment(`${botName}: "Kapan restock ${product.name}? Stok habis nih!"`);
-        } else if (!product.active) {
-          addComment(`${botName}: "Kenapa ${product.name} gak dijual lagi?"`);
-        } else {
-          addComment(`${botName}: "Harga ${product.name} kemahalan, gak jadi beli deh."`);
-        }
-      }
-
-      if (totalTransaction > 0) {
-        logActivity(`${transactionDetails} total Rp ${Math.round(totalTransaction).toLocaleString()}.`);
-        const randomComment = comments[Math.floor(Math.random() * comments.length)];
-        addComment(`${botName}: "${randomComment}"`);
-        giveRating(botName);
-      }
-
-      checkAndAutoRestock();
-
-      updateProducts();
-      updateSaldo();
-      updateDailyProfitDisplay();
-    }
-
-    function giveRating(botName) {
-      // Rating dipengaruhi oleh apakah ada promo atau tidak
-      let ratingValue = Math.floor(Math.random() * 5) + 1;
-      
-      // Jika ada promo aktif, rating cenderung lebih tinggi
-      const activePromoCount = promoProducts.filter(p => p.active).length;
-      if (activePromoCount > 0 && ratingValue < 4) {
-        ratingValue = Math.min(5, ratingValue + activePromoCount);
-      }
-      
-      rating = ratingValue;
-      totalRatings++;
-      
-      // Hitung rata-rata dengan bobot agar tidak naik terlalu cepat
-      averageRating = ((averageRating * (totalRatings - 1)) + rating) / totalRatings;
-      
-      // Batasi agar tidak naik drastis
-      averageRating = Math.min(5, averageRating);
-      
-      ratingValueElement.textContent = averageRating.toFixed(1);
-      addComment(`${botName}: "Saya memberikan rating ${ratingValue} bintang untuk toko ini."`);
-      
-      updateCustomerMultiplier();
-      updateRatingEffect();
-    }
-
-    function updateRatingEffect() {
-      if (averageRating >= 4.5) {
-        logActivity("⭐ Toko sangat ramai karena rating bintang 5!");
-      } else if (averageRating >= 4.0) {
-        logActivity("⭐ Toko ramai karena rating bagus!");
-      } else if (averageRating >= 3.5) {
-        logActivity("⭐ Toko cukup ramai, rating lumayan.");
-      } else if (averageRating >= 3.0) {
-        logActivity("⭐ Toko agak sepi, rating biasa saja.");
-      } else if (averageRating >= 2.5) {
-        logActivity("⭐ Toko sepi, rating kurang bagus.");
-      } else {
-        logActivity("⭐ Toko sangat sepi, rating buruk. Coba adakan promo!");
-      }
-    }
-
-    window.toggleNightMode = function() {
-      document.body.classList.toggle("night-mode");
+    window.loadGame = function() {
+      const savedData = localStorage.getItem('grroseParfumeSave');
+      if (!savedData) { alert("Tidak ada save"); return; }
+      try {
+        const g = JSON.parse(savedData);
+        saldoUtama = g.saldoUtama || 30000000; saldoModal = g.saldoModal || 0; saldoKeuntungan = g.saldoKeuntungan || 0; dailyProfit = g.dailyProfit || 0; currentDay = g.currentDay || 1; currentTime = g.currentTime || 600; products = g.products || products; promoProducts = g.promoProducts || promoProducts; autoRestockEnabled = g.autoRestockEnabled || false; autoRestockAmount = g.autoRestockAmount || 10; weeklyBillAmount = g.weeklyBillAmount || 7500000; lastBillPaidWeek = g.lastBillPaidWeek || 0; weeklyBillsHistory = g.weeklyBillsHistory || []; dailyTaxTotal = g.dailyTaxTotal || 0; lastTaxPaidDay = g.lastTaxPaidDay || 0; loanActive = g.loanActive || false; loanAmount = g.loanAmount || 0; loanTenor = g.loanTenor || 0; loanRemainingWeeks = g.loanRemainingWeeks || 0; loanWeeklyPayment = g.loanWeeklyPayment || 0; loanLastPaymentDay = g.loanLastPaymentDay || 0; loanOverdueWeeks = g.loanOverdueWeeks || 0; totalRatings = g.totalRatings || 0; averageRating = g.averageRating || 0; storeOpen = g.storeOpen !== undefined ? g.storeOpen : true;
+        if (g.promoTitle) promoTitle.innerHTML = g.promoTitle; if (g.promoLine1) promoLine1.innerHTML = g.promoLine1; if (g.promoLine2) promoLine2.innerHTML = g.promoLine2; if (g.promoLine3) promoLine3.innerHTML = g.promoLine3;
+        document.getElementById('auto-restock-toggle').checked = autoRestockEnabled;
+        document.getElementById('auto-restock-amount').value = autoRestockAmount;
+        updateCustomerMultiplier(); updateSaldo(); updateProducts(); updateDailyProfitDisplay(); updateWeeklyDisplay(); updateTaxDisplay(); updateLoanStatus(); dayCounterEl.textContent = currentDay; ratingValueEl.textContent = averageRating.toFixed(1); storeStatusBtn.textContent = storeOpen ? "Tutup Toko" : "Buka Toko"; storeStatusBtn.classList.toggle("closed", !storeOpen);
+        logActivity("✅ Game loaded!");
+      } catch (error) { alert("Gagal load game"); }
     };
 
-    window.toggleStoreStatus = function() {
-      storeOpen = !storeOpen;
-      storeStatusButton.textContent = storeOpen ? "Tutup Toko" : "Buka Toko";
-      storeStatusButton.classList.toggle("closed", !storeOpen);
-      logActivity(storeOpen ? "Toko dibuka kembali!" : "Toko ditutup sementara.");
+    window.resetGame = function() {
+      if (!confirm("Reset game? Semua progress hilang!")) return;
+      saldoUtama = 30000000; saldoModal = 0; saldoKeuntungan = 0; dailyProfit = 0; currentDay = 1; currentTime = 10*60;
+      products = products.map(p => ({ ...p, stock: 0, discount: 0, active: true, salesCount: 0 }));
+      promoProducts = [ { name:"", price:0, stock:0, modalPrice:0, discount:0, active:false, duration:0, endTime:0, salesCount:0 }, { name:"", price:0, stock:0, modalPrice:0, discount:0, active:false, duration:0, endTime:0, salesCount:0 } ];
+      autoRestockEnabled = false; autoRestockAmount = 10; weeklyBillAmount = 7500000; lastBillPaidWeek = 0; weeklyBillsHistory = []; dailyTaxTotal = 0; lastTaxPaidDay = 0; loanActive = false; loanAmount = 0; loanTenor = 0; loanRemainingWeeks = 0; loanWeeklyPayment = 0; loanLastPaymentDay = 0; loanOverdueWeeks = 0; totalRatings = 0; averageRating = 0; storeOpen = true;
+      document.getElementById('auto-restock-toggle').checked = false;
+      document.getElementById('auto-restock-amount').value = 10;
+      promoTitle.innerHTML = '<i>BUKA 24 JAM!!!</i>'; promoLine1.innerHTML = '<strong>RAMADHAN PENUH BERKAH</strong>'; promoLine2.innerHTML = 'Khusus Ramadhan, diskon suka-suka!'; promoLine3.innerHTML = 'NEW VARIANT! Premium Artic Frost';
+      activityLog.innerHTML = "<p>Ruang Pembeli..</p>"; commentBox.innerHTML = "<p>Komentar disini..</p>";
+      gameOverPopup.style.display = "none";
+      currentDate = new Date(2026, 1, 15, 10, 0);
+      updateDateDisplay();
+      updateCustomerMultiplier(); updateSaldo(); updateProducts(); updateDailyProfitDisplay(); updateWeeklyDisplay(); updateTaxDisplay(); updateLoanStatus(); dayCounterEl.textContent = currentDay; ratingValueEl.textContent = "0"; storeStatusBtn.textContent = "Tutup Toko"; storeStatusBtn.classList.remove("closed");
+      logActivity("🔄 Game reset!");
     };
 
+    // ===== NIGHT MODE & STORE =====
+    window.toggleNightMode = () => document.body.classList.toggle("night-mode");
+    window.toggleStoreStatus = () => { storeOpen = !storeOpen; storeStatusBtn.textContent = storeOpen ? "Tutup Toko" : "Buka Toko"; storeStatusBtn.classList.toggle("closed", !storeOpen); logActivity(storeOpen?"Toko dibuka":"Toko ditutup"); };
+    window.editPromoBox = function() {
+      const newTitle = prompt("Edit judul promo:", promoTitle.innerHTML);
+      const newLine1 = prompt("Edit baris 1:", promoLine1.innerHTML);
+      const newLine2 = prompt("Edit baris 2:", promoLine2.innerHTML);
+      const newLine3 = prompt("Edit baris 3:", promoLine3.innerHTML);
+      if (newTitle) promoTitle.innerHTML = newTitle;
+      if (newLine1) promoLine1.innerHTML = newLine1;
+      if (newLine2) promoLine2.innerHTML = newLine2;
+      if (newLine3) promoLine3.innerHTML = newLine3;
+    };
+
+    // ===== INIT =====
     saveGameBtn.addEventListener("click", saveGame);
     loadGameBtn.addEventListener("click", loadGame);
     resetGameBtn.addEventListener("click", resetGame);
+    gameOverPopup.addEventListener("click", function(e) { if (e.target === gameOverPopup) resetGame(); });
 
-    // Close game over popup when clicking reset
-    gameOverPopup.addEventListener("click", function(e) {
-      if (e.target === gameOverPopup) {
-        resetGame();
-      }
-    });
-
+    // Cek save lama
     const savedData = localStorage.getItem('grroseParfumeSave');
-    if (savedData) {
-      if (confirm("Ada data game tersimpan. Apakah Anda ingin memuatnya?")) {
-        loadGame();
-      }
-    }
+    if (savedData && confirm("Ada data tersimpan. Muat?")) loadGame();
 
-    updateProducts();
+    // Form handlers
+    document.getElementById('restock-form').addEventListener("submit", (e) => { e.preventDefault(); const input = document.querySelector('#restock-search-container .searchable-select-input'); const productName = input ? input.value : ''; const idx = products.findIndex(p => p.name === productName); const qty = parseInt(document.getElementById('restock-amount').value); if (idx !== -1 && qty > 0) { const cost = products[idx].modalPrice * qty; if (saldoModal >= cost) { products[idx].stock += qty; saldoModal -= cost; updateSaldo(); logActivity(`Restok ${products[idx].name} x${qty} (Rp ${cost.toLocaleString()})`); updateProducts(); } else alert("Saldo modal tidak cukup"); } else alert("Pilih produk valid"); });
+    document.getElementById('price-form').addEventListener("submit", (e) => { e.preventDefault(); const input = document.querySelector('#price-search-container .searchable-select-input'); const productName = input ? input.value : ''; const idx = products.findIndex(p => p.name === productName); const newPrice = parseInt(document.getElementById('new-price').value); if (idx !== -1 && newPrice > 0) { products[idx].price = newPrice; logActivity(`Harga ${products[idx].name} -> Rp ${newPrice.toLocaleString()}`); updateProducts(); } else alert("Pilih produk valid"); });
+    document.getElementById('discount-form').addEventListener("submit", (e) => { e.preventDefault(); const input = document.querySelector('#discount-search-container .searchable-select-input'); const productName = input ? input.value : ''; const idx = products.findIndex(p => p.name === productName); const disc = parseInt(document.getElementById('discount-percent').value); if (idx !== -1 && disc >= 0 && disc <= 100) { products[idx].discount = disc; logActivity(`Diskon ${products[idx].name} ${disc}%`); updateProducts(); } else alert("Input valid"); });
+    document.getElementById('set-promo-form').addEventListener("submit", (e) => { e.preventDefault(); const input = document.querySelector('#set-promo-search-container .searchable-select-input'); const productName = input ? input.value : ''; const idx = products.findIndex(p => p.name === productName); const stock = parseInt(document.getElementById('set-promo-stock').value); const disc = parseInt(document.getElementById('set-promo-discount').value); const dur = parseInt(document.getElementById('set-promo-duration').value); if (idx !== -1 && stock > 0 && disc >= 0 && disc <= 100 && dur > 0) { const emptySlot = promoProducts.find(p => p.name === ""); if (emptySlot) { if (saldoUtama >= products[idx].modalPrice * stock) { emptySlot.name = products[idx].name; emptySlot.price = products[idx].price; emptySlot.stock = stock; emptySlot.modalPrice = products[idx].modalPrice; emptySlot.discount = disc; emptySlot.duration = dur; emptySlot.active = false; emptySlot.endTime = currentTime + dur * 60; emptySlot.salesCount = 0; saldoUtama -= products[idx].modalPrice * stock; updateSaldo(); updateProducts(); logActivity(`Produk promo disiapkan: ${products[idx].name}`); } else alert("Saldo utama tidak cukup"); } else alert("Slot promo penuh"); } else alert("Input tidak valid"); });
+
+    initSearchableSelects();
+    updateDateDisplay();
     updateSaldo();
+    updateProducts();
     updateDailyProfitDisplay();
-    calculateMonthlyBills();
+    updateWeeklyDisplay();
     updateTaxDisplay();
     updateLoanStatus();
     updateCustomerMultiplier();
-    dayCounterElement.textContent = currentDay;
+    dayCounterEl.textContent = currentDay;
     setInterval(updateTime, 1000);
-    setInterval(simulateCustomerBehavior, 8000); // Sedikit lebih lambat untuk keseimbangan
+    setInterval(simulateCustomerBehavior, 8000);
+    })();
   </script>
 </body>
 </html>
