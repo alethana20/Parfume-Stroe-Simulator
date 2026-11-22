@@ -41,12 +41,9 @@
     .product.out-of-stock { background-color: #f8d7da; }
     .product.inactive { background-color: #f0f0f0; opacity: 0.6; }
     .product.promo-active { animation: promoPulse 2s infinite; border: 2px solid #ffd700; box-shadow: 0 0 15px rgba(255, 215, 0, 0.5); position: relative; overflow: hidden; }
-    .product.promo-active::before { content: "🔥 LIVE PROMO"; position: absolute; top: 10px; right: -30px; background: #ff5722; color: white; padding: 5px 30px; transform: rotate(45deg); font-size: 0.7rem; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.2); z-index: 1; }
+    .product.promo-active::before { content: "🔥 LIVE PROMO"; position: absolute; top: 10px; right: -30px; background: #ff5722; color: white; padding: 5px 30px; transform: rotate(45deg); font-size: 0.7rem; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.2); z-index: 3; }
     body.night-mode .product.promo-active::before { background: #ff8c00; }
     @keyframes promoPulse { 0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(255, 215, 0, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); } }
-    .product.best-seller::after { content: "🔥 BEST SELLER"; position: absolute; top: -8px; left: -8px; background: linear-gradient(135deg, #ffd700, #ffa500); color: #000; padding: 5px 15px; font-size: 0.7rem; font-weight: bold; border-radius: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.2); z-index: 2; animation: bestSellerGlow 2s infinite; border: 1px solid #fff; }
-    @keyframes bestSellerGlow { 0%,100% { box-shadow: 0 4px 6px rgba(255, 215, 0, 0.5); } 50% { box-shadow: 0 4px 15px rgba(255, 215, 0, 0.8); } }
-    body.night-mode .product.best-seller::after { background: linear-gradient(135deg, #ffd700, #ff8c00); color: #000; border-color: #333; }
     .product h3 { margin: 0 0 8px 0; font-size: 1rem; }
     .product p { margin: 5px 0; font-size: 0.9rem; }
     .product .original-price { text-decoration: line-through; color: #999; font-size: 0.8rem; }
@@ -186,11 +183,14 @@
     .staff-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin-bottom: 20px; }
     .staff-card { background: white; border-radius: 12px; padding: 15px; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
     body.night-mode .staff-card { background: #2c3e50; }
-    .staff-card .avatar { font-size: 2.6rem; }
+    .staff-card .avatar { width: 92px; height: 92px; margin: 0 auto 8px; border-radius: 50%; overflow: hidden; box-shadow: 0 6px 16px rgba(0,0,0,0.22), 0 0 0 3px rgba(255,255,255,0.85); }
+    .staff-card .avatar svg { width: 100%; height: 100%; display: block; }
     .staff-card h3 { margin: 4px 0 0 0; font-size: 1.05rem; }
     .staff-card .role { font-size: 0.8rem; color: #888; }
     .staff-card .salary { font-weight: bold; color: #e67e22; margin: 6px 0; }
-    .staff-card .skills { font-size: 0.78rem; text-align: left; margin: 6px 0; line-height: 1.5; }
+    .staff-card .skills { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; margin: 8px 0; }
+    .staff-card .chip { font-size: 0.7rem; font-weight: 700; padding: 3px 9px; border-radius: 999px; background: rgba(0,114,255,0.12); color: #0a66d6; border: 1px solid rgba(0,114,255,0.3); }
+    body.night-mode .staff-card .chip { background: rgba(127,196,255,0.15); color: #9fd2ff; border-color: rgba(127,196,255,0.35); }
     .staff-card .st { font-size: 0.8rem; font-weight: bold; margin: 4px 0; }
     .st.on { color: #28a745; } .st.off { color: #dc3545; }
     .staff-card button { border: none; border-radius: 20px; padding: 7px 14px; margin: 3px; cursor: pointer; font-weight: bold; color: white; background: #007bff; }
@@ -199,9 +199,6 @@
     .staff-note { font-size: 0.82rem; opacity: 0.8; margin: 0 0 10px 0; }
     .comment-box p.reply { margin-left: 18px; padding-left: 8px; border-left: 3px solid #007bff; color: #0b6bcb; font-size: 0.92rem; }
     body.night-mode .comment-box p.reply { color: #7fc4ff; }
-    .product.advertised::before { content: "📢 DIIKLANKAN"; position: absolute; top: -8px; right: -8px; background: linear-gradient(135deg, #00c6ff, #0072ff); color: white; padding: 5px 12px; font-size: 0.7rem; font-weight: bold; border-radius: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.2); z-index: 2; }
-    .product .ad-info { color: #0072ff; font-weight: bold; font-size: 0.8rem; }
-    .ad-list p { margin: 4px 0; font-size: 0.9rem; }
     .wallet-card { background: linear-gradient(135deg, #00b09b, #1e3c72); color: white; border-radius: 18px; padding: 22px; margin-bottom: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.25); position: relative; overflow: hidden; }
     .wallet-card::after { content: ""; position: absolute; top: -40%; right: -20%; width: 260px; height: 260px; border-radius: 50%; background: rgba(255,255,255,0.12); }
     .wallet-card .logo { font-weight: bold; font-size: 1.2rem; letter-spacing: 1px; }
@@ -226,6 +223,70 @@
     .night-mode-toggle, .store-status-button { backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.4); }
     .night-mode-toggle { background: rgba(40,40,40,0.55); }
     button { transition: all 0.25s; }
+
+    /* ====== REVISI: foto produk ====== */
+    .p-photo { position: absolute; inset: 0; border-radius: inherit; background-size: cover; background-position: center; z-index: 0; overflow: hidden; }
+    .p-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.8)); }
+    .product.out-of-stock .p-photo { filter: grayscale(1) brightness(0.7); }
+    .product.inactive .p-photo { filter: grayscale(1); }
+    .p-body { position: relative; z-index: 1; }
+    body .product.has-photo h3, body .product.has-photo p { color: #fff; text-shadow: 0 1px 4px rgba(0,0,0,0.9); }
+    body .product.has-photo .original-price { color: #d5d5d5; }
+    body .product.has-photo .discounted-price, body .product.has-photo .discount { color: #ffb38a; }
+    body .product.has-photo .promo-timer { color: #ffc2a8; }
+    body .product.has-photo .sales-count { background: rgba(255,255,255,0.2); color: #b9f6ca; }
+    .p-btns { display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; }
+    .product .photo-btn { background: #8e44ad !important; box-shadow: 0 2px 4px rgba(142,68,173,0.4); }
+
+    /* ====== REVISI: badge best seller ====== */
+    .bs-badge { position: absolute; top: -10px; left: -10px; z-index: 3; display: flex; align-items: center; gap: 5px; padding: 5px 11px 5px 8px; border-radius: 999px; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.5px; color: #3b2a00; background: linear-gradient(135deg, #fff3b0, #ffc83d 45%, #ff9f1a); border: 1px solid #fff; box-shadow: 0 4px 12px rgba(255,160,0,0.55); overflow: hidden; }
+    .bs-badge::after { content: ""; position: absolute; top: 0; left: -60%; width: 40%; height: 100%; background: linear-gradient(100deg, transparent, rgba(255,255,255,0.85), transparent); animation: bsShine 2.6s infinite; }
+    @keyframes bsShine { 0% { left: -60%; } 60%, 100% { left: 130%; } }
+    .bs-badge svg { width: 14px; height: 14px; flex: none; }
+    .bs-badge b { background: #3b2a00; color: #ffd24d; border-radius: 999px; padding: 1px 6px; font-size: 0.62rem; }
+    .bs-badge.r2 { background: linear-gradient(135deg, #ffffff, #d7dde4 45%, #9aa7b5); box-shadow: 0 4px 12px rgba(120,135,150,0.5); color: #222; }
+    .bs-badge.r2 b { background: #222; color: #e6ebf0; }
+    .bs-badge.r3 { background: linear-gradient(135deg, #ffe0c2, #e0955a 45%, #b8672e); box-shadow: 0 4px 12px rgba(184,103,46,0.5); color: #2b1505; }
+    .bs-badge.r3 b { background: #2b1505; color: #ffd3a8; }
+    .product.best-seller { box-shadow: 0 0 0 2px rgba(255,190,50,0.75), 0 8px 24px rgba(255,170,0,0.28) !important; }
+
+    /* ====== REVISI: info iklan di produk ====== */
+    .ad-badge { position: absolute; top: -10px; right: -10px; z-index: 3; display: flex; align-items: center; gap: 5px; padding: 5px 11px 5px 8px; border-radius: 999px; font-size: 0.66rem; font-weight: 800; letter-spacing: 0.6px; color: #fff; background: linear-gradient(135deg, #00c6ff, #0072ff); border: 1px solid rgba(255,255,255,0.85); box-shadow: 0 4px 12px rgba(0,114,255,0.45); }
+    .ad-badge svg { width: 14px; height: 14px; }
+    .ad-strip { margin-top: 8px; padding: 7px 9px; border-radius: 12px; background: rgba(0,114,255,0.14); border: 1px solid rgba(0,114,255,0.35); }
+    .ad-strip .ad-row { display: flex; justify-content: space-between; gap: 6px; font-size: 0.72rem; font-weight: 700; color: #0a66d6; }
+    .ad-strip .ad-bar { height: 5px; border-radius: 5px; background: rgba(0,114,255,0.2); margin-top: 6px; overflow: hidden; }
+    .ad-strip .ad-bar i { display: block; height: 100%; border-radius: 5px; background: linear-gradient(90deg, #00c6ff, #0072ff); }
+    body.night-mode .ad-strip .ad-row { color: #8ccbff; }
+    body .product.has-photo .ad-strip .ad-row { color: #cfe8ff; }
+
+    /* ====== REVISI: pilihan tenor cicilan ====== */
+    .tenor-picker { flex: 1 1 100%; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin: 6px 0; }
+    .loan-details .tenor-opt { flex: 1 1 90px; max-width: 130px; display: flex; flex-direction: column; align-items: center; gap: 1px; padding: 10px 6px; border-radius: 16px; border: 1.5px solid rgba(255,255,255,0.45); background: rgba(255,255,255,0.14); color: #fff; backdrop-filter: blur(6px); font-weight: 600; }
+    .loan-details .tenor-opt b { font-size: 1.7rem; line-height: 1; }
+    .loan-details .tenor-opt span { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.9; }
+    .loan-details .tenor-opt small { font-size: 0.65rem; opacity: 0.8; }
+    .loan-details .tenor-opt em { font-style: normal; font-size: 0.68rem; margin-top: 4px; padding: 2px 7px; border-radius: 999px; background: rgba(0,0,0,0.22); }
+    .loan-details .tenor-opt:hover { transform: translateY(-2px); box-shadow: none; background: rgba(255,255,255,0.25); }
+    .loan-details .tenor-opt.active { background: linear-gradient(135deg, #ffe259, #ffa751); color: #3b2a00; border-color: #fff; box-shadow: 0 6px 18px rgba(255,167,81,0.5); transform: translateY(-2px) scale(1.04); }
+    .loan-details .tenor-opt.active em { background: rgba(59,42,0,0.18); }
+
+    /* ====== REVISI: penonton live promo ====== */
+    .live-viewers { margin-bottom: 14px; padding: 14px; border-radius: 20px; color: #fff; background: linear-gradient(135deg, rgba(20,20,40,0.85), rgba(90,20,60,0.8)); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.25); box-shadow: 0 8px 28px rgba(0,0,0,0.3); }
+    .lv-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+    .lv-live { display: inline-flex; align-items: center; gap: 6px; background: #e11d48; border-radius: 8px; padding: 3px 10px; font-weight: 800; font-size: 0.75rem; letter-spacing: 1px; }
+    .lv-live i { width: 8px; height: 8px; border-radius: 50%; background: #fff; animation: lvPulse 1.2s infinite; }
+    @keyframes lvPulse { 0% { box-shadow: 0 0 0 0 rgba(255,255,255,0.8); } 100% { box-shadow: 0 0 0 9px rgba(255,255,255,0); } }
+    .lv-title { flex: 1; font-size: 0.8rem; opacity: 0.85; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .lv-count { display: inline-flex; align-items: center; gap: 5px; font-size: 0.85rem; background: rgba(255,255,255,0.15); padding: 3px 10px; border-radius: 999px; }
+    .lv-count b { font-size: 1.1rem; }
+    .lv-avatars { display: flex; flex-wrap: wrap; margin: 12px 0 4px 8px; }
+    .lv-av { width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.8rem; color: #fff; border: 2px solid rgba(20,20,40,0.95); margin-left: -8px; }
+    .lv-av.more { background: rgba(255,255,255,0.28); font-size: 0.65rem; }
+    .lv-names { font-size: 0.78rem; opacity: 0.85; margin-top: 8px; }
+    .lv-feed { margin-top: 10px; font-size: 0.78rem; display: flex; flex-direction: column; gap: 3px; min-height: 20px; }
+    .lv-feed div { background: rgba(255,255,255,0.12); padding: 3px 10px; border-radius: 999px; align-self: flex-start; animation: lvIn 0.4s; }
+    @keyframes lvIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
   </style>
 </head>
 <body>
@@ -247,12 +308,12 @@
 
     <div class="customer-count" id="customer-count">👥 Pengunjung: 0% (Rating: 0.0)</div>
 
-    <!-- WEEKLY BILLS -->
+    <!-- BILLS BULANAN -->
     <section class="weekly-bills" id="weekly-bills-section">
-      <h3>📆 Tagihan Mingguan</h3>
-      <div class="bills-amount" id="weekly-bills-amount">Rp 7.500.000</div>
-      <div class="due-date" id="weekly-due">Minggu ke-1 | Jatuh tempo akhir minggu</div>
-      <button id="pay-weekly-btn" onclick="payWeeklyBill()">Bayar Tagihan Minggu Ini</button>
+      <h3>📆 Tagihan Bulanan</h3>
+      <div class="bills-amount" id="weekly-bills-amount">Rp 14.000.000</div>
+      <div class="due-date" id="weekly-due">Bulan ke-1 | Jatuh tempo setiap 30 hari</div>
+      <button id="pay-weekly-btn" onclick="payWeeklyBill()">Bayar Tagihan Bulan Ini</button>
       <div class="bills-history" id="weekly-bills-history">Belum ada pembayaran</div>
     </section>
 
@@ -273,7 +334,14 @@
 
     <section class="daily-profit"><h3>📈 Keuntungan Hari Ini (Day <span id="current-day-display">1</span>)</h3><p id="daily-profit-amount">Rp 0</p><div class="reset-info">Reset setiap jam 00:00</div></section>
 
-    <section class="promo-products"><h2>🔥 LIVE PROMO</h2><div class="products" id="promo-products"></div></section>
+    <section class="promo-products"><h2>🔥 LIVE PROMO</h2>
+      <div class="live-viewers" id="live-viewers" style="display:none">
+        <div class="lv-top"><span class="lv-live"><i></i>LIVE</span><span class="lv-title" id="lv-title"></span><span class="lv-count"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg><b id="lv-num">0</b> menonton</span></div>
+        <div class="lv-avatars" id="lv-avatars"></div>
+        <div class="lv-names" id="lv-names"></div>
+        <div class="lv-feed" id="lv-feed"></div>
+      </div>
+      <div class="products" id="promo-products"></div></section>
 
     <section class="rack"><h2>📦 Produk Tersedia</h2><div class="products" id="products"></div></section>
 
@@ -299,7 +367,6 @@
         <label>Durasi Iklan (makin lama makin mahal):</label>
         <select id="ad-duration"><option value="1">1 Hari - Rp 500.000</option><option value="3">3 Hari - Rp 1.200.000</option><option value="7">7 Hari - Rp 2.500.000</option><option value="14">14 Hari - Rp 4.500.000</option></select>
         <button type="submit">Pasang Iklan</button>
-        <div class="ad-list" id="ad-list"><p>Belum ada iklan aktif</p></div>
       </form>
     </section>
 
@@ -333,7 +400,7 @@
       </div>
     </section>
 
-    <section class="loan-section"><h3>💰 Pinjaman Modal (Maks Rp 100.000.000, bunga 5%)</h3><div class="loan-details"><input type="number" id="loan-amount" placeholder="Jumlah Pinjaman" min="100000" max="100000000" step="100000"><select id="loan-tenor"><option value="2">2 Minggu </option><option value="3">3 Minggu</option><option value="6">6 Minggu</option></select><button onclick="takeLoan()">Ajukan Pinjaman</button></div><div class="loan-status" id="loan-status">Tidak ada pinjaman aktif</div><div class="loan-payment" id="loan-payment-section" style="display: none;"><input type="number" id="loan-payment-amount" placeholder="Jumlah Cicilan" min="0"><button onclick="payLoanInstallment()">Bayar Cicilan</button></div></section>
+    <section class="loan-section"><h3>💰 Pinjaman Modal (Maks Rp 100.000.000, bunga 5%)</h3><div class="loan-details"><input type="number" id="loan-amount" placeholder="Jumlah Pinjaman" min="100000" max="100000000" step="100000"><select id="loan-tenor" style="display:none"><option value="2">2 Minggu </option><option value="3">3 Minggu</option><option value="6">6 Minggu</option></select><div class="tenor-picker" id="tenor-picker"><button type="button" class="tenor-opt active" data-v="2"><b>2</b><span>Minggu</span><small>Cicilan besar</small><em></em></button><button type="button" class="tenor-opt" data-v="3"><b>3</b><span>Minggu</span><small>Seimbang</small><em></em></button><button type="button" class="tenor-opt" data-v="6"><b>6</b><span>Minggu</span><small>Cicilan ringan</small><em></em></button></div><button onclick="takeLoan()">Ajukan Pinjaman</button></div><div class="loan-status" id="loan-status">Tidak ada pinjaman aktif</div><div class="loan-payment" id="loan-payment-section" style="display: none;"><input type="number" id="loan-payment-amount" placeholder="Jumlah Cicilan" min="0"><button onclick="payLoanInstallment()">Bayar Cicilan</button></div></section>
 
     <section class="end-day"><button id="next-day">⏩ Next Day</button></section>
   </div>
@@ -341,6 +408,7 @@
   <section class="save-controls"><button id="save-game" class="save-btn">💾 Save Game</button><button id="load-game" class="save-btn">📂 Load Game</button><button id="reset-game" class="save-btn">🔄 Reset Game</button></section>
   <div id="last-saved"></div>
 
+  <input type="file" id="photo-input" accept="image/*" style="display:none">
   <button class="night-mode-toggle" onclick="toggleNightMode()">🌙</button>
   <button class="store-status-button" id="store-status-button" onclick="toggleStoreStatus()">Buka Toko</button>
 
@@ -397,26 +465,62 @@
 
     // ===== KARYAWAN =====
     const STAFF = [
-      { id: "siti", name: "Siti", avatar: "👩‍💼", role: "Kasir Junior", salary: 1500000, skills: ["restock"] },
-      { id: "budi", name: "Budi", avatar: "👨‍🔧", role: "Staf Gudang", salary: 2000000, skills: ["restock", "pay"] },
-      { id: "rina", name: "Rina", avatar: "👩‍💻", role: "Admin CS", salary: 2500000, skills: ["reply"] },
-      { id: "dimas", name: "Dimas", avatar: "🧑‍🎤", role: "Staf Promo", salary: 3000000, skills: ["promo", "restock"] },
-      { id: "maya", name: "Maya", avatar: "👩‍🏫", role: "Bendahara", salary: 3500000, skills: ["pay", "reply"] },
-      { id: "jaya", name: "Jaya", avatar: "🧑‍✈️", role: "Manager Toko", salary: 6000000, skills: ["restock", "promo", "pay", "reply"] }
+      { id: "siti", name: "Siti", role: "Kasir Junior", salary: 1500000, skills: ["restock"] },
+      { id: "budi", name: "Budi", role: "Staf Gudang", salary: 2000000, skills: ["restock", "pay"] },
+      { id: "rina", name: "Rina", role: "Admin CS", salary: 2500000, skills: ["reply"] },
+      { id: "dimas", name: "Dimas", role: "Staf Promo", salary: 3000000, skills: ["promo", "restock"] },
+      { id: "maya", name: "Maya", role: "Bendahara", salary: 3500000, skills: ["pay", "reply"] },
+      { id: "jaya", name: "Jaya", role: "Manager Toko", salary: 6000000, skills: ["restock", "promo", "pay", "reply"] }
     ];
-    const SKILL_LABEL = { restock: "📦 Auto restok", promo: "🔥 Mulai Live Promo", pay: "🧾 Bayar pajak & tagihan mingguan", reply: "💬 Balas komentar" };
+    const SKILL_LABEL = { restock: "Auto restok", promo: "Mulai Live Promo", pay: "Bayar pajak & tagihan bulanan", reply: "Balas komentar" };
     let staffHired = []; // { id, paidWeek }
+
+    // Avatar karyawan: ilustrasi SVG buatan sendiri (tanpa emoji)
+    const AV = {
+      siti:  { bg: ['#ffd1dc', '#ff8fab'], skin: '#f2c9a0', hair: '#2d1b14', cloth: '#e84a7f', style: 'long' },
+      budi:  { bg: ['#cde7ff', '#6aa9ff'], skin: '#d9a273', hair: '#1c1c1c', cloth: '#f39c12', style: 'short', acc: 'cap' },
+      rina:  { bg: ['#e6d7ff', '#a78bfa'], skin: '#f5d2b3', hair: '#5a2a1a', cloth: '#6c5ce7', style: 'bun', acc: 'headset' },
+      dimas: { bg: ['#ffe9c7', '#ffb347'], skin: '#c98f63', hair: '#222222', cloth: '#2d3436', style: 'wavy' },
+      maya:  { bg: ['#d3f9e5', '#38c98f'], skin: '#e8b88a', hair: '#3b2417', cloth: '#00a67e', style: 'long', acc: 'glasses' },
+      jaya:  { bg: ['#d6dbe6', '#5d6b8a'], skin: '#e0ae82', hair: '#111111', cloth: '#1f2a44', style: 'short', acc: 'tie' }
+    };
+    function avatarSVG(id) {
+      const a = AV[id] || AV.siti, g = 'avg' + id;
+      const back = a.style === 'long' ? `<path d="M26 52c0-20 10-30 24-30s24 10 24 30v30H26z" fill="${a.hair}"/>` : a.style === 'bun' ? `<circle cx="50" cy="20" r="9" fill="${a.hair}"/>` : '';
+      const top = a.style === 'short' ? `<path d="M31 46c0-15 8-22 19-22s19 7 19 22c-6-7-12-9-19-9s-13 2-19 9z" fill="${a.hair}"/>`
+        : a.style === 'wavy' ? `<path d="M30 48c-3-18 8-26 20-26s23 8 20 26c-4-8-9-12-20-12s-16 4-20 12z" fill="${a.hair}"/><circle cx="34" cy="38" r="6" fill="${a.hair}"/><circle cx="66" cy="38" r="6" fill="${a.hair}"/>`
+        : `<path d="M30 50c0-17 8-24 20-24s20 7 20 24c-5-9-11-13-20-13s-15 4-20 13z" fill="${a.hair}"/>`;
+      const acc = a.acc === 'glasses' ? `<g fill="none" stroke="#222" stroke-width="2"><circle cx="43" cy="52" r="6"/><circle cx="57" cy="52" r="6"/><path d="M49 52h2"/></g>`
+        : a.acc === 'headset' ? `<path d="M30 52c0-18 9-27 20-27s20 9 20 27" fill="none" stroke="#222" stroke-width="3"/><rect x="26" y="50" width="7" height="12" rx="3" fill="#222"/><path d="M30 62q4 8 14 9" fill="none" stroke="#222" stroke-width="2"/>`
+        : a.acc === 'cap' ? `<path d="M29 44c1-14 10-20 21-20s20 6 21 20z" fill="#e67e22"/><path d="M66 44h14c0 3-4 5-14 5z" fill="#cf6d17"/>`
+        : a.acc === 'tie' ? `<path d="M46 78l4 3 4-3-2 16h-4z" fill="#c0392b"/>` : '';
+      return `<svg viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="${g}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${a.bg[0]}"/><stop offset="1" stop-color="${a.bg[1]}"/></linearGradient></defs><rect width="100" height="100" fill="url(#${g})"/>${back}<path d="M14 100c0-18 14-26 36-26s36 8 36 26z" fill="${a.cloth}"/><path d="M40 74l10 12 10-12z" fill="#fff" opacity=".9"/><rect x="44" y="64" width="12" height="12" rx="5" fill="${a.skin}"/><ellipse cx="50" cy="50" rx="19" ry="22" fill="${a.skin}"/>${top}<circle cx="43" cy="52" r="2" fill="#222"/><circle cx="57" cy="52" r="2" fill="#222"/><path d="M44 61q6 5 12 0" fill="none" stroke="#a5503c" stroke-width="2" stroke-linecap="round"/>${acc}</svg>`;
+    }
+
+    // Badge best seller & iklan (SVG, tanpa emoji)
+    function bsBadge(i, sales) {
+      if (i < 0 || !(sales > 0)) return '';
+      return `<div class="bs-badge r${i + 1}"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 18h18l1-11-5 4-5-7-5 7-5-4z"/></svg>BEST SELLER<b>#${i + 1}</b></div>`;
+    }
+    function adBadge() {
+      return `<div class="ad-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h3l7 4V5L6 9H3z"/><path d="M16 8a5 5 0 010 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>IKLAN</div>`;
+    }
+    function adStrip(name, left) {
+      const a = ads.find(x => x.name === name), total = (a && a.days) || left;
+      const pct = Math.max(6, Math.min(100, Math.round(left / total * 100)));
+      return `<div class="ad-strip"><div class="ad-row"><span>Sedang diiklankan</span><span>Sisa ${left} hari</span></div><div class="ad-bar"><i style="width:${pct}%"></i></div></div>`;
+    }
 
     // ===== IKLAN =====
     const AD_PRICES = { 1: 500000, 3: 1200000, 7: 2500000, 14: 4500000 };
-    let ads = []; // { name, endDay }
+    let ads = []; // { name, endDay, days }
 
     // ===== GROPAY =====
     let saldoGropay = 0;
     let gropayHistory = [];
 
-    // ===== WEEKLY BILLS =====
-    let weeklyBillAmount = 7500000;
+    // ===== BILLS BULANAN (nama variabel lama dipertahankan; nilai "week" kini berarti bulan) =====
+    let weeklyBillAmount = 14000000;
     let lastBillPaidWeek = 0;
     let weeklyBillsHistory = [];
 
@@ -561,7 +665,6 @@
     const customerCountEl = document.getElementById("customer-count");
     const currentDateSpan = document.getElementById("current-date");
     const staffGridEl = document.getElementById("staff-grid");
-    const adListEl = document.getElementById("ad-list");
 
     function updateDateDisplay() {
       const dayNames = ["Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"];
@@ -573,27 +676,28 @@
       currentDateSpan.textContent = `${dayName}, ${date} ${month} ${year}`;
     }
 
-    // ===== WEEKLY BILLS =====
+    // ===== BILLS BULANAN =====
     function getCurrentWeek() { return Math.floor((currentDay - 1) / 7) + 1; }
+    function getCurrentMonth() { return Math.floor((currentDay - 1) / 30) + 1; }
     function updateWeeklyBillAmount() {
-      const week = getCurrentWeek();
-      if (week >= 10) weeklyBillAmount = 15000000;
-      else weeklyBillAmount = 7500000;
+      // rating 4 ke atas: Rp 16.000.000 / bulan, selain itu Rp 14.000.000 / bulan
+      weeklyBillAmount = (averageRating >= 4) ? 16000000 : 14000000;
     }
-    function canPayWeeklyBill() { return (lastBillPaidWeek < getCurrentWeek()); }
+    function canPayWeeklyBill() { return (lastBillPaidWeek < getCurrentMonth()); }
 
     // parameter "by" = nama karyawan (jika dibayar karyawan, tanpa alert)
     window.payWeeklyBill = function(by) {
       if (typeof by !== 'string') by = null;
-      if (!canPayWeeklyBill()) { if (!by) alert("Tagihan minggu ini sudah dibayar atau belum waktunya."); return; }
+      updateWeeklyBillAmount();
+      if (!canPayWeeklyBill()) { if (!by) alert("Tagihan bulan ini sudah dibayar atau belum waktunya."); return; }
       if (saldoUtama < weeklyBillAmount) {
-        if (!by) { alert("Saldo utama tidak cukup untuk membayar tagihan mingguan!"); checkGameOver(); }
+        if (!by) { alert("Saldo utama tidak cukup untuk membayar tagihan bulanan!"); checkGameOver(); }
         return;
       }
       saldoUtama -= weeklyBillAmount;
-      lastBillPaidWeek = getCurrentWeek();
+      lastBillPaidWeek = getCurrentMonth();
       weeklyBillsHistory.push({ week: lastBillPaidWeek, amount: weeklyBillAmount });
-      logActivity(`📆 ${by ? by + ' membayar' : 'Membayar'} tagihan mingguan: Rp ${weeklyBillAmount.toLocaleString()} (Minggu ke-${lastBillPaidWeek})`);
+      logActivity(`📆 ${by ? by + ' membayar' : 'Membayar'} tagihan bulanan: Rp ${weeklyBillAmount.toLocaleString()} (Bulan ke-${lastBillPaidWeek})`);
       updateWeeklyDisplay();
       updateSaldo();
     };
@@ -601,11 +705,11 @@
     function updateWeeklyDisplay() {
       updateWeeklyBillAmount();
       weeklyBillsAmountEl.textContent = `Rp ${weeklyBillAmount.toLocaleString()}`;
-      const currentWeek = getCurrentWeek();
-      weeklyDueEl.textContent = `Minggu ke-${currentWeek} | ${canPayWeeklyBill() ? 'Belum dibayar' : 'Sudah dibayar'}`;
+      const currentWeek = getCurrentMonth();
+      weeklyDueEl.textContent = `Bulan ke-${currentWeek} | ${canPayWeeklyBill() ? 'Belum dibayar' : 'Sudah dibayar'} | ${averageRating >= 4 ? 'Tarif rating 4+' : 'Tarif standar'}`;
       if (weeklyBillsHistory.length > 0) {
         const last = weeklyBillsHistory[weeklyBillsHistory.length-1];
-        weeklyBillsHistoryEl.textContent = `Terakhir bayar: Minggu ${last.week} - Rp ${last.amount.toLocaleString()}`;
+        weeklyBillsHistoryEl.textContent = `Terakhir bayar: Bulan ${last.week} - Rp ${last.amount.toLocaleString()}`;
       } else {
         weeklyBillsHistoryEl.textContent = 'Belum ada pembayaran';
       }
@@ -679,14 +783,14 @@
       const week = getCurrentWeek();
       staffGridEl.innerHTML = STAFF.map(d => {
         const h = staffHired.find(x => x.id === d.id);
-        const skills = d.skills.map(s => `<div>✔ ${SKILL_LABEL[s]}</div>`).join('');
+        const skills = d.skills.map(s => `<span class="chip">${SKILL_LABEL[s]}</span>`).join('');
         let action = `<button onclick="hireStaff('${d.id}')">Sewa</button>`, status = '';
         if (h) {
           const paid = h.paidWeek >= week;
           status = paid ? `<div class="st on">● Aktif (gaji lunas Minggu ${h.paidWeek})</div>` : `<div class="st off">● Nonaktif - gaji belum dibayar</div>`;
           action = (paid ? '' : `<button class="pay" onclick="payStaff('${d.id}')">Bayar Gaji</button>`) + `<button class="fire" onclick="fireStaff('${d.id}')">Pecat</button>`;
         }
-        return `<div class="staff-card ${h ? 'hired' : ''}"><div class="avatar">${d.avatar}</div><h3>${d.name}</h3><div class="role">${d.role}</div><div class="salary">Rp ${d.salary.toLocaleString()} / minggu</div><div class="skills">${skills}</div>${status}${action}</div>`;
+        return `<div class="staff-card ${h ? 'hired' : ''}"><div class="avatar">${avatarSVG(d.id)}</div><h3>${d.name}</h3><div class="role">${d.role}</div><div class="salary">Rp ${d.salary.toLocaleString()} / minggu</div><div class="skills">${skills}</div>${status}${action}</div>`;
       }).join('');
       const total = staffHired.reduce((a, h) => a + staffDef(h.id).salary, 0);
       document.getElementById('staff-total-salary').textContent = `Rp ${total.toLocaleString()} / minggu`;
@@ -721,11 +825,11 @@
           }
         });
       }
-      // bayar pajak & tagihan mingguan
+      // bayar pajak & tagihan bulanan
       const pay = staffActive('pay');
       if (pay) {
         if (dailyTaxTotal > 0 && currentDay > lastTaxPaidDay) payDailyTax(pay.name);
-        if (canPayWeeklyBill() && currentDay % 7 === 0) payWeeklyBill(pay.name);
+        if (canPayWeeklyBill() && currentDay % 30 === 0) payWeeklyBill(pay.name);
       }
     }
 
@@ -747,10 +851,7 @@
     // ===== IKLAN =====
     function activeAdNames() { return ads.filter(a => currentDay <= a.endDay).map(a => a.name); }
     function adInfo(name) { const a = ads.find(x => x.name === name && currentDay <= x.endDay); return a ? (a.endDay - currentDay + 1) : 0; }
-    function renderAds() {
-      const act = ads.filter(a => currentDay <= a.endDay);
-      adListEl.innerHTML = act.length ? act.map(a => `<p>📢 ${a.name} — sisa ${a.endDay - currentDay + 1} hari</p>`).join('') : '<p>Belum ada iklan aktif</p>';
-    }
+    function renderAds() { /* riwayat/daftar iklan dihapus; info iklan tampil di kartu produk */ }
     document.getElementById('ad-form').addEventListener("submit", (e) => {
       e.preventDefault();
       const input = document.querySelector('#ad-search-container .searchable-select-input');
@@ -763,7 +864,7 @@
       if (saldoUtama < cost) { alert(`Saldo utama tidak cukup! Biaya iklan Rp ${cost.toLocaleString()}`); return; }
       saldoUtama -= cost;
       ads = ads.filter(a => a.name !== name);
-      ads.push({ name, endDay: currentDay + days - 1 });
+      ads.push({ name, endDay: currentDay + days - 1, days });
       logActivity(`📢 Iklan dipasang: ${name} (${days} hari, Rp ${cost.toLocaleString()})`);
       updateSaldo(); updateProducts(); renderAds();
     });
@@ -813,6 +914,7 @@
       else if (averageRating >= 2.0) customerMultiplier = 0.2;
       else customerMultiplier = 0.1;
       customerCountEl.textContent = `👥 Pengunjung: ${Math.round(customerMultiplier * 100)}% (Rating: ${averageRating.toFixed(1)})`;
+      updateWeeklyDisplay(); // tagihan bulanan mengikuti rating toko
     }
 
     function getTrafficFactor() {
@@ -1066,9 +1168,11 @@
         const originalIndex = products.findIndex(p => p.name === product.name);
         const productDiv = document.createElement("div");
         const adDays = adInfo(product.name);
-        productDiv.className = `product ${product.stock === 0 ? 'out-of-stock' : ''} ${!product.active ? 'inactive' : ''} ${bestSellers.includes(product.name) && product.salesCount > 0 ? 'best-seller' : ''} ${adDays > 0 ? 'advertised' : ''}`;
+        productDiv.className = `product ${product.stock === 0 ? 'out-of-stock' : ''} ${!product.active ? 'inactive' : ''} ${bestSellers.includes(product.name) && product.salesCount > 0 ? 'best-seller' : ''} ${adDays > 0 ? 'advertised' : ''} ${product.img ? 'has-photo' : ''}`;
         const discountedPrice = product.price * (1 - product.discount / 100);
         productDiv.innerHTML = `
+          ${product.img ? `<div class="p-photo" style="background-image:url('${product.img}')"></div>` : ''}${bsBadge(bestSellers.indexOf(product.name), product.salesCount)}${adDays > 0 ? adBadge() : ''}
+          <div class="p-body">
           <h3>${product.name}</h3>
           ${product.discount > 0 ? 
             `<p class="original-price">Rp ${product.price.toLocaleString()}</p>
@@ -1078,10 +1182,11 @@
           <p>Stok: ${product.stock}</p>
           <p>Harga Modal: Rp ${product.modalPrice.toLocaleString()}</p>
           ${product.discount > 0 ? `<p class="discount">Diskon: ${product.discount}%</p>` : ''}
-          ${adDays > 0 ? `<p class="ad-info">📢 Sedang diiklankan (sisa ${adDays} hari)</p>` : ''}
+          ${adDays > 0 ? adStrip(product.name, adDays) : ''}
           <p class="status">${product.active ? 'Aktif' : 'Nonaktif'}</p>
           ${product.salesCount > 0 ? `<p class="sales-count">📊 Terjual: ${product.salesCount}</p>` : ''}
-          <button onclick="toggleProductStatus(${originalIndex})">${product.active ? 'Nonaktifkan' : 'Aktifkan'}</button>
+          <div class="p-btns"><button onclick="toggleProductStatus(${originalIndex})">${product.active ? 'Nonaktifkan' : 'Aktifkan'}</button><button class="photo-btn" onclick="pickPhoto(${originalIndex})">${product.img ? 'Ganti Foto' : 'Tambah Foto'}</button>${product.img ? `<button class="photo-btn" onclick="removePhoto(${originalIndex})">Hapus Foto</button>` : ''}</div>
+          </div>
         `;
         productsEl.appendChild(productDiv);
       });
@@ -1089,12 +1194,14 @@
       promoProducts.forEach((product, index) => {
         if (product.name) {
           const productDiv = document.createElement("div");
-          productDiv.className = `product ${product.stock === 0 ? 'out-of-stock' : ''} ${!product.active ? 'inactive' : ''} ${product.active ? 'promo-active' : ''}`;
+          productDiv.className = `product ${product.stock === 0 ? 'out-of-stock' : ''} ${!product.active ? 'inactive' : ''} ${product.active ? 'promo-active' : ''} ${product.img ? 'has-photo' : ''}`;
           const discountedPrice = product.price * (1 - product.discount / 100);
           const remainingTime = Math.max(0, product.endTime - currentTime);
           const remainingMinutes = Math.floor(remainingTime / 60);
           const remainingSeconds = remainingTime % 60;
           productDiv.innerHTML = `
+            ${product.img ? `<div class="p-photo" style="background-image:url('${product.img}')"></div>` : ''}
+            <div class="p-body">
             <h3>${product.name}</h3>
             ${product.discount > 0 ? 
               `<p class="original-price">Rp ${product.price.toLocaleString()}</p>
@@ -1108,6 +1215,7 @@
             ${product.active ? `<p class="promo-timer">⏱️ Sisa: ${remainingMinutes}m ${remainingSeconds}s</p>` : ''}
             ${product.salesCount > 0 ? `<p class="sales-count">📊 Terjual: ${product.salesCount}</p>` : ''}
             <button onclick="togglePromoProductStatus(${index})">${product.active ? 'Nonaktifkan' : 'Aktifkan'}</button>
+            </div>
           `;
           promoProductsEl.appendChild(productDiv);
         }
@@ -1180,6 +1288,7 @@
           emptySlot.pending = true; // menunggu karyawan promo memulai (atau aktifkan manual)
           emptySlot.endTime = currentTime + dur * 60; 
           emptySlot.salesCount = 0; 
+          emptySlot.img = products[idx].img || ''; // foto produk ikut tampil di live promo
           saldoUtama -= (products[idx].modalPrice * stock) + promoFee; 
           updateSaldo(); 
           updateProducts(); 
@@ -1194,7 +1303,7 @@
       let gameOver = false;
       if (saldoUtama < 0 && saldoModal < 0 && saldoKeuntungan < 0) { gameOver = true; reason = "Semua saldo minus!"; }
       else if (dailyTaxTotal > 0 && currentDay > lastTaxPaidDay && saldoUtama < dailyTaxTotal) { gameOver = true; reason = "Tagihan pajak menumpuk!"; }
-      else if (weeklyBillAmount > 0 && lastBillPaidWeek < getCurrentWeek() && saldoUtama < weeklyBillAmount) { gameOver = true; reason = "Tagihan mingguan tidak mampu dibayar!"; }
+      else if (weeklyBillAmount > 0 && lastBillPaidWeek < getCurrentMonth() && saldoUtama < weeklyBillAmount) { gameOver = true; reason = "Tagihan bulanan tidak mampu dibayar!"; }
       else if (loanActive && loanRemainingWeeks > 0) { const weeksSince = Math.floor((currentDay - loanLastPaymentDay) / 7); if (weeksSince > 4) { gameOver = true; reason = "Pinjaman menunggak >4 minggu!"; } }
       if (gameOver) { gameOverReason.textContent = reason; gameOverPopup.style.display = "flex"; return true; }
       return false;
@@ -1202,18 +1311,18 @@
 
     // ===== SAVE/LOAD =====
     window.saveGame = function() {
-      const gameData = { saldoUtama, saldoModal, saldoKeuntungan, dailyProfit, currentDay, currentTime, products, promoProducts, autoRestockAmount, staffHired, ads, saldoGropay, gropayHistory, weeklyBillAmount, lastBillPaidWeek, weeklyBillsHistory, dailyTaxTotal, lastTaxPaidDay, loanActive, loanAmount, loanTenor, loanRemainingWeeks, loanWeeklyPayment, loanLastPaymentDay, loanOverdueWeeks, totalRatings, averageRating, storeOpen, promoTitle: promoTitle.innerHTML, promoLine1: promoLine1.innerHTML, promoLine2: promoLine2.innerHTML, promoLine3: promoLine3.innerHTML };
-      localStorage.setItem('grroseParfumeSave', JSON.stringify(gameData));
+      const gameData = { saldoUtama, saldoModal, saldoKeuntungan, dailyProfit, currentDay, currentTime, products, promoProducts, autoRestockAmount, staffHired, ads, saldoGropay, gropayHistory, billMode: 'monthly', weeklyBillAmount, lastBillPaidWeek, weeklyBillsHistory, dailyTaxTotal, lastTaxPaidDay, loanActive, loanAmount, loanTenor, loanRemainingWeeks, loanWeeklyPayment, loanLastPaymentDay, loanOverdueWeeks, totalRatings, averageRating, storeOpen, promoTitle: promoTitle.innerHTML, promoLine1: promoLine1.innerHTML, promoLine2: promoLine2.innerHTML, promoLine3: promoLine3.innerHTML };
+      try { localStorage.setItem('grroseParfumeSave', JSON.stringify(gameData)); } catch (e) { logActivity("⚠️ Gagal menyimpan (penyimpanan penuh/diblokir). Coba hapus beberapa foto produk."); return; }
       lastSavedEl.textContent = `Terakhir disimpan: ${new Date().toLocaleString()}`;
       logActivity("✅ Game saved!");
     };
 
     window.loadGame = function() {
-      const savedData = localStorage.getItem('grroseParfumeSave');
+      let savedData = null; try { savedData = localStorage.getItem('grroseParfumeSave'); } catch (e) {}
       if (!savedData) { alert("Tidak ada save"); return; }
       try {
         const g = JSON.parse(savedData);
-        saldoUtama = g.saldoUtama || 30000000; saldoModal = g.saldoModal || 0; saldoKeuntungan = g.saldoKeuntungan || 0; dailyProfit = g.dailyProfit || 0; currentDay = g.currentDay || 1; currentTime = g.currentTime || 600; products = g.products || products; promoProducts = g.promoProducts || promoProducts; autoRestockAmount = g.autoRestockAmount || 10; staffHired = g.staffHired || []; ads = g.ads || []; saldoGropay = g.saldoGropay || 0; gropayHistory = g.gropayHistory || []; weeklyBillAmount = g.weeklyBillAmount || 7500000; lastBillPaidWeek = g.lastBillPaidWeek || 0; weeklyBillsHistory = g.weeklyBillsHistory || []; dailyTaxTotal = g.dailyTaxTotal || 0; lastTaxPaidDay = g.lastTaxPaidDay || 0; loanActive = g.loanActive || false; loanAmount = g.loanAmount || 0; loanTenor = g.loanTenor || 0; loanRemainingWeeks = g.loanRemainingWeeks || 0; loanWeeklyPayment = g.loanWeeklyPayment || 0; loanLastPaymentDay = g.loanLastPaymentDay || 0; loanOverdueWeeks = g.loanOverdueWeeks || 0; totalRatings = g.totalRatings || 0; averageRating = g.averageRating || 0; storeOpen = g.storeOpen !== undefined ? g.storeOpen : true;
+        saldoUtama = g.saldoUtama || 30000000; saldoModal = g.saldoModal || 0; saldoKeuntungan = g.saldoKeuntungan || 0; dailyProfit = g.dailyProfit || 0; currentDay = g.currentDay || 1; currentTime = g.currentTime || 600; products = g.products || products; promoProducts = g.promoProducts || promoProducts; autoRestockAmount = g.autoRestockAmount || 10; staffHired = g.staffHired || []; ads = g.ads || []; saldoGropay = g.saldoGropay || 0; gropayHistory = g.gropayHistory || []; weeklyBillAmount = g.weeklyBillAmount || 14000000; lastBillPaidWeek = g.lastBillPaidWeek || 0; weeklyBillsHistory = g.weeklyBillsHistory || []; if (g.billMode !== 'monthly') { lastBillPaidWeek = 0; weeklyBillsHistory = []; } dailyTaxTotal = g.dailyTaxTotal || 0; lastTaxPaidDay = g.lastTaxPaidDay || 0; loanActive = g.loanActive || false; loanAmount = g.loanAmount || 0; loanTenor = g.loanTenor || 0; loanRemainingWeeks = g.loanRemainingWeeks || 0; loanWeeklyPayment = g.loanWeeklyPayment || 0; loanLastPaymentDay = g.loanLastPaymentDay || 0; loanOverdueWeeks = g.loanOverdueWeeks || 0; totalRatings = g.totalRatings || 0; averageRating = g.averageRating || 0; storeOpen = g.storeOpen !== undefined ? g.storeOpen : true;
         if (g.promoTitle) promoTitle.innerHTML = g.promoTitle; if (g.promoLine1) promoLine1.innerHTML = g.promoLine1; if (g.promoLine2) promoLine2.innerHTML = g.promoLine2; if (g.promoLine3) promoLine3.innerHTML = g.promoLine3;
         document.getElementById('auto-restock-amount').value = autoRestockAmount;
         updateCustomerMultiplier(); updateSaldo(); updateProducts(); updateDailyProfitDisplay(); updateWeeklyDisplay(); updateTaxDisplay(); updateLoanStatus(); renderStaff(); renderAds(); dayCounterEl.textContent = currentDay; ratingValueEl.textContent = averageRating.toFixed(1); storeStatusBtn.textContent = storeOpen ? "Tutup Toko" : "Buka Toko"; storeStatusBtn.classList.toggle("closed", !storeOpen);
@@ -1226,7 +1335,7 @@
       saldoUtama = 30000000; saldoModal = 0; saldoKeuntungan = 0; dailyProfit = 0; currentDay = 1; currentTime = 10*60;
       products = products.map(p => ({ ...p, stock: 0, discount: 0, active: true, salesCount: 0 }));
       promoProducts = [ { name:"", price:0, stock:0, modalPrice:0, discount:0, active:false, duration:0, endTime:0, salesCount:0 }, { name:"", price:0, stock:0, modalPrice:0, discount:0, active:false, duration:0, endTime:0, salesCount:0 } ];
-      autoRestockAmount = 10; staffHired = []; ads = []; saldoGropay = 0; gropayHistory = []; weeklyBillAmount = 7500000; lastBillPaidWeek = 0; weeklyBillsHistory = []; dailyTaxTotal = 0; lastTaxPaidDay = 0; loanActive = false; loanAmount = 0; loanTenor = 0; loanRemainingWeeks = 0; loanWeeklyPayment = 0; loanLastPaymentDay = 0; loanOverdueWeeks = 0; totalRatings = 0; averageRating = 0; storeOpen = true;
+      autoRestockAmount = 10; staffHired = []; ads = []; saldoGropay = 0; gropayHistory = []; weeklyBillAmount = 14000000; lastBillPaidWeek = 0; weeklyBillsHistory = []; dailyTaxTotal = 0; lastTaxPaidDay = 0; loanActive = false; loanAmount = 0; loanTenor = 0; loanRemainingWeeks = 0; loanWeeklyPayment = 0; loanLastPaymentDay = 0; loanOverdueWeeks = 0; totalRatings = 0; averageRating = 0; storeOpen = true;
       document.getElementById('auto-restock-amount').value = 10;
       promoTitle.innerHTML = '<i>BUKA 24 JAM!!!</i>'; promoLine1.innerHTML = '<strong>RAMADHAN PENUH BERKAH</strong>'; promoLine2.innerHTML = 'Khusus Ramadhan, diskon suka-suka!'; promoLine3.innerHTML = 'NEW VARIANT! Premium Artic Frost';
       activityLog.innerHTML = "<p>Ruang Pembeli..</p>"; commentBox.innerHTML = "<p>Komentar disini..</p>";
@@ -1257,7 +1366,7 @@
     resetGameBtn.addEventListener("click", resetGame);
     gameOverPopup.addEventListener("click", function(e) { if (e.target === gameOverPopup) resetGame(); });
 
-    const savedData = localStorage.getItem('grroseParfumeSave');
+    let savedData = null; try { savedData = localStorage.getItem('grroseParfumeSave'); } catch (e) {}
     if (savedData && confirm("Ada data tersimpan. Muat?")) loadGame();
 
     document.getElementById('restock-form').addEventListener("submit", (e) => { e.preventDefault(); const input = document.querySelector('#restock-search-container .searchable-select-input'); const productName = input ? input.value : ''; const idx = products.findIndex(p => p.name === productName); const qty = parseInt(document.getElementById('restock-amount').value); if (idx !== -1 && qty > 0) { const cost = products[idx].modalPrice * qty; if (saldoModal >= cost) { products[idx].stock += qty; saldoModal -= cost; updateSaldo(); logActivity(`Restok ${products[idx].name} x${qty} (Rp ${cost.toLocaleString()})`); updateProducts(); } else alert("Saldo modal tidak cukup"); } else alert("Pilih produk valid"); });
@@ -1276,8 +1385,87 @@
     renderStaff();
     renderAds();
     dayCounterEl.textContent = currentDay;
+
+    // ===== FOTO PRODUK (ambil dari folder/galeri) =====
+    let photoTarget = -1;
+    const photoInput = document.getElementById('photo-input');
+    window.pickPhoto = function(i) { photoTarget = i; photoInput.value = ''; photoInput.click(); };
+    window.removePhoto = function(i) {
+      products[i].img = '';
+      promoProducts.forEach(p => { if (p.name === products[i].name) p.img = ''; });
+      updateProducts();
+    };
+    photoInput.addEventListener('change', function() {
+      const f = this.files && this.files[0];
+      if (!f || photoTarget < 0 || !products[photoTarget]) return;
+      const rd = new FileReader();
+      rd.onload = () => {
+        const im = new Image();
+        im.onload = () => {
+          const sc = Math.min(1, 480 / Math.max(im.width, im.height)), c = document.createElement('canvas');
+          c.width = Math.round(im.width * sc); c.height = Math.round(im.height * sc);
+          c.getContext('2d').drawImage(im, 0, 0, c.width, c.height);
+          const url = c.toDataURL('image/jpeg', 0.78), p = products[photoTarget];
+          p.img = url;
+          promoProducts.forEach(x => { if (x.name === p.name) x.img = url; });
+          logActivity(`🖼️ Foto produk ${p.name} diperbarui`);
+          updateProducts();
+        };
+        im.src = rd.result;
+      };
+      rd.readAsDataURL(f);
+    });
+
+    // ===== LIVE PROMO: PENONTON (jumlah mengikuti rating toko) =====
+    let liveViewers = [];
+    const lvEl = document.getElementById('live-viewers'), lvNum = document.getElementById('lv-num'), lvTitle = document.getElementById('lv-title'), lvAvatars = document.getElementById('lv-avatars'), lvNames = document.getElementById('lv-names'), lvFeed = document.getElementById('lv-feed');
+    const LV_COLORS = ['#ff7675', '#74b9ff', '#55efc4', '#fdcb6e', '#a29bfe', '#fd79a8', '#00cec9', '#e17055'];
+    function lvColor(n) { let x = 0; for (const ch of n) x += ch.charCodeAt(0); return LV_COLORS[x % LV_COLORS.length]; }
+    function lvFeedAdd(t) { const d = document.createElement('div'); d.textContent = t; lvFeed.appendChild(d); while (lvFeed.children.length > 3) lvFeed.removeChild(lvFeed.firstChild); }
+    function liveViewersTick() {
+      const act = promoProducts.filter(p => p.active);
+      if (!act.length || !storeOpen) { if (liveViewers.length) { liveViewers = []; lvFeed.innerHTML = ''; } lvEl.style.display = 'none'; return; }
+      lvEl.style.display = 'block';
+      const avgDisc = act.reduce((a, p) => a + p.discount, 0) / act.length;
+      const target = Math.max(1, Math.round((6 + avgDisc * 0.7) * (customerMultiplier + 0.3) * (1 + 0.5 * (act.length - 1))) + Math.floor(Math.random() * 5) - 2);
+      const step = Math.floor(Math.random() * 3) + 1;
+      if (liveViewers.length < target) {
+        for (let i = 0; i < Math.min(step, target - liveViewers.length); i++) {
+          const pool = botNames.filter(n => !liveViewers.includes(n)); if (!pool.length) break;
+          const n = pool[Math.floor(Math.random() * pool.length)]; liveViewers.push(n);
+          if (i === 0) lvFeedAdd(`${n} bergabung ke live`);
+        }
+      } else if (liveViewers.length > target) {
+        for (let i = 0; i < Math.min(step, liveViewers.length - target); i++) liveViewers.splice(Math.floor(Math.random() * liveViewers.length), 1);
+      } else if (Math.random() < 0.4 && liveViewers.length > 1) {
+        liveViewers.splice(Math.floor(Math.random() * liveViewers.length), 1);
+      }
+      lvTitle.textContent = act.map(p => p.name).join(' • ');
+      lvNum.textContent = liveViewers.length;
+      lvAvatars.innerHTML = liveViewers.slice(-10).map(n => `<span class="lv-av" style="background:${lvColor(n)}" title="${n}">${n[0]}</span>`).join('') + (liveViewers.length > 10 ? `<span class="lv-av more">+${liveViewers.length - 10}</span>` : '');
+      const last = liveViewers.slice(-3);
+      lvNames.textContent = last.length ? `${last.join(', ')}${liveViewers.length > 3 ? ` dan ${liveViewers.length - 3} lainnya` : ''} sedang menonton` : '';
+    }
+
+    // ===== PILIHAN TENOR CICILAN =====
+    (function() {
+      const sel = document.getElementById('loan-tenor'), amt = document.getElementById('loan-amount'), opts = Array.from(document.querySelectorAll('.tenor-opt'));
+      function refresh() {
+        const a = parseInt(amt.value) || 0;
+        opts.forEach(o => {
+          const v = parseInt(o.dataset.v);
+          o.classList.toggle('active', parseInt(sel.value) === v);
+          o.querySelector('em').textContent = a > 0 ? 'Rp ' + Math.ceil(a / v).toLocaleString() + '/mgg' : 'Rp -/mgg';
+        });
+      }
+      opts.forEach(o => o.addEventListener('click', () => { sel.value = o.dataset.v; refresh(); }));
+      amt.addEventListener('input', refresh);
+      refresh();
+    })();
+
     setInterval(updateTime, 1000);
     setInterval(simulateCustomerBehavior, 8000);
+    setInterval(liveViewersTick, 2000);
     })();
   </script>
 </body>
