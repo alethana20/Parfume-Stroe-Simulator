@@ -250,6 +250,14 @@
     .bs-badge.r3 b { background: #2b1505; color: #ffd3a8; }
     .product.best-seller { box-shadow: 0 0 0 2px rgba(255,190,50,0.75), 0 8px 24px rgba(255,170,0,0.28) !important; }
 
+    /* ====== BADGE PRODUK BARU RILIS (NEW) ====== */
+    .new-badge { position: absolute; top: -10px; left: -10px; z-index: 4; display: inline-flex; align-items: center; gap: 4px; padding: 5px 11px; border-radius: 999px; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.7px; color: #fff; background: linear-gradient(135deg, #00e676, #00b248); border: 1px solid #fff; box-shadow: 0 4px 12px rgba(0,200,83,0.5); overflow: hidden; }
+    .product.best-seller .new-badge { top: 22px; }
+    .new-badge::after { content: ""; position: absolute; top: 0; left: -60%; width: 40%; height: 100%; background: linear-gradient(100deg, transparent, rgba(255,255,255,0.85), transparent); animation: bsShine 2.4s infinite; }
+    .new-info-strip { margin-top: 6px; padding: 4px 9px; border-radius: 10px; font-size: 0.72rem; font-weight: 700; color: #007e33; background: rgba(0,230,118,0.16); border: 1px solid rgba(0,200,83,0.4); display: inline-block; }
+    body.night-mode .new-info-strip { color: #69f0ae; background: rgba(0,230,118,0.15); }
+    body .product.has-photo .new-info-strip { color: #b9f6ca; background: rgba(0,230,118,0.25); }
+
     /* ====== REVISI: info iklan di produk ====== */
     .ad-badge { position: absolute; top: -10px; right: -10px; z-index: 3; display: flex; align-items: center; gap: 5px; padding: 5px 11px 5px 8px; border-radius: 999px; font-size: 0.66rem; font-weight: 800; letter-spacing: 0.6px; color: #fff; background: linear-gradient(135deg, #00c6ff, #0072ff); border: 1px solid rgba(255,255,255,0.85); box-shadow: 0 4px 12px rgba(0,114,255,0.45); }
     .ad-badge svg { width: 14px; height: 14px; }
@@ -300,6 +308,7 @@
     .ls-chat p { margin: 0; padding: 4px 10px; border-radius: 12px; background: rgba(255,255,255,0.12); align-self: flex-start; max-width: 94%; animation: lvIn 0.3s; }
     .ls-chat p.reply { align-self: flex-end; background: rgba(14,165,233,0.45); border: 1px solid rgba(255,255,255,0.3); }
     .ls-chat p.sys { align-self: center; background: rgba(255,200,60,0.28); font-weight: 700; }
+    .live-viewers .ls-chat p.reply { background: rgba(225,29,72,0.45); }
     .ls-foot { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-top: 10px; font-size: 0.78rem; }
     .ls-foot button { background: #e11d48; color: #fff; border: none; border-radius: 999px; padding: 6px 14px; font-weight: 700; cursor: pointer; }
     .form .live-ad-opt { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 12px; background: rgba(0,114,255,0.1); border: 1px dashed rgba(0,114,255,0.5); cursor: pointer; font-size: 0.9rem; }
@@ -406,10 +415,11 @@
         <div class="ls-foot"><span id="ls-info"></span><button type="button" onclick="stopLive()">Akhiri Live</button></div>
       </div>
       <div class="live-viewers" id="live-viewers" style="display:none">
-        <div class="lv-top"><span class="lv-live"><i></i>LIVE</span><span class="lv-title" id="lv-title"></span><span class="lv-count"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg><b id="lv-num">0</b> menonton</span></div>
+        <div class="lv-top"><span class="lv-live"><i></i>LIVE PROMO</span><span class="lv-title" id="lv-title"></span><span class="lv-count"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg><b id="lv-num">0</b> menonton</span></div>
         <div class="lv-avatars" id="lv-avatars"></div>
         <div class="lv-names" id="lv-names"></div>
         <div class="lv-feed" id="lv-feed"></div>
+        <div class="ls-chat" id="lp-chat"></div>
       </div>
       <div class="products" id="promo-products"></div></section>
 
@@ -424,7 +434,7 @@
     <section class="activity"><h2>📋 Aktivitas Pembeli</h2><div class="notification-box" id="activity-log"><p>Ruang Pembeli..</p></div></section>
     <section class="comments"><h2>💬 Komentar Pembeli</h2><div class="comment-box" id="comment-box"><p>Komentar disini..</p></div></section>
 
-    <section class="set-promo-section"><h2>⚙️ Atur LIVE PROMO (Biaya Rp 1.000.000)</h2><form id="set-promo-form" class="form"><label>Pilih Produk (Ketik untuk mencari):</label><div id="set-promo-search-container" class="searchable-select-container"></div><input type="number" id="set-promo-stock" placeholder="Stok Promo" min="1"><input type="number" id="set-promo-discount" placeholder="Diskon (%)" min="0" max="100"><input type="number" id="set-promo-duration" placeholder="Durasi Promo (menit)" min="1"><button type="submit">Set Live Promo (Rp 1jt)</button></form></section>
+    <section class="set-promo-section"><h2>⚙️ Atur LIVE PROMO (Biaya Rp 1.000.000)</h2><form id="set-promo-form" class="form"><label>Pilih Produk (Ketik untuk mencari):</label><div id="set-promo-search-container" class="searchable-select-container"></div><label>Admin Live (Talent Live):</label><select id="promo-host" style="display:none"><option value="">Belum ada admin live aktif</option></select><div class="host-picker" id="promo-host-picker"></div><input type="number" id="set-promo-stock" placeholder="Stok Promo" min="1"><input type="number" id="set-promo-discount" placeholder="Diskon (%)" min="0" max="100"><input type="number" id="set-promo-duration" placeholder="Durasi Promo (menit)" min="1"><button type="submit">Set Live Promo (Rp 1jt)</button></form></section>
 
     <section class="live-section"><h2>🎥 Live Jualan (Produk Normal)</h2>
       <form id="live-form" class="form">
@@ -437,7 +447,7 @@
       </form></section>
 
     <section class="restock-section"><h2>📦 Restok Barang</h2><form id="restock-form" class="form"><label>Pilih Produk (Ketik untuk mencari):</label><div id="restock-search-container" class="searchable-select-container"></div><input type="number" id="restock-amount" placeholder="Jumlah" min="1"><button type="submit">Restok</button></form></section>
-    <section class="price-section"><h2>💰 Atur Harga Barang</h2><form id="price-form" class="form"><label>Pilih Produk (Ketik untuk mencari):</label><div id="price-search-container" class="searchable-select-container"></div><input type="number" id="new-price" placeholder="Harga Baru" min="1"><button type="submit">Atur Harga</button></form></section>
+    <section class="price-section"><h2>💰 Atur Harga & Modal Barang</h2><form id="price-form" class="form"><label>Pilih Produk (Ketik untuk mencari):</label><div id="price-search-container" class="searchable-select-container"></div><input type="number" id="new-price" placeholder="Harga Jual Baru (kosongkan jika tidak diubah)" min="1"><input type="number" id="new-modal-price" placeholder="Harga Modal Baru (kosongkan jika tidak diubah)" min="1"><button type="submit">Atur Harga & Modal</button></form></section>
     <section class="discount-section"><h2>🏷️ Atur Diskon Produk</h2><form id="discount-form" class="form"><label>Pilih Produk (Ketik untuk mencari):</label><div id="discount-search-container" class="searchable-select-container"></div><input type="number" id="discount-percent" placeholder="Diskon (%)" min="0" max="100"><button type="submit">Atur Diskon</button></form></section>
 
     <!-- IKLAN / ADS -->
@@ -536,8 +546,8 @@
     ];
 
     let promoProducts = [
-      { name: "", price: 0, stock: 0, modalPrice: 0, discount: 0, active: false, duration: 0, endTime: 0, salesCount: 0 },
-      { name: "", price: 0, stock: 0, modalPrice: 0, discount: 0, active: false, duration: 0, endTime: 0, salesCount: 0 }
+      { name: "", price: 0, stock: 0, modalPrice: 0, discount: 0, active: false, duration: 0, endTime: 0, salesCount: 0, host: "" },
+      { name: "", price: 0, stock: 0, modalPrice: 0, discount: 0, active: false, duration: 0, endTime: 0, salesCount: 0, host: "" }
     ];
 
     // Jumlah restok otomatis oleh karyawan
@@ -590,6 +600,10 @@
       if (i < 0 || !(sales > 0)) return '';
       return `<div class="bs-badge r${i + 1}"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 18h18l1-11-5 4-5-7-5 7-5-4z"/></svg>BEST SELLER<b>#${i + 1}</b></div>`;
     }
+    function newBadge(product) {
+      if (!product || !product.isNew) return '';
+      return `<div class="new-badge">✨ NEW</div>`;
+    }
     function adBadge() {
       return `<div class="ad-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h3l7 4V5L6 9H3z"/><path d="M16 8a5 5 0 010 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>IKLAN</div>`;
     }
@@ -609,16 +623,25 @@
     let lsProdKey = '';
     const lsEl = document.getElementById('live-sell'), lsNum = document.getElementById('ls-num'), lsTitle = document.getElementById('ls-title'), lsAd = document.getElementById('ls-ad'), lsProd = document.getElementById('ls-prod'), lsAvatars = document.getElementById('ls-avatars'), lsNames = document.getElementById('ls-names'), lsChat = document.getElementById('ls-chat'), lsInfo = document.getElementById('ls-info');
     const liveHostSel = document.getElementById('live-host'), liveHintEl = document.getElementById('live-hint'), hostPickerEl = document.getElementById('host-picker');
+    const promoHostSel = document.getElementById('promo-host'), promoHostPickerEl = document.getElementById('promo-host-picker');
     hostPickerEl.addEventListener('click', e => { const b = e.target.closest('.host-card'); if (!b) return; liveHostSel.value = b.dataset.id; renderLiveSetup(); });
+    promoHostPickerEl.addEventListener('click', e => { const b = e.target.closest('.host-card'); if (!b) return; promoHostSel.value = b.dataset.id; renderLiveSetup(); });
     function liveHostActive(id) { const h = staffHired.find(x => x.id === id), d = staffDef(id); return !!(h && d && d.skills.includes('live') && h.paidWeek >= getCurrentWeek()); }
     function renderLiveSetup() {
       const keep = liveHostSel.value;
+      const keepPromo = promoHostSel.value;
       const act = staffHired.map(h => staffDef(h.id)).filter(d => d && liveHostActive(d.id));
-      liveHostSel.innerHTML = act.length ? act.map(d => `<option value="${d.id}">${d.name} - Pesona x${d.charm}</option>`).join('') : '<option value="">Belum ada admin live aktif</option>';
+      const optsHtml = act.length ? act.map(d => `<option value="${d.id}">${d.name} - Pesona x${d.charm}</option>`).join('') : '<option value="">Belum ada admin live aktif</option>';
+      liveHostSel.innerHTML = optsHtml;
+      promoHostSel.innerHTML = optsHtml;
       if (act.some(d => d.id === keep)) liveHostSel.value = keep;
+      if (act.some(d => d.id === keepPromo)) promoHostSel.value = keepPromo;
       liveHintEl.textContent = '';
       const cur = liveHostSel.value;
-      hostPickerEl.innerHTML = act.length ? act.map(d => `<button type="button" class="host-card ${d.id === cur ? 'active' : ''} ${d.pro ? 'pro' : ''}" data-id="${d.id}"><div class="hc-av">${avatarSVG(d.id, 'h')}</div><div class="hc-txt"><b>${d.name}</b><span>${d.role}</span><div class="hc-chips"><i>Pesona x${d.charm}</i>${d.boost ? `<i>Jual x${d.boost}</i>` : ''}</div></div></button>`).join('') : '<div class="host-empty">Belum ada admin live aktif.<br><small>Sewa talent Admin Live di bagian Karyawan dan pastikan gaji minggu ini lunas.</small></div>';
+      const curPromo = promoHostSel.value;
+      const emptyHtml = '<div class="host-empty">Belum ada admin live aktif.<br><small>Sewa talent Admin Live di bagian Karyawan dan pastikan gaji minggu ini lunas.</small></div>';
+      hostPickerEl.innerHTML = act.length ? act.map(d => `<button type="button" class="host-card ${d.id === cur ? 'active' : ''} ${d.pro ? 'pro' : ''}" data-id="${d.id}"><div class="hc-av">${avatarSVG(d.id, 'h')}</div><div class="hc-txt"><b>${d.name}</b><span>${d.role}</span><div class="hc-chips"><i>Pesona x${d.charm}</i>${d.boost ? `<i>Jual x${d.boost}</i>` : ''}</div></div></button>`).join('') : emptyHtml;
+      promoHostPickerEl.innerHTML = act.length ? act.map(d => `<button type="button" class="host-card ${d.id === curPromo ? 'active' : ''} ${d.pro ? 'pro' : ''}" data-id="${d.id}"><div class="hc-av">${avatarSVG(d.id, 'ph')}</div><div class="hc-txt"><b>${d.name}</b><span>${d.role}</span><div class="hc-chips"><i>Pesona x${d.charm}</i>${d.boost ? `<i>Jual x${d.boost}</i>` : ''}</div></div></button>`).join('') : emptyHtml;
     }
     function liveBoost() { const h = live && staffDef(live.host); return (h && h.boost) || 1; }
     function liveSellBonus() { const b = liveBoost(); return (live && storeOpen) ? Math.min(2.5 * b, (0.25 + live.count / 60) * b) : 0; }
@@ -932,7 +955,13 @@
     };
     function renderStaff() {
       const week = getCurrentWeek();
-      staffGridEl.innerHTML = STAFF.map(d => {
+      // Karyawan yang sudah disewa otomatis ditempatkan di urutan teratas
+      const sortedStaff = [...STAFF].sort((a, b) => {
+        const aHired = staffHired.some(x => x.id === a.id) ? 1 : 0;
+        const bHired = staffHired.some(x => x.id === b.id) ? 1 : 0;
+        return bHired - aHired;
+      });
+      staffGridEl.innerHTML = sortedStaff.map(d => {
         const h = staffHired.find(x => x.id === d.id);
         const skills = (d.pro ? '<span class="chip gold">PRO</span>' : '') + d.skills.map(s => `<span class="chip">${SKILL_LABEL[s]}</span>`).join('') + (d.charm ? `<span class="chip">Pesona x${d.charm}</span>` : '') + (d.boost ? `<span class="chip">Penjualan x${d.boost}</span>` : '');
         let action = `<button onclick="hireStaff('${d.id}')">Sewa</button>`, status = '';
@@ -965,14 +994,22 @@
         });
         if (changed) { updateSaldo(); updateProducts(); }
       }
-      // live promo
+      // live promo (memastikan talent live promo juga aktif)
       const ps = staffActive('promo');
       if (ps) {
         promoProducts.forEach(p => {
           if (p.name && p.pending && !p.active) {
-            p.active = true; p.pending = false; p.endTime = currentTime + p.duration * 60;
-            logActivity(`🔥 ${ps.name} memulai Live Promo ${p.name} (diskon ${p.discount}%)`);
-            updateProducts();
+            if (!p.host || !liveHostActive(p.host)) {
+              const fallbackHost = staffActive('live');
+              if (fallbackHost) p.host = fallbackHost.id;
+            }
+            if (p.host && liveHostActive(p.host)) {
+              const hostObj = staffDef(p.host);
+              p.active = true; p.pending = false; p.endTime = currentTime + p.duration * 60;
+              lpChatAdd(`${hostObj.name} membuka Live Promo: ${p.name} (Diskon ${p.discount}%)!`, 'sys');
+              logActivity(`🔥 ${ps.name} memulai Live Promo ${p.name} bersama ${hostObj.name} (diskon ${p.discount}%)`);
+              updateProducts();
+            }
           }
         });
       }
@@ -1096,15 +1133,18 @@
       else numProductsToBuy = Math.floor(Math.random()*2)+1;
 
       let totalTransaction = 0;
+      let boughtFromLive = false;
       let details = `${botName} membeli:`;
       const bestSellerNames = products.sort((a,b)=>b.salesCount-a.salesCount).slice(0,3).map(p=>p.name);
 
       for (let i=0; i<numProductsToBuy; i++) {
         let product = null;
+        let isPromoItem = false;
         const availableLivePromos = promoProducts.filter(p=>p.active && p.stock>0);
         const availableRegular = products.filter(p=>p.active && p.stock>0);
         if (preferLivePromo && availableLivePromos.length>0 && Math.random()<0.8) {
           product = availableLivePromos[Math.floor(Math.random()*availableLivePromos.length)];
+          isPromoItem = true;
         } else if (availableRegular.length>0) {
           const adAvail = availableRegular.filter(p => adNames.includes(p.name));
           if (adAvail.length > 0 && Math.random() < 0.6) {
@@ -1123,7 +1163,15 @@
           const profit = total - (product.modalPrice * qty);
 
           product.stock -= qty;
-          product.salesCount += qty; if (live && product.name === live.product) { live.sold = (live.sold || 0) + qty; liveBuyChat(botName, qty); }
+          product.salesCount += qty;
+          if (isPromoItem) {
+            boughtFromLive = true;
+            promoBuyChat(botName, qty, product);
+          } else if (live && product.name === live.product) {
+            boughtFromLive = true;
+            live.sold = (live.sold || 0) + qty;
+            liveBuyChat(botName, qty);
+          }
           totalTransaction += total;
 
           saldoModal += product.modalPrice * qty;
@@ -1144,21 +1192,33 @@
         const randComment = commentsList[Math.floor(Math.random()*commentsList.length)];
         addComment(`${botName}: "${randComment}"`);
         staffReply(botName, randComment);
-        giveRating(botName);
+        giveRating(botName, boughtFromLive);
       }
       checkAndAutoRestock();
       updateProducts(); updateSaldo(); updateDailyProfitDisplay();
     }
 
-    function giveRating(botName) {
+    function giveRating(botName, fromLive = false) {
       let ratingVal = Math.floor(Math.random()*5)+1;
       const activePromoCount = promoProducts.filter(p=>p.active).length;
-      if (activePromoCount>0 && ratingVal<4) ratingVal = Math.min(5, ratingVal+activePromoCount);
-      totalRatings++;
-      averageRating = ((averageRating*(totalRatings-1)) + ratingVal) / totalRatings;
+      const isLiveActive = !!(live && storeOpen) || activePromoCount > 0;
+
+      if (fromLive) {
+        // Hampir 70% pembeli dari live memberikan bintang bagus (4 atau 5)
+        if (Math.random() < 0.70) {
+          ratingVal = Math.random() < 0.65 ? 5 : 4;
+        }
+      } else if (activePromoCount > 0 && ratingVal < 4) {
+        ratingVal = Math.min(5, ratingVal + activePromoCount);
+      }
+
+      // Jika sering live biasa / live promo, rating toko sedikit lebih cepat naik
+      const liveWeight = (fromLive || isLiveActive) ? 1.35 : 1.0;
+      totalRatings += liveWeight;
+      averageRating = ((averageRating * (totalRatings - liveWeight)) + (ratingVal * liveWeight)) / totalRatings;
       averageRating = Math.min(5, averageRating);
       ratingValueEl.textContent = averageRating.toFixed(1);
-      addComment(`${botName}: "Saya memberi rating ${ratingVal} bintang."`);
+      addComment(`${botName}: "Saya memberi rating ${ratingVal} bintang${fromLive ? ' (dari Live)' : ''}."`);
       updateCustomerMultiplier();
     }
 
@@ -1191,36 +1251,75 @@
     window.payLoanInstallment = function() { if(!loanActive) return; let payment=parseInt(document.getElementById('loan-payment-amount').value); if(!payment||payment<0) return; let weeksSince=Math.floor((currentDay-loanLastPaymentDay)/7); if(weeksSince>0){loanOverdueWeeks+=weeksSince; loanLastPaymentDay=currentDay;} let totalDue=loanWeeklyPayment; if(loanOverdueWeeks>0) totalDue += loanWeeklyPayment * loanOverdueWeeks * LOAN_INTEREST_RATE; if(payment<totalDue) { alert(`Minimal bayar Rp ${Math.ceil(totalDue).toLocaleString()}`); return; } if(payment>saldoUtama){alert("Saldo utama tidak cukup"); return;} saldoUtama-=payment; if(loanOverdueWeeks>0){ let interest = loanWeeklyPayment * loanOverdueWeeks * LOAN_INTEREST_RATE; let principal = payment - interest; loanRemainingWeeks -= Math.max(0, Math.floor(principal / loanWeeklyPayment)); logActivity(`💰 Bayar cicilan + bunga Rp ${payment.toLocaleString()}`); loanOverdueWeeks=0; } else { loanRemainingWeeks-=1; logActivity(`💰 Bayar cicilan Rp ${payment.toLocaleString()}`); } if(loanRemainingWeeks<=0){ loanActive=false; loanAmount=0; loanRemainingWeeks=0; loanWeeklyPayment=0; logActivity("✅ Pinjaman lunas!"); } loanLastPaymentDay=currentDay; updateSaldo(); updateLoanStatus(); document.getElementById('loan-payment-amount').value=''; };
     function updateLoanStatus() { if(!loanActive) { loanStatusEl.textContent="Tidak ada pinjaman aktif"; loanPaymentSection.style.display="none"; return; } let weeksSince=Math.floor((currentDay-loanLastPaymentDay)/7); let status=`Pinjaman: Rp ${loanAmount.toLocaleString()} | Sisa: ${loanRemainingWeeks} minggu | Cicilan/minggu: Rp ${loanWeeklyPayment.toLocaleString()}`; if(weeksSince>0) status+=` | ⚠️ Telat ${weeksSince} minggu (bunga 5%)`; loanStatusEl.textContent=status; loanPaymentSection.style.display="block"; }
 
-    // ===== TIME & DAY UPDATE =====
-    function updateTime() {
-      currentTime++;
-      const hours = Math.floor(currentTime/60);
-      const minutes = currentTime%60;
-      timeEl.textContent = `${String(hours).padStart(2,'0')}:${String(minutes).padStart(2,'0')}`;
-      currentDate.setHours(hours, minutes, 0, 0);
-      
-      if (hours === 0 && minutes === 0) {
-        if (dailyProfit !== 0) {
-          dailyProfit = 0;
-          updateDailyProfitDisplay();
-          logActivity("📊 Keuntungan harian di-reset (00:00).");
+    // ===== FUNGSI GANTI HARI (Dipakai baik saat jam 00:00 maupun tombol Next Day) =====
+    function advanceNewDay(isAutoMidnight = false) {
+      currentDay++;
+      dayCounterEl.textContent = currentDay;
+      if (!isAutoMidnight) {
+        currentTime = 10 * 60;
+        currentDate.setDate(currentDate.getDate() + 1);
+        currentDate.setHours(10, 0, 0, 0);
+      } else {
+        currentDate.setDate(currentDate.getDate() + 1);
+        currentDate.setHours(0, 0, 0, 0);
+      }
+      updateDateDisplay();
+      resetDailyProfit();
+      updateWeeklyDisplay();
+      updateTaxDisplay();
+      if (loanActive) updateLoanStatus();
+      logActivity(isAutoMidnight ? `🌙 Pergantian hari otomatis (00:00) -> Hari ke-${currentDay} dimulai!` : `⏩ Hari ${currentDay} dimulai!`);
+
+      // Hapus status "NEW / Produk Baru Rilis" setelah lebih dari 3 hari sejak dirilis
+      products.forEach(p => {
+        if (p.isNew && p.releasedDay && (currentDay - p.releasedDay) >= 3) {
+          p.isNew = false;
         }
+      });
+
+      // Bunga tabungan GroPay & iklan berakhir
+      if (saldoGropay > 0) {
+        const bunga = Math.floor(saldoGropay * 0.001);
+        if (bunga > 0) { saldoGropay += bunga; gropayLog(`✨ Bunga +Rp ${bunga.toLocaleString()}`); }
+      }
+      ads.filter(a => currentDay > a.endDay).forEach(a => logActivity(`📢 Iklan ${a.name} berakhir.`));
+      ads = ads.filter(a => currentDay <= a.endDay);
+      renderAds(); renderStaff();
+      updateSaldo(); updateProducts();
+      if (isAutoMidnight) {
         saveGame();
         logActivity("💾 Auto-saved (00:00)");
       }
+    }
 
-      if (currentTime >= 24*60) { currentTime = 0; }
-
-      updateDateDisplay();
+    // ===== TIME & DAY UPDATE =====
+    function updateTime() {
+      currentTime++;
+      if (currentTime >= 24 * 60) {
+        currentTime = 0;
+        timeEl.textContent = "00:00";
+        advanceNewDay(true);
+      } else {
+        const hours = Math.floor(currentTime / 60);
+        const minutes = currentTime % 60;
+        timeEl.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
+        currentDate.setHours(hours, minutes, 0, 0);
+        updateDateDisplay();
+      }
 
       // Karyawan bekerja
       staffWork();
 
       promoProducts.forEach((p,idx) => {
+        if (p.active && p.host && !liveHostActive(p.host)) {
+          p.active = false;
+          logActivity(`⚠️ Live Promo ${p.name} dijeda: admin live tidak aktif (gaji belum dibayar).`);
+          updateProducts();
+        }
         if (p.endTime>0 && currentTime>=p.endTime) {
           const original = products.find(pr=>pr.name===p.name);
           if(original) original.salesCount += p.salesCount;
-          promoProducts[idx] = { name:"", price:0, stock:0, modalPrice:0, discount:0, active:false, duration:0, endTime:0, salesCount:0 };
+          promoProducts[idx] = { name:"", price:0, stock:0, modalPrice:0, discount:0, active:false, duration:0, endTime:0, salesCount:0, host:"" };
           logActivity(`Live Promo ${p.name} berakhir.`);
           updateProducts();
         }
@@ -1230,30 +1329,36 @@
       checkGameOver();
     }
 
-    nextDayBtn.addEventListener("click", ()=>{
-      currentDay++;
-      currentTime = 10*60;
-      dayCounterEl.textContent = currentDay;
-      currentDate.setDate(currentDate.getDate() + 1);
-      currentDate.setHours(10,0,0,0);
-      updateDateDisplay();
-      resetDailyProfit();
-      updateWeeklyDisplay();
-      logActivity(`⏩ Hari ${currentDay} dimulai!`);
-      // bunga tabungan GroPay & iklan berakhir
-      if (saldoGropay > 0) {
-        const bunga = Math.floor(saldoGropay * 0.001);
-        if (bunga > 0) { saldoGropay += bunga; gropayLog(`✨ Bunga +Rp ${bunga.toLocaleString()}`);  }
-      }
-      ads.filter(a => currentDay > a.endDay).forEach(a => logActivity(`📢 Iklan ${a.name} berakhir.`));
-      ads = ads.filter(a => currentDay <= a.endDay);
-      renderAds(); renderStaff();
-      updateSaldo(); updateProducts();
+    nextDayBtn.addEventListener("click", () => {
+      advanceNewDay(false);
     });
 
     // ===== PRODUK =====
     window.toggleProductStatus = (i) => { products[i].active = !products[i].active; updateProducts(); };
-    window.togglePromoProductStatus = (i) => { promoProducts[i].pending = false; if(!promoProducts[i].active) { promoProducts[i].active=true; promoProducts[i].endTime = currentTime + promoProducts[i].duration*60; logActivity(`Live Promo ${promoProducts[i].name} diaktifkan.`); } else { promoProducts[i].active=false; logActivity(`Live Promo ${promoProducts[i].name} dinonaktifkan.`); } updateProducts(); };
+    window.togglePromoProductStatus = (i) => {
+      const p = promoProducts[i];
+      if (!p.active) {
+        if (!p.host || !liveHostActive(p.host)) {
+          const actHost = staffActive('live');
+          if (actHost) p.host = actHost.id;
+        }
+        if (!p.host || !liveHostActive(p.host)) {
+          alert("Live Promo memerlukan Admin Live (Talent Live) yang aktif! Sewa & bayar gaji talent terlebih dahulu.");
+          return;
+        }
+        p.pending = false;
+        p.active = true;
+        p.endTime = currentTime + p.duration * 60;
+        const hostObj = staffDef(p.host);
+        lpChatAdd(`${hostObj ? hostObj.name : 'Admin Live'} memulai Live Promo: ${p.name}!`, 'sys');
+        logActivity(`Live Promo ${p.name} diaktifkan bersama ${hostObj ? hostObj.name : 'Admin Live'}.`);
+      } else {
+        p.pending = false;
+        p.active = false;
+        logActivity(`Live Promo ${p.name} dinonaktifkan.`);
+      }
+      updateProducts();
+    };
 
     function logActivity(msg) { let p=document.createElement("p"); p.textContent=msg; activityLog.appendChild(p); activityLog.scrollTop = activityLog.scrollHeight; }
     function addComment(msg, cls) { let p=document.createElement("p"); p.textContent=msg; if (cls) p.className = cls; commentBox.appendChild(p); commentBox.scrollTop = commentBox.scrollHeight; }
@@ -1325,9 +1430,10 @@
         productDiv.className = `product ${product.stock === 0 ? 'out-of-stock' : ''} ${!product.active ? 'inactive' : ''} ${bestSellers.includes(product.name) && product.salesCount > 0 ? 'best-seller' : ''} ${adDays > 0 ? 'advertised' : ''} ${product.img ? 'has-photo' : ''}`;
         const discountedPrice = product.price * (1 - product.discount / 100);
         productDiv.innerHTML = `
-          ${product.img ? `<div class="p-photo" style="background-image:url('${product.img}')"></div>` : ''}${bsBadge(bestSellers.indexOf(product.name), product.salesCount)}${adDays > 0 ? adBadge() : ''}
+          ${product.img ? `<div class="p-photo" style="background-image:url('${product.img}')"></div>` : ''}${bsBadge(bestSellers.indexOf(product.name), product.salesCount)}${newBadge(product)}${adDays > 0 ? adBadge() : ''}
           <div class="p-body">
           <h3>${product.name}</h3>
+          ${product.isNew ? `<div class="new-info-strip">🆕 Produk Baru Rilis${product.releasedDay ? ` (Day ${product.releasedDay})` : ''}</div>` : ''}
           ${product.discount > 0 ? 
             `<p class="original-price">Rp ${product.price.toLocaleString()}</p>
              <p class="discounted-price">Rp ${Math.round(discountedPrice).toLocaleString()}</p>` : 
@@ -1353,10 +1459,12 @@
           const remainingTime = Math.max(0, product.endTime - currentTime);
           const remainingMinutes = Math.floor(remainingTime / 60);
           const remainingSeconds = remainingTime % 60;
+          const hostObj = product.host ? staffDef(product.host) : null;
           productDiv.innerHTML = `
             ${product.img ? `<div class="p-photo" style="background-image:url('${product.img}')"></div>` : ''}
             <div class="p-body">
             <h3>${product.name}</h3>
+            ${hostObj ? `<p style="font-size:0.78rem;font-weight:700;">🎙️ Talent: ${hostObj.name}</p>` : ''}
             ${product.discount > 0 ? 
               `<p class="original-price">Rp ${product.price.toLocaleString()}</p>
                <p class="discounted-price">Rp ${Math.round(discountedPrice).toLocaleString()}</p>` : 
@@ -1397,8 +1505,8 @@
       if (!name || !price || !modal) { alert("Harap isi semua field!"); return; }
       if (saldoUtama < creationFee) { alert(`Saldo utama tidak cukup! Biaya Rp ${creationFee.toLocaleString()}`); return; }
       saldoUtama -= creationFee;
-      products.push({ name: name, price: price, stock: stock, modalPrice: modal, discount: 0, active: true, salesCount: 0 });
-      logActivity(`➕ Produk baru: ${name} (Biaya Rp ${creationFee.toLocaleString()})`);
+      products.push({ name: name, price: price, stock: stock, modalPrice: modal, discount: 0, active: true, salesCount: 0, isNew: true, releasedDay: currentDay });
+      logActivity(`➕ Produk baru dirilis (NEW): ${name} (Biaya Rp ${creationFee.toLocaleString()})`);
       document.getElementById('new-product-name').value = '';
       document.getElementById('new-product-price').value = '';
       document.getElementById('new-product-modal').value = '';
@@ -1418,16 +1526,22 @@
       updateProducts();
     };
 
-    // ===== SET LIVE PROMO (biaya 1jt) - karyawan promo yang memulai =====
+    // ===== SET LIVE PROMO (biaya 1jt + wajib pilih talent live) =====
     document.getElementById('set-promo-form').addEventListener("submit", (e) => { 
       e.preventDefault(); 
       const input = document.querySelector('#set-promo-search-container .searchable-select-input'); 
       const productName = input ? input.value : ''; 
       const idx = products.findIndex(p => p.name === productName); 
+      const hostId = promoHostSel.value;
+      const hostObj = hostId ? staffDef(hostId) : null;
       const stock = parseInt(document.getElementById('set-promo-stock').value); 
       const disc = parseInt(document.getElementById('set-promo-discount').value); 
       const dur = parseInt(document.getElementById('set-promo-duration').value); 
       const promoFee = 1000000;
+      if (!hostObj || !liveHostActive(hostId)) {
+        alert("Live Promo harus menggunakan Admin Live (Talent Live) yang aktif! Sewa & bayar gaji talent dulu.");
+        return;
+      }
       if (idx !== -1 && stock > 0 && disc >= 0 && disc <= 100 && dur > 0) { 
         const emptySlot = promoProducts.find(p => p.name === ""); 
         if (emptySlot) { 
@@ -1439,6 +1553,7 @@
           emptySlot.modalPrice = products[idx].modalPrice; 
           emptySlot.discount = disc; 
           emptySlot.duration = dur; 
+          emptySlot.host = hostId;
           emptySlot.active = false; 
           emptySlot.pending = true; // menunggu karyawan promo memulai (atau aktifkan manual)
           emptySlot.endTime = currentTime + dur * 60; 
@@ -1447,7 +1562,7 @@
           saldoUtama -= (products[idx].modalPrice * stock) + promoFee; 
           updateSaldo(); 
           updateProducts(); 
-          logActivity(`🔥 Live Promo disiapkan: ${products[idx].name} (biaya Rp 1.000.000)`); 
+          logActivity(`🔥 Live Promo disiapkan: ${products[idx].name} bersama ${hostObj.name} (biaya Rp 1.000.000)`); 
         } else alert("Slot live promo penuh"); 
       } else alert("Input tidak valid"); 
     });
@@ -1488,8 +1603,8 @@
     window.resetGame = function() {
       if (!confirm("Reset game? Semua progress hilang!")) return;
       saldoUtama = 30000000; saldoModal = 0; saldoKeuntungan = 0; dailyProfit = 0; currentDay = 1; currentTime = 10*60;
-      products = products.map(p => ({ ...p, stock: 0, discount: 0, active: true, salesCount: 0 }));
-      promoProducts = [ { name:"", price:0, stock:0, modalPrice:0, discount:0, active:false, duration:0, endTime:0, salesCount:0 }, { name:"", price:0, stock:0, modalPrice:0, discount:0, active:false, duration:0, endTime:0, salesCount:0 } ];
+      products = products.map(p => ({ ...p, stock: 0, discount: 0, active: true, salesCount: 0, isNew: false }));
+      promoProducts = [ { name:"", price:0, stock:0, modalPrice:0, discount:0, active:false, duration:0, endTime:0, salesCount:0, host:"" }, { name:"", price:0, stock:0, modalPrice:0, discount:0, active:false, duration:0, endTime:0, salesCount:0, host:"" } ];
       autoRestockAmount = 10; staffHired = []; ads = []; setPros(); saldoGropay = 0; gropayHistory = []; weeklyBillAmount = 14000000; lastBillPaidWeek = 0; weeklyBillsHistory = []; dailyTaxTotal = 0; lastTaxPaidDay = 0; loanActive = false; loanAmount = 0; loanTenor = 0; loanRemainingWeeks = 0; loanWeeklyPayment = 0; loanLastPaymentDay = 0; loanOverdueWeeks = 0; totalRatings = 0; averageRating = 0; storeOpen = true; live = null; storeName = DEFAULT_STORE; applyStoreName(); setPros();
       document.getElementById('auto-restock-amount').value = 10;
       promoTitle.innerHTML = '<i>BUKA 24 JAM!!!</i>'; promoLine1.innerHTML = '<strong>RAMADHAN PENUH BERKAH</strong>'; promoLine2.innerHTML = 'Khusus Ramadhan, diskon suka-suka!'; promoLine3.innerHTML = 'NEW VARIANT! Premium Artic Frost';
@@ -1525,7 +1640,31 @@
     if (savedData && confirm("Ada data tersimpan. Muat?")) loadGame();
 
     document.getElementById('restock-form').addEventListener("submit", (e) => { e.preventDefault(); const input = document.querySelector('#restock-search-container .searchable-select-input'); const productName = input ? input.value : ''; const idx = products.findIndex(p => p.name === productName); const qty = parseInt(document.getElementById('restock-amount').value); if (idx !== -1 && qty > 0) { const cost = products[idx].modalPrice * qty; if (saldoModal >= cost) { products[idx].stock += qty; saldoModal -= cost; updateSaldo(); logActivity(`Restok ${products[idx].name} x${qty} (Rp ${cost.toLocaleString()})`); updateProducts(); } else alert("Saldo modal tidak cukup"); } else alert("Pilih produk valid"); });
-    document.getElementById('price-form').addEventListener("submit", (e) => { e.preventDefault(); const input = document.querySelector('#price-search-container .searchable-select-input'); const productName = input ? input.value : ''; const idx = products.findIndex(p => p.name === productName); const newPrice = parseInt(document.getElementById('new-price').value); if (idx !== -1 && newPrice > 0) { products[idx].price = newPrice; logActivity(`Harga ${products[idx].name} -> Rp ${newPrice.toLocaleString()}`); updateProducts(); } else alert("Pilih produk valid"); });
+    document.getElementById('price-form').addEventListener("submit", (e) => {
+      e.preventDefault();
+      const input = document.querySelector('#price-search-container .searchable-select-input');
+      const productName = input ? input.value : '';
+      const idx = products.findIndex(p => p.name === productName);
+      const newPrice = parseInt(document.getElementById('new-price').value);
+      const newModal = parseInt(document.getElementById('new-modal-price').value);
+      if (idx === -1) { alert("Pilih produk valid"); return; }
+      if (!(newPrice > 0) && !(newModal > 0)) { alert("Isi minimal salah satu: Harga Jual Baru atau Harga Modal Baru!"); return; }
+      const changes = [];
+      if (newPrice > 0) {
+        products[idx].price = newPrice;
+        promoProducts.forEach(pp => { if (pp.name === productName) pp.price = newPrice; });
+        changes.push(`Harga Jual -> Rp ${newPrice.toLocaleString()}`);
+      }
+      if (newModal > 0) {
+        products[idx].modalPrice = newModal;
+        promoProducts.forEach(pp => { if (pp.name === productName) pp.modalPrice = newModal; });
+        changes.push(`Harga Modal -> Rp ${newModal.toLocaleString()}`);
+      }
+      logActivity(`💰 ${products[idx].name}: ${changes.join(', ')}`);
+      document.getElementById('new-price').value = '';
+      document.getElementById('new-modal-price').value = '';
+      updateProducts();
+    });
     document.getElementById('discount-form').addEventListener("submit", (e) => { e.preventDefault(); const input = document.querySelector('#discount-search-container .searchable-select-input'); const productName = input ? input.value : ''; const idx = products.findIndex(p => p.name === productName); const disc = parseInt(document.getElementById('discount-percent').value); if (idx !== -1 && disc >= 0 && disc <= 100) { products[idx].discount = disc; logActivity(`Diskon ${products[idx].name} ${disc}%`); updateProducts(); } else alert("Input valid"); });
 
     initSearchableSelects();
@@ -1571,31 +1710,86 @@
       rd.readAsDataURL(f);
     });
 
-    // ===== LIVE PROMO: PENONTON (jumlah mengikuti rating toko) =====
+    // ===== LIVE PROMO: PENONTON & INTERAKSI TALENT LIVE =====
     let liveViewers = [];
-    const lvEl = document.getElementById('live-viewers'), lvNum = document.getElementById('lv-num'), lvTitle = document.getElementById('lv-title'), lvAvatars = document.getElementById('lv-avatars'), lvNames = document.getElementById('lv-names'), lvFeed = document.getElementById('lv-feed');
+    const lvEl = document.getElementById('live-viewers'), lvNum = document.getElementById('lv-num'), lvTitle = document.getElementById('lv-title'), lvAvatars = document.getElementById('lv-avatars'), lvNames = document.getElementById('lv-names'), lvFeed = document.getElementById('lv-feed'), lpChat = document.getElementById('lp-chat');
     const LV_COLORS = ['#ff7675', '#74b9ff', '#55efc4', '#fdcb6e', '#a29bfe', '#fd79a8', '#00cec9', '#e17055'];
+    const PROMO_LIVE_CHATS = [
+      "Wah diskon Live Promo gede banget!",
+      "Kak stok promo masih ada kan?",
+      "Buruan checkout mumpung harga promo!",
+      "Admin promonya ramah banget, jelasin detail!",
+      "Diskon segini mah langsung borong 2!",
+      "Kak promo ini berlaku sampai kapan?",
+      "Wanginya enak banget, mumpung promo langsung gas!",
+      "Spill harga setelah diskon dong kak!",
+      "Udah masuk keranjang tinggal bayar!",
+      "Live promonya seru, banyak potongan harga!"
+    ];
     function lvColor(n) { let x = 0; for (const ch of n) x += ch.charCodeAt(0); return LV_COLORS[x % LV_COLORS.length]; }
     function lvFeedAdd(t) { const d = document.createElement('div'); d.textContent = t; lvFeed.appendChild(d); while (lvFeed.children.length > 3) lvFeed.removeChild(lvFeed.firstChild); }
+    function lpChatAdd(t, cls) {
+      if (!lpChat) return;
+      const p = document.createElement('p');
+      p.textContent = t;
+      if (cls) p.className = cls;
+      lpChat.appendChild(p);
+      while (lpChat.children.length > 25) lpChat.removeChild(lpChat.firstChild);
+      lpChat.scrollTop = lpChat.scrollHeight;
+    }
+    function promoViewerInteract(act) {
+      const pItem = act[Math.floor(Math.random() * act.length)];
+      const host = pItem && pItem.host ? staffDef(pItem.host) : staffActive('live');
+      const n = liveViewers.length ? liveViewers[Math.floor(Math.random() * liveViewers.length)] : botNames[Math.floor(Math.random() * botNames.length)];
+      const q = PROMO_LIVE_CHATS[Math.floor(Math.random() * PROMO_LIVE_CHATS.length)];
+      lpChatAdd(`${n}: "${q}"`);
+      if (host && liveHostActive(host.id)) {
+        const discPrice = Math.round(pItem.price * (1 - pItem.discount / 100)).toLocaleString();
+        const replies = [
+          `"Halo Kak ${n}! ${pItem.name} lagi diskon ${pItem.discount}% jadi Rp ${discPrice} aja, sisa ${pItem.stock} pcs!"`,
+          `"Yuk Kak ${n} langsung checkout ${pItem.name} sebelum waktu Live Promo habis!"`,
+          `"Terima kasih Kak ${n} sudah mampir di Live Promo ${storeName}, stok terbatas nih!"`
+        ];
+        const rep = replies[Math.floor(Math.random() * replies.length)];
+        setTimeout(() => {
+          if (promoProducts.some(x => x.active)) {
+            lpChatAdd(`↳ ${host.name} (Talent Live${host.pro ? ' Pro' : ''}): ${rep}`, 'reply');
+          }
+        }, 700 + Math.random() * 900);
+      }
+    }
+    function promoBuyChat(n, q, pItem) {
+      lpChatAdd(`🔥 ${n} borong ${q} pcs ${pItem.name} (Diskon ${pItem.discount}%)!`, 'sys');
+      const host = pItem.host ? staffDef(pItem.host) : staffActive('live');
+      if (host && liveHostActive(host.id)) {
+        setTimeout(() => {
+          if (promoProducts.some(x => x.active)) {
+            lpChatAdd(`↳ ${host.name} (Talent Live${host.pro ? ' Pro' : ''}): "Makasih Kak ${n} sudah checkout di Live Promo! Semoga suka wanginya!"`, 'reply');
+          }
+        }, 650);
+      }
+    }
     function liveViewersTick() {
       const act = promoProducts.filter(p => p.active);
-      if (!act.length || !storeOpen) { if (liveViewers.length) { liveViewers = []; lvFeed.innerHTML = ''; } lvEl.style.display = 'none'; return; }
+      if (!act.length || !storeOpen) { if (liveViewers.length) { liveViewers = []; lvFeed.innerHTML = ''; if (lpChat) lpChat.innerHTML = ''; } lvEl.style.display = 'none'; return; }
       lvEl.style.display = 'block';
       const avgDisc = act.reduce((a, p) => a + p.discount, 0) / act.length;
-      const target = Math.max(1, Math.round((6 + avgDisc * 0.7) * (customerMultiplier + 0.3) * (1 + 0.5 * (act.length - 1))) + Math.floor(Math.random() * 5) - 2);
+      const maxCharm = act.reduce((m, p) => { const h = p.host ? staffDef(p.host) : null; return Math.max(m, (h && h.charm) || 1); }, 1);
+      const target = Math.max(1, Math.round((6 + avgDisc * 0.7) * (customerMultiplier + 0.3) * maxCharm * (1 + 0.5 * (act.length - 1))) + Math.floor(Math.random() * 5) - 2);
       const step = Math.floor(Math.random() * 3) + 1;
       if (liveViewers.length < target) {
         for (let i = 0; i < Math.min(step, target - liveViewers.length); i++) {
           const pool = botNames.filter(n => !liveViewers.includes(n)); if (!pool.length) break;
           const n = pool[Math.floor(Math.random() * pool.length)]; liveViewers.push(n);
-          if (i === 0) lvFeedAdd(`${n} bergabung ke live`);
+          if (i === 0) lvFeedAdd(`${n} bergabung ke live promo`);
         }
       } else if (liveViewers.length > target) {
         for (let i = 0; i < Math.min(step, liveViewers.length - target); i++) liveViewers.splice(Math.floor(Math.random() * liveViewers.length), 1);
       } else if (Math.random() < 0.4 && liveViewers.length > 1) {
         liveViewers.splice(Math.floor(Math.random() * liveViewers.length), 1);
       }
-      lvTitle.textContent = act.map(p => p.name).join(' • ');
+      if (Math.random() < 0.75) promoViewerInteract(act);
+      lvTitle.textContent = act.map(p => { const h = p.host ? staffDef(p.host) : null; return `${h ? h.name + ' • ' : ''}${p.name}`; }).join(' | ');
       lvNum.textContent = liveViewers.length;
       lvAvatars.innerHTML = liveViewers.slice(-10).map(n => `<span class="lv-av" style="background:${lvColor(n)}" title="${n}">${n[0]}</span>`).join('') + (liveViewers.length > 10 ? `<span class="lv-av more">+${liveViewers.length - 10}</span>` : '');
       const last = liveViewers.slice(-3);
