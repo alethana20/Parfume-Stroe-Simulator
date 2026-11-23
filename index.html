@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GRROSE PARFUME - Premium Parfum</title>
   <style>
-    body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; color: #333; transition: background-color 0.3s, color 0.3s; }
+    body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; color: #333; transition: background 0.8s ease, background-color 0.5s ease, color 0.3s; }
     body.night-mode { background-color: #1a1a1a; color: #f4f4f9; }
     .header { position: relative; background: linear-gradient(135deg, #ff7e5f, #feb47b), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.2"><path d="M20 50 Q35 30 50 50 T80 50" stroke="white" fill="none" stroke-width="2"/><circle cx="30" cy="40" r="3" fill="white"/><circle cx="70" cy="60" r="3" fill="white"/><circle cx="50" cy="30" r="4" fill="white"/><circle cx="50" cy="70" r="4" fill="white"/><path d="M40 70 Q50 85 60 70" stroke="white" fill="none" stroke-width="2"/></svg>'); background-size: cover, auto; background-blend-mode: overlay; color: white; text-align: center; padding: 30px 20px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
     .header h1 { margin: 0; font-size: 2.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
@@ -77,7 +77,7 @@
     .form button:hover { background: #0056b3; }
     body.night-mode .form button { background-color: #3498db; }
     body.night-mode .form button:hover { background-color: #2980b9; }
-    .notification-box, .comment-box { background: white; border: 1px solid #ddd; border-radius: 8px; padding: 15px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); max-height: 200px; overflow-y: auto; }
+    .notification-box, .comment-box { background: white; border: 1px solid #ddd; border-radius: 8px; padding: 15px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); max-height: 220px; overflow-y: auto; }
     body.night-mode .notification-box, body.night-mode .comment-box { background: #2c3e50; color: #ecf0f1; }
     .promo-box { background: linear-gradient(135deg, #667eea, #764ba2, #ff7e5f, #feb47b); background-size: 300% 300%; animation: gradientMove 8s ease infinite; border: none; border-radius: 8px; padding: 20px; margin: 20px 0; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2); position: relative; overflow: hidden; transition: transform 0.3s; }
     .promo-box:hover { transform: scale(1.02); }
@@ -88,7 +88,7 @@
     .promo-box p { margin: 5px 0; font-size: 1rem; color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); position: relative; }
     .promo-box small { color: rgba(255,255,255,0.9); font-style: italic; }
 
-    /* ====== 1. INLINE EDIT INFO PROMO BOX (sama seperti Edit Nama Toko) ====== */
+    /* ====== INLINE EDIT INFO PROMO BOX ====== */
     .promo-edit-row { margin-top: 12px; position: relative; z-index: 10; }
     .promo-edit-form { display: flex; flex-direction: column; gap: 8px; max-width: 460px; margin: 0 auto; align-items: center; }
     .promo-edit-form input { width: 100%; box-sizing: border-box; padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.75); background: rgba(255,255,255,0.92); color: #333; font-size: 0.9rem; text-align: center; }
@@ -185,7 +185,7 @@
     .customer-count { background: linear-gradient(135deg, #4facfe, #00f2fe); color: white; padding: 10px; border-radius: 8px; margin-bottom: 20px; text-align: center; font-weight: bold; font-size: 1.1rem; }
     @media (max-width: 768px) { .product-management { grid-template-columns: 1fr; } .auto-restock-settings { grid-template-columns: 1fr; } }
 
-    /* ====== FITUR BARU: Karyawan, Iklan, GroPay ====== */
+    /* ====== KARYAWAN, IKLAN, GROPAY ====== */
     .staff-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin-bottom: 20px; }
     .staff-card { background: white; border-radius: 12px; padding: 15px; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
     body.night-mode .staff-card { background: #2c3e50; }
@@ -205,6 +205,9 @@
     .staff-note { font-size: 0.82rem; opacity: 0.8; margin: 0 0 10px 0; }
     .comment-box p.reply { margin-left: 18px; padding-left: 8px; border-left: 3px solid #007bff; color: #0b6bcb; font-size: 0.92rem; }
     body.night-mode .comment-box p.reply { color: #7fc4ff; }
+    .comment-box p.pay-info { margin-left: 12px; padding: 4px 10px; border-radius: 8px; background: rgba(16,185,129,0.14); border-left: 3px solid #10b981; font-size: 0.84rem; color: #047857; font-weight: 600; }
+    body.night-mode .comment-box p.pay-info { background: rgba(16,185,129,0.18); color: #6ee7b7; }
+    .pay-badge { display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 0.74rem; font-weight: 800; background: rgba(16,185,129,0.22); border: 1px solid rgba(16,185,129,0.5); margin-left: 4px; }
     .wallet-card { background: linear-gradient(135deg, #00b09b, #1e3c72); color: white; border-radius: 18px; padding: 22px; margin-bottom: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.25); position: relative; overflow: hidden; }
     .wallet-card::after { content: ""; position: absolute; top: -40%; right: -20%; width: 260px; height: 260px; border-radius: 50%; background: rgba(255,255,255,0.12); }
     .wallet-card .logo { font-weight: bold; font-size: 1.2rem; letter-spacing: 1px; }
@@ -214,7 +217,7 @@
     .wallet-card button { border: none; border-radius: 22px; padding: 9px 18px; margin: 10px 5px 0 0; font-weight: bold; cursor: pointer; background: #ffd700; color: #333; position: relative; z-index: 2; }
     .wallet-card .whist { margin-top: 12px; font-size: 0.82rem; background: rgba(255,255,255,0.18); padding: 8px; border-radius: 8px; position: relative; z-index: 2; }
 
-    /* ====== LIQUID GLASS (tampilan saja) ====== */
+    /* ====== LIQUID GLASS & ADAPTIVE BACKGROUND ====== */
     body { background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 50%, #ffd6e8 100%) fixed; }
     body.night-mode { background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%) fixed; }
     .header { margin: 12px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.5); box-shadow: 0 8px 32px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.6); }
@@ -222,15 +225,15 @@
       background: rgba(255,255,255,0.35); backdrop-filter: blur(16px) saturate(170%); -webkit-backdrop-filter: blur(16px) saturate(170%);
       border: 1px solid rgba(255,255,255,0.6); border-radius: 18px; box-shadow: 0 8px 28px rgba(31,38,135,0.15), inset 0 1px 0 rgba(255,255,255,0.7); }
     body.night-mode .dashboard .info, body.night-mode .bank-card, body.night-mode .form, body.night-mode .notification-box, body.night-mode .comment-box, body.night-mode .auto-restock-controls, body.night-mode .product-card, body.night-mode .staff-card, body.night-mode .game-over-content, body.night-mode .product:not(.out-of-stock):not(.inactive) {
-      background: rgba(30,30,60,0.45); border: 1px solid rgba(255,255,255,0.18); box-shadow: 0 8px 28px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.15); }
+      background: rgba(24,26,52,0.52); border: 1px solid rgba(255,255,255,0.18); box-shadow: 0 8px 28px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.15); }
     .daily-profit, .weekly-bills, .daily-tax-bill, .loan-section, .customer-count, .promo-box { border-radius: 20px; border: 1px solid rgba(255,255,255,0.4); box-shadow: 0 8px 30px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.5); }
     .searchable-select-dropdown { backdrop-filter: blur(16px); background: rgba(255,255,255,0.85); border-radius: 12px; }
-    body.night-mode .searchable-select-dropdown { background: rgba(40,45,80,0.9); }
+    body.night-mode .searchable-select-dropdown { background: rgba(40,45,80,0.92); }
     .night-mode-toggle, .store-status-button { backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.4); }
     .night-mode-toggle { background: rgba(40,40,40,0.55); }
     button { transition: all 0.25s; }
 
-    /* ====== REVISI: foto produk ====== */
+    /* ====== FOTO PRODUK ====== */
     .p-photo { position: absolute; inset: 0; border-radius: inherit; background-size: cover; background-position: center; z-index: 0; overflow: hidden; }
     .p-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.8)); }
     .product.out-of-stock .p-photo { filter: grayscale(1) brightness(0.7); }
@@ -244,7 +247,7 @@
     .p-btns { display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; }
     .product .photo-btn { background: #8e44ad !important; box-shadow: 0 2px 4px rgba(142,68,173,0.4); }
 
-    /* ====== REVISI: badge best seller ====== */
+    /* ====== BADGE BEST SELLER ====== */
     .bs-badge { position: absolute; top: -10px; left: -10px; z-index: 3; display: flex; align-items: center; gap: 5px; padding: 5px 11px 5px 8px; border-radius: 999px; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.5px; color: #3b2a00; background: linear-gradient(135deg, #fff3b0, #ffc83d 45%, #ff9f1a); border: 1px solid #fff; box-shadow: 0 4px 12px rgba(255,160,0,0.55); overflow: hidden; }
     .bs-badge::after { content: ""; position: absolute; top: 0; left: -60%; width: 40%; height: 100%; background: linear-gradient(100deg, transparent, rgba(255,255,255,0.85), transparent); animation: bsShine 2.6s infinite; }
     @keyframes bsShine { 0% { left: -60%; } 60%, 100% { left: 130%; } }
@@ -264,13 +267,14 @@
     body.night-mode .new-info-strip { color: #69f0ae; background: rgba(0,230,118,0.15); }
     body .product.has-photo .new-info-strip { color: #b9f6ca; background: rgba(0,230,118,0.25); }
 
-    /* ====== 4. BRAND AMBASSADOR FAVORITE BADGE & SECTION ====== */
-    .ba-fav-strip { display: flex; align-items: center; justify-content: center; gap: 6px; margin: 6px auto; padding: 4px 10px; border-radius: 999px; background: linear-gradient(135deg, rgba(255,64,129,0.16), rgba(255,193,7,0.22)); border: 1px solid rgba(255,64,129,0.45); font-size: 0.72rem; font-weight: 800; color: #c2185b; width: fit-content; max-width: 100%; }
-    body.night-mode .ba-fav-strip { color: #ff80ab; background: linear-gradient(135deg, rgba(255,64,129,0.25), rgba(255,193,7,0.2)); }
-    body .product.has-photo .ba-fav-strip { background: rgba(233,30,99,0.75); color: #fff; border-color: #fff; }
+    /* ====== BRAND AMBASSADOR FAVORITE BADGE & SECTION ====== */
+    .ba-fav-strip { display: flex; align-items: center; justify-content: center; gap: 6px; margin: 6px auto; padding: 5px 11px; border-radius: 999px; background: linear-gradient(135deg, rgba(255,64,129,0.22), rgba(255,193,7,0.28)); border: 1.5px solid rgba(255,64,129,0.65); font-size: 0.74rem; font-weight: 800; color: #c2185b; width: fit-content; max-width: 100%; box-shadow: 0 3px 10px rgba(233,30,99,0.22); }
+    body.night-mode .ba-fav-strip { color: #ff80ab; background: linear-gradient(135deg, rgba(255,64,129,0.32), rgba(255,193,7,0.24)); border-color: rgba(255,128,171,0.75); }
+    body .product.has-photo .ba-fav-strip { background: linear-gradient(135deg, rgba(233,30,99,0.88), rgba(255,87,34,0.85)); color: #fff; border-color: #fff; }
     .ba-fav-strip .ba-mini-av { width: 22px; height: 22px; border-radius: 50%; overflow: hidden; flex: none; box-shadow: 0 0 0 1.5px #fff; }
     .ba-fav-strip .ba-mini-av svg { width: 100%; height: 100%; display: block; }
-    .product.ba-favored { border: 1.5px solid rgba(233,30,99,0.65) !important; }
+    .ba-fav-pill { display: inline-flex; align-items: center; gap: 5px; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.45); padding: 3px 9px; border-radius: 999px; font-size: 0.72rem; font-weight: 700; margin: 2px; }
+    .product.ba-favored { border: 2px solid rgba(255,64,129,0.8) !important; box-shadow: 0 0 0 2px rgba(255,64,129,0.25), 0 8px 22px rgba(233,30,99,0.25) !important; }
     .ba-section { margin-bottom: 20px; }
     .ba-banner { background: linear-gradient(135deg, #ff416c, #ff4b2b); color: #fff; padding: 14px 18px; border-radius: 18px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; box-shadow: 0 6px 20px rgba(255,65,108,0.3); }
     .ba-banner b { font-size: 1rem; }
@@ -279,7 +283,7 @@
     .staff-card.ba-card.hired { border: 2px solid #ff416c; box-shadow: 0 0 0 2px rgba(255,65,108,0.35), 0 8px 24px rgba(255,65,108,0.25) !important; }
     .staff-card .chip.pink, body.night-mode .staff-card .chip.pink { background: linear-gradient(135deg, #ff758c, #ff7eb3); color: #fff; border-color: #fff; }
 
-    /* ====== REVISI: info iklan di produk ====== */
+    /* ====== INFO IKLAN DI PRODUK ====== */
     .ad-badge { position: absolute; top: -10px; right: -10px; z-index: 3; display: flex; align-items: center; gap: 5px; padding: 5px 11px 5px 8px; border-radius: 999px; font-size: 0.66rem; font-weight: 800; letter-spacing: 0.6px; color: #fff; background: linear-gradient(135deg, #00c6ff, #0072ff); border: 1px solid rgba(255,255,255,0.85); box-shadow: 0 4px 12px rgba(0,114,255,0.45); }
     .ad-badge svg { width: 14px; height: 14px; }
     .ad-strip { margin-top: 8px; padding: 7px 9px; border-radius: 12px; background: rgba(0,114,255,0.14); border: 1px solid rgba(0,114,255,0.35); }
@@ -289,7 +293,7 @@
     body.night-mode .ad-strip .ad-row { color: #8ccbff; }
     body .product.has-photo .ad-strip .ad-row { color: #cfe8ff; }
 
-    /* ====== REVISI: pilihan tenor cicilan ====== */
+    /* ====== PILIHAN TENOR CICILAN ====== */
     .tenor-picker { flex: 1 1 100%; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin: 6px 0; }
     .loan-details .tenor-opt { flex: 1 1 90px; max-width: 130px; display: flex; flex-direction: column; align-items: center; gap: 1px; padding: 10px 6px; border-radius: 16px; border: 1.5px solid rgba(255,255,255,0.45); background: rgba(255,255,255,0.14); color: #fff; backdrop-filter: blur(6px); font-weight: 600; }
     .loan-details .tenor-opt b { font-size: 1.7rem; line-height: 1; }
@@ -300,7 +304,7 @@
     .loan-details .tenor-opt.active { background: linear-gradient(135deg, #ffe259, #ffa751); color: #3b2a00; border-color: #fff; box-shadow: 0 6px 18px rgba(255,167,81,0.5); transform: translateY(-2px) scale(1.04); }
     .loan-details .tenor-opt.active em { background: rgba(59,42,0,0.18); }
 
-    /* ====== REVISI: penonton live promo & 2. EMOJI HATI MELAYANG ====== */
+    /* ====== PENONTON LIVE PROMO & EMOJI HATI MELAYANG ====== */
     .live-viewers { position: relative; overflow: hidden; margin-bottom: 14px; padding: 14px; border-radius: 20px; color: #fff; background: linear-gradient(135deg, rgba(20,20,40,0.85), rgba(90,20,60,0.8)); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.25); box-shadow: 0 8px 28px rgba(0,0,0,0.3); }
     .lv-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; position: relative; z-index: 2; }
     .lv-live { display: inline-flex; align-items: center; gap: 6px; background: #e11d48; border-radius: 8px; padding: 3px 10px; font-weight: 800; font-size: 0.75rem; letter-spacing: 1px; }
@@ -319,7 +323,6 @@
     .lv-feed div { background: rgba(255,255,255,0.12); padding: 3px 10px; border-radius: 999px; align-self: flex-start; animation: lvIn 0.4s; }
     @keyframes lvIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 
-    /* Container & animasi emoji hati 🩵♥️ melayang ala live streaming */
     .floating-hearts-layer { position: absolute; right: 12px; bottom: 44px; width: 76px; height: 190px; pointer-events: none; overflow: visible; z-index: 6; }
     .float-heart { position: absolute; bottom: 0; font-size: 1.35rem; opacity: 0; user-select: none; filter: drop-shadow(0 2px 5px rgba(0,0,0,0.35)); animation: heartFloatUp 2.6s ease-out forwards; }
     @keyframes heartFloatUp {
@@ -330,7 +333,7 @@
     }
     .like-pill { display: inline-flex; align-items: center; gap: 4px; background: rgba(255,255,255,0.16); padding: 3px 9px; border-radius: 999px; font-size: 0.78rem; font-weight: 700; }
 
-    /* ====== REVISI: live jualan (produk normal) ====== */
+    /* ====== LIVE JUALAN (PRODUK NORMAL) ====== */
     .live-sell { background: linear-gradient(135deg, rgba(10,40,70,0.88), rgba(0,110,120,0.82)); }
     .live-sell .lv-live { background: #0ea5e9; }
     .ls-ad { background: linear-gradient(135deg, #ffd200, #ff8a00); color: #3b2a00; font-weight: 800; font-size: 0.68rem; letter-spacing: 1px; padding: 3px 9px; border-radius: 8px; }
@@ -349,18 +352,31 @@
     .form .live-ad-opt input { width: 20px; height: 20px; padding: 0; margin: 0; accent-color: #0072ff; }
     .live-hint { font-size: 0.82rem; color: #c0392b; }
 
-    /* ====== 3. FACEGRAM LIVE TABS & JADWAL AUTO LIVE ====== */
+    /* ====== FACEGRAM LIVE TABS & 2x JADWAL AUTO LIVE ====== */
     .live-mode-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
     .live-mode-tab { padding: 10px 12px; border-radius: 14px; border: 1.5px solid rgba(0,114,255,0.35); background: rgba(255,255,255,0.45); color: inherit; font-weight: 700; cursor: pointer; text-align: center; transition: all 0.25s; }
+    body.night-mode .live-mode-tab { background: rgba(35,40,70,0.6); }
     .live-mode-tab.active { background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af); color: #fff; border-color: #fff; box-shadow: 0 6px 18px rgba(221,42,123,0.35); }
+    .sched-slots-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+    .sched-slot-box { padding: 14px; border-radius: 16px; background: rgba(255,255,255,0.22); border: 1.5px solid rgba(255,255,255,0.35); display: flex; flex-direction: column; gap: 10px; }
+    body.night-mode .sched-slot-box { background: rgba(20,24,48,0.55); border-color: rgba(255,255,255,0.18); }
+    .sched-slot-box.active-slot { border-color: #10b981; box-shadow: 0 4px 16px rgba(16,185,129,0.2); }
+    .sched-slot-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .sched-slot-head b { font-size: 0.98rem; color: #dd2a7b; }
+    body.night-mode .sched-slot-head b { color: #ff7eb3; }
+    .sched-toggle-btn { border: none; border-radius: 999px; padding: 6px 14px; font-size: 0.78rem; font-weight: 700; cursor: pointer; color: #fff; background: #10b981; }
+    .sched-toggle-btn.off { background: #6c757d; }
+    .time-picker-ui { display: flex; align-items: center; gap: 8px; background: rgba(0,0,0,0.08); padding: 8px 12px; border-radius: 12px; }
+    body.night-mode .time-picker-ui { background: rgba(255,255,255,0.08); }
+    .time-picker-ui input[type="time"] { flex: 1; padding: 8px 12px; font-size: 1.05rem; font-weight: 800; border-radius: 10px; text-align: center; }
+    .sched-dur-pills { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+    .form .dur-pill { padding: 7px 4px; border-radius: 10px; border: 1.5px solid rgba(0,114,255,0.35); background: rgba(255,255,255,0.35); color: inherit; font-weight: 700; font-size: 0.82rem; cursor: pointer; text-align: center; }
+    body.night-mode .form .dur-pill { background: rgba(45,55,85,0.6); }
+    .form .dur-pill.active { background: linear-gradient(135deg, #f58529, #dd2a7b); color: #fff; border-color: #fff; box-shadow: 0 3px 10px rgba(221,42,123,0.4); }
     .sched-status-card { padding: 12px 14px; border-radius: 14px; background: rgba(16,185,129,0.14); border: 1px solid rgba(16,185,129,0.45); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; }
     .sched-status-card.off { background: rgba(127,127,127,0.14); border-color: rgba(127,127,127,0.35); }
-    .sched-toggle-btn { border: none; border-radius: 999px; padding: 7px 16px; font-weight: 700; cursor: pointer; color: #fff; background: #10b981; }
-    .sched-toggle-btn.off { background: #6c757d; }
-    .sched-time-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-    .sched-time-row input[type="time"] { padding: 9px 14px; font-size: 1rem; font-weight: 700; border-radius: 12px; }
 
-    /* ====== 5. ATUR DISKON MASSAL (CEKLIS SEMUA / TERTENTU) ====== */
+    /* ====== ATUR DISKON MASSAL (CEKLIS SEMUA / TERTENTU) ====== */
     .disc-bulk-tools { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; justify-content: space-between; }
     .disc-bulk-tools .mini-btns { display: flex; gap: 6px; flex-wrap: wrap; }
     .form .mini-btn { padding: 6px 12px; font-size: 0.8rem; border-radius: 999px; background: rgba(0,114,255,0.16); color: #0a66d6; border: 1px solid rgba(0,114,255,0.35); cursor: pointer; font-weight: 700; }
@@ -376,7 +392,7 @@
     .disc-item .di-info b { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 0.83rem; }
     .disc-item .di-info small { opacity: 0.8; font-size: 0.74rem; }
   
-    /* ====== REVISI: nama toko, pilihan durasi iklan & admin live, admin pro ====== */
+    /* ====== NAMA TOKO, PILIHAN DURASI IKLAN & ADMIN LIVE ====== */
     .name-edit-row { margin-top: 8px; }
     .name-edit-btn { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.28); border: 1px solid rgba(255,255,255,0.6); color: #fff; border-radius: 999px; padding: 5px 14px; font-size: 0.78rem; font-weight: 700; cursor: pointer; backdrop-filter: blur(6px); }
     .name-edit-btn:hover { background: rgba(255,255,255,0.45); }
@@ -408,7 +424,7 @@
     .staff-card.pro .avatar { box-shadow: 0 6px 16px rgba(0,0,0,0.22), 0 0 0 3px #ffd700; }
     .staff-card .chip.gold, body.night-mode .staff-card .chip.gold { background: linear-gradient(135deg, #ffe259, #ffa751); color: #3b2a00; border-color: #fff; }
   
-    /* ====== REVISI: kartu Live Ad (switch) ====== */
+    /* ====== KARTU LIVE AD (SWITCH) ====== */
     .form .live-ad-opt { justify-content: space-between; }
     .live-ad-opt .la-txt b { display: block; font-size: 0.95rem; }
     .live-ad-opt .la-txt small { font-size: 0.75rem; font-weight: 600; opacity: 0.8; }
@@ -418,7 +434,7 @@
     .form .live-ad-opt input:checked::after { left: 23px; }
   </style>
 </head>
-<body>
+<body class="night-mode">
   <header class="header">
     <h1 id="store-name">GRROSE PARFUME</h1>
     <p><i>Parfum Premium harga ekonomis..</i></p>
@@ -430,7 +446,7 @@
   </header>
 
   <div class="container">
-    <!-- Promo Box (1. Edit Info UI sama seperti Ubah Nama Toko) -->
+    <!-- Promo Box -->
     <section class="promo-box" id="promo-box">
       <div id="promo-display">
         <h2 id="promo-title"><i>BUKA 24 JAM!!!</i></h2>
@@ -526,18 +542,18 @@
     </section>
 
     <section class="activity"><h2>📋 Aktivitas Pembeli</h2><div class="notification-box" id="activity-log"><p>Ruang Pembeli..</p></div></section>
-    <section class="comments"><h2>💬 Komentar Pembeli</h2><div class="comment-box" id="comment-box"><p>Komentar disini..</p></div></section>
+    <section class="comments"><h2>💬 Komentar &amp; Pembayaran Pembeli</h2><div class="comment-box" id="comment-box"><p>Komentar &amp; metode pembayaran pembeli disini..</p></div></section>
 
     <section class="set-promo-section"><h2>⚙️ Atur LIVE PROMO (Biaya Rp 1.000.000)</h2><form id="set-promo-form" class="form"><label>Pilih Produk (Ketik untuk mencari):</label><div id="set-promo-search-container" class="searchable-select-container"></div><label>Admin Live (Talent Live / BA):</label><select id="promo-host" style="display:none"><option value="">Belum ada admin live aktif</option></select><div class="host-picker" id="promo-host-picker"></div><input type="number" id="set-promo-stock" placeholder="Stok Promo" min="1"><input type="number" id="set-promo-discount" placeholder="Diskon (%)" min="0" max="100"><input type="number" id="set-promo-duration" placeholder="Durasi Promo (menit)" min="1"><button type="submit">Set Live Promo (Rp 1jt)</button></form></section>
 
-    <!-- 3. FACEGRAM LIVE: LIVE LANGSUNG (MANUAL) & LIVE TERJADWAL OTOMATIS -->
+    <!-- FACEGRAM LIVE: LIVE LANGSUNG (MANUAL) & 2x LIVE TERJADWAL OTOMATIS -->
     <section class="live-section"><h2>📱 Facegram Live (Produk Normal)</h2>
       <div class="live-mode-tabs">
         <button type="button" class="live-mode-tab active" id="tab-live-manual" onclick="switchLiveMode('manual')">🎥 Live Sekarang (Manual)</button>
-        <button type="button" class="live-mode-tab" id="tab-live-sched" onclick="switchLiveMode('schedule')">⏰ Jadwal Auto Live</button>
+        <button type="button" class="live-mode-tab" id="tab-live-sched" onclick="switchLiveMode('schedule')">⏰ Jadwal Auto Live (2x / Hari)</button>
       </div>
 
-      <!-- Mode Manual (Tidak Terjadwal) -->
+      <!-- Mode Manual -->
       <form id="live-form" class="form">
         <label>Pilih Produk yang Dipromosikan (Ketik untuk mencari):</label><div id="live-search-container" class="searchable-select-container"></div>
         <label>Admin Live / Brand Ambassador:</label><select id="live-host" style="display:none"><option value="">Belum ada admin live aktif</option></select><div class="host-picker" id="host-picker"></div>
@@ -547,35 +563,59 @@
         <div class="live-hint" id="live-hint"></div>
       </form>
 
-      <!-- Mode Terjadwal Otomatis -->
+      <!-- Mode Terjadwal Otomatis (2 Slot Jadwal per Hari) -->
       <form id="live-schedule-form" class="form" style="display:none">
         <div class="sched-status-card off" id="sched-status-card">
           <div>
-            <b id="sched-status-title">⏰ Jadwal Auto Live: Nonaktif</b>
-            <div style="font-size:0.8rem;opacity:0.85;" id="sched-status-desc">Atur jam &amp; durasi agar talent live aktif otomatis siaran di Facegram.</div>
+            <b id="sched-status-title">⏰ Jadwal Auto Live (2x/Hari): Nonaktif</b>
+            <div style="font-size:0.8rem;opacity:0.85;" id="sched-status-desc">Atur hingga 2 jadwal live per hari (misal Sesi Pagi/Siang &amp; Sesi Malam) beserta jam mulai &amp; lamanya live.</div>
           </div>
-          <button type="button" class="sched-toggle-btn off" id="sched-toggle-btn" onclick="toggleLiveSchedule()">Aktifkan Jadwal</button>
         </div>
         <label>Talent Live / Brand Ambassador (otomatis pilih produk kurang laris &amp; sesekali top seller):</label>
         <select id="sched-host" style="display:none"><option value="">Bebas (Talent Live Aktif Manapun)</option></select>
         <div class="host-picker" id="sched-host-picker"></div>
-        <label>Jam Mulai Auto Live Setiap Hari:</label>
-        <div class="sched-time-row">
-          <input type="time" id="sched-time" value="19:00" required>
-          <span style="font-size:0.82rem;opacity:0.85;">Live akan otomatis jalan setiap hari pada jam ini saat toko buka.</span>
+
+        <div class="sched-slots-grid">
+          <!-- Jadwal 1 -->
+          <div class="sched-slot-box" id="sched-box-0">
+            <div class="sched-slot-head">
+              <b>📅 Jadwal Live #1</b>
+              <button type="button" class="sched-toggle-btn off" id="sched-btn-0" onclick="toggleScheduleSlot(0)">Nonaktif</button>
+            </div>
+            <label style="font-size:0.82rem;margin:0;">Jam Mulai Live #1:</label>
+            <div class="time-picker-ui">
+              <span>🕒</span>
+              <input type="time" id="sched-time-0" value="13:00" onchange="updateScheduleFromInputs()">
+            </div>
+            <label style="font-size:0.82rem;margin:0;">Lama Durasi Live #1:</label>
+            <div class="sched-dur-pills" id="sched-dur-pills-0"></div>
+          </div>
+
+          <!-- Jadwal 2 -->
+          <div class="sched-slot-box" id="sched-box-1">
+            <div class="sched-slot-head">
+              <b>🌙 Jadwal Live #2</b>
+              <button type="button" class="sched-toggle-btn off" id="sched-btn-1" onclick="toggleScheduleSlot(1)">Nonaktif</button>
+            </div>
+            <label style="font-size:0.82rem;margin:0;">Jam Mulai Live #2:</label>
+            <div class="time-picker-ui">
+              <span>🕘</span>
+              <input type="time" id="sched-time-1" value="19:30" onchange="updateScheduleFromInputs()">
+            </div>
+            <label style="font-size:0.82rem;margin:0;">Lama Durasi Live #2:</label>
+            <div class="sched-dur-pills" id="sched-dur-pills-1"></div>
+          </div>
         </div>
-        <label>Durasi Auto Live:</label>
-        <input type="number" id="sched-hours" value="2" style="display:none">
-        <div class="opt-grid" id="sched-hours-picker"></div>
-        <label class="live-ad-opt"><span class="la-txt"><b>Auto Live Ad</b><small>Rp 500.000 tiap mulai live terjadwal (jika saldo utama cukup)</small></span><input type="checkbox" id="sched-ad"></label>
-        <button type="submit">💾 Simpan &amp; Aktifkan Jadwal Auto Live</button>
+
+        <label class="live-ad-opt"><span class="la-txt"><b>Auto Live Ad</b><small>Rp 500.000 tiap mulai live terjadwal (jika saldo utama cukup)</small></span><input type="checkbox" id="sched-ad" onchange="updateScheduleFromInputs()"></label>
+        <button type="submit">💾 Simpan Pengaturan 2x Jadwal Auto Live</button>
       </form>
     </section>
 
     <section class="restock-section"><h2>📦 Restok Barang</h2><form id="restock-form" class="form"><label>Pilih Produk (Ketik untuk mencari):</label><div id="restock-search-container" class="searchable-select-container"></div><input type="number" id="restock-amount" placeholder="Jumlah" min="1"><button type="submit">Restok</button></form></section>
     <section class="price-section"><h2>💰 Atur Harga & Modal Barang</h2><form id="price-form" class="form"><label>Pilih Produk (Ketik untuk mencari):</label><div id="price-search-container" class="searchable-select-container"></div><input type="number" id="new-price" placeholder="Harga Jual Baru (kosongkan jika tidak diubah)" min="1"><input type="number" id="new-modal-price" placeholder="Harga Modal Baru (kosongkan jika tidak diubah)" min="1"><button type="submit">Atur Harga & Modal</button></form></section>
 
-    <!-- 5. ATUR DISKON PRODUK (Ceklis Semua / Produk Tertentu Sekaligus) -->
+    <!-- ATUR DISKON PRODUK -->
     <section class="discount-section"><h2>🏷️ Atur Diskon Produk (Bisa Ceklis Banyak / Semua)</h2>
       <form id="discount-form" class="form">
         <div class="disc-bulk-tools">
@@ -602,11 +642,11 @@
       </form>
     </section>
 
-    <!-- 4. BRAND AMBASSADOR (ARTIS / INFLUENCER TERKENAL) -->
+    <!-- BRAND AMBASSADOR (ARTIS / INFLUENCER TERKENAL - KONTRAK BULANAN) -->
     <section class="ba-section"><h2>🌟 Brand Ambassador (Artis &amp; Influencer Terkenal)</h2>
       <div class="ba-banner" id="ba-banner">
         <div>
-          <b>✨ Kontrak Brand Ambassador Toko</b>
+          <b>✨ Kontrak Brand Ambassador Toko (Bayaran Bulanan)</b>
           <small>Meningkatkan persentase penjualan lewat promosi sosmed, dapat jadi Admin Live dengan penonton melimpah, dan menandai varian favoritnya dengan boost ekstra!</small>
         </div>
         <span id="ba-active-summary" style="font-weight:800;font-size:0.85rem;background:rgba(255,255,255,0.22);padding:6px 12px;border-radius:999px;">Belum ada BA aktif</span>
@@ -614,11 +654,11 @@
       <div class="staff-grid" id="ba-grid"></div>
     </section>
 
-    <!-- KARYAWAN (menggantikan Auto Restock) -->
-    <section class="staff-section"><h2>👥 Karyawan</h2>
+    <!-- KARYAWAN (GAJI UMR BULANAN) -->
+    <section class="staff-section"><h2>👥 Karyawan &amp; Talent Live (Gaji Bulanan UMR)</h2>
       <div class="staff-grid" id="staff-grid"></div>
       <div class="auto-restock-controls"><div class="auto-restock-header"><h3>📦 Jumlah Restok Otomatis (oleh karyawan)</h3></div><div class="auto-restock-settings"><span>Jumlah Restock:</span><input type="number" id="auto-restock-amount" value="10" min="1" max="500"><button onclick="setAutoRestockAmount()">Terapkan</button></div>
-        <div class="auto-restock-settings"><span>Gaji &amp; Kontrak BA semua:</span><span id="staff-total-salary">Rp 0 / minggu</span><button onclick="payAllStaff()">Bayar Semua Gaji &amp; Kontrak</button></div></div>
+        <div class="auto-restock-settings"><span>Gaji &amp; Kontrak BA semua:</span><span id="staff-total-salary">Rp 0 / bulan</span><button onclick="payAllStaff()">Bayar Semua Gaji &amp; Kontrak</button></div></div>
     </section>
 
     <section class="rating-section"><h2>⭐ Rating Toko</h2><div class="rating" id="rating"><span class="star" data-value="1">&#9733;</span><span class="star" data-value="2">&#9733;</span><span class="star" data-value="3">&#9733;</span><span class="star" data-value="4">&#9733;</span><span class="star" data-value="5">&#9733;</span></div><p class="rating-text">Rating: <span id="rating-value">0</span>/5</p></section>
@@ -652,7 +692,7 @@
   <div id="last-saved"></div>
 
   <input type="file" id="photo-input" accept="image/*" style="display:none">
-  <button class="night-mode-toggle" onclick="toggleNightMode()">🌙</button>
+  <button class="night-mode-toggle" id="night-mode-btn" onclick="toggleNightMode()">☀️</button>
   <button class="store-status-button" id="store-status-button" onclick="toggleStoreStatus()">Buka Toko</button>
 
   <div id="game-over-popup" class="game-over-popup" style="display: none;"><div class="game-over-content"><h2>💔 GAME OVER</h2><p>Toko Anda bangkrut!</p><p id="game-over-reason"></p><button onclick="resetGame()">Mulai Lagi</button></div></div>
@@ -671,6 +711,20 @@
       "Megawati", "Bekti", "Tohir", "Tahir", "Oner", "Darren", "Ronaldo", "Messi", 
       "Rafathar", "Athir", "Fadlan", "Hanni", "Danielle", "Lalisa", "Lee", "Dyland", 
       "Erica", "Ignasius", "Muthe", "Shani", "Indira", "Gibran"
+    ];
+
+    // 5. Daftar Metode Pembayaran Pembeli
+    const PAYMENT_METHODS = [
+      { name: "QRIS", icon: "📱" },
+      { name: "Transfer Bank BCA", icon: "🏦" },
+      { name: "Transfer Bank BRI", icon: "🏦" },
+      { name: "Transfer Bank Mandiri", icon: "🏦" },
+      { name: "E-Wallet GoPay", icon: "💳" },
+      { name: "E-Wallet OVO", icon: "💳" },
+      { name: "E-Wallet DANA", icon: "💳" },
+      { name: "E-Wallet ShopeePay", icon: "💳" },
+      { name: "COD (Bayar di Tempat)", icon: "🚚" },
+      { name: "GroPay", icon: "💎" }
     ];
 
     let saldoUtama = 30000000;
@@ -706,35 +760,36 @@
     // Jumlah restok otomatis oleh karyawan
     let autoRestockAmount = 10;
 
-    // ===== KARYAWAN =====
+    // ===== 3. KARYAWAN & TALENT (GAJI BULANAN UMR & DI ATAS UMR UNTUK TOP TALENT) =====
     const STAFF = [
-      { id: "siti", name: "Siti", role: "Kasir Junior", salary: 1500000, skills: ["restock"] },
-      { id: "budi", name: "Budi", role: "Staf Gudang", salary: 2000000, skills: ["restock", "pay"] },
-      { id: "rina", name: "Rina", role: "Admin CS", salary: 2500000, skills: ["reply"] },
-      { id: "dimas", name: "Dimas", role: "Staf Promo", salary: 3000000, skills: ["promo", "restock"] },
-      { id: "maya", name: "Maya", role: "Bendahara", salary: 3500000, skills: ["pay", "reply"] },
-      { id: "jaya", name: "Jaya", role: "Manager Toko", salary: 6000000, skills: ["restock", "promo", "pay", "reply"] },
-      { id: "nadia", name: "Nadia", role: "Admin Live Pemula", salary: 2000000, skills: ["live"], charm: 1.0 },
-      { id: "reza", name: "Reza", role: "Admin Live Interaktif", salary: 3200000, skills: ["live"], charm: 1.4 },
-      { id: "cindy", name: "Cindy", role: "Admin Live Populer", salary: 4800000, skills: ["live"], charm: 1.8 },
-      { id: "alvin", name: "Alvin", role: "Admin Live Bintang", salary: 7500000, skills: ["live"], charm: 2.3 }
+      { id: "siti", name: "Siti", role: "Kasir Junior (UMR)", salary: 4200000, skills: ["restock"] },
+      { id: "budi", name: "Budi", role: "Staf Gudang (UMR)", salary: 4500000, skills: ["restock", "pay"] },
+      { id: "rina", name: "Rina", role: "Admin CS (UMR+)", salary: 4800000, skills: ["reply"] },
+      { id: "dimas", name: "Dimas", role: "Staf Promo (UMR+)", salary: 5200000, skills: ["promo", "restock"] },
+      { id: "maya", name: "Maya", role: "Bendahara", salary: 5800000, skills: ["pay", "reply"] },
+      { id: "jaya", name: "Jaya", role: "Manager Toko", salary: 7500000, skills: ["restock", "promo", "pay", "reply"] },
+      { id: "nadia", name: "Nadia", role: "Admin Live Pemula (UMR)", salary: 4500000, skills: ["live"], charm: 1.0 },
+      { id: "reza", name: "Reza", role: "Admin Live Interaktif", salary: 5500000, skills: ["live"], charm: 1.4 },
+      { id: "cindy", name: "Cindy", role: "Admin Live Populer", salary: 7000000, skills: ["live"], charm: 1.8 },
+      { id: "alvin", name: "Alvin", role: "Admin Live Bintang", salary: 9500000, skills: ["live"], charm: 2.3 }
     ];
 
-    // ===== 4. BRAND AMBASSADOR (ARTIS & INFLUENCER TERKENAL CEWEK / COWOK) =====
+    // ===== 1 & 3. BRAND AMBASSADOR (KONTRAK BULANAN) =====
     const BRAND_AMBASSADORS = [
-      { id: "ba_adel", name: "Nastasia Adeline", gender: "Cewek", role: "Influencer & Brand Icon", salary: 35000000, skills: ["live", "ba"], charm: 6.5, boost: 2.5, salesBoost: 0.35, favCount: 2, favBonus: 0.45 },
-      { id: "ba_rachel", name: "Rachel Vennya", gender: "Cewek", role: "Mega Influencer & Beauty", salary: 42000000, skills: ["live", "ba"], charm: 7.4, boost: 2.8, salesBoost: 0.45, favCount: 2, favBonus: 0.55 },
-      { id: "ba_zee", name: "Zee Asadel", gender: "Cewek", role: "Top Actress & Influencer", salary: 48000000, skills: ["live", "ba"], charm: 8.2, boost: 3.1, salesBoost: 0.55, favCount: 3, favBonus: 0.65 },
-      { id: "ba_jefri", name: "Jefri Nichol", gender: "Cowok", role: "Aktor Film Populer", salary: 38000000, skills: ["live", "ba"], charm: 6.8, boost: 2.6, salesBoost: 0.38, favCount: 2, favBonus: 0.48 },
-      { id: "ba_fadil", name: "Fadil Jaidi", gender: "Cowok", role: "Influencer Komedi & Live King", salary: 52000000, skills: ["live", "ba"], charm: 9.0, boost: 3.4, salesBoost: 0.60, favCount: 3, favBonus: 0.70 },
-      { id: "ba_windah", name: "Windah Basudara", gender: "Cowok", role: "Youtuber & Influencer", salary: 75000000, skills: ["live", "ba"], charm: 11.5, boost: 4.2, salesBoost: 0.85, favCount: 4, favBonus: 0.90 }
+      { id: "ba_adel", name: "Nastasia Adeline", gender: "Cewek", role: "Influencer & Brand Icon", salary: 28000000, skills: ["live", "ba"], charm: 6.5, boost: 2.5, salesBoost: 0.35, favCount: 2, favBonus: 0.45, isBA: true },
+      { id: "ba_rachel", name: "Rachel Vennya", gender: "Cewek", role: "Mega Influencer & Beauty", salary: 34000000, skills: ["live", "ba"], charm: 7.4, boost: 2.8, salesBoost: 0.45, favCount: 2, favBonus: 0.55, isBA: true },
+      { id: "ba_zee", name: "Zee Asadel", gender: "Cewek", role: "Top Actress & Influencer", salary: 38000000, skills: ["live", "ba"], charm: 8.2, boost: 3.1, salesBoost: 0.55, favCount: 3, favBonus: 0.65, isBA: true },
+      { id: "ba_jefri", name: "Jefri Nichol", gender: "Cowok", role: "Aktor Film Populer", salary: 30000000, skills: ["live", "ba"], charm: 6.8, boost: 2.6, salesBoost: 0.38, favCount: 2, favBonus: 0.48, isBA: true },
+      { id: "ba_fadil", name: "Fadil Jaidi", gender: "Cowok", role: "Influencer Komedi & Live King", salary: 42000000, skills: ["live", "ba"], charm: 9.0, boost: 3.4, salesBoost: 0.60, favCount: 3, favBonus: 0.70, isBA: true },
+      { id: "ba_windah", name: "Windah Basudara", gender: "Cowok", role: "Youtuber & Influencer", salary: 55000000, skills: ["live", "ba"], charm: 11.5, boost: 4.2, salesBoost: 0.85, favCount: 4, favBonus: 0.90, isBA: true }
     ];
 
     // Mapping produk favorit tiap BA: { [baId]: [productName1, productName2, ...] }
     let baFavorites = {};
 
     const SKILL_LABEL = { restock: "Auto restok", promo: "Mulai Live Promo", pay: "Bayar pajak & tagihan bulanan", reply: "Balas komentar", live: "Admin Live (Facegram)", ba: "Promo Sosmed BA" };
-    let staffHired = []; // { id, paidWeek }
+    // paidMonth menyimpan bulan terakhir gaji/kontrak dibayar
+    let staffHired = []; // { id, paidMonth }
 
     // Avatar karyawan & BA: ilustrasi SVG buatan sendiri
     const AV = {
@@ -768,7 +823,7 @@
       return `<svg viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="${g}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${a.bg[0]}"/><stop offset="1" stop-color="${a.bg[1]}"/></linearGradient></defs><rect width="100" height="100" fill="url(#${g})"/>${back}<path d="M14 100c0-18 14-26 36-26s36 8 36 26z" fill="${a.cloth}"/><path d="M40 74l10 12 10-12z" fill="#fff" opacity=".9"/><rect x="44" y="64" width="12" height="12" rx="5" fill="${a.skin}"/><ellipse cx="50" cy="50" rx="19" ry="22" fill="${a.skin}"/>${top}<circle cx="43" cy="52" r="2" fill="#222"/><circle cx="57" cy="52" r="2" fill="#222"/><path d="M44 61q6 5 12 0" fill="none" stroke="#a5503c" stroke-width="2" stroke-linecap="round"/>${acc}</svg>`;
     }
 
-    // Badge best seller & iklan (SVG, tanpa emoji)
+    // Badge best seller & iklan (SVG)
     function bsBadge(i, sales) {
       if (i < 0 || !(sales > 0)) return '';
       return `<div class="bs-badge r${i + 1}"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 18h18l1-11-5 4-5-7-5 7-5-4z"/></svg>BEST SELLER<b>#${i + 1}</b></div>`;
@@ -786,17 +841,24 @@
       return `<div class="ad-strip"><div class="ad-row"><span>Sedang diiklankan</span><span>Sisa ${left} hari</span></div><div class="ad-bar"><i style="width:${pct}%"></i></div></div>`;
     }
 
-    // Helper Brand Ambassador Favorit pada Produk
+    // Helper cek apakah karyawan/BA aktif pada bulan berjalan
+    function isStaffRecordActive(h) {
+      if (!h) return false;
+      const paidM = h.paidMonth !== undefined ? h.paidMonth : (h.paidWeek || 0);
+      return paidM >= getCurrentMonth();
+    }
+
+    // 1. Helper Brand Ambassador Favorit pada Produk
     function getActiveBAs() {
       return staffHired
+        .filter(h => isStaffRecordActive(h))
         .map(h => staffDef(h.id))
-        .filter(d => d && d.isBA && h.paidWeek >= getCurrentWeek());
+        .filter(d => d && d.isBA);
     }
     function assignBaFavorites(baId, forceRefresh = false) {
       const ba = BRAND_AMBASSADORS.find(b => b.id === baId);
       if (!ba || !products.length) return;
       if (!forceRefresh && Array.isArray(baFavorites[baId]) && baFavorites[baId].length > 0) {
-        // Pastikan produk masih ada
         baFavorites[baId] = baFavorites[baId].filter(n => products.some(p => p.name === n));
         if (baFavorites[baId].length > 0) return;
       }
@@ -805,15 +867,20 @@
     }
     function getProductBaFavs(productName) {
       const activeBAs = getActiveBAs();
-      return activeBAs.filter(ba => Array.isArray(baFavorites[ba.id]) && baFavorites[ba.id].includes(productName));
+      return activeBAs.filter(ba => {
+        if (!Array.isArray(baFavorites[ba.id]) || baFavorites[ba.id].length === 0) {
+          assignBaFavorites(ba.id, false);
+        }
+        return Array.isArray(baFavorites[ba.id]) && baFavorites[ba.id].includes(productName);
+      });
     }
     function baFavBadgeHtml(productName, cardIdx) {
       const favs = getProductBaFavs(productName);
       if (!favs.length) return '';
       return favs.map((ba, idx) => `
-        <div class="ba-fav-strip" title="${ba.name} menyukai & memfavoritkan varian ini (+${Math.round(ba.favBonus * 100)}% pengaruh BA)">
+        <div class="ba-fav-strip" title="${ba.name} memfavoritkan varian ini (+${Math.round(ba.favBonus * 100)}% pengaruh BA)">
           <span class="ba-mini-av">${avatarSVG(ba.id, `pf_${cardIdx}_${idx}`)}</span>
-          <span>💖 Favorit ${ba.name.split(' ')[0]} (+${Math.round(ba.favBonus * 100)}%)</span>
+          <span>💖 Favorit BA ${ba.name.split(' ')[0]} (+${Math.round(ba.favBonus * 100)}%)</span>
         </div>
       `).join('');
     }
@@ -822,19 +889,105 @@
     const AD_PRICES = { 1: 500000, 3: 1200000, 7: 2500000, 14: 4500000 };
     let ads = []; // { name, endDay, days }
 
-    // ===== LIVE JUALAN (siaran langsung produk normal) & 3. JADWAL AUTO LIVE FACEGRAM =====
+    // ===== LIVE JUALAN & 2. 2x JADWAL AUTO LIVE FACEGRAM =====
     const LIVE_AD_COST = 500000;
-    let live = null; // { product, host, remaining, ad, count, peak, sold, names, tick, likes, scheduled }
+    let live = null; // { product, host, remaining, ad, count, peak, sold, names, tick, likes, scheduled, slotNum }
     let liveLikes = 0;
     let promoLikes = 0;
     let liveSchedule = {
-      enabled: false,
-      startMinutes: 19 * 60, // default 19:00
-      hours: 2,
-      hostId: "", // "" = otomatis pilih talent live aktif
+      hostId: "",
       useAd: false,
-      lastTriggeredDay: 0
+      slots: [
+        { enabled: false, startMinutes: 13 * 60, hours: 2, lastTriggeredDay: 0 },
+        { enabled: false, startMinutes: 19 * 60 + 30, hours: 2, lastTriggeredDay: 0 }
+      ]
     };
+
+    // ===== 4. ADAPTIVE BACKGROUND (DARK MODE DEFAULT + WARNA FOTO PRODUK SAAT LIVE) =====
+    let adaptiveBgKey = '';
+    const imgColorCache = {};
+    function applyAdaptiveBackground() {
+      const isNight = document.body.classList.contains('night-mode');
+      let liveProdName = null;
+      if (live && storeOpen) {
+        liveProdName = live.product;
+      } else {
+        const activePromo = promoProducts.find(p => p.active && p.img);
+        if (activePromo && storeOpen) liveProdName = activePromo.name;
+      }
+
+      if (!liveProdName) {
+        if (adaptiveBgKey !== 'default_' + isNight) {
+          adaptiveBgKey = 'default_' + isNight;
+          document.body.style.background = '';
+          document.body.style.backgroundAttachment = '';
+        }
+        return;
+      }
+
+      const prodObj = products.find(p => p.name === liveProdName) || promoProducts.find(p => p.name === liveProdName);
+      const imgUrl = prodObj && prodObj.img ? prodObj.img : '';
+      if (!imgUrl) {
+        if (adaptiveBgKey !== 'default_' + isNight) {
+          adaptiveBgKey = 'default_' + isNight;
+          document.body.style.background = '';
+        }
+        return;
+      }
+
+      const targetKey = `${imgUrl.slice(-40)}_${isNight}`;
+      if (adaptiveBgKey === targetKey) return;
+
+      const paintFromPalette = (pal) => {
+        adaptiveBgKey = targetKey;
+        if (isNight) {
+          document.body.style.background = `linear-gradient(135deg, rgb(${pal.c1Dark}) 0%, rgb(${pal.c2Dark}) 50%, rgb(${pal.c3Dark}) 100%) fixed`;
+        } else {
+          document.body.style.background = `linear-gradient(135deg, rgb(${pal.c1Light}) 0%, rgb(${pal.c2Light}) 50%, rgb(${pal.c3Light}) 100%) fixed`;
+        }
+      };
+
+      if (imgColorCache[imgUrl]) {
+        paintFromPalette(imgColorCache[imgUrl]);
+        return;
+      }
+
+      const im = new Image();
+      im.onload = () => {
+        try {
+          const canvas = document.createElement('canvas');
+          canvas.width = 24;
+          canvas.height = 24;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(im, 0, 0, 24, 24);
+          const data = ctx.getImageData(0, 0, 24, 24).data;
+          let r1 = 0, g1 = 0, b1 = 0, c1 = 0;
+          let r2 = 0, g2 = 0, b2 = 0, c2 = 0;
+          for (let i = 0; i < data.length; i += 4) {
+            const r = data[i], g = data[i + 1], b = data[i + 2];
+            if (i < data.length / 2) { r1 += r; g1 += g; b1 += b; c1++; }
+            else { r2 += r; g2 += g; b2 += b; c2++; }
+          }
+          r1 = Math.round(r1 / Math.max(1, c1)); g1 = Math.round(g1 / Math.max(1, c1)); b1 = Math.round(b1 / Math.max(1, c1));
+          r2 = Math.round(r2 / Math.max(1, c2)); g2 = Math.round(g2 / Math.max(1, c2)); b2 = Math.round(b2 / Math.max(1, c2));
+          const r3 = Math.round((r1 + r2) / 2), g3 = Math.round((g1 + g2) / 2), b3 = Math.round((b1 + b2) / 2);
+
+          const pal = {
+            c1Dark: `${Math.max(12, Math.round(r1 * 0.28))}, ${Math.max(12, Math.round(g1 * 0.28))}, ${Math.max(20, Math.round(b1 * 0.34))}`,
+            c2Dark: `${Math.max(18, Math.round(r2 * 0.36))}, ${Math.max(16, Math.round(g2 * 0.34))}, ${Math.max(28, Math.round(b2 * 0.42))}`,
+            c3Dark: `${Math.max(10, Math.round(r3 * 0.22))}, ${Math.max(12, Math.round(g3 * 0.24))}, ${Math.max(18, Math.round(b3 * 0.30))}`,
+            c1Light: `${Math.min(248, Math.round(r1 * 0.45 + 135))}, ${Math.min(248, Math.round(g1 * 0.45 + 135))}, ${Math.min(248, Math.round(b1 * 0.45 + 135))}`,
+            c2Light: `${Math.min(248, Math.round(r2 * 0.45 + 130))}, ${Math.min(248, Math.round(g2 * 0.45 + 130))}, ${Math.min(248, Math.round(b2 * 0.45 + 130))}`,
+            c3Light: `${Math.min(248, Math.round(r3 * 0.40 + 145))}, ${Math.min(248, Math.round(g3 * 0.40 + 145))}, ${Math.min(248, Math.round(b3 * 0.40 + 145))}`
+          };
+          imgColorCache[imgUrl] = pal;
+          paintFromPalette(pal);
+        } catch (err) {
+          adaptiveBgKey = targetKey;
+        }
+      };
+      im.src = imgUrl;
+    }
 
     let lsProdKey = '';
     const lsEl = document.getElementById('live-sell'), lsNum = document.getElementById('ls-num'), lsTitle = document.getElementById('ls-title'), lsAd = document.getElementById('ls-ad'), lsSchedBadge = document.getElementById('ls-sched-badge'), lsLikesEl = document.getElementById('ls-likes'), lsHeartsEl = document.getElementById('ls-hearts'), lsProd = document.getElementById('ls-prod'), lsAvatars = document.getElementById('ls-avatars'), lsNames = document.getElementById('ls-names'), lsChat = document.getElementById('ls-chat'), lsInfo = document.getElementById('ls-info');
@@ -844,11 +997,11 @@
 
     hostPickerEl.addEventListener('click', e => { const b = e.target.closest('.host-card'); if (!b) return; liveHostSel.value = b.dataset.id; renderLiveSetup(); });
     promoHostPickerEl.addEventListener('click', e => { const b = e.target.closest('.host-card'); if (!b) return; promoHostSel.value = b.dataset.id; renderLiveSetup(); });
-    schedHostPickerEl.addEventListener('click', e => { const b = e.target.closest('.host-card'); if (!b) return; schedHostSel.value = b.dataset.id; renderLiveSetup(); });
+    schedHostPickerEl.addEventListener('click', e => { const b = e.target.closest('.host-card'); if (!b) return; schedHostSel.value = b.dataset.id; liveSchedule.hostId = b.dataset.id; renderLiveSetup(); });
 
     function liveHostActive(id) {
       const h = staffHired.find(x => x.id === id), d = staffDef(id);
-      return !!(h && d && d.skills.includes('live') && h.paidWeek >= getCurrentWeek());
+      return !!(h && d && d.skills.includes('live') && isStaffRecordActive(h));
     }
     function renderLiveSetup() {
       const keep = liveHostSel.value;
@@ -868,7 +1021,7 @@
       const cur = liveHostSel.value;
       const curPromo = promoHostSel.value;
       const curSched = schedHostSel.value;
-      const emptyHtml = '<div class="host-empty">Belum ada admin live / BA aktif.<br><small>Sewa talent Admin Live atau Brand Ambassador dan pastikan gaji minggu ini lunas.</small></div>';
+      const emptyHtml = '<div class="host-empty">Belum ada admin live / BA aktif.<br><small>Sewa talent Admin Live atau Brand Ambassador dan pastikan gaji/kontrak bulan ini lunas.</small></div>';
       const renderHostCards = (selectedId, sfx) => act.map(d => `
         <button type="button" class="host-card ${d.id === selectedId ? 'active' : ''} ${d.pro ? 'pro' : ''} ${d.isBA ? 'ba' : ''}" data-id="${d.id}">
           <div class="hc-av">${avatarSVG(d.id, sfx)}</div>
@@ -889,7 +1042,7 @@
     function liveBoost() { const h = live && staffDef(live.host); return (h && h.boost) || 1; }
     function liveSellBonus() { const b = liveBoost(); return (live && storeOpen) ? Math.min(3.2 * b, (0.30 + live.count / 55) * b) : 0; }
 
-    // 2. Efek Emoji Hati Berterbangan 🩵♥️ (seperti TikTok / YouTube / IG Live)
+    // Efek Emoji Hati Berterbangan 🩵♥️
     function spawnFloatingHeart(container, customEmoji) {
       if (!container) return;
       const emojis = ['🩵', '♥️', '🩵', '♥️', '💖'];
@@ -922,7 +1075,7 @@
       }
     }
 
-    // 3. UI & Logika Jadwal Auto Live Facegram
+    // 2. UI & Logika 2x Jadwal Auto Live Facegram per Hari
     window.switchLiveMode = function(mode) {
       const manualForm = document.getElementById('live-form');
       const schedForm = document.getElementById('live-schedule-form');
@@ -946,63 +1099,92 @@
       const m = mins % 60;
       return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
     }
+    function parseHHMMToMinutes(str, fallback) {
+      if (!str || !str.includes(':')) return fallback;
+      const [hh, mm] = str.split(':').map(Number);
+      return (hh * 60) + (mm || 0);
+    }
+    window.setScheduleSlotHours = function(slotIdx, hrs) {
+      if (!liveSchedule.slots[slotIdx]) return;
+      liveSchedule.slots[slotIdx].hours = hrs;
+      renderScheduleUI();
+    };
+    window.toggleScheduleSlot = function(slotIdx) {
+      const slot = liveSchedule.slots[slotIdx];
+      if (!slot) return;
+      updateScheduleFromInputs();
+      slot.enabled = !slot.enabled;
+      if (slot.enabled) {
+        slot.lastTriggeredDay = 0;
+        logActivity(`⏰ Jadwal Live #${slotIdx + 1} diaktifkan: Jam ${formatMinutesToHHMM(slot.startMinutes)} (${slot.hours} jam).`);
+      } else {
+        logActivity(`⏸️ Jadwal Live #${slotIdx + 1} dinonaktifkan.`);
+      }
+      renderScheduleUI();
+    };
+    window.updateScheduleFromInputs = function() {
+      const t0 = document.getElementById('sched-time-0');
+      const t1 = document.getElementById('sched-time-1');
+      const adInp = document.getElementById('sched-ad');
+      if (t0 && liveSchedule.slots[0]) liveSchedule.slots[0].startMinutes = parseHHMMToMinutes(t0.value, 13 * 60);
+      if (t1 && liveSchedule.slots[1]) liveSchedule.slots[1].startMinutes = parseHHMMToMinutes(t1.value, 19 * 60 + 30);
+      if (adInp) liveSchedule.useAd = adInp.checked;
+      if (schedHostSel) liveSchedule.hostId = schedHostSel.value || '';
+    };
     function renderScheduleUI() {
       const card = document.getElementById('sched-status-card');
       const title = document.getElementById('sched-status-title');
       const desc = document.getElementById('sched-status-desc');
-      const btn = document.getElementById('sched-toggle-btn');
-      const timeInp = document.getElementById('sched-time');
-      const hoursInp = document.getElementById('sched-hours');
       const adInp = document.getElementById('sched-ad');
       if (!card) return;
-      timeInp.value = formatMinutesToHHMM(liveSchedule.startMinutes);
-      hoursInp.value = liveSchedule.hours;
-      adInp.checked = !!liveSchedule.useAd;
-      if (schedHostSel) schedHostSel.value = liveSchedule.hostId || '';
-      document.querySelectorAll('#sched-hours-picker .opt-tile').forEach(o => {
-        o.classList.toggle('active', parseInt(o.dataset.v) === liveSchedule.hours);
+
+      const durChoices = [1, 2, 3, 4, 6, 8, 10, 12];
+      liveSchedule.slots.forEach((slot, idx) => {
+        const box = document.getElementById(`sched-box-${idx}`);
+        const btn = document.getElementById(`sched-btn-${idx}`);
+        const tInp = document.getElementById(`sched-time-${idx}`);
+        const pillsBox = document.getElementById(`sched-dur-pills-${idx}`);
+        if (tInp) tInp.value = formatMinutesToHHMM(slot.startMinutes);
+        if (box) box.classList.toggle('active-slot', !!slot.enabled);
+        if (btn) {
+          btn.textContent = slot.enabled ? '● Aktif' : 'Nonaktif';
+          btn.classList.toggle('off', !slot.enabled);
+        }
+        if (pillsBox) {
+          pillsBox.innerHTML = durChoices.map(h => `<button type="button" class="dur-pill ${slot.hours === h ? 'active' : ''}" onclick="setScheduleSlotHours(${idx}, ${h})">${h} Jam</button>`).join('');
+        }
       });
+
+      if (adInp) adInp.checked = !!liveSchedule.useAd;
+      if (schedHostSel) schedHostSel.value = liveSchedule.hostId || '';
+
+      const activeSlots = liveSchedule.slots.map((s, i) => ({ ...s, idx: i + 1 })).filter(s => s.enabled);
       const hostObj = liveSchedule.hostId ? staffDef(liveSchedule.hostId) : null;
-      if (liveSchedule.enabled) {
+      if (activeSlots.length > 0) {
         card.classList.remove('off');
-        title.textContent = `⏰ Jadwal Auto Live: AKTIF (Jam ${formatMinutesToHHMM(liveSchedule.startMinutes)} • ${liveSchedule.hours} Jam)`;
+        const summaryTxt = activeSlots.map(s => `Sesi #${s.idx}: Jam ${formatMinutesToHHMM(s.startMinutes)} (${s.hours}j)`).join(' • ');
+        title.textContent = `⏰ Jadwal Auto Live: ${activeSlots.length}x / Hari AKTIF (${summaryTxt})`;
         desc.textContent = `Talent: ${hostObj ? hostObj.name : 'Otomatis Talent Aktif'} • Produk dipilih otomatis (prioritas penjualan rendah & sesekali top seller)${liveSchedule.useAd ? ' • Auto Live Ad' : ''}`;
-        btn.textContent = 'Nonaktifkan Jadwal';
-        btn.classList.remove('off');
       } else {
         card.classList.add('off');
-        title.textContent = '⏰ Jadwal Auto Live: NONAKTIF';
-        desc.textContent = 'Jadwal sedang dimatikan. Aktifkan agar talent live otomatis siaran di Facegram setiap hari.';
-        btn.textContent = 'Aktifkan Jadwal';
-        btn.classList.add('off');
+        title.textContent = '⏰ Jadwal Auto Live (2x/Hari): Nonaktif';
+        desc.textContent = 'Aktifkan Jadwal Live #1 dan/atau Jadwal Live #2 di bawah ini agar talent live otomatis siaran setiap hari.';
       }
       renderLiveSetup();
     }
-    window.toggleLiveSchedule = function() {
-      liveSchedule.enabled = !liveSchedule.enabled;
-      if (liveSchedule.enabled) {
-        liveSchedule.lastTriggeredDay = 0;
-        logActivity(`⏰ Jadwal Auto Live Facegram diaktifkan (Jam ${formatMinutesToHHMM(liveSchedule.startMinutes)}, ${liveSchedule.hours} jam).`);
-      } else {
-        logActivity(`⏸️ Jadwal Auto Live Facegram dinonaktifkan.`);
-      }
-      renderScheduleUI();
-    };
     document.getElementById('live-schedule-form').addEventListener('submit', (e) => {
       e.preventDefault();
-      const timeVal = document.getElementById('sched-time').value || '19:00';
-      const [hh, mm] = timeVal.split(':').map(Number);
-      const hours = parseInt(document.getElementById('sched-hours').value) || 2;
-      const hostId = schedHostSel.value || '';
-      const useAd = document.getElementById('sched-ad').checked;
-      liveSchedule.startMinutes = (hh * 60) + (mm || 0);
-      liveSchedule.hours = hours;
-      liveSchedule.hostId = hostId;
-      liveSchedule.useAd = useAd;
-      liveSchedule.enabled = true;
-      liveSchedule.lastTriggeredDay = 0; // siap jalan hari ini jika jamnya tiba
-      const hObj = hostId ? staffDef(hostId) : null;
-      logActivity(`⏰ Jadwal Auto Live Facegram disimpan: Jam ${timeVal} (${hours} jam) • Talent: ${hObj ? hObj.name : 'Otomatis'}`);
+      updateScheduleFromInputs();
+      // Jika belum ada satupun yang aktif saat tombol simpan ditekan, aktifkan keduanya
+      if (!liveSchedule.slots.some(s => s.enabled)) {
+        liveSchedule.slots[0].enabled = true;
+        liveSchedule.slots[1].enabled = true;
+      }
+      liveSchedule.slots.forEach(s => { s.lastTriggeredDay = 0; });
+      const activeSlots = liveSchedule.slots.map((s, i) => ({ ...s, idx: i + 1 })).filter(s => s.enabled);
+      const hObj = liveSchedule.hostId ? staffDef(liveSchedule.hostId) : null;
+      const summary = activeSlots.map(s => `#${s.idx} Jam ${formatMinutesToHHMM(s.startMinutes)} (${s.hours}j)`).join(' & ');
+      logActivity(`⏰ Jadwal Auto Live disimpan: ${summary} • Talent: ${hObj ? hObj.name : 'Otomatis'}`);
       renderScheduleUI();
     });
     function pickAutoLiveProduct() {
@@ -1010,7 +1192,6 @@
       if (!avail.length) return null;
       const bySalesAsc = [...avail].sort((a, b) => a.salesCount - b.salesCount);
       const bySalesDesc = [...avail].sort((a, b) => b.salesCount - a.salesCount);
-      // 70% pilih produk yang penjualannya sedikit, 30% pilih produk top seller
       if (Math.random() < 0.70) {
         const lowPool = bySalesAsc.slice(0, Math.max(1, Math.ceil(bySalesAsc.length / 2)));
         return lowPool[Math.floor(Math.random() * lowPool.length)];
@@ -1020,59 +1201,63 @@
       }
     }
     function checkScheduledAutoLive() {
-      if (!liveSchedule.enabled || !storeOpen || live) return;
-      if (liveSchedule.lastTriggeredDay === currentDay) return;
-      // Mulai tepat saat jam jadwal tiba (atau dalam rentang 5 menit setelah jam jadwal)
-      if (currentTime < liveSchedule.startMinutes || currentTime > liveSchedule.startMinutes + 5) return;
+      if (!storeOpen || live) return;
+      for (let i = 0; i < liveSchedule.slots.length; i++) {
+        const slot = liveSchedule.slots[i];
+        if (!slot || !slot.enabled) continue;
+        if (slot.lastTriggeredDay === currentDay) continue;
+        if (currentTime < slot.startMinutes || currentTime > slot.startMinutes + 5) continue;
 
-      let chosenHost = null;
-      if (liveSchedule.hostId && liveHostActive(liveSchedule.hostId)) {
-        chosenHost = staffDef(liveSchedule.hostId);
-      } else {
-        // Pilih talent live / BA aktif (prioritaskan BA/talent dengan pesona tertinggi)
-        const activeHosts = staffHired
-          .map(h => staffDef(h.id))
-          .filter(d => d && liveHostActive(d.id))
-          .sort((a, b) => (b.charm || 1) - (a.charm || 1));
-        chosenHost = activeHosts[0] || null;
+        let chosenHost = null;
+        if (liveSchedule.hostId && liveHostActive(liveSchedule.hostId)) {
+          chosenHost = staffDef(liveSchedule.hostId);
+        } else {
+          const activeHosts = staffHired
+            .map(h => staffDef(h.id))
+            .filter(d => d && liveHostActive(d.id))
+            .sort((a, b) => (b.charm || 1) - (a.charm || 1));
+          chosenHost = activeHosts[0] || null;
+        }
+        if (!chosenHost) return;
+
+        const chosenProd = pickAutoLiveProduct();
+        if (!chosenProd) return;
+
+        let usedAd = false;
+        if (liveSchedule.useAd && saldoUtama >= LIVE_AD_COST) {
+          saldoUtama -= LIVE_AD_COST;
+          usedAd = true;
+          updateSaldo();
+        }
+
+        slot.lastTriggeredDay = currentDay;
+        liveLikes = 0;
+        live = {
+          product: chosenProd.name,
+          host: chosenHost.id,
+          remaining: slot.hours * 60,
+          ad: usedAd,
+          count: 0,
+          peak: 0,
+          sold: 0,
+          names: [],
+          tick: 0,
+          likes: 0,
+          scheduled: true,
+          slotNum: i + 1
+        };
+        lsChat.innerHTML = '';
+        lsProdKey = '';
+        if (lsLikesEl) lsLikesEl.textContent = '0';
+        const isLowSales = chosenProd.salesCount <= 5;
+        liveChat(`⏰ Auto Live Sesi #${i + 1} dimulai! ${chosenHost.name} memilih ${chosenProd.name} (${isLowSales ? 'dorong penjualan varian ini' : 'varian top seller'})`, 'sys');
+        logActivity(`📱 Auto Live Facegram Sesi #${i + 1}: ${chosenHost.name} mempromosikan ${chosenProd.name} (${slot.hours} jam${usedAd ? ', Live Ad' : ''})`);
+        liveSellTick();
+        break;
       }
-      if (!chosenHost) return;
-
-      const chosenProd = pickAutoLiveProduct();
-      if (!chosenProd) return;
-
-      let usedAd = false;
-      if (liveSchedule.useAd && saldoUtama >= LIVE_AD_COST) {
-        saldoUtama -= LIVE_AD_COST;
-        usedAd = true;
-        updateSaldo();
-      }
-
-      liveSchedule.lastTriggeredDay = currentDay;
-      liveLikes = 0;
-      live = {
-        product: chosenProd.name,
-        host: chosenHost.id,
-        remaining: liveSchedule.hours * 60,
-        ad: usedAd,
-        count: 0,
-        peak: 0,
-        sold: 0,
-        names: [],
-        tick: 0,
-        likes: 0,
-        scheduled: true
-      };
-      lsChat.innerHTML = '';
-      lsProdKey = '';
-      if (lsLikesEl) lsLikesEl.textContent = '0';
-      const isLowSales = chosenProd.salesCount <= 5;
-      liveChat(`⏰ Auto Live Facegram dimulai! ${chosenHost.name} memilih ${chosenProd.name} (${isLowSales ? 'dorong penjualan varian ini' : 'varian top seller'})`, 'sys');
-      logActivity(`📱 Auto Live Facegram: ${chosenHost.name} mempromosikan ${chosenProd.name} (${liveSchedule.hours} jam${usedAd ? ', Live Ad' : ''})`);
-      liveSellTick();
     }
 
-    // ===== NAMA TOKO (bisa diedit pemain, default tetap GRROSE PARFUME) =====
+    // ===== NAMA TOKO =====
     const DEFAULT_STORE = 'GRROSE PARFUME';
     let storeName = DEFAULT_STORE;
     const storeNameEl = document.getElementById('store-name'), nameEditEl = document.getElementById('name-edit'), nameInputEl = document.getElementById('name-input'), nameBtnEl = document.getElementById('name-edit-btn');
@@ -1084,13 +1269,13 @@
     window.resetStoreName = function() { nameInputEl.value = DEFAULT_STORE; saveStoreName(); };
     nameInputEl.addEventListener('keydown', e => { if (e.key === 'Enter') saveStoreName(); });
 
-    // ===== ADMIN LIVE PRO (nama acak: artis / content creator / selebgram / tiktoker / youtuber) =====
+    // ===== 3. ADMIN LIVE PRO (GAJI BULANAN DI ATAS UMR SESUAI LEVEL POPULARITAS) =====
     const PRO_DEF = [
-      { role: 'Content Creator', salary: 12000000, charm: 3.2, boost: 1.4, acc: 'glasses' },
-      { role: 'TikToker', salary: 15000000, charm: 3.8, boost: 1.6, acc: 'headset' },
-      { role: 'YouTuber', salary: 18000000, charm: 4.3, boost: 1.8, acc: 'headset' },
-      { role: 'Selebgram', salary: 22000000, charm: 4.8, boost: 2.0, acc: '' },
-      { role: 'Artis', salary: 30000000, charm: 6.0, boost: 2.4, acc: '' }
+      { role: 'Content Creator', salary: 10500000, charm: 3.2, boost: 1.4, acc: 'glasses' },
+      { role: 'TikToker', salary: 13000000, charm: 3.8, boost: 1.6, acc: 'headset' },
+      { role: 'YouTuber', salary: 15500000, charm: 4.3, boost: 1.8, acc: 'headset' },
+      { role: 'Selebgram', salary: 18500000, charm: 4.8, boost: 2.0, acc: '' },
+      { role: 'Artis', salary: 24000000, charm: 6.0, boost: 2.4, acc: '' }
     ];
     const PRO_F = ['Aurelia', 'Keisha', 'Nayla', 'Callista', 'Zahra', 'Tiara', 'Alika', 'Davina', 'Naomi', 'Kirana', 'Salsa', 'Clarissa', 'Mikaela', 'Vanesha'];
     const PRO_M = ['Rafael', 'Kenzo', 'Arkan', 'Bryan', 'Fabian', 'Galih', 'Haikal', 'Ivander', 'Jonathan', 'Kevin', 'Leon', 'Marcell', 'Nathan', 'Reynard'];
@@ -1119,7 +1304,7 @@
     let saldoGropay = 0;
     let gropayHistory = [];
 
-    // ===== BILLS BULANAN (nama variabel lama dipertahankan; nilai "week" kini berarti bulan) =====
+    // ===== BILLS BULANAN =====
     let weeklyBillAmount = 14000000;
     let lastBillPaidWeek = 0;
     let weeklyBillsHistory = [];
@@ -1281,12 +1466,10 @@
     function getCurrentWeek() { return Math.floor((currentDay - 1) / 7) + 1; }
     function getCurrentMonth() { return Math.floor((currentDay - 1) / 30) + 1; }
     function updateWeeklyBillAmount() {
-      // rating 4 ke atas: Rp 16.000.000 / bulan, selain itu Rp 14.000.000 / bulan
       weeklyBillAmount = (averageRating >= 4) ? 16000000 : 14000000;
     }
     function canPayWeeklyBill() { return (lastBillPaidWeek < getCurrentMonth()); }
 
-    // parameter "by" = nama karyawan (jika dibayar karyawan, tanpa alert)
     window.payWeeklyBill = function(by) {
       if (typeof by !== 'string') by = null;
       updateWeeklyBillAmount();
@@ -1306,8 +1489,8 @@
     function updateWeeklyDisplay() {
       updateWeeklyBillAmount();
       weeklyBillsAmountEl.textContent = `Rp ${weeklyBillAmount.toLocaleString()}`;
-      const currentWeek = getCurrentMonth();
-      weeklyDueEl.textContent = `Bulan ke-${currentWeek} | ${canPayWeeklyBill() ? 'Belum dibayar' : 'Sudah dibayar'} | ${averageRating >= 4 ? 'Tarif rating 4+' : 'Tarif standar'}`;
+      const currentMonth = getCurrentMonth();
+      weeklyDueEl.textContent = `Bulan ke-${currentMonth} | ${canPayWeeklyBill() ? 'Belum dibayar' : 'Sudah dibayar'} | ${averageRating >= 4 ? 'Tarif rating 4+' : 'Tarif standar'}`;
       if (weeklyBillsHistory.length > 0) {
         const last = weeklyBillsHistory[weeklyBillsHistory.length-1];
         weeklyBillsHistoryEl.textContent = `Terakhir bayar: Bulan ${last.week} - Rp ${last.amount.toLocaleString()}`;
@@ -1340,14 +1523,14 @@
       } else if (!by) { alert("Saldo utama tidak cukup!"); checkGameOver(); }
     };
 
-    // ===== KARYAWAN & BRAND AMBASSADOR =====
+    // ===== 1 & 3. KARYAWAN & BRAND AMBASSADOR (PEMBAYARAN BULANAN) =====
     function staffDef(id) {
       return STAFF.find(s => s.id === id) || BRAND_AMBASSADORS.find(b => b.id === id);
     }
     function staffActive(skill) {
       for (const h of staffHired) {
         const d = staffDef(h.id);
-        if (d && d.skills.includes(skill) && h.paidWeek >= getCurrentWeek()) return d;
+        if (d && d.skills.includes(skill) && isStaffRecordActive(h)) return d;
       }
       return null;
     }
@@ -1355,20 +1538,23 @@
       const d = staffDef(id);
       if (!d || staffHired.some(h => h.id === id)) return;
       if (saldoUtama < d.salary) {
-        alert(`Saldo utama tidak cukup! ${d.isBA ? 'Kontrak BA' : 'Gaji'} minggu pertama Rp ${d.salary.toLocaleString()}`);
+        alert(`Saldo utama tidak cukup! ${d.isBA ? 'Kontrak BA' : 'Gaji'} bulan pertama Rp ${d.salary.toLocaleString()}`);
         return;
       }
       saldoUtama -= d.salary;
-      staffHired.push({ id, paidWeek: getCurrentWeek() });
+      const curMonth = getCurrentMonth();
+      staffHired.push({ id, paidMonth: curMonth });
       if (d.isBA) {
         assignBaFavorites(id, true);
         const favNames = (baFavorites[id] || []).join(', ');
-        logActivity(`🌟 Brand Ambassador ${d.name} (${d.gender}) dikontrak! Rp ${d.salary.toLocaleString()}/minggu. Varian favorit: ${favNames}`);
-        updateProducts();
+        logActivity(`🌟 Brand Ambassador ${d.name} (${d.gender}) dikontrak! Rp ${d.salary.toLocaleString()}/bulan. Varian favorit: ${favNames}`);
       } else {
-        logActivity(`👥 ${d.name} (${d.role}) disewa. Gaji Rp ${d.salary.toLocaleString()}/minggu`);
+        logActivity(`👥 ${d.name} (${d.role}) disewa. Gaji Rp ${d.salary.toLocaleString()}/bulan`);
       }
-      updateSaldo(); renderStaff();
+      updateSaldo();
+      renderStaff();
+      updateCustomerMultiplier();
+      updateProducts();
     };
     window.fireStaff = function(id) {
       const d = staffDef(id);
@@ -1376,33 +1562,36 @@
       staffHired = staffHired.filter(h => h.id !== id);
       if (d.isBA) {
         delete baFavorites[id];
-        updateProducts();
       }
       logActivity(`👋 ${d.name} ${d.isBA ? 'kontrak BA berakhir' : 'diberhentikan'}.`);
       renderStaff();
+      updateCustomerMultiplier();
+      updateProducts();
     };
     window.payStaff = function(id, silent) {
       const h = staffHired.find(x => x.id === id), d = staffDef(id);
-      if (!h || h.paidWeek >= getCurrentWeek()) return false;
+      if (!h || isStaffRecordActive(h)) return false;
       if (saldoUtama < d.salary) { if (!silent) alert("Saldo utama tidak cukup untuk " + d.name); return false; }
       saldoUtama -= d.salary;
-      h.paidWeek = getCurrentWeek();
+      h.paidMonth = getCurrentMonth();
       if (d.isBA) {
-        assignBaFavorites(id, true); // BA memperbarui varian favorit tiap minggu
-        updateProducts();
+        assignBaFavorites(id, true);
       }
-      logActivity(`💵 ${d.isBA ? 'Kontrak BA' : 'Gaji'} ${d.name} dibayar: Rp ${d.salary.toLocaleString()} (Minggu ke-${h.paidWeek})`);
-      updateSaldo(); renderStaff();
+      logActivity(`💵 ${d.isBA ? 'Kontrak BA' : 'Gaji'} ${d.name} dibayar: Rp ${d.salary.toLocaleString()} (Bulan ke-${h.paidMonth})`);
+      updateSaldo();
+      renderStaff();
+      updateCustomerMultiplier();
+      updateProducts();
       return true;
     };
     window.payAllStaff = function() {
       let any = false;
-      staffHired.forEach(h => { if (h.paidWeek < getCurrentWeek()) { if (payStaff(h.id, true)) any = true; } });
-      if (!any) alert("Tidak ada gaji/kontrak yang perlu dibayar (atau saldo utama kurang).");
+      staffHired.forEach(h => { if (!isStaffRecordActive(h)) { if (payStaff(h.id, true)) any = true; } });
+      if (!any) alert("Tidak ada gaji/kontrak bulan ini yang perlu dibayar (atau saldo utama kurang).");
     };
     function renderBrandAmbassadors() {
       if (!baGridEl) return;
-      const week = getCurrentWeek();
+      const month = getCurrentMonth();
       const sortedBA = [...BRAND_AMBASSADORS].sort((a, b) => {
         const aHired = staffHired.some(x => x.id === a.id) ? 1 : 0;
         const bHired = staffHired.some(x => x.id === b.id) ? 1 : 0;
@@ -1410,6 +1599,9 @@
       });
       baGridEl.innerHTML = sortedBA.map(d => {
         const h = staffHired.find(x => x.id === d.id);
+        if (h && isStaffRecordActive(h) && (!Array.isArray(baFavorites[d.id]) || baFavorites[d.id].length === 0)) {
+          assignBaFavorites(d.id, false);
+        }
         const favs = baFavorites[d.id] || [];
         const chips = `<span class="chip pink">BA ${d.gender}</span>`
           + `<span class="chip">+${Math.round(d.salesBoost * 100)}% Penjualan</span>`
@@ -1417,13 +1609,14 @@
           + `<span class="chip">Live Pesona x${d.charm}</span>`;
         let action = `<button style="background:linear-gradient(135deg,#ff416c,#ff4b2b)" onclick="hireStaff('${d.id}')">Kontrak BA</button>`, status = '';
         if (h) {
-          const paid = h.paidWeek >= week;
+          const paid = isStaffRecordActive(h);
+          const paidM = h.paidMonth !== undefined ? h.paidMonth : month;
           status = paid
-            ? `<div class="st on">● Kontrak Aktif (Minggu ${h.paidWeek})</div>${favs.length ? `<div style="font-size:0.72rem;margin:4px 0;opacity:0.9;">💖 Favorit: <b>${favs.join(', ')}</b></div>` : ''}`
-            : `<div class="st off">● Nonaktif - perpanjangan kontrak belum dibayar</div>`;
-          action = (paid ? '' : `<button class="pay" onclick="payStaff('${d.id}')">Perpanjang</button>`) + `<button class="fire" onclick="fireStaff('${d.id}')">Putus Kontrak</button>`;
+            ? `<div class="st on">● Kontrak Aktif (Lunas Bulan ke-${paidM})</div>${favs.length ? `<div style="font-size:0.74rem;margin:6px 0;opacity:0.95;">💖 Favorit: <b>${favs.join(', ')}</b></div>` : ''}`
+            : `<div class="st off">● Nonaktif - kontrak bulan ke-${month} belum dibayar</div>`;
+          action = (paid ? '' : `<button class="pay" onclick="payStaff('${d.id}')">Perpanjang Bulan Ini</button>`) + `<button class="fire" onclick="fireStaff('${d.id}')">Putus Kontrak</button>`;
         }
-        return `<div class="staff-card ba-card ${h ? 'hired' : ''}"><div class="avatar" style="box-shadow:0 6px 16px rgba(255,65,108,0.3),0 0 0 3px #ff416c">${avatarSVG(d.id, 'ba')}</div><h3>${d.name}</h3><div class="role">${d.role}</div><div class="salary">Rp ${d.salary.toLocaleString()} / minggu</div><div class="skills">${chips}</div>${status}${action}</div>`;
+        return `<div class="staff-card ba-card ${h ? 'hired' : ''}"><div class="avatar" style="box-shadow:0 6px 16px rgba(255,65,108,0.3),0 0 0 3px #ff416c">${avatarSVG(d.id, 'ba')}</div><h3>${d.name}</h3><div class="role">${d.role}</div><div class="salary">Rp ${d.salary.toLocaleString()} / bulan</div><div class="skills">${chips}</div>${status}${action}</div>`;
       }).join('');
 
       const activeBAs = getActiveBAs();
@@ -1431,15 +1624,15 @@
       if (sumEl) {
         if (activeBAs.length) {
           const totalBoost = Math.round(activeBAs.reduce((a, b) => a + b.salesBoost, 0) * 100);
-          sumEl.textContent = `🌟 ${activeBAs.length} BA Aktif (+${totalBoost}% Daya Tarik Toko)`;
+          const allFavs = activeBAs.flatMap(ba => (baFavorites[ba.id] || []).map(p => `${ba.name.split(' ')[0]}: ${p}`));
+          sumEl.innerHTML = `🌟 ${activeBAs.length} BA Aktif (+${totalBoost}% Daya Tarik Toko)${allFavs.length ? `<div style="margin-top:4px;font-weight:600;font-size:0.74rem;">💖 Varian Favorit: ${allFavs.join(' • ')}</div>` : ''}`;
         } else {
           sumEl.textContent = 'Belum ada BA aktif';
         }
       }
     }
     function renderStaff() {
-      const week = getCurrentWeek();
-      // Karyawan yang sudah disewa otomatis ditempatkan di urutan teratas
+      const month = getCurrentMonth();
       const sortedStaff = [...STAFF].sort((a, b) => {
         const aHired = staffHired.some(x => x.id === a.id) ? 1 : 0;
         const bHired = staffHired.some(x => x.id === b.id) ? 1 : 0;
@@ -1450,17 +1643,18 @@
         const skills = (d.pro ? '<span class="chip gold">PRO</span>' : '') + d.skills.map(s => `<span class="chip">${SKILL_LABEL[s]}</span>`).join('') + (d.charm ? `<span class="chip">Pesona x${d.charm}</span>` : '') + (d.boost ? `<span class="chip">Penjualan x${d.boost}</span>` : '');
         let action = `<button onclick="hireStaff('${d.id}')">Sewa</button>`, status = '';
         if (h) {
-          const paid = h.paidWeek >= week;
-          status = paid ? `<div class="st on">● Aktif (gaji lunas Minggu ${h.paidWeek})</div>` : `<div class="st off">● Nonaktif - gaji belum dibayar</div>`;
-          action = (paid ? '' : `<button class="pay" onclick="payStaff('${d.id}')">Bayar Gaji</button>`) + `<button class="fire" onclick="fireStaff('${d.id}')">Pecat</button>`;
+          const paid = isStaffRecordActive(h);
+          const paidM = h.paidMonth !== undefined ? h.paidMonth : month;
+          status = paid ? `<div class="st on">● Aktif (gaji lunas Bulan ke-${paidM})</div>` : `<div class="st off">● Nonaktif - gaji bulan ke-${month} belum dibayar</div>`;
+          action = (paid ? '' : `<button class="pay" onclick="payStaff('${d.id}')">Bayar Gaji Bulan Ini</button>`) + `<button class="fire" onclick="fireStaff('${d.id}')">Pecat</button>`;
         }
-        return `<div class="staff-card ${h ? 'hired' : ''} ${d.pro ? 'pro' : ''}"><div class="avatar">${avatarSVG(d.id)}</div><h3>${d.name}</h3><div class="role">${d.role}</div><div class="salary">Rp ${d.salary.toLocaleString()} / minggu</div><div class="skills">${skills}</div>${status}${action}</div>`;
+        return `<div class="staff-card ${h ? 'hired' : ''} ${d.pro ? 'pro' : ''}"><div class="avatar">${avatarSVG(d.id)}</div><h3>${d.name}</h3><div class="role">${d.role}</div><div class="salary">Rp ${d.salary.toLocaleString()} / bulan</div><div class="skills">${skills}</div>${status}${action}</div>`;
       }).join('');
       const total = staffHired.reduce((a, h) => {
         const def = staffDef(h.id);
         return a + (def ? def.salary : 0);
       }, 0);
-      document.getElementById('staff-total-salary').textContent = `Rp ${total.toLocaleString()} / minggu`;
+      document.getElementById('staff-total-salary').textContent = `Rp ${total.toLocaleString()} / bulan`;
       renderBrandAmbassadors();
       renderLiveSetup();
     }
@@ -1468,7 +1662,6 @@
     // Pekerjaan karyawan (dipanggil tiap tick waktu)
     function staffWork() {
       if (staffHired.length === 0) return;
-      // restock
       const rs = staffActive('restock');
       if (rs) {
         let changed = false;
@@ -1483,7 +1676,6 @@
         });
         if (changed) { updateSaldo(); updateProducts(); }
       }
-      // live promo (memastikan talent live promo juga aktif)
       const ps = staffActive('promo');
       if (ps) {
         promoProducts.forEach(p => {
@@ -1502,7 +1694,6 @@
           }
         });
       }
-      // bayar pajak & tagihan bulanan
       const pay = staffActive('pay');
       if (pay) {
         if (dailyTaxTotal > 0 && currentDay > lastTaxPaidDay) payDailyTax(pay.name);
@@ -1528,7 +1719,7 @@
     // ===== IKLAN =====
     function activeAdNames() { return ads.filter(a => currentDay <= a.endDay).map(a => a.name); }
     function adInfo(name) { const a = ads.find(x => x.name === name && currentDay <= x.endDay); return a ? (a.endDay - currentDay + 1) : 0; }
-    function renderAds() { /* riwayat/daftar iklan dihapus; info iklan tampil di kartu produk */ }
+    function renderAds() { }
     document.getElementById('ad-form').addEventListener("submit", (e) => {
       e.preventDefault();
       const input = document.querySelector('#ad-search-container .searchable-select-input');
@@ -1594,8 +1785,8 @@
       else customerMultiplier = 0.1;
       const activeBAs = getActiveBAs();
       const baBonusPct = Math.round(activeBAs.reduce((a, b) => a + b.salesBoost, 0) * 100);
-      customerCountEl.textContent = `👥 Pengunjung: ${Math.round(customerMultiplier * 100)}% (Rating: ${averageRating.toFixed(1)})${baBonusPct > 0 ? ` | 🌟 Boost BA: +${baBonusPct}%` : ''}`;
-      updateWeeklyDisplay(); // tagihan bulanan mengikuti rating toko
+      customerCountEl.textContent = `👥 Pengunjung: ${Math.round(customerMultiplier * 100)}% (Rating: ${averageRating.toFixed(1)})${baBonusPct > 0 ? ` | Boost BA: +${baBonusPct}%` : ''}`;
+      updateWeeklyDisplay();
     }
 
     function getTrafficFactor() {
@@ -1612,13 +1803,14 @@
       let livePromoBonus = 0;
       promoProducts.forEach(p => { if (p.active) livePromoBonus += (p.discount / 100) * 1.5; });
       const adNames = activeAdNames();
-      const adBonus = Math.min(1.5, adNames.length * 0.5); // iklan menarik lebih banyak pembeli
+      const adBonus = Math.min(1.5, adNames.length * 0.5);
       const activeBAs = getActiveBAs();
       const baStoreBoost = activeBAs.reduce((a, b) => a + b.salesBoost, 0);
       let chance = customerMultiplier * traffic * (1 + livePromoBonus + adBonus + liveSellBonus() + baStoreBoost);
       if (Math.random() > chance) return;
 
       const botName = botNames[Math.floor(Math.random() * botNames.length)];
+      const payMethod = PAYMENT_METHODS[Math.floor(Math.random() * PAYMENT_METHODS.length)];
       const preferLivePromo = (Math.random() < 0.85 + (livePromoBonus*0.3));
       let numProductsToBuy = 1;
       if (averageRating >= 4.0) numProductsToBuy = Math.floor(Math.random()*4)+1;
@@ -1628,6 +1820,7 @@
 
       let totalTransaction = 0;
       let boughtFromLive = false;
+      let boughtItemsSummary = [];
       let details = `${botName} membeli:`;
       const bestSellerNames = products.sort((a,b)=>b.salesCount-a.salesCount).slice(0,3).map(p=>p.name);
 
@@ -1643,14 +1836,13 @@
           const baFavAvail = availableRegular.filter(p => getProductBaFavs(p.name).length > 0);
           const adAvail = availableRegular.filter(p => adNames.includes(p.name));
           if (baFavAvail.length > 0 && Math.random() < 0.55) {
-            // Varian favorit Brand Ambassador mendapat pengaruh besar
             product = baFavAvail[Math.floor(Math.random() * baFavAvail.length)];
           } else if (adAvail.length > 0 && Math.random() < 0.6) {
-            product = adAvail[Math.floor(Math.random()*adAvail.length)]; // produk iklan lebih sering dipilih
+            product = adAvail[Math.floor(Math.random()*adAvail.length)];
           } else {
             product = availableRegular[Math.floor(Math.random()*availableRegular.length)];
           }
-          if (live && storeOpen && Math.random() < Math.min(0.85, 0.45 * liveBoost())) { const lp = availableRegular.find(p => p.name === live.product); if (lp) product = lp; } // produk yang sedang live lebih sering dibeli
+          if (live && storeOpen && Math.random() < Math.min(0.85, 0.45 * liveBoost())) { const lp = availableRegular.find(p => p.name === live.product); if (lp) product = lp; }
           if (bestSellerNames.includes(product.name) && Math.random()<0.6) { }
         } else continue;
 
@@ -1667,12 +1859,12 @@
           product.salesCount += qty;
           if (isPromoItem) {
             boughtFromLive = true;
-            promoBuyChat(botName, qty, product);
+            promoBuyChat(botName, qty, product, payMethod);
             triggerLiveHearts(true, 3);
           } else if (live && product.name === live.product) {
             boughtFromLive = true;
             live.sold = (live.sold || 0) + qty;
-            liveBuyChat(botName, qty);
+            liveBuyChat(botName, qty, payMethod);
             triggerLiveHearts(false, 3);
           }
           totalTransaction += total;
@@ -1682,7 +1874,9 @@
           dailyProfit += profit;
           addDailyTax(total);
 
-          details += ` ${qty} ${product.name}${prodBaFavs.length ? ` (💖 Favorit ${prodBaFavs[0].name.split(' ')[0]})` : ''},`;
+          const favLabel = prodBaFavs.length ? ` (💖 Favorit ${prodBaFavs[0].name.split(' ')[0]})` : '';
+          details += ` ${qty} ${product.name}${favLabel},`;
+          boughtItemsSummary.push(`${qty}x ${product.name}${favLabel}`);
         } else {
           const stokMsg = `Stok ${product.name} habis? Kapan restock?`;
           addComment(`${botName}: "${stokMsg}"`);
@@ -1691,7 +1885,10 @@
       }
 
       if (totalTransaction > 0) {
-        logActivity(`${details} total Rp ${Math.round(totalTransaction).toLocaleString()}.`);
+        const roundedTotal = Math.round(totalTransaction);
+        logActivity(`${details} total Rp ${roundedTotal.toLocaleString()} • Bayar via ${payMethod.icon} ${payMethod.name}.`);
+        // 5. Info pembelian + metode pembayaran di bagian Komentar Pembeli
+        addPaymentComment(botName, boughtItemsSummary.join(', '), roundedTotal, payMethod);
         const randComment = commentsList[Math.floor(Math.random()*commentsList.length)];
         addComment(`${botName}: "${randComment}"`);
         staffReply(botName, randComment);
@@ -1707,7 +1904,6 @@
       const isLiveActive = !!(live && storeOpen) || activePromoCount > 0;
 
       if (fromLive) {
-        // Hampir 70% pembeli dari live memberikan bintang bagus (4 atau 5)
         if (Math.random() < 0.70) {
           ratingVal = Math.random() < 0.65 ? 5 : 4;
         }
@@ -1715,7 +1911,6 @@
         ratingVal = Math.min(5, ratingVal + activePromoCount);
       }
 
-      // Jika sering live biasa / live promo, rating toko sedikit lebih cepat naik
       const liveWeight = (fromLive || isLiveActive) ? 1.35 : 1.0;
       totalRatings += liveWeight;
       averageRating = ((averageRating * (totalRatings - liveWeight)) + (ratingVal * liveWeight)) / totalRatings;
@@ -1749,12 +1944,12 @@
     window.topupModal = function() { let a=parseInt(document.getElementById('topup-amount').value); if(a>0 && a<=saldoUtama) { saldoUtama-=a; saldoModal+=a; updateSaldo(); logActivity(`💳 Topup modal Rp ${a.toLocaleString()}`); document.getElementById('topup-amount').value=''; } else alert("Saldo utama tidak cukup"); };
     window.topupAllModal = function() { if(saldoUtama>0) { saldoModal+=saldoUtama; logActivity(`💳 Topup semua modal Rp ${saldoUtama.toLocaleString()}`); saldoUtama=0; updateSaldo(); } };
 
-    // ===== LOAN (hanya owner) =====
+    // ===== LOAN =====
     window.takeLoan = function() { if(loanActive) { alert("Pinjaman aktif"); return; } let amount=parseInt(document.getElementById('loan-amount').value); let tenor=parseInt(document.getElementById('loan-tenor').value); if(!amount||amount<100000||amount>MAX_LOAN) { alert(`Pinjaman 100rb-100jt`); return; } loanActive=true; loanAmount=amount; loanTenor=tenor; loanRemainingWeeks=tenor; loanWeeklyPayment=Math.ceil(amount/tenor); loanLastPaymentDay=currentDay; loanOverdueWeeks=0; saldoUtama+=amount; updateSaldo(); updateLoanStatus(); logActivity(`💰 Pinjaman Rp ${amount.toLocaleString()} (${tenor} minggu, bunga 5%/minggu telat)`); };
     window.payLoanInstallment = function() { if(!loanActive) return; let payment=parseInt(document.getElementById('loan-payment-amount').value); if(!payment||payment<0) return; let weeksSince=Math.floor((currentDay-loanLastPaymentDay)/7); if(weeksSince>0){loanOverdueWeeks+=weeksSince; loanLastPaymentDay=currentDay;} let totalDue=loanWeeklyPayment; if(loanOverdueWeeks>0) totalDue += loanWeeklyPayment * loanOverdueWeeks * LOAN_INTEREST_RATE; if(payment<totalDue) { alert(`Minimal bayar Rp ${Math.ceil(totalDue).toLocaleString()}`); return; } if(payment>saldoUtama){alert("Saldo utama tidak cukup"); return;} saldoUtama-=payment; if(loanOverdueWeeks>0){ let interest = loanWeeklyPayment * loanOverdueWeeks * LOAN_INTEREST_RATE; let principal = payment - interest; loanRemainingWeeks -= Math.max(0, Math.floor(principal / loanWeeklyPayment)); logActivity(`💰 Bayar cicilan + bunga Rp ${payment.toLocaleString()}`); loanOverdueWeeks=0; } else { loanRemainingWeeks-=1; logActivity(`💰 Bayar cicilan Rp ${payment.toLocaleString()}`); } if(loanRemainingWeeks<=0){ loanActive=false; loanAmount=0; loanRemainingWeeks=0; loanWeeklyPayment=0; logActivity("✅ Pinjaman lunas!"); } loanLastPaymentDay=currentDay; updateSaldo(); updateLoanStatus(); document.getElementById('loan-payment-amount').value=''; };
     function updateLoanStatus() { if(!loanActive) { loanStatusEl.textContent="Tidak ada pinjaman aktif"; loanPaymentSection.style.display="none"; return; } let weeksSince=Math.floor((currentDay-loanLastPaymentDay)/7); let status=`Pinjaman: Rp ${loanAmount.toLocaleString()} | Sisa: ${loanRemainingWeeks} minggu | Cicilan/minggu: Rp ${loanWeeklyPayment.toLocaleString()}`; if(weeksSince>0) status+=` | ⚠️ Telat ${weeksSince} minggu (bunga 5%)`; loanStatusEl.textContent=status; loanPaymentSection.style.display="block"; }
 
-    // ===== FUNGSI GANTI HARI (Dipakai baik saat jam 00:00 maupun tombol Next Day) =====
+    // ===== FUNGSI GANTI HARI =====
     function advanceNewDay(isAutoMidnight = false) {
       currentDay++;
       dayCounterEl.textContent = currentDay;
@@ -1773,14 +1968,12 @@
       if (loanActive) updateLoanStatus();
       logActivity(isAutoMidnight ? `🌙 Pergantian hari otomatis (00:00) -> Hari ke-${currentDay} dimulai!` : `⏩ Hari ${currentDay} dimulai!`);
 
-      // Hapus status "NEW / Produk Baru Rilis" setelah lebih dari 3 hari sejak dirilis
       products.forEach(p => {
         if (p.isNew && p.releasedDay && (currentDay - p.releasedDay) >= 3) {
           p.isNew = false;
         }
       });
 
-      // Bunga tabungan GroPay & iklan berakhir
       if (saldoGropay > 0) {
         const bunga = Math.floor(saldoGropay * 0.001);
         if (bunga > 0) { saldoGropay += bunga; gropayLog(`✨ Bunga +Rp ${bunga.toLocaleString()}`); }
@@ -1810,16 +2003,13 @@
         updateDateDisplay();
       }
 
-      // Cek jadwal Auto Live Facegram
       checkScheduledAutoLive();
-
-      // Karyawan bekerja
       staffWork();
 
       promoProducts.forEach((p,idx) => {
         if (p.active && p.host && !liveHostActive(p.host)) {
           p.active = false;
-          logActivity(`⚠️ Live Promo ${p.name} dijeda: admin live tidak aktif (gaji belum dibayar).`);
+          logActivity(`⚠️ Live Promo ${p.name} dijeda: admin live tidak aktif (gaji bulan ini belum dibayar).`);
           updateProducts();
         }
         if (p.endTime>0 && currentTime>=p.endTime) {
@@ -1831,6 +2021,7 @@
         }
       });
 
+      applyAdaptiveBackground();
       if (loanActive) updateLoanStatus();
       checkGameOver();
     }
@@ -1849,7 +2040,7 @@
           if (actHost) p.host = actHost.id;
         }
         if (!p.host || !liveHostActive(p.host)) {
-          alert("Live Promo memerlukan Admin Live / BA yang aktif! Sewa & bayar gaji talent terlebih dahulu.");
+          alert("Live Promo memerlukan Admin Live / BA yang aktif! Sewa & bayar gaji/kontrak talent terlebih dahulu.");
           return;
         }
         p.pending = false;
@@ -1864,10 +2055,18 @@
         logActivity(`Live Promo ${p.name} dinonaktifkan.`);
       }
       updateProducts();
+      applyAdaptiveBackground();
     };
 
     function logActivity(msg) { let p=document.createElement("p"); p.textContent=msg; activityLog.appendChild(p); activityLog.scrollTop = activityLog.scrollHeight; }
     function addComment(msg, cls) { let p=document.createElement("p"); p.textContent=msg; if (cls) p.className = cls; commentBox.appendChild(p); commentBox.scrollTop = commentBox.scrollHeight; }
+    function addPaymentComment(botName, itemsStr, totalRp, payMethod) {
+      const p = document.createElement("p");
+      p.className = "pay-info";
+      p.innerHTML = `🛍️ <b>${botName}</b> membeli <b>${itemsStr}</b> • Total: <b>Rp ${totalRp.toLocaleString()}</b> <span class="pay-badge">${payMethod.icon} ${payMethod.name}</span>`;
+      commentBox.appendChild(p);
+      commentBox.scrollTop = commentBox.scrollHeight;
+    }
 
     function updateSaldo() {
       saldoUtamaEl.textContent = `Rp ${saldoUtama.toLocaleString()}`;
@@ -1921,7 +2120,7 @@
       return { input, dropdown };
     }
 
-    // ===== 5. ATUR DISKON MASSAL (CEKLIS SEMUA / TERTENTU) =====
+    // ===== ATUR DISKON MASSAL =====
     let selectedDiscountProducts = new Set();
     window.renderDiscountChecklist = function() {
       const box = document.getElementById('discount-checklist');
@@ -1962,7 +2161,6 @@
       renderDiscountChecklist();
     };
     function updateDiscountCountUI() {
-      // Bersihkan nama produk yang sudah dihapus jika ada
       selectedDiscountProducts.forEach(n => { if (!products.some(p => p.name === n)) selectedDiscountProducts.delete(n); });
       const el = document.getElementById('disc-selected-count');
       if (el) el.textContent = selectedDiscountProducts.size;
@@ -2050,7 +2248,7 @@
       createSearchableSelect('live-search-container', products, () => {});
     }
 
-    // ===== PRODUK MANAGEMENT (hanya owner) =====
+    // ===== PRODUK MANAGEMENT =====
     window.addNewProduct = function() {
       const name = document.getElementById('new-product-name').value.trim();
       const price = parseInt(document.getElementById('new-product-price').value);
@@ -2076,7 +2274,6 @@
       const productIndex = products.findIndex(p => p.name === oldName);
       if (productIndex === -1 || !newName) { alert("Pilih produk yang valid!"); return; }
       products[productIndex].name = newName;
-      // Update nama di favorit BA & ceklis diskon jika ada
       Object.keys(baFavorites).forEach(k => {
         baFavorites[k] = (baFavorites[k] || []).map(n => n === oldName ? newName : n);
       });
@@ -2087,9 +2284,10 @@
       logActivity(`✏️ Nama produk diubah: "${oldName}" -> "${newName}"`);
       document.getElementById('edit-product-name').value = '';
       updateProducts();
+      renderStaff();
     };
 
-    // ===== SET LIVE PROMO (biaya 1jt + wajib pilih talent live) =====
+    // ===== SET LIVE PROMO =====
     document.getElementById('set-promo-form').addEventListener("submit", (e) => { 
       e.preventDefault(); 
       const input = document.querySelector('#set-promo-search-container .searchable-select-input'); 
@@ -2102,7 +2300,7 @@
       const dur = parseInt(document.getElementById('set-promo-duration').value); 
       const promoFee = 1000000;
       if (!hostObj || !liveHostActive(hostId)) {
-        alert("Live Promo harus menggunakan Admin Live / BA yang aktif! Sewa & bayar gaji talent dulu.");
+        alert("Live Promo harus menggunakan Admin Live / BA yang aktif! Sewa & bayar gaji/kontrak talent dulu.");
         return;
       }
       if (idx !== -1 && stock > 0 && disc >= 0 && disc <= 100 && dur > 0) { 
@@ -2118,10 +2316,10 @@
           emptySlot.duration = dur; 
           emptySlot.host = hostId;
           emptySlot.active = false; 
-          emptySlot.pending = true; // menunggu karyawan promo memulai (atau aktifkan manual)
+          emptySlot.pending = true;
           emptySlot.endTime = currentTime + dur * 60; 
           emptySlot.salesCount = 0; 
-          emptySlot.img = products[idx].img || ''; // foto produk ikut tampil di live promo
+          emptySlot.img = products[idx].img || '';
           saldoUtama -= (products[idx].modalPrice * stock) + promoFee; 
           updateSaldo(); 
           updateProducts(); 
@@ -2144,7 +2342,7 @@
 
     // ===== SAVE/LOAD =====
     window.saveGame = function() {
-      const gameData = { saldoUtama, saldoModal, saldoKeuntungan, dailyProfit, currentDay, currentTime, products, promoProducts, autoRestockAmount, staffHired, baFavorites, liveSchedule, ads, saldoGropay, gropayHistory, billMode: 'monthly', live, storeName, proRoster: STAFF.filter(d => d.pro), weeklyBillAmount, lastBillPaidWeek, weeklyBillsHistory, dailyTaxTotal, lastTaxPaidDay, loanActive, loanAmount, loanTenor, loanRemainingWeeks, loanWeeklyPayment, loanLastPaymentDay, loanOverdueWeeks, totalRatings, averageRating, storeOpen, promoTitle: promoTitle.innerHTML, promoLine1: promoLine1.innerHTML, promoLine2: promoLine2.innerHTML, promoLine3: promoLine3.innerHTML };
+      const gameData = { saldoUtama, saldoModal, saldoKeuntungan, dailyProfit, currentDay, currentTime, products, promoProducts, autoRestockAmount, staffHired, staffPayCycle: 'monthly', baFavorites, liveSchedule, ads, saldoGropay, gropayHistory, billMode: 'monthly', live, storeName, proRoster: STAFF.filter(d => d.pro), weeklyBillAmount, lastBillPaidWeek, weeklyBillsHistory, dailyTaxTotal, lastTaxPaidDay, loanActive, loanAmount, loanTenor, loanRemainingWeeks, loanWeeklyPayment, loanLastPaymentDay, loanOverdueWeeks, totalRatings, averageRating, storeOpen, promoTitle: promoTitle.innerHTML, promoLine1: promoLine1.innerHTML, promoLine2: promoLine2.innerHTML, promoLine3: promoLine3.innerHTML };
       try { localStorage.setItem('grroseParfumeSave', JSON.stringify(gameData)); } catch (e) { logActivity("⚠️ Gagal menyimpan (penyimpanan penuh/diblokir). Coba hapus beberapa foto produk."); return; }
       lastSavedEl.textContent = `Terakhir disimpan: ${new Date().toLocaleString()}`;
       logActivity("✅ Game saved!");
@@ -2155,12 +2353,36 @@
       if (!savedData) { alert("Tidak ada save"); return; }
       try {
         const g = JSON.parse(savedData);
-        saldoUtama = g.saldoUtama || 30000000; saldoModal = g.saldoModal || 0; saldoKeuntungan = g.saldoKeuntungan || 0; dailyProfit = g.dailyProfit || 0; currentDay = g.currentDay || 1; currentTime = g.currentTime || 600; products = g.products || products; promoProducts = g.promoProducts || promoProducts; autoRestockAmount = g.autoRestockAmount || 10; staffHired = g.staffHired || []; baFavorites = g.baFavorites || {}; if (g.liveSchedule) liveSchedule = { ...liveSchedule, ...g.liveSchedule }; ads = g.ads || []; saldoGropay = g.saldoGropay || 0; gropayHistory = g.gropayHistory || []; weeklyBillAmount = g.weeklyBillAmount || 14000000; lastBillPaidWeek = g.lastBillPaidWeek || 0; weeklyBillsHistory = g.weeklyBillsHistory || []; if (g.billMode !== 'monthly') { lastBillPaidWeek = 0; weeklyBillsHistory = []; } dailyTaxTotal = g.dailyTaxTotal || 0; lastTaxPaidDay = g.lastTaxPaidDay || 0; loanActive = g.loanActive || false; loanAmount = g.loanAmount || 0; loanTenor = g.loanTenor || 0; loanRemainingWeeks = g.loanRemainingWeeks || 0; loanWeeklyPayment = g.loanWeeklyPayment || 0; loanLastPaymentDay = g.loanLastPaymentDay || 0; loanOverdueWeeks = g.loanOverdueWeeks || 0; totalRatings = g.totalRatings || 0; averageRating = g.averageRating || 0; storeOpen = g.storeOpen !== undefined ? g.storeOpen : true; live = g.live || null; if (live && !Array.isArray(live.names)) live.names = []; if (Array.isArray(g.proRoster) && g.proRoster.length) setPros(g.proRoster); storeName = g.storeName || DEFAULT_STORE; applyStoreName();
-        // Pastikan setiap BA yang sudah dikontrak punya varian favorit
+        saldoUtama = g.saldoUtama || 30000000; saldoModal = g.saldoModal || 0; saldoKeuntungan = g.saldoKeuntungan || 0; dailyProfit = g.dailyProfit || 0; currentDay = g.currentDay || 1; currentTime = g.currentTime || 600; products = g.products || products; promoProducts = g.promoProducts || promoProducts; autoRestockAmount = g.autoRestockAmount || 10;
+        staffHired = (g.staffHired || []).map(h => ({
+          id: h.id,
+          paidMonth: h.paidMonth !== undefined ? h.paidMonth : getCurrentMonth()
+        }));
+        baFavorites = g.baFavorites || {};
+        if (g.liveSchedule) {
+          if (Array.isArray(g.liveSchedule.slots)) {
+            liveSchedule = { ...liveSchedule, ...g.liveSchedule };
+          } else {
+            liveSchedule.hostId = g.liveSchedule.hostId || "";
+            liveSchedule.useAd = !!g.liveSchedule.useAd;
+            liveSchedule.slots[0] = {
+              enabled: !!g.liveSchedule.enabled,
+              startMinutes: g.liveSchedule.startMinutes || 13 * 60,
+              hours: g.liveSchedule.hours || 2,
+              lastTriggeredDay: g.liveSchedule.lastTriggeredDay || 0
+            };
+          }
+        }
+        ads = g.ads || []; saldoGropay = g.saldoGropay || 0; gropayHistory = g.gropayHistory || []; weeklyBillAmount = g.weeklyBillAmount || 14000000; lastBillPaidWeek = g.lastBillPaidWeek || 0; weeklyBillsHistory = g.weeklyBillsHistory || []; if (g.billMode !== 'monthly') { lastBillPaidWeek = 0; weeklyBillsHistory = []; } dailyTaxTotal = g.dailyTaxTotal || 0; lastTaxPaidDay = g.lastTaxPaidDay || 0; loanActive = g.loanActive || false; loanAmount = g.loanAmount || 0; loanTenor = g.loanTenor || 0; loanRemainingWeeks = g.loanRemainingWeeks || 0; loanWeeklyPayment = g.loanWeeklyPayment || 0; loanLastPaymentDay = g.loanLastPaymentDay || 0; loanOverdueWeeks = g.loanOverdueWeeks || 0; totalRatings = g.totalRatings || 0; averageRating = g.averageRating || 0; storeOpen = g.storeOpen !== undefined ? g.storeOpen : true; live = g.live || null; if (live && !Array.isArray(live.names)) live.names = [];
+        if (Array.isArray(g.proRoster) && g.proRoster.length) {
+          const updatedPros = g.proRoster.map((pr, idx) => ({ ...pr, salary: PRO_DEF[idx] ? PRO_DEF[idx].salary : pr.salary }));
+          setPros(updatedPros);
+        }
+        storeName = g.storeName || DEFAULT_STORE; applyStoreName();
         staffHired.forEach(h => { const d = staffDef(h.id); if (d && d.isBA) assignBaFavorites(d.id, false); });
         if (g.promoTitle) promoTitle.innerHTML = g.promoTitle; if (g.promoLine1) promoLine1.innerHTML = g.promoLine1; if (g.promoLine2) promoLine2.innerHTML = g.promoLine2; if (g.promoLine3) promoLine3.innerHTML = g.promoLine3;
         document.getElementById('auto-restock-amount').value = autoRestockAmount;
-        updateCustomerMultiplier(); updateSaldo(); updateProducts(); updateDailyProfitDisplay(); updateWeeklyDisplay(); updateTaxDisplay(); updateLoanStatus(); renderStaff(); renderAds(); renderScheduleUI(); dayCounterEl.textContent = currentDay; ratingValueEl.textContent = averageRating.toFixed(1); storeStatusBtn.textContent = storeOpen ? "Tutup Toko" : "Buka Toko"; storeStatusBtn.classList.toggle("closed", !storeOpen);
+        updateCustomerMultiplier(); updateSaldo(); updateProducts(); updateDailyProfitDisplay(); updateWeeklyDisplay(); updateTaxDisplay(); updateLoanStatus(); renderStaff(); renderAds(); renderScheduleUI(); applyAdaptiveBackground(); dayCounterEl.textContent = currentDay; ratingValueEl.textContent = averageRating.toFixed(1); storeStatusBtn.textContent = storeOpen ? "Tutup Toko" : "Buka Toko"; storeStatusBtn.classList.toggle("closed", !storeOpen);
         logActivity("✅ Game loaded!");
       } catch (error) { alert("Gagal load game"); }
     };
@@ -2171,23 +2393,35 @@
       products = products.map(p => ({ ...p, stock: 0, discount: 0, active: true, salesCount: 0, isNew: false }));
       promoProducts = [ { name:"", price:0, stock:0, modalPrice:0, discount:0, active:false, duration:0, endTime:0, salesCount:0, host:"" }, { name:"", price:0, stock:0, modalPrice:0, discount:0, active:false, duration:0, endTime:0, salesCount:0, host:"" } ];
       autoRestockAmount = 10; staffHired = []; baFavorites = {}; selectedDiscountProducts.clear(); ads = []; setPros(); saldoGropay = 0; gropayHistory = []; weeklyBillAmount = 14000000; lastBillPaidWeek = 0; weeklyBillsHistory = []; dailyTaxTotal = 0; lastTaxPaidDay = 0; loanActive = false; loanAmount = 0; loanTenor = 0; loanRemainingWeeks = 0; loanWeeklyPayment = 0; loanLastPaymentDay = 0; loanOverdueWeeks = 0; totalRatings = 0; averageRating = 0; storeOpen = true; live = null; liveLikes = 0; promoLikes = 0;
-      liveSchedule = { enabled: false, startMinutes: 19 * 60, hours: 2, hostId: "", useAd: false, lastTriggeredDay: 0 };
+      liveSchedule = {
+        hostId: "",
+        useAd: false,
+        slots: [
+          { enabled: false, startMinutes: 13 * 60, hours: 2, lastTriggeredDay: 0 },
+          { enabled: false, startMinutes: 19 * 60 + 30, hours: 2, lastTriggeredDay: 0 }
+        ]
+      };
       storeName = DEFAULT_STORE; applyStoreName();
       document.getElementById('auto-restock-amount').value = 10;
       promoTitle.innerHTML = '<i>BUKA 24 JAM!!!</i>'; promoLine1.innerHTML = '<strong>RAMADHAN PENUH BERKAH</strong>'; promoLine2.innerHTML = 'Khusus Ramadhan, diskon suka-suka!'; promoLine3.innerHTML = 'NEW VARIANT! Premium Artic Frost';
-      activityLog.innerHTML = "<p>Ruang Pembeli..</p>"; commentBox.innerHTML = "<p>Komentar disini..</p>";
+      activityLog.innerHTML = "<p>Ruang Pembeli..</p>"; commentBox.innerHTML = "<p>Komentar &amp; metode pembayaran pembeli disini..</p>";
       gameOverPopup.style.display = "none";
       currentDate = new Date(2026, 1, 15, 10, 0);
       updateDateDisplay();
-      updateCustomerMultiplier(); updateSaldo(); updateProducts(); updateDailyProfitDisplay(); updateWeeklyDisplay(); updateTaxDisplay(); updateLoanStatus(); renderStaff(); renderAds(); renderScheduleUI(); dayCounterEl.textContent = currentDay; ratingValueEl.textContent = "0"; storeStatusBtn.textContent = "Tutup Toko"; storeStatusBtn.classList.remove("closed");
+      updateCustomerMultiplier(); updateSaldo(); updateProducts(); updateDailyProfitDisplay(); updateWeeklyDisplay(); updateTaxDisplay(); updateLoanStatus(); renderStaff(); renderAds(); renderScheduleUI(); applyAdaptiveBackground(); dayCounterEl.textContent = currentDay; ratingValueEl.textContent = "0"; storeStatusBtn.textContent = "Tutup Toko"; storeStatusBtn.classList.remove("closed");
       logActivity("🔄 Game reset!");
     };
 
     // ===== NIGHT MODE & STORE =====
-    window.toggleNightMode = () => document.body.classList.toggle("night-mode");
-    window.toggleStoreStatus = () => { storeOpen = !storeOpen; storeStatusBtn.textContent = storeOpen ? "Tutup Toko" : "Buka Toko"; storeStatusBtn.classList.toggle("closed", !storeOpen); logActivity(storeOpen?"Toko dibuka":"Toko ditutup"); };
+    window.toggleNightMode = () => {
+      document.body.classList.toggle("night-mode");
+      const btn = document.getElementById('night-mode-btn');
+      if (btn) btn.textContent = document.body.classList.contains("night-mode") ? "☀️" : "🌙";
+      applyAdaptiveBackground();
+    };
+    window.toggleStoreStatus = () => { storeOpen = !storeOpen; storeStatusBtn.textContent = storeOpen ? "Tutup Toko" : "Buka Toko"; storeStatusBtn.classList.toggle("closed", !storeOpen); logActivity(storeOpen?"Toko dibuka":"Toko ditutup"); applyAdaptiveBackground(); };
 
-    // ===== 1. INLINE EDIT INFO PROMO BOX (UI sama seperti Ubah Nama Toko) =====
+    // ===== INLINE EDIT INFO PROMO BOX =====
     window.editPromoBox = function() {
       document.getElementById('promo-in-title').value = promoTitle.textContent.trim();
       document.getElementById('promo-in-line1').value = promoLine1.textContent.trim();
@@ -2218,8 +2452,8 @@
     window.resetPromoBox = function() {
       promoTitle.innerHTML = '<i>BUKA 24 JAM!!!</i>';
       promoLine1.innerHTML = '<strong>RAMADHAN PENUH BERKAH</strong>';
-      promoLine2.innerHTML = 'Khusus Ramadhan, diskon suka-suka!';
-      promoLine3.innerHTML = 'NEW VARIANT! Premium Artic Frost';
+      promoLine2.textContent = 'Khusus Ramadhan, diskon suka-suka!';
+      promoLine3.textContent = 'NEW VARIANT! Premium Artic Frost';
       cancelPromoBox();
       logActivity('🔄 Info banner promo dikembalikan ke default.');
     };
@@ -2260,7 +2494,7 @@
       updateProducts();
     });
 
-    // 5. Submit Atur Diskon (Bisa Banyak / Semua Produk Sekaligus)
+    // Submit Atur Diskon
     document.getElementById('discount-form').addEventListener("submit", (e) => {
       e.preventDefault();
       const disc = parseInt(document.getElementById('discount-percent').value);
@@ -2290,6 +2524,7 @@
     renderStaff();
     renderAds();
     renderScheduleUI();
+    applyAdaptiveBackground();
     dayCounterEl.textContent = currentDay;
 
     // ===== FOTO PRODUK (ambil dari folder/galeri) =====
@@ -2300,6 +2535,7 @@
       products[i].img = '';
       promoProducts.forEach(p => { if (p.name === products[i].name) p.img = ''; });
       updateProducts();
+      applyAdaptiveBackground();
     };
     photoInput.addEventListener('change', function() {
       const f = this.files && this.files[0];
@@ -2313,9 +2549,11 @@
           c.getContext('2d').drawImage(im, 0, 0, c.width, c.height);
           const url = c.toDataURL('image/jpeg', 0.78), p = products[photoTarget];
           p.img = url;
+          delete imgColorCache[url];
           promoProducts.forEach(x => { if (x.name === p.name) x.img = url; });
           logActivity(`🖼️ Foto produk ${p.name} diperbarui`);
           updateProducts();
+          applyAdaptiveBackground();
         };
         im.src = rd.result;
       };
@@ -2370,8 +2608,8 @@
         }, 700 + Math.random() * 900);
       }
     }
-    function promoBuyChat(n, q, pItem) {
-      lpChatAdd(`🔥 ${n} borong ${q} pcs ${pItem.name} (Diskon ${pItem.discount}%)!`, 'sys');
+    function promoBuyChat(n, q, pItem, payMethod) {
+      lpChatAdd(`🔥 ${n} borong ${q} pcs ${pItem.name} (Diskon ${pItem.discount}%) via ${payMethod ? payMethod.name : 'QRIS'}!`, 'sys');
       const host = pItem.host ? staffDef(pItem.host) : staffActive('live');
       if (host && liveHostActive(host.id)) {
         setTimeout(() => {
@@ -2411,7 +2649,6 @@
       } else if (Math.random() < 0.4 && liveViewers.length > 1) {
         liveViewers.splice(Math.floor(Math.random() * liveViewers.length), 1);
       }
-      // Penonton kasih like hati melayang 🩵♥️
       if (liveViewers.length > 0 && Math.random() < 0.85) {
         triggerLiveHearts(true, Math.min(4, 1 + Math.floor(liveViewers.length / 20)));
       }
@@ -2439,145 +2676,168 @@
       refresh();
     })();
 
-    // ===== FACEGRAM LIVE JUALAN: penonton, chat interaktif admin/BA, hati melayang & timer =====
-    const LIVE_CHATS = ["Halo kak, salam dari Bandung!", "Kak ini wanginya gimana sih?", "Ada diskon gak kak buat yang nonton live?", "Tahan berapa jam kak?", "Ready stok kan kak?", "Bisa COD gak kak?", "Cocok buat cowok atau cewek kak?", "Kak spill harganya dong", "Live-nya seru banget!", "Wanginya cocok buat kerja gak kak?", "Kak bisa dicoba dulu?", "Mau checkout ah, udah masuk keranjang!", "Pengiriman berapa hari kak?", "Adminnya ramah banget, suka!", "Kak tolong tunjukin botolnya lebih dekat", "Ini aroma apa aja kak?", "Aku udah beli kemarin, wanginya mantap!", "Kak ada varian lain gak?", "Harga segitu worth it gak kak?", "Pantesan rame, live Facegram-nya menarik!"];
-    function liveChat(t, cls) { const p = document.createElement('p'); p.textContent = t; if (cls) p.className = cls; lsChat.appendChild(p); while (lsChat.children.length > 40) lsChat.removeChild(lsChat.firstChild); lsChat.scrollTop = lsChat.scrollHeight; }
-    function liveReply(n, t) {
-      const p = products.find(x => x.name === live.product) || {}, price = Math.round((p.price || 0) * (1 - (p.discount || 0) / 100)).toLocaleString(), s = t.toLowerCase();
-      const R = [
-        [/halo|salam/, `Halo Kak ${n}! Selamat datang di Facegram Live ${storeName}, yuk cek ${live.product}.`],
-        [/wangi|aroma/, `Kak ${n}, ${live.product} aromanya segar dan elegan, cocok dipakai seharian.`],
-        [/diskon|harga|spill|worth/, `${live.product} cuma Rp ${price} Kak ${n}, kualitas premium. Checkout sekarang ya!`],
-        [/stok|ready/, `Stok ${live.product} ready ${p.stock || 0} pcs Kak ${n}, buruan sebelum habis!`],
-        [/tahan|jam/, `Wanginya tahan lama Kak ${n}, aman dipakai seharian.`],
-        [/cod|kirim|pengiriman/, `Kami kirim cepat dan packing rapi Kak ${n}, aman sampai tujuan.`],
-        [/cowok|cewek|kerja|cocok/, `Cocok untuk siapa saja Kak ${n}, dipakai ke kantor atau jalan-jalan sama-sama oke.`],
-        [/dicoba|botol|varian|lain/, `Silakan cek varian lainnya di toko ya Kak ${n}, semuanya premium!`]
-      ];
-      for (const [re, m] of R) if (re.test(s)) return `"${m}"`;
-      return `"Terima kasih Kak ${n}, senang Kakak ikut live Facegram kami!"`;
-    }
-    function hostRoleTag(host) {
-      if (!host) return 'Admin Live';
-      if (host.isBA) return 'Brand Ambassador 🌟';
-      return host.pro ? 'Admin Live Pro' : 'Admin Live';
-    }
-    function liveViewerChat(host) {
-      const n = live.names.length ? live.names[Math.floor(Math.random() * live.names.length)] : botNames[Math.floor(Math.random() * botNames.length)];
-      const t = LIVE_CHATS[Math.floor(Math.random() * LIVE_CHATS.length)];
-      liveChat(`${n}: "${t}"`);
-      if (Math.random() < 0.75) setTimeout(() => { if (live && liveHostActive(live.host)) liveChat(`↳ ${host.name} (${hostRoleTag(host)}): ${liveReply(n, t)}`, 'reply'); }, 800 + Math.random() * 1200);
-    }
-    function liveBuyChat(n, q) {
-      liveChat(`${n} checkout ${q} pcs ${live.product}!`, 'sys');
-      const h = staffDef(live.host);
-      if (h && Math.random() < 0.6) setTimeout(() => { if (live) liveChat(`↳ ${h.name} (${hostRoleTag(h)}): "Terima kasih Kak ${n}, pesanan segera diproses!"`, 'reply'); }, 700);
-    }
-    function liveViewersStep(host) {
-      // jumlah penonton mengikuti rating toko (customerMultiplier), pesona admin/BA, dan Live Ad
-      const t = Math.max(1, Math.round(14 * (customerMultiplier + 0.3) * (host.charm || 1) * (live.ad ? 2.4 : 1)) + Math.floor(Math.random() * 5) - 2);
-      const diff = t - live.count, mv = Math.min(Math.abs(diff), Math.max(1, Math.round(Math.abs(diff) * 0.25)) + Math.floor(Math.random() * 3));
-      if (diff > 0) { live.count += mv; for (let i = 0; i < Math.min(mv, 3); i++) { const n = botNames[Math.floor(Math.random() * botNames.length)]; if (!live.names.includes(n)) live.names.push(n); } }
-      else if (diff < 0) live.count -= mv;
-      else if (Math.random() < 0.4 && live.count > 1) live.count -= 1;
-      if (live.names.length > 2 && Math.random() < 0.3) live.names.splice(Math.floor(Math.random() * live.names.length), 1);
-      while (live.names.length > 12) live.names.shift();
-      while (live.names.length > live.count) live.names.splice(Math.floor(Math.random() * live.names.length), 1);
-    }
-    function finishLive(reason) {
-      if (!live) return;
-      logActivity(`📱 ${reason} (Facegram) Puncak ${live.peak || 0} penonton, ${liveLikes} likes, terjual ${live.sold || 0} pcs ${live.product}.`);
-      live = null;
-      liveLikes = 0;
-      if (lsHeartsEl) lsHeartsEl.innerHTML = '';
-      liveSellTick();
-    }
-    window.stopLive = function() { finishLive('Live Facegram dihentikan.'); };
-    function liveSellTick() {
-      if (!live) { if (lsEl.style.display !== 'none') { lsEl.style.display = 'none'; lsChat.innerHTML = ''; lsProdKey = ''; } return; }
-      const host = staffDef(live.host), prod = products.find(p => p.name === live.product);
-      if (!host || !liveHostActive(live.host)) { finishLive('Live dihentikan: admin live / BA tidak aktif (gaji belum dibayar).'); return; }
-      if (!prod) { finishLive('Live dihentikan: produk tidak ditemukan.'); return; }
-      lsEl.style.display = 'block';
-      if (live.likes && !liveLikes) liveLikes = live.likes;
-      if (storeOpen) {
-        live.remaining -= 1; live.tick = (live.tick || 0) + 1;
-        if (live.tick % 2 === 0) {
-          liveViewersStep(host);
-          // Penonton kasih like hati melayang 🩵♥️
-          if (live.count > 0 && Math.random() < 0.85) {
-            triggerLiveHearts(false, Math.min(4, 1 + Math.floor(live.count / 25)));
-          }
-        }
-        if (live.tick % 3 === 0) { liveViewerChat(host); if (live.count > 40) liveViewerChat(host); }
-        if (live.tick % 30 === 0) liveChat(`${host.name} (${hostRoleTag(host)}): "Yuk Kak, ${live.product} lagi ready di Facegram! Jangan lupa checkout ya."`, 'reply');
-        if (host.boost > 1 && live.tick % 4 === 0 && Math.random() < (host.boost - 1) * 0.5) simulateCustomerBehavior(); // admin pro / BA: tambahan pembeli
-        if (live.remaining <= 0) { finishLive('Live Facegram selesai.'); return; }
-      }
-      live.peak = Math.max(live.peak || 0, live.count);
-      const shown = live.names.slice(-10), rem = Math.max(0, live.remaining);
-      lsNum.textContent = live.count;
-      if (lsLikesEl) lsLikesEl.textContent = liveLikes.toLocaleString();
-      lsTitle.textContent = `${host.name}${host.isBA ? ' 🌟' : ''} • ${live.product}`;
-      lsAd.style.display = live.ad ? 'inline-block' : 'none';
-      if (lsSchedBadge) lsSchedBadge.style.display = live.scheduled ? 'inline-block' : 'none';
-      const key = `${prod.name}|${prod.price}|${prod.discount}|${prod.stock}|${prod.img ? 1 : 0}`;
-      if (key !== lsProdKey) { lsProdKey = key; const pr = Math.round(prod.price * (1 - (prod.discount || 0) / 100)); lsProd.innerHTML = `${prod.img ? `<div class="ph" style="background-image:url('${prod.img}')"></div>` : ''}<div><b>${prod.name}</b><span>Rp ${pr.toLocaleString()} • Stok ${prod.stock}</span></div>`; }
-      lsAvatars.innerHTML = shown.map(n => `<span class="lv-av" style="background:${lvColor(n)}" title="${n}">${n[0]}</span>`).join('') + (live.count > shown.length ? `<span class="lv-av more">+${live.count - shown.length}</span>` : '');
-      lsNames.textContent = live.names.length ? `${live.names.slice(-3).join(', ')}${live.count > 3 ? ` dan ${live.count - 3} lainnya` : ''} sedang menonton` : '';
-      lsInfo.textContent = storeOpen ? `Sisa ${Math.floor(rem / 60)}j ${rem % 60}m • Terjual: ${live.sold || 0} pcs • Puncak: ${live.peak}` : 'Live dijeda (toko tutup)';
-    }
-    document.getElementById('live-form').addEventListener('submit', (e) => {
-      e.preventDefault();
-      if (live) { alert("Live masih berlangsung. Akhiri dulu live saat ini."); return; }
-      if (!storeOpen) { alert("Toko sedang tutup. Buka toko dulu."); return; }
-      const input = document.querySelector('#live-search-container .searchable-select-input');
-      const p = products.find(x => x.name === (input ? input.value : ''));
-      const hostId = liveHostSel.value, host = hostId ? staffDef(hostId) : null;
-      const hours = parseInt(document.getElementById('live-hours').value), useAd = document.getElementById('live-ad').checked;
-      if (!p) { alert("Pilih produk valid"); return; }
-      if (!host || !liveHostActive(hostId)) { alert("Belum ada admin live / BA aktif. Sewa talent terlebih dahulu."); return; }
-      if (!(hours >= 1 && hours <= 12)) { alert("Durasi live 1-12 jam"); return; }
-      if (!p.active || p.stock <= 0) { alert("Produk harus aktif dan stoknya ada. Restok dulu sebelum live."); return; }
-      if (useAd && saldoUtama < LIVE_AD_COST) { alert(`Saldo utama tidak cukup untuk Live Ad Rp ${LIVE_AD_COST.toLocaleString()}`); return; }
-      if (useAd) saldoUtama -= LIVE_AD_COST;
-      liveLikes = 0;
-      live = { product: p.name, host: hostId, remaining: hours * 60, ad: useAd, count: 0, peak: 0, sold: 0, names: [], tick: 0, likes: 0, scheduled: false };
-      lsChat.innerHTML = ''; lsProdKey = '';
-      if (lsLikesEl) lsLikesEl.textContent = '0';
-      liveChat(`${host.name} membuka Facegram Live: ${p.name}`, 'sys');
-      logActivity(`📱 Facegram Live dimulai: ${p.name} oleh ${host.name} (${hours} jam${useAd ? ', Live Ad Rp ' + LIVE_AD_COST.toLocaleString() : ''})`);
-      updateSaldo(); liveSellTick();
-    });
-    setInterval(liveSellTick, 1000);
-
-    // ===== PILIHAN DURASI LIVE (Manual & Jadwal) =====
-    (function() {
-      const hint = { 1: 'Singkat', 2: 'Standar', 3: 'Santai', 4: 'Maraton', 6: 'Panjang', 8: 'Super lama', 12: 'Non-stop' };
-      function setupHoursPicker(inpId, boxId) {
-        const inp = document.getElementById(inpId), box = document.getElementById(boxId);
-        if (!inp || !box) return;
-        box.innerHTML = [1, 2, 3, 4, 6, 8, 12].map(h => `<button type="button" class="opt-tile" data-v="${h}"><b>${h}</b><span>Jam</span><small>${hint[h]}</small></button>`).join('');
-        function refresh() { box.querySelectorAll('.opt-tile').forEach(o => o.classList.toggle('active', o.dataset.v === String(parseInt(inp.value)))); }
-        box.addEventListener('click', e => { const b = e.target.closest('.opt-tile'); if (!b) return; inp.value = b.dataset.v; refresh(); });
-        refresh();
-      }
-      setupHoursPicker('live-hours', 'live-hours-picker');
-      setupHoursPicker('sched-hours', 'sched-hours-picker');
-    })();
-
-    // ===== PILIHAN DURASI IKLAN =====
+    // ===== PILIHAN DURASI IKLAN & LIVE =====
     (function() {
       const sel = document.getElementById('ad-duration'), box = document.getElementById('ad-picker');
-      box.innerHTML = Object.keys(AD_PRICES).map(Number).map(d => { const save = Math.round((1 - (AD_PRICES[d] / d) / AD_PRICES[1]) * 100); return `<button type="button" class="opt-tile" data-v="${d}"><b>${d}</b><span>Hari</span><em>Rp ${AD_PRICES[d].toLocaleString()}</em><small>${d > 1 ? 'Hemat ' + save + '% / hari' : 'Coba dulu'}</small></button>`; }).join('');
-      function refresh() { box.querySelectorAll('.opt-tile').forEach(o => o.classList.toggle('active', o.dataset.v === sel.value)); }
-      box.addEventListener('click', e => { const b = e.target.closest('.opt-tile'); if (!b) return; sel.value = b.dataset.v; refresh(); });
-      refresh();
+      const items = [{ d: 1, t: 'Coba sehari' }, { d: 3, t: 'Hemat 20%' }, { d: 7, t: 'Paling laris' }, { d: 14, t: 'Maksimal' }];
+      box.innerHTML = items.map(x => `<button type="button" class="opt-tile ${parseInt(sel.value) === x.d ? 'active' : ''}" data-v="${x.d}"><b>${x.d}</b><span>Hari</span><small>${x.t}</small><em>Rp ${AD_PRICES[x.d].toLocaleString()}</em></button>`).join('');
+      box.addEventListener('click', e => {
+        const b = e.target.closest('.opt-tile'); if (!b) return;
+        sel.value = b.dataset.v;
+        box.querySelectorAll('.opt-tile').forEach(o => o.classList.toggle('active', o === b));
+      });
+    })();
+    (function() {
+      const inp = document.getElementById('live-hours'), box = document.getElementById('live-hours-picker');
+      const items = [
+        { h: 1, t: 'Kilat' },
+        { h: 2, t: 'Standar' },
+        { h: 3, t: 'Ramai' },
+        { h: 4, t: 'Lama' },
+        { h: 6, t: 'Marathon' },
+        { h: 8, t: 'Half-Day' },
+        { h: 10, t: 'Super Long' },
+        { h: 12, t: '12 Jam Nonstop' }
+      ];
+      box.innerHTML = items.map(x => `<button type="button" class="opt-tile ${parseInt(inp.value) === x.h ? 'active' : ''}" data-v="${x.h}"><b>${x.h}</b><span>Jam</span><small>${x.t}</small></button>`).join('');
+      box.addEventListener('click', e => {
+        const b = e.target.closest('.opt-tile'); if (!b) return;
+        inp.value = b.dataset.v;
+        box.querySelectorAll('.opt-tile').forEach(o => o.classList.toggle('active', o === b));
+      });
     })();
 
-    setInterval(updateTime, 1000);
-    setInterval(simulateCustomerBehavior, 8000);
-    setInterval(liveViewersTick, 2000);
+    // ===== LIVE JUALAN (PRODUK NORMAL) =====
+    const LIVE_CHATS = [
+      "Wanginya tahan berapa lama kak?",
+      "Yang ini manis atau segar aromanya?",
+      "Bisa buat cowok gak kak?",
+      "Stok masih aman kan kak?",
+      "Beli 2 dapat diskon gak?",
+      "Cocok buat dipakai kuliah/kerja?",
+      "Baru pertama coba, rekomen gak?",
+      "Adminnya ramah banget!",
+      "Spill ketahanannya dong kak",
+      "Langsung checkout ah mumpung live!"
+    ];
+    const LIVE_REPLIES = [
+      '"Halo Kak {n}! Tahan 8-12 jam di kulit, di baju bisa seharian 🙏"',
+      '"Halo Kak {n}, aromanya fresh elegan, cocok dipakai cowok maupun cewek 😊"',
+      '"Stok masih aman Kak {n}, yuk langsung checkout sebelum kehabisan!"',
+      '"Cocok banget buat harian maupun acara formal Kak {n}, wanginya gak bikin eneg ✨"',
+      '"Terima kasih sudah mampir di live {s} Kak {n}!"'
+    ];
+    function liveChat(t, cls) {
+      const p = document.createElement('p'); p.textContent = t; if (cls) p.className = cls;
+      lsChat.appendChild(p);
+      while (lsChat.children.length > 30) lsChat.removeChild(lsChat.firstChild);
+      lsChat.scrollTop = lsChat.scrollHeight;
+    }
+    function liveBuyChat(n, q, payMethod) {
+      liveChat(`🛍️ ${n} checkout ${q} pcs via ${payMethod ? payMethod.name : 'QRIS'}!`, 'sys');
+      const h = live && staffDef(live.host);
+      if (h) liveChat(`↳ ${h.name} (${h.isBA ? 'Brand Ambassador 🌟' : 'Admin' + (h.pro ? ' Pro' : '')}): "Terima kasih Kak ${n} sudah order!"`, 'reply');
+    }
+    window.stopLive = function(reason) {
+      if (!live) return;
+      const h = staffDef(live.host);
+      logActivity(`📴 Live Facegram ${live.product} selesai (${reason || 'diakhiri'}). Puncak penonton ${live.peak}, terjual ${live.sold || 0} pcs, ${liveLikes} likes.`);
+      if (h) addComment(`📴 Live ${storeShort()} (${h.name}): "Terima kasih semuanya yang sudah nonton live ${live.product}!"`, 'reply');
+      live = null; lsProdKey = ''; liveLikes = 0;
+      if (lsLikesEl) lsLikesEl.textContent = '0';
+      if (lsHeartsEl) lsHeartsEl.innerHTML = '';
+      lsEl.style.display = 'none';
+      applyAdaptiveBackground();
+    };
+    document.getElementById('live-form').addEventListener('submit', e => {
+      e.preventDefault();
+      if (live) { alert('Masih ada live yang sedang berjalan!'); return; }
+      if (!storeOpen) { alert('Buka toko dulu sebelum mulai live!'); return; }
+      const input = document.querySelector('#live-search-container .searchable-select-input');
+      const name = input ? input.value : '';
+      const p = products.find(x => x.name === name);
+      if (!p) { alert('Pilih produk yang valid!'); return; }
+      if (!p.active || p.stock <= 0) { alert('Produk harus aktif dan memiliki stok!'); return; }
+      const hid = liveHostSel.value, h = staffDef(hid);
+      if (!h || !liveHostActive(hid)) { alert('Sewa & aktifkan Admin Live / Brand Ambassador dulu!'); return; }
+      const hours = Math.max(1, Math.min(12, parseInt(document.getElementById('live-hours').value) || 2));
+      const ad = document.getElementById('live-ad').checked;
+      if (ad && saldoUtama < LIVE_AD_COST) { alert(`Saldo utama tidak cukup untuk Live Ad (Rp ${LIVE_AD_COST.toLocaleString()})!`); return; }
+      if (ad) { saldoUtama -= LIVE_AD_COST; updateSaldo(); }
+      liveLikes = 0;
+      live = { product: p.name, host: hid, remaining: hours * 60, ad, count: 0, peak: 0, sold: 0, names: [], tick: 0, likes: 0, scheduled: false };
+      lsChat.innerHTML = ''; lsProdKey = '';
+      if (lsLikesEl) lsLikesEl.textContent = '0';
+      liveChat(`${h.name} memulai live ${p.name} (${hours} jam)${ad ? ' dengan Live Ad' : ''}!`, 'sys');
+      logActivity(`📱 Live Facegram dimulai: ${p.name} oleh ${h.name} (${hours} jam${ad ? ', Live Ad Rp 500.000' : ''})`);
+      liveSellTick();
+      applyAdaptiveBackground();
+    });
+    function liveSellTick() {
+      if (!live) { lsEl.style.display = 'none'; return; }
+      if (!storeOpen) { stopLive('toko ditutup'); return; }
+      if (!liveHostActive(live.host)) { stopLive('gaji admin live belum dibayar'); return; }
+      const p = products.find(x => x.name === live.product);
+      if (!p || !p.active || p.stock <= 0) { stopLive('stok produk habis'); return; }
+      if (live.remaining <= 0) { stopLive('waktu live habis'); return; }
+      live.remaining--; live.tick++;
+      const h = staffDef(live.host), charm = (h && h.charm) || 1;
+      const onAd = activeAdNames().includes(p.name) || live.ad;
+      const base = (live.ad ? 32 : 8) + (onAd ? 10 : 0) + (p.discount || 0) * 0.4;
+      const target = Math.max(1, Math.round(base * (customerMultiplier + 0.35) * charm * getTrafficFactor()) + Math.floor(Math.random() * 5) - 2);
+      const step = Math.floor(Math.random() * 4) + 1;
+      if (live.count < target) live.count = Math.min(target, live.count + step);
+      else if (live.count > target) live.count = Math.max(target, live.count - step);
+      else if (Math.random() < 0.4 && live.count > 1) live.count--;
+      if (live.count > live.peak) live.peak = live.count;
+      while (live.names.length < Math.min(10, live.count)) {
+        const pool = botNames.filter(n => !live.names.includes(n)); if (!pool.length) break;
+        live.names.push(pool[Math.floor(Math.random() * pool.length)]);
+      }
+      if (live.names.length > live.count) live.names.length = live.count;
+      if (Math.random() < 0.25 && live.names.length) {
+        const pool = botNames.filter(n => !live.names.includes(n));
+        if (pool.length) live.names[Math.floor(Math.random() * live.names.length)] = pool[Math.floor(Math.random() * pool.length)];
+      }
+      if (live.count > 0 && Math.random() < 0.88) {
+        triggerLiveHearts(false, Math.min(5, 1 + Math.floor(live.count / 18)));
+      }
+      if (live.names.length && Math.random() < 0.7) {
+        const n = live.names[Math.floor(Math.random() * live.names.length)];
+        liveChat(`${n}: "${LIVE_CHATS[Math.floor(Math.random() * LIVE_CHATS.length)]}"`);
+        if (Math.random() < 0.75) {
+          const rep = LIVE_REPLIES[Math.floor(Math.random() * LIVE_REPLIES.length)].replace('{n}', n).replace('{s}', storeShort());
+          liveChat(`↳ ${h.name} (${h.isBA ? 'Brand Ambassador 🌟' : 'Admin' + (h.pro ? ' Pro' : '')}): ${rep}`, 'reply');
+        }
+      }
+      lsEl.style.display = 'block';
+      lsAd.style.display = live.ad ? 'inline-block' : 'none';
+      if (lsSchedBadge) {
+        lsSchedBadge.style.display = live.scheduled ? 'inline-block' : 'none';
+        if (live.scheduled) lsSchedBadge.textContent = `AUTO JADWAL #${live.slotNum || 1}`;
+      }
+      lsTitle.textContent = `${h.name}${h.isBA ? ' 🌟' : ''} • ${p.name}`;
+      lsNum.textContent = live.count;
+      if (lsLikesEl) lsLikesEl.textContent = liveLikes.toLocaleString();
+      const disc = Math.round(p.price * (1 - (p.discount || 0) / 100));
+      const key = `${p.name}|${p.stock}|${disc}|${p.img || ''}`;
+      if (key !== lsProdKey) {
+        lsProdKey = key;
+        lsProd.innerHTML = (p.img ? `<div class="ph" style="background-image:url('${p.img}')"></div>` : '') + `<div><b>${p.name}</b><span>Rp ${disc.toLocaleString()} • Stok ${p.stock}</span></div>`;
+      }
+      lsAvatars.innerHTML = live.names.map(n => `<span class="lv-av" style="background:${lvColor(n)}" title="${n}">${n[0]}</span>`).join('') + (live.count > live.names.length ? `<span class="lv-av more">+${live.count - live.names.length}</span>` : '');
+      const last = live.names.slice(-3);
+      lsNames.textContent = last.length ? `${last.join(', ')}${live.count > 3 ? ` dan ${live.count - 3} lainnya` : ''} sedang menonton` : '';
+      const rh = Math.floor(live.remaining / 60), rm = live.remaining % 60;
+      lsInfo.textContent = `Sisa ${rh}j ${rm}m • Terjual di live: ${live.sold || 0} pcs`;
+    }
+
+    setInterval(() => {
+      updateTime();
+      simulateCustomerBehavior();
+      liveViewersTick();
+      liveSellTick();
+    }, 3000);
     })();
   </script>
 </body>
