@@ -305,13 +305,57 @@
     .form .live-ad-opt { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 12px; background: rgba(0,114,255,0.1); border: 1px dashed rgba(0,114,255,0.5); cursor: pointer; font-size: 0.9rem; }
     .form .live-ad-opt input { width: 20px; height: 20px; padding: 0; margin: 0; accent-color: #0072ff; }
     .live-hint { font-size: 0.82rem; color: #c0392b; }
+  
+    /* ====== REVISI: nama toko, pilihan durasi iklan & admin live, admin pro ====== */
+    .name-edit-row { margin-top: 8px; }
+    .name-edit-btn { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.28); border: 1px solid rgba(255,255,255,0.6); color: #fff; border-radius: 999px; padding: 5px 14px; font-size: 0.78rem; font-weight: 700; cursor: pointer; backdrop-filter: blur(6px); }
+    .name-edit-btn:hover { background: rgba(255,255,255,0.45); }
+    .name-edit { display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; align-items: center; }
+    .name-edit input { padding: 7px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.7); background: rgba(255,255,255,0.92); color: #333; font-size: 0.95rem; min-width: 200px; }
+    .name-edit button { border: none; border-radius: 999px; padding: 7px 16px; font-weight: 700; cursor: pointer; background: #fff; color: #e5533d; }
+    .name-edit button.ghost { background: rgba(255,255,255,0.25); color: #fff; border: 1px solid rgba(255,255,255,0.6); }
+    .opt-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; }
+    .form .opt-tile { position: relative; display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 12px 8px; border-radius: 16px; border: 1.5px solid rgba(0,114,255,0.3); background: rgba(255,255,255,0.45); color: inherit; font-weight: 600; cursor: pointer; transition: all 0.25s; }
+    .form .opt-tile b { font-size: 1.8rem; line-height: 1; color: #1e88ff; }
+    .form .opt-tile span { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.85; }
+    .form .opt-tile em { font-style: normal; font-size: 0.78rem; margin-top: 4px; padding: 2px 9px; border-radius: 999px; background: rgba(127,127,127,0.22); color: inherit; }
+    .form .opt-tile small { font-size: 0.66rem; opacity: 0.8; }
+    .host-picker { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
+    .form .host-card { display: flex; align-items: center; gap: 10px; text-align: left; padding: 10px; border-radius: 16px; border: 1.5px solid rgba(0,114,255,0.3); background: rgba(255,255,255,0.45); color: inherit; cursor: pointer; transition: all 0.25s; }
+    .form .host-card .hc-av { width: 50px; height: 50px; border-radius: 50%; overflow: hidden; flex: none; box-shadow: 0 0 0 2px #fff; }
+    .form .host-card .hc-av svg { width: 100%; height: 100%; display: block; }
+    .form .host-card .hc-txt b { display: block; font-size: 0.95rem; }
+    .form .host-card .hc-txt span { display: block; font-size: 0.72rem; opacity: 0.8; }
+    .form .host-card .hc-chips { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 4px; }
+    .form .host-card .hc-chips i { font-style: normal; font-size: 0.66rem; font-weight: 700; padding: 2px 7px; border-radius: 999px; background: rgba(127,127,127,0.22); color: inherit; }
+    .form .host-card.pro { border-color: #ffc83d; box-shadow: 0 0 0 1px rgba(255,200,61,0.6); }
+    .form .opt-tile:hover, .form .host-card:hover { background: rgba(255,255,255,0.7); transform: translateY(-2px); }
+    .form .opt-tile.active, .form .host-card.active { background: linear-gradient(135deg, #00c6ff, #0072ff); color: #fff; border-color: #fff; box-shadow: 0 8px 20px rgba(0,114,255,0.4); transform: translateY(-2px); }
+    .form .opt-tile.active b { color: #fff; }
+    .host-empty { grid-column: 1 / -1; text-align: center; padding: 16px; border-radius: 16px; border: 1.5px dashed rgba(0,114,255,0.45); background: rgba(0,114,255,0.06); font-size: 0.9rem; }
+    .staff-card.pro { box-shadow: 0 0 0 2px rgba(255,215,0,0.85), 0 8px 24px rgba(255,170,0,0.3) !important; }
+    .staff-card.pro .avatar { box-shadow: 0 6px 16px rgba(0,0,0,0.22), 0 0 0 3px #ffd700; }
+    .staff-card .chip.gold, body.night-mode .staff-card .chip.gold { background: linear-gradient(135deg, #ffe259, #ffa751); color: #3b2a00; border-color: #fff; }
+  
+    /* ====== REVISI: kartu Live Ad (switch) ====== */
+    .form .live-ad-opt { justify-content: space-between; }
+    .live-ad-opt .la-txt b { display: block; font-size: 0.95rem; }
+    .live-ad-opt .la-txt small { font-size: 0.75rem; font-weight: 600; opacity: 0.8; }
+    .form .live-ad-opt input { -webkit-appearance: none; appearance: none; width: 48px; height: 28px; padding: 0; margin: 0; border: none; border-radius: 999px; background: #b8c2cc; position: relative; cursor: pointer; flex: none; transition: all 0.25s; }
+    .form .live-ad-opt input::after { content: ""; position: absolute; top: 3px; left: 3px; width: 22px; height: 22px; border-radius: 50%; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.3); transition: all 0.25s; }
+    .form .live-ad-opt input:checked { background: linear-gradient(135deg, #00c6ff, #0072ff) !important; }
+    .form .live-ad-opt input:checked::after { left: 23px; }
   </style>
 </head>
 <body>
   <header class="header">
-    <h1>GRROSE PARFUME</h1>
+    <h1 id="store-name">GRROSE PARFUME</h1>
     <p><i>Parfum Premium harga ekonomis..</i></p>
     <p>📅 <span id="current-date">15 Februari 2026</span> | Time: <span id="time">10:00</span> | Day: <span id="day-counter">1</span></p>
+    <div class="name-edit-row">
+      <button class="name-edit-btn" id="name-edit-btn" onclick="editStoreName()"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>Ubah Nama Toko</button>
+      <div class="name-edit" id="name-edit" style="display:none"><input type="text" id="name-input" maxlength="30" placeholder="Nama toko"><button onclick="saveStoreName()">Simpan</button><button class="ghost" onclick="resetStoreName()">Default</button><button class="ghost" onclick="cancelStoreName()">Batal</button></div>
+    </div>
   </header>
 
   <div class="container">
@@ -385,9 +429,9 @@
     <section class="live-section"><h2>🎥 Live Jualan (Produk Normal)</h2>
       <form id="live-form" class="form">
         <label>Pilih Produk yang Dipromosikan (Ketik untuk mencari):</label><div id="live-search-container" class="searchable-select-container"></div>
-        <label>Admin Live:</label><select id="live-host"><option value="">Belum ada admin live aktif</option></select>
-        <label>Durasi Live (jam):</label><input type="number" id="live-hours" placeholder="Durasi (jam)" min="1" max="12" value="2">
-        <label class="live-ad-opt"><input type="checkbox" id="live-ad"> Live Ad (Rp 500.000 / live) - penonton jauh lebih banyak</label>
+        <label>Admin Live:</label><select id="live-host" style="display:none"><option value="">Belum ada admin live aktif</option></select><div class="host-picker" id="host-picker"></div>
+        <label>Durasi Live:</label><input type="number" id="live-hours" value="2" style="display:none"><div class="opt-grid" id="live-hours-picker"></div>
+        <label class="live-ad-opt"><span class="la-txt"><b>Live Ad</b><small>Rp 500.000 / live • penonton jauh lebih banyak</small></span><input type="checkbox" id="live-ad"></label>
         <button type="submit">Mulai Live</button>
         <div class="live-hint" id="live-hint"></div>
       </form></section>
@@ -401,7 +445,7 @@
       <form id="ad-form" class="form">
         <label>Pilih Produk yang Diiklankan:</label><div id="ad-search-container" class="searchable-select-container"></div>
         <label>Durasi Iklan (makin lama makin mahal):</label>
-        <select id="ad-duration"><option value="1">1 Hari - Rp 500.000</option><option value="3">3 Hari - Rp 1.200.000</option><option value="7">7 Hari - Rp 2.500.000</option><option value="14">14 Hari - Rp 4.500.000</option></select>
+        <div class="opt-grid" id="ad-picker"></div><select id="ad-duration" style="display:none"><option value="1">1 Hari - Rp 500.000</option><option value="3">3 Hari - Rp 1.200.000</option><option value="7">7 Hari - Rp 2.500.000</option><option value="14">14 Hari - Rp 4.500.000</option></select>
         <button type="submit">Pasang Iklan</button>
       </form>
     </section>
@@ -432,7 +476,7 @@
         <div style="font-size:0.8rem;opacity:0.85;">Tabungan digital • Bunga 0,1% per hari</div>
         <input type="number" id="gropay-amount" placeholder="Jumlah" min="1">
         <button onclick="depositGropay()">⬇️ Menabung</button><button onclick="withdrawGropay()">⬆️ Tarik</button><button onclick="depositAllGropay()">Tabung Semua</button>
-        <div class="whist" id="gropay-history">Belum ada transaksi</div>
+        <div class="whist" id="gropay-history" style="display:none"></div>
       </div>
     </section>
 
@@ -528,8 +572,8 @@
       cindy: { bg: ['#fff0c9', '#ffc542'], skin: '#efc29b', hair: '#3a2a1e', cloth: '#f4a100', style: 'wavy', acc: 'headset' },
       alvin: { bg: ['#e0e0ff', '#7b7bff'], skin: '#dba67a', hair: '#0e0e0e', cloth: '#3f3fbf', style: 'short', acc: 'glasses' }
     };
-    function avatarSVG(id) {
-      const a = AV[id] || AV.siti, g = 'avg' + id;
+    function avatarSVG(id, sfx) {
+      const a = AV[id] || AV.siti, g = 'avg' + id + (sfx || '');
       const back = a.style === 'long' ? `<path d="M26 52c0-20 10-30 24-30s24 10 24 30v30H26z" fill="${a.hair}"/>` : a.style === 'bun' ? `<circle cx="50" cy="20" r="9" fill="${a.hair}"/>` : '';
       const top = a.style === 'short' ? `<path d="M31 46c0-15 8-22 19-22s19 7 19 22c-6-7-12-9-19-9s-13 2-19 9z" fill="${a.hair}"/>`
         : a.style === 'wavy' ? `<path d="M30 48c-3-18 8-26 20-26s23 8 20 26c-4-8-9-12-20-12s-16 4-20 12z" fill="${a.hair}"/><circle cx="34" cy="38" r="6" fill="${a.hair}"/><circle cx="66" cy="38" r="6" fill="${a.hair}"/>`
@@ -564,16 +608,63 @@
     let live = null; // { product, host, remaining, ad, count, peak, sold, names, tick }
     let lsProdKey = '';
     const lsEl = document.getElementById('live-sell'), lsNum = document.getElementById('ls-num'), lsTitle = document.getElementById('ls-title'), lsAd = document.getElementById('ls-ad'), lsProd = document.getElementById('ls-prod'), lsAvatars = document.getElementById('ls-avatars'), lsNames = document.getElementById('ls-names'), lsChat = document.getElementById('ls-chat'), lsInfo = document.getElementById('ls-info');
-    const liveHostSel = document.getElementById('live-host'), liveHintEl = document.getElementById('live-hint');
+    const liveHostSel = document.getElementById('live-host'), liveHintEl = document.getElementById('live-hint'), hostPickerEl = document.getElementById('host-picker');
+    hostPickerEl.addEventListener('click', e => { const b = e.target.closest('.host-card'); if (!b) return; liveHostSel.value = b.dataset.id; renderLiveSetup(); });
     function liveHostActive(id) { const h = staffHired.find(x => x.id === id), d = staffDef(id); return !!(h && d && d.skills.includes('live') && h.paidWeek >= getCurrentWeek()); }
     function renderLiveSetup() {
       const keep = liveHostSel.value;
       const act = staffHired.map(h => staffDef(h.id)).filter(d => d && liveHostActive(d.id));
       liveHostSel.innerHTML = act.length ? act.map(d => `<option value="${d.id}">${d.name} - Pesona x${d.charm}</option>`).join('') : '<option value="">Belum ada admin live aktif</option>';
       if (act.some(d => d.id === keep)) liveHostSel.value = keep;
-      liveHintEl.textContent = act.length ? '' : 'Sewa talent Admin Live di bagian Karyawan (gaji minggu ini harus lunas) untuk bisa mulai live.';
+      liveHintEl.textContent = '';
+      const cur = liveHostSel.value;
+      hostPickerEl.innerHTML = act.length ? act.map(d => `<button type="button" class="host-card ${d.id === cur ? 'active' : ''} ${d.pro ? 'pro' : ''}" data-id="${d.id}"><div class="hc-av">${avatarSVG(d.id, 'h')}</div><div class="hc-txt"><b>${d.name}</b><span>${d.role}</span><div class="hc-chips"><i>Pesona x${d.charm}</i>${d.boost ? `<i>Jual x${d.boost}</i>` : ''}</div></div></button>`).join('') : '<div class="host-empty">Belum ada admin live aktif.<br><small>Sewa talent Admin Live di bagian Karyawan dan pastikan gaji minggu ini lunas.</small></div>';
     }
-    function liveSellBonus() { return (live && storeOpen) ? Math.min(2.5, 0.25 + live.count / 60) : 0; }
+    function liveBoost() { const h = live && staffDef(live.host); return (h && h.boost) || 1; }
+    function liveSellBonus() { const b = liveBoost(); return (live && storeOpen) ? Math.min(2.5 * b, (0.25 + live.count / 60) * b) : 0; }
+
+    // ===== NAMA TOKO (bisa diedit pemain, default tetap GRROSE PARFUME) =====
+    const DEFAULT_STORE = 'GRROSE PARFUME';
+    let storeName = DEFAULT_STORE;
+    const storeNameEl = document.getElementById('store-name'), nameEditEl = document.getElementById('name-edit'), nameInputEl = document.getElementById('name-input'), nameBtnEl = document.getElementById('name-edit-btn');
+    function storeShort() { return storeName.replace(/\s+parfu?me?$/i, '') || storeName; }
+    function applyStoreName() { storeNameEl.textContent = storeName; document.title = storeName + ' - Premium Parfum'; }
+    window.editStoreName = function() { nameInputEl.value = storeName; nameEditEl.style.display = 'flex'; nameBtnEl.style.display = 'none'; nameInputEl.focus(); };
+    window.cancelStoreName = function() { nameEditEl.style.display = 'none'; nameBtnEl.style.display = ''; };
+    window.saveStoreName = function() { storeName = nameInputEl.value.trim().slice(0, 30) || DEFAULT_STORE; applyStoreName(); cancelStoreName(); logActivity(`✏️ Nama toko diubah: "${storeName}"`); };
+    window.resetStoreName = function() { nameInputEl.value = DEFAULT_STORE; saveStoreName(); };
+    nameInputEl.addEventListener('keydown', e => { if (e.key === 'Enter') saveStoreName(); });
+
+    // ===== ADMIN LIVE PRO (nama acak: artis / content creator / selebgram / tiktoker / youtuber) =====
+    const PRO_DEF = [
+      { role: 'Content Creator', salary: 12000000, charm: 3.2, boost: 1.4, acc: 'glasses' },
+      { role: 'TikToker', salary: 15000000, charm: 3.8, boost: 1.6, acc: 'headset' },
+      { role: 'YouTuber', salary: 18000000, charm: 4.3, boost: 1.8, acc: 'headset' },
+      { role: 'Selebgram', salary: 22000000, charm: 4.8, boost: 2.0, acc: '' },
+      { role: 'Artis', salary: 30000000, charm: 6.0, boost: 2.4, acc: '' }
+    ];
+    const PRO_F = ['Aurelia', 'Keisha', 'Nayla', 'Callista', 'Zahra', 'Tiara', 'Alika', 'Davina', 'Naomi', 'Kirana', 'Salsa', 'Clarissa', 'Mikaela', 'Vanesha'];
+    const PRO_M = ['Rafael', 'Kenzo', 'Arkan', 'Bryan', 'Fabian', 'Galih', 'Haikal', 'Ivander', 'Jonathan', 'Kevin', 'Leon', 'Marcell', 'Nathan', 'Reynard'];
+    const PRO_L = ['Prameswari', 'Wiratama', 'Kusumadewi', 'Santoso', 'Maheswari', 'Pradipta', 'Anggraeni', 'Hartanto', 'Larasati', 'Mahendra', 'Permata', 'Setiadi', 'Wicaksana', 'Purnomo'];
+    const PRO_LOOK = [{ cloth: '#d63384', bg: ['#ffe0ef', '#ff8fc0'] }, { cloth: '#6f42c1', bg: ['#e8dcff', '#a78bfa'] }, { cloth: '#0d9488', bg: ['#d1faf4', '#2dd4bf'] }, { cloth: '#ea580c', bg: ['#ffe8d1', '#fdba74'] }, { cloth: '#1d4ed8', bg: ['#dbeafe', '#60a5fa'] }];
+    const PRO_SKIN = ['#f6d3b5', '#efc29b', '#e0ae82', '#d29b6c', '#c98f63'], PRO_HAIR = ['#111111', '#2d1b14', '#3b2417', '#5a2a1a', '#7a3b2e'];
+    function pickOf(a) { return a[Math.floor(Math.random() * a.length)]; }
+    function genPros() {
+      const used = {};
+      return PRO_DEF.map((d, i) => {
+        const fem = Math.random() < 0.5; let name;
+        do { name = pickOf(fem ? PRO_F : PRO_M) + ' ' + pickOf(PRO_L); } while (used[name]);
+        used[name] = 1;
+        const lk = pickOf(PRO_LOOK);
+        return { id: 'pro' + i, name, role: 'Admin Live Pro - ' + d.role, salary: d.salary, skills: ['live'], charm: d.charm, boost: d.boost, pro: true,
+          look: { bg: lk.bg, skin: pickOf(PRO_SKIN), hair: pickOf(PRO_HAIR), cloth: lk.cloth, style: fem ? pickOf(['long', 'bun', 'wavy']) : 'short', acc: d.acc } };
+      });
+    }
+    function setPros(list) {
+      for (let i = STAFF.length - 1; i >= 0; i--) if (STAFF[i].pro) STAFF.splice(i, 1);
+      (list && list.length ? list : genPros()).forEach(d => { STAFF.push(d); AV[d.id] = d.look; });
+    }
+    setPros();
 
     // ===== GROPAY =====
     let saldoGropay = 0;
@@ -843,14 +934,14 @@
       const week = getCurrentWeek();
       staffGridEl.innerHTML = STAFF.map(d => {
         const h = staffHired.find(x => x.id === d.id);
-        const skills = d.skills.map(s => `<span class="chip">${SKILL_LABEL[s]}</span>`).join('') + (d.charm ? `<span class="chip">Pesona x${d.charm}</span>` : '');
+        const skills = (d.pro ? '<span class="chip gold">PRO</span>' : '') + d.skills.map(s => `<span class="chip">${SKILL_LABEL[s]}</span>`).join('') + (d.charm ? `<span class="chip">Pesona x${d.charm}</span>` : '') + (d.boost ? `<span class="chip">Penjualan x${d.boost}</span>` : '');
         let action = `<button onclick="hireStaff('${d.id}')">Sewa</button>`, status = '';
         if (h) {
           const paid = h.paidWeek >= week;
           status = paid ? `<div class="st on">● Aktif (gaji lunas Minggu ${h.paidWeek})</div>` : `<div class="st off">● Nonaktif - gaji belum dibayar</div>`;
           action = (paid ? '' : `<button class="pay" onclick="payStaff('${d.id}')">Bayar Gaji</button>`) + `<button class="fire" onclick="fireStaff('${d.id}')">Pecat</button>`;
         }
-        return `<div class="staff-card ${h ? 'hired' : ''}"><div class="avatar">${avatarSVG(d.id)}</div><h3>${d.name}</h3><div class="role">${d.role}</div><div class="salary">Rp ${d.salary.toLocaleString()} / minggu</div><div class="skills">${skills}</div>${status}${action}</div>`;
+        return `<div class="staff-card ${h ? 'hired' : ''} ${d.pro ? 'pro' : ''}"><div class="avatar">${avatarSVG(d.id)}</div><h3>${d.name}</h3><div class="role">${d.role}</div><div class="salary">Rp ${d.salary.toLocaleString()} / minggu</div><div class="skills">${skills}</div>${status}${action}</div>`;
       }).join('');
       const total = staffHired.reduce((a, h) => a + staffDef(h.id).salary, 0);
       document.getElementById('staff-total-salary').textContent = `Rp ${total.toLocaleString()} / minggu`; renderLiveSetup();
@@ -904,8 +995,8 @@
       else if (/pengiriman|packing|kemasan/.test(t)) cat = 'ship';
       else if (/kurang|biasa|kecewa|gak tahan|bensin|berbahaya|sebelah|b aja|tidak enak|gak enak|terlalu/.test(t)) cat = 'neg';
       const arr = REPLY_TEMPLATES[cat];
-      const msg = arr[Math.floor(Math.random()*arr.length)].replace('{n}', botName);
-      addComment(`↳ ${s.name} (Admin GRROSE): "${msg}"`, 'reply');
+      const msg = arr[Math.floor(Math.random()*arr.length)].replace('{n}', botName).replace('GRROSE PARFUME', storeName);
+      addComment(`↳ ${s.name} (Admin ${storeShort()}): "${msg}"`, 'reply');
     }
 
     // ===== IKLAN =====
@@ -930,10 +1021,12 @@
     });
 
     // ===== GROPAY BANK =====
-    function gropayLog(msg) { gropayHistory.unshift(`${msg} (Hari ${currentDay})`); gropayHistory = gropayHistory.slice(0, 6); }
+    function gropayLog(msg) { gropayHistory.unshift({ m: msg, d: currentDay, t: Date.now() }); gropayHistory = gropayHistory.slice(0, 6); setTimeout(renderGropay, 6200); }
     function renderGropay() {
       gropayBalanceEl.textContent = `Rp ${saldoGropay.toLocaleString()}`;
-      gropayHistoryEl.innerHTML = gropayHistory.length ? gropayHistory.map(h => `<div>${h}</div>`).join('') : 'Belum ada transaksi';
+      const nowMs = Date.now(), recent = gropayHistory.filter(h => h && typeof h === 'object' && h.d === currentDay && nowMs - h.t < 6000);
+      gropayHistoryEl.style.display = recent.length ? 'block' : 'none';
+      gropayHistoryEl.innerHTML = recent.map(h => `<div>${h.m}</div>`).join('');
     }
     window.depositGropay = function() {
       const a = parseInt(document.getElementById('gropay-amount').value);
@@ -1019,7 +1112,7 @@
           } else {
             product = availableRegular[Math.floor(Math.random()*availableRegular.length)];
           }
-          if (live && storeOpen && Math.random() < 0.45) { const lp = availableRegular.find(p => p.name === live.product); if (lp) product = lp; } // produk yang sedang live lebih sering dibeli
+          if (live && storeOpen && Math.random() < Math.min(0.85, 0.45 * liveBoost())) { const lp = availableRegular.find(p => p.name === live.product); if (lp) product = lp; } // produk yang sedang live lebih sering dibeli
           if (bestSellerNames.includes(product.name) && Math.random()<0.6) { }
         } else continue;
 
@@ -1150,7 +1243,7 @@
       // bunga tabungan GroPay & iklan berakhir
       if (saldoGropay > 0) {
         const bunga = Math.floor(saldoGropay * 0.001);
-        if (bunga > 0) { saldoGropay += bunga; gropayLog(`✨ Bunga +Rp ${bunga.toLocaleString()}`); logActivity(`🏧 Bunga GroPay Rp ${bunga.toLocaleString()}`); }
+        if (bunga > 0) { saldoGropay += bunga; gropayLog(`✨ Bunga +Rp ${bunga.toLocaleString()}`);  }
       }
       ads.filter(a => currentDay > a.endDay).forEach(a => logActivity(`📢 Iklan ${a.name} berakhir.`));
       ads = ads.filter(a => currentDay <= a.endDay);
@@ -1373,7 +1466,7 @@
 
     // ===== SAVE/LOAD =====
     window.saveGame = function() {
-      const gameData = { saldoUtama, saldoModal, saldoKeuntungan, dailyProfit, currentDay, currentTime, products, promoProducts, autoRestockAmount, staffHired, ads, saldoGropay, gropayHistory, billMode: 'monthly', live, weeklyBillAmount, lastBillPaidWeek, weeklyBillsHistory, dailyTaxTotal, lastTaxPaidDay, loanActive, loanAmount, loanTenor, loanRemainingWeeks, loanWeeklyPayment, loanLastPaymentDay, loanOverdueWeeks, totalRatings, averageRating, storeOpen, promoTitle: promoTitle.innerHTML, promoLine1: promoLine1.innerHTML, promoLine2: promoLine2.innerHTML, promoLine3: promoLine3.innerHTML };
+      const gameData = { saldoUtama, saldoModal, saldoKeuntungan, dailyProfit, currentDay, currentTime, products, promoProducts, autoRestockAmount, staffHired, ads, saldoGropay, gropayHistory, billMode: 'monthly', live, storeName, proRoster: STAFF.filter(d => d.pro), weeklyBillAmount, lastBillPaidWeek, weeklyBillsHistory, dailyTaxTotal, lastTaxPaidDay, loanActive, loanAmount, loanTenor, loanRemainingWeeks, loanWeeklyPayment, loanLastPaymentDay, loanOverdueWeeks, totalRatings, averageRating, storeOpen, promoTitle: promoTitle.innerHTML, promoLine1: promoLine1.innerHTML, promoLine2: promoLine2.innerHTML, promoLine3: promoLine3.innerHTML };
       try { localStorage.setItem('grroseParfumeSave', JSON.stringify(gameData)); } catch (e) { logActivity("⚠️ Gagal menyimpan (penyimpanan penuh/diblokir). Coba hapus beberapa foto produk."); return; }
       lastSavedEl.textContent = `Terakhir disimpan: ${new Date().toLocaleString()}`;
       logActivity("✅ Game saved!");
@@ -1384,7 +1477,7 @@
       if (!savedData) { alert("Tidak ada save"); return; }
       try {
         const g = JSON.parse(savedData);
-        saldoUtama = g.saldoUtama || 30000000; saldoModal = g.saldoModal || 0; saldoKeuntungan = g.saldoKeuntungan || 0; dailyProfit = g.dailyProfit || 0; currentDay = g.currentDay || 1; currentTime = g.currentTime || 600; products = g.products || products; promoProducts = g.promoProducts || promoProducts; autoRestockAmount = g.autoRestockAmount || 10; staffHired = g.staffHired || []; ads = g.ads || []; saldoGropay = g.saldoGropay || 0; gropayHistory = g.gropayHistory || []; weeklyBillAmount = g.weeklyBillAmount || 14000000; lastBillPaidWeek = g.lastBillPaidWeek || 0; weeklyBillsHistory = g.weeklyBillsHistory || []; if (g.billMode !== 'monthly') { lastBillPaidWeek = 0; weeklyBillsHistory = []; } dailyTaxTotal = g.dailyTaxTotal || 0; lastTaxPaidDay = g.lastTaxPaidDay || 0; loanActive = g.loanActive || false; loanAmount = g.loanAmount || 0; loanTenor = g.loanTenor || 0; loanRemainingWeeks = g.loanRemainingWeeks || 0; loanWeeklyPayment = g.loanWeeklyPayment || 0; loanLastPaymentDay = g.loanLastPaymentDay || 0; loanOverdueWeeks = g.loanOverdueWeeks || 0; totalRatings = g.totalRatings || 0; averageRating = g.averageRating || 0; storeOpen = g.storeOpen !== undefined ? g.storeOpen : true; live = g.live || null; if (live && !Array.isArray(live.names)) live.names = [];
+        saldoUtama = g.saldoUtama || 30000000; saldoModal = g.saldoModal || 0; saldoKeuntungan = g.saldoKeuntungan || 0; dailyProfit = g.dailyProfit || 0; currentDay = g.currentDay || 1; currentTime = g.currentTime || 600; products = g.products || products; promoProducts = g.promoProducts || promoProducts; autoRestockAmount = g.autoRestockAmount || 10; staffHired = g.staffHired || []; ads = g.ads || []; saldoGropay = g.saldoGropay || 0; gropayHistory = g.gropayHistory || []; weeklyBillAmount = g.weeklyBillAmount || 14000000; lastBillPaidWeek = g.lastBillPaidWeek || 0; weeklyBillsHistory = g.weeklyBillsHistory || []; if (g.billMode !== 'monthly') { lastBillPaidWeek = 0; weeklyBillsHistory = []; } dailyTaxTotal = g.dailyTaxTotal || 0; lastTaxPaidDay = g.lastTaxPaidDay || 0; loanActive = g.loanActive || false; loanAmount = g.loanAmount || 0; loanTenor = g.loanTenor || 0; loanRemainingWeeks = g.loanRemainingWeeks || 0; loanWeeklyPayment = g.loanWeeklyPayment || 0; loanLastPaymentDay = g.loanLastPaymentDay || 0; loanOverdueWeeks = g.loanOverdueWeeks || 0; totalRatings = g.totalRatings || 0; averageRating = g.averageRating || 0; storeOpen = g.storeOpen !== undefined ? g.storeOpen : true; live = g.live || null; if (live && !Array.isArray(live.names)) live.names = []; if (Array.isArray(g.proRoster) && g.proRoster.length) setPros(g.proRoster); storeName = g.storeName || DEFAULT_STORE; applyStoreName();
         if (g.promoTitle) promoTitle.innerHTML = g.promoTitle; if (g.promoLine1) promoLine1.innerHTML = g.promoLine1; if (g.promoLine2) promoLine2.innerHTML = g.promoLine2; if (g.promoLine3) promoLine3.innerHTML = g.promoLine3;
         document.getElementById('auto-restock-amount').value = autoRestockAmount;
         updateCustomerMultiplier(); updateSaldo(); updateProducts(); updateDailyProfitDisplay(); updateWeeklyDisplay(); updateTaxDisplay(); updateLoanStatus(); renderStaff(); renderAds(); dayCounterEl.textContent = currentDay; ratingValueEl.textContent = averageRating.toFixed(1); storeStatusBtn.textContent = storeOpen ? "Tutup Toko" : "Buka Toko"; storeStatusBtn.classList.toggle("closed", !storeOpen);
@@ -1397,7 +1490,7 @@
       saldoUtama = 30000000; saldoModal = 0; saldoKeuntungan = 0; dailyProfit = 0; currentDay = 1; currentTime = 10*60;
       products = products.map(p => ({ ...p, stock: 0, discount: 0, active: true, salesCount: 0 }));
       promoProducts = [ { name:"", price:0, stock:0, modalPrice:0, discount:0, active:false, duration:0, endTime:0, salesCount:0 }, { name:"", price:0, stock:0, modalPrice:0, discount:0, active:false, duration:0, endTime:0, salesCount:0 } ];
-      autoRestockAmount = 10; staffHired = []; ads = []; saldoGropay = 0; gropayHistory = []; weeklyBillAmount = 14000000; lastBillPaidWeek = 0; weeklyBillsHistory = []; dailyTaxTotal = 0; lastTaxPaidDay = 0; loanActive = false; loanAmount = 0; loanTenor = 0; loanRemainingWeeks = 0; loanWeeklyPayment = 0; loanLastPaymentDay = 0; loanOverdueWeeks = 0; totalRatings = 0; averageRating = 0; storeOpen = true; live = null;
+      autoRestockAmount = 10; staffHired = []; ads = []; setPros(); saldoGropay = 0; gropayHistory = []; weeklyBillAmount = 14000000; lastBillPaidWeek = 0; weeklyBillsHistory = []; dailyTaxTotal = 0; lastTaxPaidDay = 0; loanActive = false; loanAmount = 0; loanTenor = 0; loanRemainingWeeks = 0; loanWeeklyPayment = 0; loanLastPaymentDay = 0; loanOverdueWeeks = 0; totalRatings = 0; averageRating = 0; storeOpen = true; live = null; storeName = DEFAULT_STORE; applyStoreName(); setPros();
       document.getElementById('auto-restock-amount').value = 10;
       promoTitle.innerHTML = '<i>BUKA 24 JAM!!!</i>'; promoLine1.innerHTML = '<strong>RAMADHAN PENUH BERKAH</strong>'; promoLine2.innerHTML = 'Khusus Ramadhan, diskon suka-suka!'; promoLine3.innerHTML = 'NEW VARIANT! Premium Artic Frost';
       activityLog.innerHTML = "<p>Ruang Pembeli..</p>"; commentBox.innerHTML = "<p>Komentar disini..</p>";
@@ -1531,7 +1624,7 @@
     function liveReply(n, t) {
       const p = products.find(x => x.name === live.product) || {}, price = Math.round((p.price || 0) * (1 - (p.discount || 0) / 100)).toLocaleString(), s = t.toLowerCase();
       const R = [
-        [/halo|salam/, `Halo Kak ${n}! Selamat datang di live GRROSE PARFUME, yuk cek ${live.product}.`],
+        [/halo|salam/, `Halo Kak ${n}! Selamat datang di live ${storeName}, yuk cek ${live.product}.`],
         [/wangi|aroma/, `Kak ${n}, ${live.product} aromanya segar dan elegan, cocok dipakai seharian.`],
         [/diskon|harga|spill|worth/, `${live.product} cuma Rp ${price} Kak ${n}, kualitas premium. Checkout sekarang ya!`],
         [/stok|ready/, `Stok ${live.product} ready ${p.stock || 0} pcs Kak ${n}, buruan sebelum habis!`],
@@ -1547,12 +1640,12 @@
       const n = live.names.length ? live.names[Math.floor(Math.random() * live.names.length)] : botNames[Math.floor(Math.random() * botNames.length)];
       const t = LIVE_CHATS[Math.floor(Math.random() * LIVE_CHATS.length)];
       liveChat(`${n}: "${t}"`);
-      if (Math.random() < 0.75) setTimeout(() => { if (live && liveHostActive(live.host)) liveChat(`↳ ${host.name} (Admin Live): ${liveReply(n, t)}`, 'reply'); }, 800 + Math.random() * 1200);
+      if (Math.random() < 0.75) setTimeout(() => { if (live && liveHostActive(live.host)) liveChat(`↳ ${host.name} (Admin Live${host.pro ? ' Pro' : ''}): ${liveReply(n, t)}`, 'reply'); }, 800 + Math.random() * 1200);
     }
     function liveBuyChat(n, q) {
       liveChat(`${n} checkout ${q} pcs ${live.product}!`, 'sys');
       const h = staffDef(live.host);
-      if (h && Math.random() < 0.6) setTimeout(() => { if (live) liveChat(`↳ ${h.name} (Admin Live): "Terima kasih Kak ${n}, pesanan segera diproses!"`, 'reply'); }, 700);
+      if (h && Math.random() < 0.6) setTimeout(() => { if (live) liveChat(`↳ ${h.name} (Admin Live${h.pro ? ' Pro' : ''}): "Terima kasih Kak ${n}, pesanan segera diproses!"`, 'reply'); }, 700);
     }
     function liveViewersStep(host) {
       // jumlah penonton mengikuti rating toko (customerMultiplier), pesona admin, dan Live Ad
@@ -1581,7 +1674,8 @@
         live.remaining -= 1; live.tick = (live.tick || 0) + 1;
         if (live.tick % 2 === 0) liveViewersStep(host);
         if (live.tick % 3 === 0) { liveViewerChat(host); if (live.count > 40) liveViewerChat(host); }
-        if (live.tick % 30 === 0) liveChat(`${host.name} (Admin Live): "Yuk Kak, ${live.product} lagi ready! Jangan lupa checkout ya."`, 'reply');
+        if (live.tick % 30 === 0) liveChat(`${host.name} (Admin Live${host.pro ? ' Pro' : ''}): "Yuk Kak, ${live.product} lagi ready! Jangan lupa checkout ya."`, 'reply');
+        if (host.boost > 1 && live.tick % 4 === 0 && Math.random() < (host.boost - 1) * 0.5) simulateCustomerBehavior(); // admin pro: tambahan pembeli
         if (live.remaining <= 0) { finishLive('Live selesai.'); return; }
       }
       live.peak = Math.max(live.peak || 0, live.count);
@@ -1616,6 +1710,25 @@
       updateSaldo(); liveSellTick();
     });
     setInterval(liveSellTick, 1000);
+
+    // ===== PILIHAN DURASI LIVE =====
+    (function() {
+      const inp = document.getElementById('live-hours'), box = document.getElementById('live-hours-picker');
+      const hint = { 1: 'Singkat', 2: 'Standar', 3: 'Santai', 4: 'Maraton', 6: 'Panjang', 8: 'Super lama', 12: 'Non-stop' };
+      box.innerHTML = [1, 2, 3, 4, 6, 8, 12].map(h => `<button type="button" class="opt-tile" data-v="${h}"><b>${h}</b><span>Jam</span><small>${hint[h]}</small></button>`).join('');
+      function refresh() { box.querySelectorAll('.opt-tile').forEach(o => o.classList.toggle('active', o.dataset.v === String(parseInt(inp.value)))); }
+      box.addEventListener('click', e => { const b = e.target.closest('.opt-tile'); if (!b) return; inp.value = b.dataset.v; refresh(); });
+      refresh();
+    })();
+
+    // ===== PILIHAN DURASI IKLAN =====
+    (function() {
+      const sel = document.getElementById('ad-duration'), box = document.getElementById('ad-picker');
+      box.innerHTML = Object.keys(AD_PRICES).map(Number).map(d => { const save = Math.round((1 - (AD_PRICES[d] / d) / AD_PRICES[1]) * 100); return `<button type="button" class="opt-tile" data-v="${d}"><b>${d}</b><span>Hari</span><em>Rp ${AD_PRICES[d].toLocaleString()}</em><small>${d > 1 ? 'Hemat ' + save + '% / hari' : 'Coba dulu'}</small></button>`; }).join('');
+      function refresh() { box.querySelectorAll('.opt-tile').forEach(o => o.classList.toggle('active', o.dataset.v === sel.value)); }
+      box.addEventListener('click', e => { const b = e.target.closest('.opt-tile'); if (!b) return; sel.value = b.dataset.v; refresh(); });
+      refresh();
+    })();
 
     setInterval(updateTime, 1000);
     setInterval(simulateCustomerBehavior, 8000);
