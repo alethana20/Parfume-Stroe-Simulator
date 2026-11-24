@@ -555,7 +555,7 @@
         <div class="lv-top">
           <span class="lv-app-badge">💟 FACEGRAM</span>
           <span class="lv-live"><i></i>LIVE JUALAN</span>
-          <span class="lv-timer-pill" id="ls-timer">⏱️ Sisa 02j 00m</span>
+         
           <span class="lv-sched-badge" id="ls-sched-badge" style="display:none">AUTO JADWAL</span>
           <span class="ls-ad" id="ls-ad" style="display:none">LIVE AD</span>
           <span class="lv-title" id="ls-title"></span>
@@ -587,7 +587,7 @@
         <div class="live-co-slot" id="lp-co-slot"></div>
         <div class="ls-chat" id="lp-chat"></div>
       </div>
-      <div class="products" id="promo-products"></div></section>
+      <div class="products" id="promo-products" style="display:none"></div></section>
 
     <section class="rack"><h2>📦 Produk Tersedia</h2><div class="products" id="products"></div></section>
 
@@ -603,7 +603,7 @@
     <section class="set-promo-section"><h2>⚙️ Atur LIVE PROMO (Biaya Rp 1.000.000)</h2><form id="set-promo-form" class="form"><label>Pilih Produk (Ketik untuk mencari):</label><div id="set-promo-search-container" class="searchable-select-container"></div><label>Admin Live (Talent Live / BA):</label><select id="promo-host" style="display:none"><option value="">Belum ada admin live aktif</option></select><div class="host-picker" id="promo-host-picker"></div><input type="number" id="set-promo-stock" placeholder="Stok Promo" min="1"><input type="number" id="set-promo-discount" placeholder="Diskon (%)" min="0" max="100"><input type="number" id="set-promo-duration" placeholder="Durasi Promo (menit)" min="1"><button type="submit">Set Live Promo (Rp 1jt)</button></form></section>
 
     <!-- FACEGRAM LIVE: LIVE LANGSUNG (MANUAL) & 3x LIVE TERJADWAL OTOMATIS -->
-    <section class="live-section"><h2>📱 Facegram Live (Produk Normal)</h2>
+    <section class="live-section"><h2>💟 Facegram Live </h2>
       <div class="live-mode-tabs">
         <button type="button" class="live-mode-tab active" id="tab-live-manual" onclick="switchLiveMode('manual')">🎥 Live Sekarang (Manual)</button>
         <button type="button" class="live-mode-tab" id="tab-live-sched" onclick="switchLiveMode('schedule')">⏰ Jadwal Auto Live (3x / Hari)</button>
@@ -706,10 +706,10 @@
     </section>
 
     <section class="restock-section"><h2>📦 Restok Barang</h2><form id="restock-form" class="form"><label>Pilih Produk (Ketik untuk mencari):</label><div id="restock-search-container" class="searchable-select-container"></div><input type="number" id="restock-amount" placeholder="Jumlah" min="1"><button type="submit">Restok</button></form></section>
-    <section class="price-section"><h2>💰 Atur Harga & Modal Barang</h2><form id="price-form" class="form"><label>Pilih Produk (Ketik untuk mencari):</label><div id="price-search-container" class="searchable-select-container"></div><input type="number" id="new-price" placeholder="Harga Jual Baru (kosongkan jika tidak diubah)" min="1"><input type="number" id="new-modal-price" placeholder="Harga Modal Baru (kosongkan jika tidak diubah)" min="1"><button type="submit">Atur Harga & Modal</button></form></section>
+    <section class="price-section"><h2>💰 Atur Harga & Modal</h2><form id="price-form" class="form"><label>Pilih Produk (Ketik untuk mencari):</label><div id="price-search-container" class="searchable-select-container"></div><input type="number" id="new-price" placeholder="Harga Jual Baru (kosongkan jika tidak diubah)" min="1"><input type="number" id="new-modal-price" placeholder="Harga Modal Baru (kosongkan jika tidak diubah)" min="1"><button type="submit">Atur Harga & Modal</button></form></section>
 
     <!-- ATUR DISKON PRODUK -->
-    <section class="discount-section"><h2>🏷️ Atur Diskon Produk (Bisa Ceklis Banyak / Semua)</h2>
+    <section class="discount-section"><h2>🏷️ Atur Diskon Produk</h2>
       <form id="discount-form" class="form">
         <div class="disc-bulk-tools">
           <label style="margin:0;">Pilih Produk (<span id="disc-selected-count">0</span> dipilih):</label>
@@ -736,7 +736,7 @@
     </section>
 
     <!-- BRAND AMBASSADOR (ARTIS / INFLUENCER TERKENAL - KONTRAK BULANAN) -->
-    <section class="ba-section"><h2>🌟 Brand Ambassador (Artis &amp; Influencer Terkenal)</h2>
+    <section class="ba-section"><h2>🌟 Brand Ambassador</h2>
       <div class="ba-banner" id="ba-banner">
         <div>
           <b>✨ Kontrak Brand Ambassador Toko (Bayaran Bulanan)</b>
@@ -748,7 +748,7 @@
     </section>
 
     <!-- KARYAWAN (GAJI UMR BULANAN) -->
-    <section class="staff-section"><h2>👥 Karyawan &amp; Talent Live (Gaji Bulanan UMR)</h2>
+    <section class="staff-section"><h2>👥 Karyawan &amp; Talent Live</h2>
       <div class="staff-grid" id="staff-grid"></div>
       <div class="auto-restock-controls"><div class="auto-restock-header"><h3>📦 Jumlah Restok Otomatis (oleh karyawan)</h3></div><div class="auto-restock-settings"><span>Jumlah Restock:</span><input type="number" id="auto-restock-amount" value="10" min="1" max="500"><button onclick="setAutoRestockAmount()">Terapkan</button></div>
         <div class="auto-restock-settings"><span>Gaji &amp; Kontrak BA semua:</span><span id="staff-total-salary">Rp 0 / bulan</span><button onclick="payAllStaff()">Bayar Semua Gaji &amp; Kontrak</button></div></div>
@@ -868,8 +868,8 @@
       "Mursid", "Abi", "Regi", "Mandra", "Kimmy", "Fahrian", "El", "Anggara", "Thia", 
       "Kobo", "Zeta", "Eleanie", "Tretan", "Coki", "Radit", "Fiki", "Freya", "Cepio", 
       "Megawati", "Bekti", "Tohir", "Tahir", "Oner", "Darren", "Ronaldo", "Messi", 
-      "Rafathar", "Athir", "Fadlan", "Hanni", "Danielle", "Lalisa", "Lee", "Dyland", 
-      "Erica", "Ignasius", "Muthe", "Shani", "Indira", "Gibran"
+      "Rafathar", "Athir", "Fadlan", "Hanni", "Danielle", "Lalisa", "Lee", "Jokowi", "Prabowo", "Dyland", "Jason", "Sukmala", "Lucia", "Bruce", "Karina", "Peter", "Arthur", "Kaesang", "Jiwoo", "Chaewon", "Teddy", "Juli", "Sana",
+      "Erica", "Ignasius", "Muthe", "Shani", "Indira", "Gibran", "Kartiko", "Hyeri", "Bruno", "Cunha", "Patrick", "Ros", "Wely", "Carl", "Jimmy", "Parker", "Santo", "Oktovian", "Michelle", "Lucas", "Susanto", "Jefri", "Arya", "Dori", "Fafa", "Rizieq", "Felix", "Tirta", "Sulis", "Sugiono", "Amran", "Indra", "Ayu", "Melisa", "Chika", "Zia", "Puan", "Alea", "Putra", "Listio", "Erlina", "Erlangga", "Aca", "Carmen", "Junn", "Yunjin", "Eunchae", "Nadifah", "Julia"
     ];
 
     // Nama Jenis Pembayaran Disamarkan (Fanmade)
@@ -2625,11 +2625,19 @@
       while (commentBox.children.length > 60) commentBox.removeChild(commentBox.lastChild);
     }
 
-    // ===== PRODUCTS DISPLAY (TETAP MENUNJUKKAN HARGA MODAL, HARGA JUAL & DISKON) =====
+    // ===== PRODUCTS DISPLAY (TOP 3 BEST SELLER SELALU TERATAS #1, #2, #3) =====
     function updateProducts() {
       productsEl.innerHTML = "";
-      const top3 = [...products].filter(p => p.salesCount > 0).sort((a, b) => b.salesCount - a.salesCount).slice(0, 3).map(p => p.name);
-      products.forEach((product, idx) => {
+      const top3Products = [...products]
+        .filter(p => p.salesCount > 0)
+        .sort((a, b) => b.salesCount - a.salesCount)
+        .slice(0, 3);
+      const top3 = top3Products.map(p => p.name);
+      const orderedProducts = [
+        ...top3Products,
+        ...products.filter(p => !top3.includes(p.name))
+      ];
+      orderedProducts.forEach((product, idx) => {
         const productDiv = document.createElement("div");
         productDiv.className = "product";
         const rank = top3.indexOf(product.name);
@@ -2705,10 +2713,12 @@
 
     function updatePromoProducts() {
       promoProductsEl.innerHTML = "";
+      let hasVisiblePromo = false;
       promoProducts.forEach((product, index) => {
-        const productDiv = document.createElement("div");
-        productDiv.className = "product";
         if (product.active) {
+          hasVisiblePromo = true;
+          const productDiv = document.createElement("div");
+          productDiv.className = "product";
           if (product.img) productDiv.classList.add("has-photo");
           productDiv.classList.add("promo-active");
           const discountedPrice = product.price * (1 - (product.discount || 0) / 100);
@@ -2731,13 +2741,16 @@
             <p class="promo-timer">⏱️ Sisa Live: ${timeDisplay}</p>
             <p class="sales-count">🔥 Terjual: ${product.salesCount || 0}</p>
             <button onclick="endPromoEarly(${index})" style="background:#dc3545">Akhiri Live</button></div>`;
+          promoProductsEl.appendChild(productDiv);
         } else if (product.pending && product.name) {
+          hasVisiblePromo = true;
+          const productDiv = document.createElement("div");
+          productDiv.className = "product";
           productDiv.innerHTML = `<h3>Live Promo ${index + 1} (Antre)</h3><p>${product.name} (-${product.discount}%)</p><p>Menunggu dimulai staf promo...</p>`;
-        } else {
-          productDiv.innerHTML = `<h3>Live Promo ${index + 1}</h3><p>Belum ada promo aktif</p>`;
+          promoProductsEl.appendChild(productDiv);
         }
-        promoProductsEl.appendChild(productDiv);
       });
+      promoProductsEl.style.display = hasVisiblePromo ? "" : "none";
     }
 
     window.endPromoEarly = function(index) {
