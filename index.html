@@ -340,9 +340,11 @@
     .lv-live { display: inline-flex; align-items: center; gap: 6px; background: #e11d48; border-radius: 8px; padding: 3px 10px; font-weight: 800; font-size: 0.75rem; letter-spacing: 1px; }
     .lv-live i { width: 8px; height: 8px; border-radius: 50%; background: #fff; animation: lvPulse 1.2s infinite; }
     @keyframes lvPulse { 0% { box-shadow: 0 0 0 0 rgba(255,255,255,0.8); } 100% { box-shadow: 0 0 0 9px rgba(255,255,255,0); } }
+    .lv-timer-pill { display: inline-flex; align-items: center; gap: 5px; background: rgba(0, 0, 0, 0.45); border: 1px solid rgba(253, 224, 71, 0.75); color: #fde047; font-weight: 800; font-size: 0.75rem; padding: 3px 10px; border-radius: 999px; white-space: nowrap; flex: none; box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
+    .lv-timer-pill.urgent { background: rgba(220, 38, 38, 0.65); border-color: #fca5a5; color: #fff; animation: blink 1s infinite; }
     .lv-app-badge { display: inline-flex; align-items: center; gap: 4px; background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af); color: #fff; font-weight: 800; font-size: 0.7rem; letter-spacing: 0.6px; padding: 3px 10px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.6); box-shadow: 0 2px 8px rgba(221,42,123,0.45); }
     .lv-sched-badge { background: rgba(16,185,129,0.35); border: 1px solid #6ee7b7; color: #a7f3d0; font-size: 0.68rem; font-weight: 800; padding: 3px 8px; border-radius: 8px; }
-    .lv-title { flex: 1; font-size: 0.8rem; opacity: 0.85; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .lv-title { flex: 1 1 180px; font-size: 0.8rem; opacity: 0.9; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .lv-count { display: inline-flex; align-items: center; gap: 5px; font-size: 0.85rem; background: rgba(255,255,255,0.15); padding: 3px 10px; border-radius: 999px; }
     .lv-count b { font-size: 1.1rem; }
     .lv-avatars { display: flex; flex-wrap: wrap; margin: 12px 0 4px 8px; position: relative; z-index: 2; }
@@ -352,6 +354,17 @@
     .lv-feed { margin-top: 10px; font-size: 0.78rem; display: flex; flex-direction: column; gap: 3px; min-height: 20px; position: relative; z-index: 2; }
     .lv-feed div { background: rgba(255,255,255,0.12); padding: 3px 10px; border-radius: 999px; align-self: flex-start; animation: lvIn 0.4s; }
     @keyframes lvIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+    /* ====== POPUP CHECKOUT BERGAYA LIVE SHOPPING TIKTOK / SHOPEE (TERPISAH DARI CHAT) ====== */
+    .live-co-slot { position: relative; z-index: 5; min-height: 36px; margin-top: 10px; display: flex; align-items: center; pointer-events: none; }
+    .live-co-toast { display: inline-flex; align-items: center; gap: 8px; max-width: 100%; padding: 6px 14px 6px 8px; border-radius: 999px; background: linear-gradient(135deg, rgba(255, 87, 34, 0.96), rgba(225, 29, 72, 0.96)); border: 1.5px solid rgba(255, 255, 255, 0.82); box-shadow: 0 6px 18px rgba(225, 29, 72, 0.48), inset 0 1px 0 rgba(255,255,255,0.45); color: #fff; font-size: 0.78rem; font-weight: 700; animation: coPopIn 0.34s cubic-bezier(0.22, 1, 0.36, 1) forwards; overflow: hidden; }
+    .live-co-toast.hide { animation: coPopOut 0.28s ease forwards; }
+    .live-co-toast .co-bag { width: 24px; height: 24px; border-radius: 50%; background: #fff; color: #e11d48; display: inline-flex; align-items: center; justify-content: center; flex: none; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+    .live-co-toast .co-bag svg { width: 14px; height: 14px; }
+    .live-co-toast .co-txt { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .live-co-toast .co-qty { background: #fde047; color: #3b2a00; font-weight: 900; font-size: 0.7rem; padding: 2px 8px; border-radius: 999px; flex: none; letter-spacing: 0.3px; }
+    @keyframes coPopIn { from { opacity: 0; transform: translateX(-18px) scale(0.92); } to { opacity: 1; transform: translateX(0) scale(1); } }
+    @keyframes coPopOut { from { opacity: 1; transform: translateY(0) scale(1); } to { opacity: 0; transform: translateY(-8px) scale(0.95); } }
 
     .floating-hearts-layer { position: absolute; right: 14px; bottom: 46px; width: 68px; height: 195px; pointer-events: none; overflow: visible; z-index: 6; }
     .float-heart { position: absolute; bottom: 0; width: 26px; height: 26px; opacity: 0; user-select: none; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.35)); animation: heartFloatUp 2.8s cubic-bezier(0.22, 0.8, 0.36, 1) forwards; }
@@ -373,7 +386,7 @@
     .ls-prod .ph { width: 46px; height: 46px; border-radius: 10px; background-size: cover; background-position: center; flex: none; }
     .ls-prod b { display: block; font-size: 0.85rem; }
     .ls-prod span { font-size: 0.75rem; opacity: 0.85; }
-    .ls-chat { margin-top: 10px; max-height: 160px; overflow-y: auto; display: flex; flex-direction: column; gap: 4px; font-size: 0.78rem; position: relative; z-index: 2; padding-right: 48px; }
+    .ls-chat { margin-top: 8px; max-height: 160px; overflow-y: auto; display: flex; flex-direction: column; gap: 4px; font-size: 0.78rem; position: relative; z-index: 2; padding-right: 48px; }
     .ls-chat p { margin: 0; padding: 4px 10px; border-radius: 12px; background: rgba(255,255,255,0.12); align-self: flex-start; max-width: 94%; animation: lvIn 0.3s; }
     .ls-chat p.reply { align-self: flex-end; background: rgba(14,165,233,0.45); border: 1px solid rgba(255,255,255,0.3); }
     .ls-chat p.sys { align-self: center; background: rgba(255,200,60,0.28); font-weight: 700; }
@@ -531,13 +544,14 @@
 
     <section class="daily-profit"><h3>📈 Keuntungan Hari Ini (Day <span id="current-day-display">1</span>)</h3><p id="daily-profit-amount">Rp 0</p><div class="reset-info">Reset setiap jam 00:00</div></section>
 
-    <!-- LIVE STREAMING (Facegram Live + Live Promo + Custom Love SVG Melayang) -->
+    <!-- LIVE STREAMING (Facegram Live + Live Promo + Custom Love SVG Melayang + Popup Checkout) -->
     <section class="promo-products"><h2>💟 FACEGRAM LIVE</h2>
       <div class="live-viewers live-sell" id="live-sell" style="display:none">
         <div class="floating-hearts-layer" id="ls-hearts"></div>
         <div class="lv-top">
           <span class="lv-app-badge">💟 FACEGRAM</span>
           <span class="lv-live"><i></i>LIVE JUALAN</span>
+          <span class="lv-timer-pill" id="ls-timer">⏱️ Sisa 02j 00m</span>
           <span class="lv-sched-badge" id="ls-sched-badge" style="display:none">AUTO JADWAL</span>
           <span class="ls-ad" id="ls-ad" style="display:none">LIVE AD</span>
           <span class="lv-title" id="ls-title"></span>
@@ -547,6 +561,8 @@
         <div class="ls-prod" id="ls-prod"></div>
         <div class="lv-avatars" id="ls-avatars"></div>
         <div class="lv-names" id="ls-names"></div>
+        <!-- Popup Checkout Terpisah dari Kolom Chat (TikTok/Shopee Live Style) -->
+        <div class="live-co-slot" id="ls-co-slot"></div>
         <div class="ls-chat" id="ls-chat"></div>
         <div class="ls-foot"><span id="ls-info"></span><button type="button" onclick="stopLive()">Akhiri Live</button></div>
       </div>
@@ -555,6 +571,7 @@
         <div class="lv-top">
           <span class="lv-app-badge">📱 FACEGRAM</span>
           <span class="lv-live"><i></i>LIVE PROMO</span>
+          <span class="lv-timer-pill" id="lp-timer">⏱️ Sisa 00j 00m</span>
           <span class="lv-title" id="lv-title"></span>
           <span class="like-pill"><svg viewBox="0 0 24 24"><defs><linearGradient id="pillHeartG2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#38bdf8"/><stop offset="100%" stop-color="#0284c7"/></linearGradient></defs><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="url(#pillHeartG2)"/></svg><b id="lp-likes">0</b></span>
           <span class="lv-count"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg><b id="lv-num">0</b> menonton</span>
@@ -562,6 +579,8 @@
         <div class="lv-avatars" id="lv-avatars"></div>
         <div class="lv-names" id="lv-names"></div>
         <div class="lv-feed" id="lv-feed"></div>
+        <!-- Popup Checkout Terpisah dari Kolom Chat (TikTok/Shopee Live Style) -->
+        <div class="live-co-slot" id="lp-co-slot"></div>
         <div class="ls-chat" id="lp-chat"></div>
       </div>
       <div class="products" id="promo-products"></div></section>
@@ -812,7 +831,7 @@
       "Erica", "Ignasius", "Muthe", "Shani", "Indira", "Gibran"
     ];
 
-    // 2. Nama Jenis Pembayaran Disamarkan (Fanmade)
+    // Nama Jenis Pembayaran Disamarkan (Fanmade)
     const PAYMENT_METHODS = [
       { name: "QR-Pay", icon: "📱" },
       { name: "Transfer Bank BCC", icon: "🏦" },
@@ -852,8 +871,8 @@
     ];
 
     let promoProducts = [
-      { name: "", price: 0, stock: 0, modalPrice: 0, discount: 0, active: false, duration: 0, endTime: 0, salesCount: 0, host: "" },
-      { name: "", price: 0, stock: 0, modalPrice: 0, discount: 0, active: false, duration: 0, endTime: 0, salesCount: 0, host: "" }
+      { name: "", price: 0, stock: 0, modalPrice: 0, discount: 0, active: false, duration: 0, endTime: 0, endAbsTime: 0, salesCount: 0, host: "" },
+      { name: "", price: 0, stock: 0, modalPrice: 0, discount: 0, active: false, duration: 0, endTime: 0, endAbsTime: 0, salesCount: 0, host: "" }
     ];
 
     // Jumlah restok otomatis oleh karyawan
@@ -989,7 +1008,7 @@
 
     // ===== LIVE JUALAN & 2x JADWAL AUTO LIVE FACEGRAM =====
     const LIVE_AD_COST = 500000;
-    let live = null; // { product, host, remaining, ad, count, peak, sold, names, tick, likes, scheduled, slotNum }
+    let live = null; // { product, host, remaining, totalMinutes, endAbsMinutes, ad, count, peak, sold, names, tick, likes, scheduled, slotNum }
     let liveLikes = 0;
     let promoLikes = 0;
     let liveSchedule = {
@@ -1000,6 +1019,112 @@
         { enabled: false, startMinutes: 19 * 60 + 30, hours: 2, lastTriggeredDay: 0 }
       ]
     };
+
+    function getAbsoluteMinutes() {
+      return (currentDay * 1440) + currentTime;
+    }
+
+    function formatRemainingLiveDuration(mins) {
+      const safe = Math.max(0, Math.floor(mins));
+      const h = Math.floor(safe / 60);
+      const m = safe % 60;
+      return `${String(h).padStart(2, '0')}j ${String(m).padStart(2, '0')}m`;
+    }
+
+    // ===== POPUP CHECKOUT BERGAYA TIKTOK / SHOPEE LIVE (TERPISAH DARI CHAT & BERGANTIAN) =====
+    const coQueues = {
+      sell: { items: [], active: false, timer: null },
+      promo: { items: [], active: false, timer: null }
+    };
+
+    function enqueueLiveCheckoutPopup(roomKey, buyer, qty, productName, discount = 0) {
+      const q = coQueues[roomKey];
+      if (!q) return;
+      q.items.push({ buyer, qty, productName, discount });
+      if (!q.active) {
+        processNextLiveCheckoutPopup(roomKey);
+      }
+    }
+
+    function clearLiveCheckoutQueue(roomKey) {
+      const q = coQueues[roomKey];
+      if (!q) return;
+      q.items = [];
+      q.active = false;
+      if (q.timer) {
+        clearTimeout(q.timer);
+        q.timer = null;
+      }
+      const slotEl = document.getElementById(roomKey === 'sell' ? 'ls-co-slot' : 'lp-co-slot');
+      if (slotEl) slotEl.innerHTML = '';
+    }
+
+    function processNextLiveCheckoutPopup(roomKey) {
+      const q = coQueues[roomKey];
+      const slotEl = document.getElementById(roomKey === 'sell' ? 'ls-co-slot' : 'lp-co-slot');
+      if (!q || !slotEl) return;
+
+      if (q.items.length === 0) {
+        q.active = false;
+        slotEl.innerHTML = '';
+        return;
+      }
+
+      q.active = true;
+      const item = q.items.shift();
+      const shortProd = item.productName.length > 26 ? item.productName.slice(0, 24) + '…' : item.productName;
+      const discTag = item.discount > 0 ? ` • -${item.discount}%` : '';
+
+      slotEl.innerHTML = `
+        <div class="live-co-toast" id="${roomKey}-co-toast">
+          <span class="co-bag" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+          </span>
+          <span class="co-txt"><b>${item.buyer}</b> baru saja checkout <i>${shortProd}</i>${discTag}</span>
+          <span class="co-qty">x${item.qty} pcs</span>
+        </div>
+      `;
+
+      // Tampil sesaat ~2.8 detik (lebih cepat jika antrean banyak) lalu bergantian ke checkout berikutnya
+      const showDuration = q.items.length > 1 ? 2100 : 2900;
+      q.timer = setTimeout(() => {
+        const toastEl = document.getElementById(`${roomKey}-co-toast`);
+        if (toastEl) toastEl.classList.add('hide');
+        setTimeout(() => {
+          processNextLiveCheckoutPopup(roomKey);
+        }, 280);
+      }, showDuration);
+    }
+
+    // ===== PERHITUNGAN PROBABILITAS CHECKOUT LIVE BERDASARKAN RATING TOKO & BOOST ADMIN/BA =====
+    function getLiveCheckoutChance(viewerCount, hostBoost = 1.0, favMult = 1.0) {
+      if (viewerCount <= 0) return 0;
+
+      // Sesuai aturan rating toko:
+      // - Rating <= 3.0: jarang checkout (maks ~30%, kisaran 15% - 30%)
+      // - Rating 3.0 - 4.0: sedang (~35% - 45%, rata-rata 40%)
+      // - Rating > 4.0: ramai (~65% - 75%, rata-rata 70%)
+      let baseRate = 0.20;
+      if (averageRating <= 3.0) {
+        baseRate = 0.14 + (Math.max(0, averageRating) / 3.0) * 0.16; // 14% s.d. 30%
+      } else if (averageRating <= 4.0) {
+        baseRate = 0.34 + ((averageRating - 3.0) / 1.0) * 0.11; // 34% s.d. 45% (rata-rata ~40%)
+      } else {
+        baseRate = 0.64 + ((Math.min(5.0, averageRating) - 4.0) / 1.0) * 0.11; // 64% s.d. 75% (rata-rata ~70%)
+      }
+
+      // Tambahan boost dari Admin Live / BA Live & varian favorit BA
+      const talentBonus = Math.min(0.18, Math.max(0, hostBoost - 1.0) * 0.055) + Math.max(0, favMult - 1.0) * 0.10;
+
+      // Penyesuaian alami jika penonton room masih sangat sedikit (< 4 orang)
+      const roomScale = viewerCount < 4 ? (0.65 + viewerCount * 0.09) : 1.0;
+
+      return Math.min(0.90, Math.max(0.05, (baseRate + talentBonus) * roomScale));
+    }
 
     // ===== ADAPTIVE BACKGROUND (DARK MODE DEFAULT + WARNA FOTO PRODUK SAAT LIVE) =====
     let adaptiveBgKey = '';
@@ -1088,7 +1213,7 @@
     }
 
     let lsProdKey = '';
-    const lsEl = document.getElementById('live-sell'), lsNum = document.getElementById('ls-num'), lsTitle = document.getElementById('ls-title'), lsAd = document.getElementById('ls-ad'), lsSchedBadge = document.getElementById('ls-sched-badge'), lsLikesEl = document.getElementById('ls-likes'), lsHeartsEl = document.getElementById('ls-hearts'), lsProd = document.getElementById('ls-prod'), lsAvatars = document.getElementById('ls-avatars'), lsNames = document.getElementById('ls-names'), lsChat = document.getElementById('ls-chat'), lsInfo = document.getElementById('ls-info');
+    const lsEl = document.getElementById('live-sell'), lsNum = document.getElementById('ls-num'), lsTitle = document.getElementById('ls-title'), lsTimerEl = document.getElementById('ls-timer'), lsAd = document.getElementById('ls-ad'), lsSchedBadge = document.getElementById('ls-sched-badge'), lsLikesEl = document.getElementById('ls-likes'), lsHeartsEl = document.getElementById('ls-hearts'), lsProd = document.getElementById('ls-prod'), lsAvatars = document.getElementById('ls-avatars'), lsNames = document.getElementById('ls-names'), lsChat = document.getElementById('ls-chat'), lsInfo = document.getElementById('ls-info');
     const liveHostSel = document.getElementById('live-host'), liveHintEl = document.getElementById('live-hint'), hostPickerEl = document.getElementById('host-picker');
     const promoHostSel = document.getElementById('promo-host'), promoHostPickerEl = document.getElementById('promo-host-picker');
     const schedHostSel = document.getElementById('sched-host'), schedHostPickerEl = document.getElementById('sched-host-picker');
@@ -1138,9 +1263,14 @@
         : emptyHtml;
     }
     function liveBoost() { const h = live && staffDef(live.host); return (h && h.boost) || 1; }
-    function liveSellBonus() { const b = liveBoost(); return (live && storeOpen) ? Math.min(3.2 * b, (0.30 + live.count / 55) * b) : 0; }
+    function liveSellBonus() {
+      const b = liveBoost();
+      if (!live || !storeOpen) return 0;
+      const ratingScale = averageRating <= 3.0 ? 0.30 : (averageRating <= 4.0 ? 0.55 : 1.0);
+      return Math.min(2.2 * b, (0.20 + live.count / 65) * b * ratingScale);
+    }
 
-    // 4. Custom-Designed Glossy Love/Like SVG Emoji & Gradual Single Spawning (Gak Langsung Banyakan)
+    // Custom-Designed Glossy Love/Like SVG Emoji & Gradual Single Spawning (Gak Langsung Banyakan)
     let heartUidCounter = 0;
     const HEART_PALETTES = [
       { top: '#ff7eb3', bot: '#e11d48', rim: '#ffd1e3' }, // Rose Glossy Heart
@@ -1179,7 +1309,6 @@
       container.appendChild(el);
       setTimeout(() => { if (el.parentNode) el.parentNode.removeChild(el); }, 2850);
     }
-    // Muncul satu per satu secara halus (tidak menumpuk/banyakan sekaligus)
     function triggerLiveHearts(isPromo, burstCount = 1) {
       const container = isPromo ? lpHeartsEl : lsHeartsEl;
       const safeCount = Math.max(1, Math.min(2, burstCount));
@@ -1353,12 +1482,16 @@
           updateSaldo();
         }
 
+        const totalMins = slot.hours * 60;
         slot.lastTriggeredDay = currentDay;
         liveLikes = 0;
+        clearLiveCheckoutQueue('sell');
         live = {
           product: chosenProd.name,
           host: chosenHost.id,
-          remaining: slot.hours * 60,
+          remaining: totalMins,
+          totalMinutes: totalMins,
+          endAbsMinutes: getAbsoluteMinutes() + totalMins,
           ad: usedAd,
           count: 0,
           peak: 0,
@@ -1373,7 +1506,7 @@
         lsProdKey = '';
         if (lsLikesEl) lsLikesEl.textContent = '0';
         const isLowSales = chosenProd.salesCount <= 5;
-        liveChat(`⏰ Auto Live Sesi #${i + 1} dimulai! ${chosenHost.name} memilih ${chosenProd.name} (${isLowSales ? 'dorong penjualan varian ini' : 'varian top seller'})`, 'sys');
+        liveChat(`⏰ Auto Live Sesi #${i + 1} dimulai (${slot.hours} jam)! ${chosenHost.name} memilih ${chosenProd.name} (${isLowSales ? 'dorong penjualan varian ini' : 'varian top seller'})`, 'sys');
         logActivity(`📱 Auto Live Facegram Sesi #${i + 1}: ${chosenHost.name} mempromosikan ${chosenProd.name} (${slot.hours} jam${usedAd ? ', Live Ad' : ''})`);
         liveSellTick();
         break;
@@ -1817,8 +1950,12 @@
             }
             if (p.host && liveHostActive(p.host)) {
               const hostObj = staffDef(p.host);
-              p.active = true; p.pending = false; p.endTime = currentTime + p.duration * 60;
-              lpChatAdd(`${hostObj.name} membuka Live Promo di Facegram: ${p.name} (Diskon ${p.discount}%)!`, 'sys');
+              const totalUnits = (p.duration || 10) * 60;
+              p.active = true;
+              p.pending = false;
+              p.endAbsTime = getAbsoluteMinutes() + totalUnits;
+              p.endTime = currentTime + totalUnits;
+              lpChatAdd(`${hostObj.name} membuka Live Promo di Facegram: ${p.name} (Diskon ${p.discount}%, durasi ${p.duration} menit)!`, 'sys');
               logActivity(`🔥 ${ps.name} memulai Live Promo ${p.name} bersama ${hostObj.name} (diskon ${p.discount}%)`);
               updateProducts();
             }
@@ -1932,8 +2069,9 @@
     function simulateCustomerBehavior() {
       if (!storeOpen) return;
       const traffic = getTrafficFactor();
+      const ratingLiveScale = averageRating <= 3.0 ? 0.30 : (averageRating <= 4.0 ? 0.50 : 0.95);
       let livePromoBonus = 0;
-      promoProducts.forEach(p => { if (p.active) livePromoBonus += (p.discount / 100) * 1.5; });
+      promoProducts.forEach(p => { if (p.active) livePromoBonus += (p.discount / 100) * 0.9 * ratingLiveScale; });
       const adNames = activeAdNames();
       const adBonus = Math.min(1.5, adNames.length * 0.5);
       const activeBAs = getActiveBAs();
@@ -1943,7 +2081,8 @@
 
       const botName = botNames[Math.floor(Math.random() * botNames.length)];
       const payMethod = PAYMENT_METHODS[Math.floor(Math.random() * PAYMENT_METHODS.length)];
-      const preferLivePromo = (Math.random() < 0.85 + (livePromoBonus*0.3));
+      const liveCoRate = getLiveCheckoutChance(Math.max(4, live ? live.count : 4), liveBoost(), 1);
+      const preferLivePromo = (Math.random() < liveCoRate);
       let numProductsToBuy = 1;
       if (averageRating >= 4.0) numProductsToBuy = Math.floor(Math.random()*4)+1;
       else if (averageRating >= 3.0) numProductsToBuy = Math.floor(Math.random()*3)+1;
@@ -1962,7 +2101,7 @@
         let isPromoItem = false;
         const availableLivePromos = promoProducts.filter(p=>p.active && p.stock>0);
         const availableRegular = products.filter(p=>p.active && p.stock>0);
-        if (preferLivePromo && availableLivePromos.length>0 && Math.random()<0.8) {
+        if (preferLivePromo && availableLivePromos.length>0 && Math.random() < liveCoRate) {
           product = availableLivePromos[Math.floor(Math.random()*availableLivePromos.length)];
           isPromoItem = true;
         } else if (availableRegular.length>0) {
@@ -1975,7 +2114,10 @@
           } else {
             product = availableRegular[Math.floor(Math.random()*availableRegular.length)];
           }
-          if (live && storeOpen && Math.random() < Math.min(0.85, 0.45 * liveBoost())) { const lp = availableRegular.find(p => p.name === live.product); if (lp) product = lp; }
+          if (live && storeOpen && Math.random() < (liveCoRate * 0.65)) {
+            const lp = availableRegular.find(p => p.name === live.product);
+            if (lp) product = lp;
+          }
           if (bestSellerNames.includes(product.name) && Math.random()<0.6) { }
         } else continue;
 
@@ -2148,18 +2290,28 @@
       checkScheduledAutoLive();
       staffWork();
 
+      const nowAbs = getAbsoluteMinutes();
       promoProducts.forEach((p,idx) => {
         if (p.active && p.host && !liveHostActive(p.host)) {
           p.active = false;
           logActivity(`⚠️ Live Promo ${p.name} dijeda: admin live tidak aktif (gaji bulan ini belum dibayar).`);
           updateProducts();
         }
-        if (p.endTime>0 && currentTime>=p.endTime) {
-          const original = products.find(pr=>pr.name===p.name);
-          if(original) original.salesCount += p.salesCount;
-          promoProducts[idx] = { name:"", price:0, stock:0, modalPrice:0, discount:0, active:false, duration:0, endTime:0, salesCount:0, host:"" };
-          logActivity(`Live Promo ${p.name} berakhir.`);
-          updateProducts();
+        // Gunakan endAbsTime agar tidak pernah gagal auto-stop saat melewati tengah malam (00:00)
+        if (p.name && !p.pending) {
+          if (!p.endAbsTime && p.endTime > 0) {
+            p.endAbsTime = (currentDay * 1440) + p.endTime;
+          }
+          if (p.endAbsTime > 0 && nowAbs >= p.endAbsTime) {
+            const endedName = p.name;
+            const original = products.find(pr=>pr.name===endedName);
+            if(original) original.salesCount += p.salesCount;
+            promoProducts[idx] = { name:"", price:0, stock:0, modalPrice:0, discount:0, active:false, duration:0, endTime:0, endAbsTime:0, salesCount:0, host:"" };
+            clearLiveCheckoutQueue('promo');
+            logActivity(`⏱️ Live Promo ${endedName} berakhir otomatis (waktu habis).`);
+            showToast(`Live Promo ${endedName} telah berakhir!`, "info");
+            updateProducts();
+          }
         }
       });
 
@@ -2185,11 +2337,13 @@
           showToast("Live Promo memerlukan Admin Live / BA yang aktif! Sewa & bayar gaji/kontrak talent dulu.", "warn");
           return;
         }
+        const totalUnits = (p.duration || 10) * 60;
         p.pending = false;
         p.active = true;
-        p.endTime = currentTime + p.duration * 60;
+        p.endAbsTime = getAbsoluteMinutes() + totalUnits;
+        p.endTime = currentTime + totalUnits;
         const hostObj = staffDef(p.host);
-        lpChatAdd(`${hostObj ? hostObj.name : 'Admin Live'} memulai Live Promo di Facegram: ${p.name}!`, 'sys');
+        lpChatAdd(`${hostObj ? hostObj.name : 'Admin Live'} memulai Live Promo di Facegram: ${p.name} (durasi ${p.duration} menit)!`, 'sys');
         logActivity(`Live Promo ${p.name} diaktifkan bersama ${hostObj ? hostObj.name : 'Admin Live'}.`);
       } else {
         p.pending = false;
@@ -2346,12 +2500,13 @@
         productsEl.appendChild(productDiv);
       });
       promoProductsEl.innerHTML = "";
+      const nowAbs = getAbsoluteMinutes();
       promoProducts.forEach((product, index) => {
         if (product.name) {
           const productDiv = document.createElement("div");
           productDiv.className = `product ${product.stock === 0 ? 'out-of-stock' : ''} ${!product.active ? 'inactive' : ''} ${product.active ? 'promo-active' : ''} ${product.img ? 'has-photo' : ''}`;
           const discountedPrice = product.price * (1 - product.discount / 100);
-          const remainingTime = Math.max(0, product.endTime - currentTime);
+          const remainingTime = product.endAbsTime > 0 ? Math.max(0, product.endAbsTime - nowAbs) : Math.max(0, product.endTime - currentTime);
           const remainingMinutes = Math.floor(remainingTime / 60);
           const remainingSeconds = remainingTime % 60;
           const hostObj = product.host ? staffDef(product.host) : null;
@@ -2452,6 +2607,7 @@
         if (emptySlot) { 
           if (saldoUtama < promoFee) { showToast(`Saldo utama tidak cukup untuk biaya promo Rp ${promoFee.toLocaleString()}`, "warn"); return; }
           if (saldoUtama < products[idx].modalPrice * stock + promoFee) { showToast("Saldo utama tidak cukup untuk stok + biaya promo!", "warn"); return; } 
+          const totalUnits = dur * 60;
           emptySlot.name = products[idx].name; 
           emptySlot.price = products[idx].price; 
           emptySlot.stock = stock; 
@@ -2461,13 +2617,14 @@
           emptySlot.host = hostId;
           emptySlot.active = false; 
           emptySlot.pending = true;
-          emptySlot.endTime = currentTime + dur * 60; 
+          emptySlot.endTime = currentTime + totalUnits; 
+          emptySlot.endAbsTime = getAbsoluteMinutes() + totalUnits;
           emptySlot.salesCount = 0; 
           emptySlot.img = products[idx].img || '';
           saldoUtama -= (products[idx].modalPrice * stock) + promoFee; 
           updateSaldo(); 
           updateProducts(); 
-          logActivity(`🔥 Live Promo disiapkan: ${products[idx].name} bersama ${hostObj.name} (biaya Rp 1.000.000)`);
+          logActivity(`🔥 Live Promo disiapkan: ${products[idx].name} bersama ${hostObj.name} (${dur} menit, biaya Rp 1.000.000)`);
           showToast(`Live Promo ${products[idx].name} siap dimulai!`, "ok");
         } else showToast("Slot live promo penuh!", "warn"); 
       } else showToast("Input Live Promo tidak valid!", "warn"); 
@@ -2485,9 +2642,8 @@
       return false;
     }
 
-    // ===== 5. PORTABLE CROSS-DEVICE SAVE CODE & LOCAL SAVE/LOAD =====
+    // ===== PORTABLE CROSS-DEVICE SAVE CODE & LOCAL SAVE/LOAD =====
     function buildSavePayload() {
-      // Strip raw data:image URLs in portable code so code remains compact & fast to copy across devices
       const slimProducts = products.map(p => {
         const copy = { ...p };
         if (copy.img && copy.img.startsWith('data:')) delete copy.img;
@@ -2546,6 +2702,11 @@
       currentTime = g.currentTime !== undefined ? g.currentTime : 600;
       products = g.products || products;
       promoProducts = g.promoProducts || promoProducts;
+      promoProducts.forEach(p => {
+        if (p.name && !p.endAbsTime && p.endTime > 0) {
+          p.endAbsTime = (currentDay * 1440) + p.endTime;
+        }
+      });
       autoRestockAmount = g.autoRestockAmount || 10;
       staffHired = (g.staffHired || []).map(h => ({
         id: h.id,
@@ -2586,8 +2747,14 @@
       averageRating = g.averageRating || 0;
       storeOpen = g.storeOpen !== undefined ? g.storeOpen : true;
       live = g.live || null;
-      if (live && !Array.isArray(live.names)) live.names = [];
+      if (live) {
+        if (!Array.isArray(live.names)) live.names = [];
+        if (!live.totalMinutes) live.totalMinutes = live.remaining || 120;
+        if (!live.endAbsMinutes) live.endAbsMinutes = getAbsoluteMinutes() + (live.remaining || 60);
+      }
       liveLikes = (live && live.likes) || 0;
+      clearLiveCheckoutQueue('sell');
+      clearLiveCheckoutQueue('promo');
       if (Array.isArray(g.proRoster) && g.proRoster.length) {
         const updatedPros = g.proRoster.map((pr, idx) => ({ ...pr, salary: PRO_DEF[idx] ? PRO_DEF[idx].salary : pr.salary }));
         setPros(updatedPros);
@@ -2696,7 +2863,6 @@
           return false;
         }
         applyLoadedGameData(decoded, 'Kode Save');
-        // Simpan juga ke localStorage perangkat/browser baru ini
         try { localStorage.setItem('grroseParfumeSave', JSON.stringify(decoded)); } catch (e) {}
         lastAutoLoadedCode = raw.replace(/\s+/g, '');
         if (statusEl) {
@@ -2714,7 +2880,6 @@
       }
     };
 
-    // Otomatis load saat kode ditempel (paste) atau diketik lengkap di kolom input atas tombol Save
     const saveCodeInputEl = document.getElementById('save-code-input');
     if (saveCodeInputEl) {
       saveCodeInputEl.addEventListener('paste', () => {
@@ -2747,8 +2912,10 @@
       showConfirmModal("Reset game? Semua progress saat ini akan dihapus dan dimulai dari awal!", () => {
         saldoUtama = 30000000; saldoModal = 0; saldoKeuntungan = 0; dailyProfit = 0; currentDay = 1; currentTime = 10*60;
         products = products.map(p => ({ ...p, stock: 0, discount: 0, active: true, salesCount: 0, isNew: false }));
-        promoProducts = [ { name:"", price:0, stock:0, modalPrice:0, discount:0, active:false, duration:0, endTime:0, salesCount:0, host:"" }, { name:"", price:0, stock:0, modalPrice:0, discount:0, active:false, duration:0, endTime:0, salesCount:0, host:"" } ];
+        promoProducts = [ { name:"", price:0, stock:0, modalPrice:0, discount:0, active:false, duration:0, endTime:0, endAbsTime:0, salesCount:0, host:"" }, { name:"", price:0, stock:0, modalPrice:0, discount:0, active:false, duration:0, endTime:0, endAbsTime:0, salesCount:0, host:"" } ];
         autoRestockAmount = 10; staffHired = []; baFavorites = {}; selectedDiscountProducts.clear(); ads = []; setPros(); saldoGropay = 0; gropayHistory = []; weeklyBillAmount = 14000000; lastBillPaidWeek = 0; weeklyBillsHistory = []; dailyTaxTotal = 0; lastTaxPaidDay = 0; loanActive = false; loanAmount = 0; loanTenor = 0; loanRemainingWeeks = 0; loanWeeklyPayment = 0; loanLastPaymentDay = 0; loanOverdueWeeks = 0; totalRatings = 0; averageRating = 0; storeOpen = true; live = null; liveLikes = 0; promoLikes = 0;
+        clearLiveCheckoutQueue('sell');
+        clearLiveCheckoutQueue('promo');
         liveSchedule = {
           hostId: "",
           useAd: false,
@@ -2906,9 +3073,9 @@
       r.readAsDataURL(f);
     });
 
-    // ===== 3. PENONTON LIVE PROMO & LIVE JUALAN (ADAPTIF: KELUAR MASUK ROOM, CHAT BERVARIASI, PENJUALAN ADAPTIF) =====
+    // ===== PENONTON LIVE PROMO & LIVE JUALAN =====
     let liveViewers = [], liveWasActive = false;
-    const lvBox = document.getElementById('live-viewers'), lvNum = document.getElementById('lv-num'), lvTitle = document.getElementById('lv-title'), lvAvatars = document.getElementById('lv-avatars'), lvNames = document.getElementById('lv-names'), lvFeed = document.getElementById('lv-feed'), lpChat = document.getElementById('lp-chat'), lpLikesEl = document.getElementById('lp-likes'), lpHeartsEl = document.getElementById('lp-hearts');
+    const lvBox = document.getElementById('live-viewers'), lvNum = document.getElementById('lv-num'), lvTitle = document.getElementById('lv-title'), lpTimerEl = document.getElementById('lp-timer'), lvAvatars = document.getElementById('lv-avatars'), lvNames = document.getElementById('lv-names'), lvFeed = document.getElementById('lv-feed'), lpChat = document.getElementById('lp-chat'), lpLikesEl = document.getElementById('lp-likes'), lpHeartsEl = document.getElementById('lp-hearts');
     const avBg = n => `hsl(${[...n].reduce((a, c) => a + c.charCodeAt(0), 0) % 360},65%,45%)`;
 
     const PROMO_LIVE_CHATS = [
@@ -2965,10 +3132,11 @@
       while (lpChat.children.length > 26) lpChat.removeChild(lpChat.firstChild);
       lpChat.scrollTop = lpChat.scrollHeight;
     }
-    // 1. Komentar checkout saat live promo TANPA menampilkan metode pembayaran
+
+    // Info checkout Live Promo muncul sebagai popup kecil bergantian (bukan di kolom chat)
     function promoBuyChat(n, q, pItem) {
       if (!lvBox || lvBox.style.display === 'none') return;
-      lpChatAdd(`🔥 ${n} borong ${q} pcs ${pItem.name} (Diskon ${pItem.discount}%)!`, 'sys');
+      enqueueLiveCheckoutPopup('promo', n, q, pItem.name, pItem.discount || 0);
     }
 
     function getPromoHostReply(botName, msg, activePromo) {
@@ -2992,6 +3160,7 @@
           liveViewers = [];
           liveWasActive = false;
           promoLikes = 0;
+          clearLiveCheckoutQueue('promo');
         }
         lvBox.style.display = 'none';
         return;
@@ -3007,7 +3176,16 @@
       const hostCharm = (hostObj && hostObj.charm) || 1.2;
       const hostBoost = (hostObj && hostObj.boost) || 1.1;
 
-      // Perhitungan penonton memperlihatkan aspek rating toko & rating talent live
+      // Update Timer Live Promo di header room
+      const nowAbs = getAbsoluteMinutes();
+      const maxRemUnits = Math.max(...act.map(p => p.endAbsTime > 0 ? Math.max(0, p.endAbsTime - nowAbs) : Math.max(0, p.endTime - currentTime)));
+      if (lpTimerEl) {
+        const remM = Math.floor(maxRemUnits / 60);
+        const remS = maxRemUnits % 60;
+        lpTimerEl.textContent = `⏱️ Sisa ${remM}m ${String(remS).padStart(2, '0')}s`;
+        lpTimerEl.classList.toggle('urgent', maxRemUnits <= 60);
+      }
+
       const storeRatingFactor = 0.45 + (averageRating / 5) * 1.55;
       const target = Math.max(3, Math.round(
         (4 + maxDisc * 0.25 + customerMultiplier * 8 * storeRatingFactor)
@@ -3016,7 +3194,6 @@
       ));
 
       const ev = [];
-      // Penonton bisa keluar room secara dinamis
       if (liveViewers.length > 0 && (liveViewers.length > target || Math.random() < 0.38)) {
         const leaveCount = liveViewers.length > target + 4
           ? Math.min(liveViewers.length - target, 3)
@@ -3028,7 +3205,6 @@
         }
       }
 
-      // Penonton baru masuk ke room secara dinamis
       if (liveViewers.length < target || Math.random() < 0.42) {
         const need = Math.max(1, Math.min(4, Math.ceil((target - liveViewers.length) * 0.45) || 1));
         const pool = botNames.filter(n => !liveViewers.includes(n)).sort(() => Math.random() - 0.5);
@@ -3046,7 +3222,6 @@
       lvNames.textContent = liveViewers.length ? `Menonton: ${liveViewers.slice(-5).join(', ')}${liveViewers.length > 5 ? ` & ${liveViewers.length - 5} lainnya` : ''}` : '';
       if (ev.length) lvFeed.innerHTML = ev.slice(-2).map(t => `<div>${t}</div>`).join('');
 
-      // Interaksi penonton di room: tanya-tanya, kirim love, atau checkout jika tertarik
       if (liveViewers.length > 0) {
         if (Math.random() < 0.45) {
           triggerLiveHearts(true, 1);
@@ -3061,13 +3236,10 @@
           }
         }
 
-        // Penjualan adaptif dari penonton yang gabung di room Live Promo
+        // Peluang checkout Live Promo sesuai tier rating toko + boost Admin Live / BA
         const promoWithStock = act.filter(p => p.stock > 0);
         if (promoWithStock.length > 0) {
-          const convChance = Math.min(
-            0.52,
-            (0.05 + liveViewers.length * 0.008) * (0.65 + (averageRating / 5) * 0.75) * (0.75 + hostBoost * 0.25)
-          );
+          const convChance = getLiveCheckoutChance(liveViewers.length, hostBoost, 1.0);
           if (Math.random() < convChance) {
             const buyer = liveViewers[Math.floor(Math.random() * liveViewers.length)];
             const chosenPromo = promoWithStock[Math.floor(Math.random() * promoWithStock.length)];
@@ -3173,16 +3345,29 @@
       while (lsChat.children.length > 28) lsChat.removeChild(lsChat.firstChild);
       lsChat.scrollTop = lsChat.scrollHeight;
     }
-    // 1. Komentar checkout saat live shopping TANPA metode pembayaran
+
+    // Info checkout Live Jualan muncul sebagai popup kecil bergantian (terpisah dari kolom chat)
     function liveBuyChat(n, q) {
-      if (live) liveChat(`🛍️ ${n} checkout ${q} pcs!`, 'sys');
+      if (live) {
+        const prodObj = products.find(x => x.name === live.product);
+        enqueueLiveCheckoutPopup('sell', n, q, live.product, prodObj ? (prodObj.discount || 0) : 0);
+      }
     }
 
-    window.stopLive = function() {
+    window.stopLive = function(autoExpired = false) {
       if (!live) return;
-      const done = live; live = null; liveLikes = 0; lsEl.style.display = 'none'; lsProdKey = '';
+      const done = live;
+      live = null;
+      liveLikes = 0;
+      lsEl.style.display = 'none';
+      lsProdKey = '';
+      clearLiveCheckoutQueue('sell');
       applyAdaptiveBackground();
-      logActivity(`📴 Live ${done.product} selesai (puncak ${done.peak} penonton, ${done.likes || 0} like, terjual ${done.sold})`);
+      const endLabel = autoExpired ? 'selesai otomatis (waktu live habis)' : 'selesai';
+      logActivity(`📴 Live ${done.product} ${endLabel} (puncak ${done.peak} penonton, ${done.likes || 0} like, terjual ${done.sold} pcs)`);
+      if (autoExpired) {
+        showToast(`Live ${done.product} selesai (waktu habis)!`, "info");
+      }
     };
 
     document.getElementById('live-form').addEventListener('submit', e => {
@@ -3198,36 +3383,64 @@
       const ad = document.getElementById('live-ad').checked;
       if (ad && saldoUtama < LIVE_AD_COST) { showToast("Saldo utama tidak cukup untuk Live Ad (Rp 500.000)!", "warn"); return; }
       if (ad) { saldoUtama -= LIVE_AD_COST; updateSaldo(); }
+      const totalMins = hours * 60;
       liveLikes = 0;
-      live = { product: p.name, host: hid, remaining: hours * 60, ad, count: 0, peak: 0, sold: 0, names: [], tick: 0, likes: 0, scheduled: false };
+      clearLiveCheckoutQueue('sell');
+      live = {
+        product: p.name,
+        host: hid,
+        remaining: totalMins,
+        totalMinutes: totalMins,
+        endAbsMinutes: getAbsoluteMinutes() + totalMins,
+        ad,
+        count: 0,
+        peak: 0,
+        sold: 0,
+        names: [],
+        tick: 0,
+        likes: 0,
+        scheduled: false
+      };
       lsChat.innerHTML = ''; lsProdKey = '';
       if (lsLikesEl) lsLikesEl.textContent = '0';
-      liveChat(`🎬 ${host.name} mulai live di Facegram: ${p.name}${ad ? ' (Live Ad)' : ''}`, 'sys');
+      liveChat(`🎬 ${host.name} mulai live di Facegram: ${p.name} (durasi ${hours} jam${ad ? ', Live Ad' : ''})`, 'sys');
       logActivity(`📱 Mulai Live Facegram: ${p.name} bersama ${host.name} (${hours} jam${ad ? ', Live Ad' : ''})`);
-      showToast(`Live Facegram dimulai bersama ${host.name}!`, "ok");
+      showToast(`Live Facegram dimulai (${hours} jam) bersama ${host.name}!`, "ok");
       liveSellTick();
     });
 
     function liveSellTick() {
       if (!live) { lsEl.style.display = 'none'; return; }
       const p = products.find(x => x.name === live.product);
-      if (!p) { stopLive(); return; }
+      if (!p) { stopLive(false); return; }
       if (!liveHostActive(live.host)) {
         const h = staffDef(live.host);
         logActivity(`📴 Live berhenti: gaji/kontrak ${h ? h.name : 'admin live'} belum dibayar.`);
-        stopLive();
+        stopLive(false);
         return;
       }
+
+      const nowAbs = getAbsoluteMinutes();
+      if (!live.endAbsMinutes) {
+        live.endAbsMinutes = nowAbs + Math.max(1, live.remaining || 60);
+      }
+
+      live.remaining = Math.max(0, live.endAbsMinutes - nowAbs);
+      live.tick++;
+
+      // Auto-stop akurat saat durasi waktu live sudah habis
+      if (live.remaining <= 0 || nowAbs >= live.endAbsMinutes) {
+        stopLive(true);
+        return;
+      }
+
       if (!storeOpen) { lsEl.style.display = 'none'; return; }
-      live.remaining--; live.tick++;
-      if (live.remaining <= 0) { stopLive(); return; }
 
       const h = staffDef(live.host), charm = (h && h.charm) || 1, boost = (h && h.boost) || 1;
       const baFavs = getProductBaFavs(p.name);
       const favMult = baFavs.length ? (1 + baFavs.reduce((a, b) => a + b.favBonus, 0) * 0.5) : 1;
 
-      // Penghitungan jumlah penonton memperlihatkan aspek rating toko dan rating talent live
-      const storeRatingScore = 0.40 + (averageRating / 5) * 1.60; // Rating 0 -> 0.40, Rating 5 -> 2.00
+      const storeRatingScore = 0.40 + (averageRating / 5) * 1.60;
       const talentRatingScore = 0.65 + charm * 0.48;
       const base = (3 + customerMultiplier * 10 * storeRatingScore + (p.discount || 0) * 0.14)
         * getTrafficFactor()
@@ -3238,7 +3451,6 @@
       const wave = 1 + 0.25 * Math.sin(live.tick / 5);
       const target = Math.max(2, Math.round(base * wave));
 
-      // Penonton keluar room live secara adaptif
       if (live.names.length > 0 && (live.names.length > target || Math.random() < 0.36)) {
         const leaveAmt = live.names.length > target + 4
           ? Math.min(live.names.length - target, 3)
@@ -3250,7 +3462,6 @@
         }
       }
 
-      // Penonton baru masuk ke room live secara adaptif
       if (live.names.length < target || Math.random() < 0.42) {
         const joinAmt = Math.max(1, Math.min(4, Math.ceil((target - live.names.length) * 0.45) || 1));
         const pool = botNames.filter(n => !live.names.includes(n)).sort(() => Math.random() - 0.5);
@@ -3272,7 +3483,11 @@
       lsAd.style.display = live.ad ? 'inline-block' : 'none';
       if (lsSchedBadge) lsSchedBadge.style.display = live.scheduled ? 'inline-block' : 'none';
       if (lsLikesEl) lsLikesEl.textContent = (live.likes || liveLikes).toLocaleString();
-      lsTitle.textContent = `${h ? h.name : 'Admin Live'} (⭐${averageRating.toFixed(1)} • Pesona x${charm}) • Sisa ${Math.floor(live.remaining / 60)}j ${live.remaining % 60}m`;
+      if (lsTimerEl) {
+        lsTimerEl.textContent = `⏱️ Sisa ${formatRemainingLiveDuration(live.remaining)}`;
+        lsTimerEl.classList.toggle('urgent', live.remaining <= 15);
+      }
+      lsTitle.textContent = `${h ? h.name : 'Admin Live'} (⭐${averageRating.toFixed(1)} • Pesona x${charm})`;
       lsNum.textContent = live.count;
 
       const disc = p.price * (1 - (p.discount || 0) / 100);
@@ -3287,7 +3502,6 @@
       lsNames.textContent = live.names.length ? `Menonton: ${live.names.slice(-5).join(', ')}${live.names.length > 5 ? ` & ${live.names.length - 5} lainnya` : ''}` : '';
       lsInfo.textContent = `Terjual di live: ${live.sold} pcs • Puncak: ${live.peak} penonton`;
 
-      // Penonton yang gabung live: sebagian cuma nonton & tanya-tanya, sebagian checkout kalau suka
       if (live.names.length > 0) {
         if (Math.random() < 0.48) {
           const bn = live.names[Math.floor(Math.random() * live.names.length)];
@@ -3300,15 +3514,9 @@
           }
         }
 
-        // Penjualan adaptif menyesuaikan penonton di room + rating toko + talent live
+        // Peluang checkout Live Jualan sesuai tier rating toko + boost Admin Live / BA
         if (p.stock > 0 && p.active) {
-          const roomConvChance = Math.min(
-            0.55,
-            (0.04 + live.count * 0.0075)
-            * (0.60 + (averageRating / 5) * 0.80)
-            * (0.75 + boost * 0.28)
-            * favMult
-          );
+          const roomConvChance = getLiveCheckoutChance(live.count, boost, favMult);
           if (Math.random() < roomConvChance) {
             const buyer = live.names[Math.floor(Math.random() * live.names.length)];
             const maxQty = boost >= 2.2 ? 3 : 2;
