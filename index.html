@@ -2625,18 +2625,17 @@
       while (commentBox.children.length > 60) commentBox.removeChild(commentBox.lastChild);
     }
 
-    // ===== PRODUCTS DISPLAY (TOP 3 BEST SELLER SELALU TERATAS #1, #2, #3) =====
+    // ===== PRODUCTS DISPLAY (PERINGKAT PENJUALAN: TERBANYAK DI ATAS, TERSEDIKIT DI BAWAH; TOP 3 = BEST SELLER #1, #2, #3) =====
     function updateProducts() {
       productsEl.innerHTML = "";
-      const top3Products = [...products]
+      // Semua produk diurutkan dari jumlah terjual terbanyak ke tersedikit.
+      // Jika jumlah terjual sama, urutan asli produk tetap dipertahankan (sort stabil).
+      const orderedProducts = [...products]
+        .sort((a, b) => (b.salesCount || 0) - (a.salesCount || 0));
+      const top3Products = orderedProducts
         .filter(p => p.salesCount > 0)
-        .sort((a, b) => b.salesCount - a.salesCount)
         .slice(0, 3);
       const top3 = top3Products.map(p => p.name);
-      const orderedProducts = [
-        ...top3Products,
-        ...products.filter(p => !top3.includes(p.name))
-      ];
       orderedProducts.forEach((product, idx) => {
         const productDiv = document.createElement("div");
         productDiv.className = "product";
@@ -3236,6 +3235,7 @@
           logActivity(`📱 ${who} beli dari Live Facegram: ${qty}x ${boughtProd.name} (Rp ${Math.round(total).toLocaleString()}).`);
           updateSaldo(); updateDailyProfitDisplay();
           checkAndAutoRestock();
+          updateProducts();
         }
       }
     }
