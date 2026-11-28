@@ -482,6 +482,16 @@
     .form .live-ad-opt input::after { content: ""; position: absolute; top: 3px; left: 3px; width: 22px; height: 22px; border-radius: 50%; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.3); transition: all 0.25s; }
     .form .live-ad-opt input:checked { background: linear-gradient(135deg, #00c6ff, #0072ff) !important; }
     .form .live-ad-opt input:checked::after { left: 23px; }
+  
+    /* ====== TAB POV PEMBELI (MARKETPLACE, HANYA LIHAT) ====== */
+    .night-mode-toggle.pov-toggle { right: 76px; }
+    .night-mode-toggle.pov-toggle.on { background: rgba(0,114,255,0.85); }
+    .pov-overlay { position: fixed; inset: 0; z-index: 900; overflow-y: auto; display: none; background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 50%, #ffd6e8 100%); color: #333; }
+    body.night-mode .pov-overlay { background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%); color: #f4f4f9; }
+    .pov-overlay.open { display: block; }
+    .pov-overlay .pov-chat p { animation: none; }
+    .pov-overlay .products { padding-top: 10px; }
+  
   </style>
 </head>
 <body class="night-mode">
@@ -804,6 +814,7 @@
 
   <input type="file" id="photo-input" accept="image/*" style="display:none">
   <button class="night-mode-toggle" id="night-mode-btn" onclick="toggleNightMode()">☀️</button>
+  <button class="night-mode-toggle pov-toggle" id="pov-btn" onclick="toggleBuyerPOV()" title="POV Pembeli (Marketplace)">🛍️</button>
   <button class="store-status-button" id="store-status-button" onclick="toggleStoreStatus()">Buka Toko</button>
 
   <div id="game-over-popup" class="game-over-popup" style="display: none;"><div class="game-over-content"><h2>💔 GAME OVER</h2><p>Toko Anda bangkrut!</p><p id="game-over-reason"></p><button onclick="resetGame()">Mulai Lagi</button></div></div>
@@ -819,6 +830,15 @@
     </div>
   </div>
   <div id="ui-toast-wrap" class="ui-toast-wrap"></div>
+  <!-- Tab POV Pembeli (Marketplace): hanya tampilan, tidak bisa membeli -->
+  <div id="pov-overlay" class="pov-overlay">
+    <header class="header" id="pov-header"></header>
+    <div class="container">
+      <section class="rack"><div id="pov-live"></div></section>
+      <section class="rack"><h2>🛍️ Etalase Produk</h2><div class="products" id="pov-products"></div></section>
+    </div>
+  </div>
+
 
   <script>
     (function() {
@@ -3700,6 +3720,49 @@
         logActivity("🔄 Progress terakhir di browser ini otomatis dimuat.");
       }
     }
+    // ===== TAB POV PEMBELI (MARKETPLACE) — HANYA LIHAT, TIDAK BISA BELI, TANPA HARGA MODAL =====
+    ;(function () {
+      const ov = document.getElementById('pov-overlay'), btn = document.getElementById('pov-btn');
+      const hd = document.getElementById('pov-header'), lv = document.getElementById('pov-live'), gr = document.getElementById('pov-products');
+      const cache = {}; let timer = null;
+      const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+      const rp = n => 'Rp ' + Math.round(n).toLocaleString();
+      const chat = el => Array.from(el.children).slice(-8).map(n => n.outerHTML).join('');
+      const put = (el, k, html) => { if (cache[k] === html) return false; cache[k] = html; el.innerHTML = html; return true; };
+      const photo = p => p.img ? `<div class="p-photo" style="background-image:url('${p.img}')"></div>` : '';
+      function promoCard(p) {
+        return `<div class="product promo-active ${p.img ? 'has-photo' : ''}">${photo(p)}<div class="p-body"><h3>${esc(p.name)}</h3><p class="original-price">${rp(p.price)}</p><p class="discounted-price">${rp(p.price * (1 - (p.discount || 0) / 100))}</p><p class="discount">Diskon: ${p.discount}%</p><p>Stok: ${p.stock}</p><p class="sales-count">🔥 Terjual: ${p.salesCount || 0}</p></div></div>`;
+      }
+      function render() {
+        put(hd, 'h', `<h1>🛍️ ${esc(storeName)}</h1><p><i>Tampilan Marketplace • POV Pembeli (hanya lihat, tidak bisa membeli)</i></p><p>⭐ ${averageRating > 0 ? averageRating.toFixed(1) : '-'} • ${storeOpen ? '🟢 Toko Buka' : '🔴 Toko Tutup'} • Day ${currentDay}</p>`);
+        let L = '';
+        if (storeOpen && live) {
+          L += `<div class="live-viewers live-sell"><div class="lv-top"><span class="lv-app-badge">💟 FACEGRAM</span><span class="lv-live"><i></i>LIVE JUALAN</span>${live.ad ? '<span class="ls-ad">LIVE AD</span>' : ''}<span class="lv-timer-pill">⏱️ Sisa ${formatRemainingLiveDuration(live.remaining)}</span><span class="lv-title">${esc(lsTitle.textContent)}</span><span class="like-pill">❤️ <b>${esc(lsLikesEl.textContent)}</b></span><span class="lv-count">👁️ <b>${esc(lsNum.textContent)}</b> menonton</span></div>${lsProd.innerHTML ? `<div class="ls-prod">${lsProd.innerHTML}</div>` : ''}<div class="lv-avatars">${lsAvatars.innerHTML}</div><div class="lv-names">${esc(lsNames.textContent)}</div><div class="ls-chat pov-chat">${chat(lsChat)}</div></div>`;
+        }
+        const act = promoProducts.filter(p => p.active);
+        if (storeOpen && act.length) {
+          L += `<div class="live-viewers"><div class="lv-top"><span class="lv-app-badge">📱 FACEGRAM</span><span class="lv-live"><i></i>LIVE PROMO</span><span class="lv-timer-pill">${esc(lpTimerEl.textContent)}</span><span class="lv-title">${esc(lvTitle.textContent)}</span><span class="like-pill">❤️ <b>${esc(lpLikesEl.textContent)}</b></span><span class="lv-count">👁️ <b>${esc(lvNum.textContent)}</b> menonton</span></div><div class="lv-avatars">${lvAvatars.innerHTML}</div><div class="lv-names">${esc(lvNames.textContent)}</div><div class="ls-chat pov-chat">${chat(lpChat)}</div></div><div class="products">${act.map(promoCard).join('')}</div>`;
+        }
+        if (put(lv, 'l', L)) lv.querySelectorAll('.pov-chat').forEach(c => { c.scrollTop = c.scrollHeight; });
+        const ord = [...products].sort((a, b) => (b.salesCount || 0) - (a.salesCount || 0));
+        const top = ord.filter(p => p.salesCount > 0).slice(0, 3).map(p => p.name);
+        put(gr, 'g', ord.map(p => {
+          const r = top.indexOf(p.name);
+          const cls = ['product', r !== -1 ? 'best-seller' : '', p.img ? 'has-photo' : '', p.stock === 0 ? 'out-of-stock' : '', !p.active ? 'inactive' : ''].join(' ');
+          const price = p.discount > 0
+            ? `<p class="original-price">${rp(p.price)}</p><p class="discounted-price">${rp(p.price * (1 - p.discount / 100))}</p><p class="discount">Diskon: ${p.discount}%</p>`
+            : `<p><b>${rp(p.price)}</b></p>`;
+          return `<div class="${cls}">${photo(p)}${bsBadge(r, p.salesCount)}${newBadge(p)}${adInfo(p.name) ? adBadge() : ''}<div class="p-body"><h3>${esc(p.name)}</h3>${price}<p>${!p.active ? 'Tidak tersedia' : p.stock === 0 ? 'Stok habis' : 'Stok: ' + p.stock}</p><p class="sales-count">📊 Terjual: ${p.salesCount || 0}</p></div></div>`;
+        }).join(''));
+      }
+      window.toggleBuyerPOV = function () {
+        const open = !ov.classList.contains('open');
+        ov.classList.toggle('open', open); btn.classList.toggle('on', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+        clearInterval(timer); timer = null;
+        if (open) { ov.scrollTop = 0; render(); timer = setInterval(render, 1000); }
+      };
+    })();
     })();
   </script>
 </body>
